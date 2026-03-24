@@ -16,7 +16,7 @@ function Classique() {
 
       {/* Infos */}
       <div className="space-y-2 text-sm text-gray-800">
-        <p>Email : romain.mailliu@email.com</p>
+        <p>Email : romain.mailliu@gmail.com</p>
         <p>Tél : +33 6 08 04 83 19</p>
         <p>Web : www.romainmailliu.com</p>
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 function Moderne() {
   const [email, setEmail] = useState("");
@@ -6,11 +7,24 @@ function Moderne() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
-    setSent(true);
-    setEmail("");
+
+    try {
+      await emailjs.send(
+        "service_xkwi2nk", // ton service_id
+        "template_jve0sdl", // ton template_id
+        { email, phone },
+        "Y0Vh6DS8F21xy5zPw", // ta public_key
+      );
+      setSent(true);
+      setEmail("");
+      setPhone("");
+    } catch (error) {
+      console.error("Erreur envoi :", error);
+      alert("Erreur lors de l'envoi 😕");
+    }
   };
 
   useEffect(() => {
@@ -22,7 +36,7 @@ function Moderne() {
   }, []);
 
   return (
-    <div className="w-96 bg-gradient-to-br from-white via-gray-50 to-stone-100 rounded-2xl p-6 shadow-2xl">
+    <div className="w-96 bg-gradient-to-br from-white via-gray-50 to-stone-100 rounded-2xl p-6 shadow-2xl border-2 border-black">
       {/* Header */}
       <div className="flex items-center gap-4 mb-5">
         <div
@@ -63,7 +77,7 @@ function Moderne() {
 
       {/* Infos */}
       <div className="space-y-2 text-sm text-gray-600 mb-4">
-        <p>✉️ romain.mailliu@email.com</p>
+        <p>✉️ romain.mailliu@gmail.com</p>
         <p>📱 +33 6 08 04 83 19</p>
         <p>🌐 www.romainmailliu.com</p>
         <p>📍 Marseille, France</p>
