@@ -66,7 +66,7 @@ function App() {
         </div>
       </div>
 
-      <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-28 md:pt-24 p-10">
+      <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-36 md:pt-24 p-10">
         {/* 👉 PROJETS desktop — fixed, hors du flux */}
         <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 flex-col items-end">
           <h2 className="font-semibold text-lg mb-2 text-right">
