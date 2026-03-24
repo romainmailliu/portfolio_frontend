@@ -152,15 +152,19 @@ function App() {
             {/* 📱 Scroll horizontal mobile / vertical desktop */}
             <div className="flex flex-row flex-nowrap overflow-x-auto gap-4 md:flex-col md:overflow-x-visible md:gap-1 w-full md:w-auto pb-2">
               <a
-                href="https://www.youth-visions.com/"
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
                 className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
               >
                 La camaraderie,
                 <br />
-                brasserie solidaire
+                brasserie solidaire {"(en cours)"}
               </a>
               <a
                 href="https://www.youth-visions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
               >
                 Youth Visions,
@@ -168,7 +172,9 @@ function App() {
                 production de documentaires
               </a>
               <a
-                href="https://www.prendstadose.fr/"
+                href="https://www.youth-visions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
               >
                 PrendsTaDose,
