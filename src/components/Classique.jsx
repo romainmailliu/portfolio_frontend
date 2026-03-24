@@ -4,10 +4,10 @@ function Classique() {
       {/* Nom + rôle */}
       <div className="mb-4">
         <h1 className="text-2xl font-bold text-gray-900 tracking-wide">
-          Jean Dupont
+          Romain Mailliu
         </h1>
         <p className="text-gray-600 text-sm uppercase tracking-widest">
-          Développeur React.js
+          Développeur Web
         </p>
       </div>
 
@@ -16,13 +16,15 @@ function Classique() {
 
       {/* Infos */}
       <div className="space-y-2 text-sm text-gray-800">
-        <p>Email : jean.dupont@email.com</p>
-        <p>Tél : +33 6 12 34 56 78</p>
-        <p>Web : www.jeandupont.dev</p>
+        <p>Email : romain.mailliu@email.com</p>
+        <p>Tél : +33 6 08 04 83 19</p>
+        <p>Web : www.romainmailliu.com</p>
       </div>
 
       {/* Footer */}
-      <div className="mt-6 text-xs text-gray-500 text-right">Paris, France</div>
+      <div className="mt-6 text-xs text-gray-500 text-right">
+        Marseille, France
+      </div>
     </div>
   );
 }

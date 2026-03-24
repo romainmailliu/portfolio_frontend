@@ -6,10 +6,12 @@ import Moderne from "../components/Moderne";
 import "../styles/App.css";
 
 type DesignOption = "Classique" | "Moderne" | "Future";
+type PageOption = "CV" | "Pitch" | "Poème" | "";
 
 function App() {
   const [activeButton, setActiveButton] = useState<DesignOption | null>(null);
   const [design, setDesign] = useState<DesignOption>("Classique");
+  const [page, setPage] = useState<PageOption>("");
 
   const handleButtonClick = (
     buttonName: DesignOption,
@@ -19,14 +21,16 @@ function App() {
     setDesign(designType);
   };
 
+  if (window.location.pathname === "/future") {
+    return <Future />;
+  }
+
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-center justify-center p-10">
-        {/* Layout global */}
-
-        <div className="flex gap-10 items-center">
+      <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-8 md:pt-24 p-10">
+        <div className="flex flex-col md:flex-row gap-10 items-center">
           {/* 🔲 CENTRE */}
-          <div className="flex flex-col items-center gap-1">
+          <div className="flex flex-col items-center gap-1 w-full max-w-5xl">
             {/* 🎨 Choix design */}
             <div className="flex gap-5 mb-2 self-stretch justify-center items-center">
               <button
@@ -48,7 +52,10 @@ function App() {
               <button
                 className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
           ${activeButton === "Future" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
-                onClick={() => handleButtonClick("Future", "Future")}
+                onClick={() => {
+                  handleButtonClick("Future", "Future");
+                  window.location.href = "/future";
+                }}
               >
                 Future
               </button>
@@ -58,7 +65,6 @@ function App() {
             <div>
               {design === "Classique" && <Classique />}
               {design === "Moderne" && <Moderne />}
-              {design === "Future" && <Future />}
             </div>
 
             {/* 🔘 Boutons page */}
@@ -70,35 +76,104 @@ function App() {
                 CV
               </button>
               <button
-                onClick={() => setPage("Poeme")}
+                onClick={() => setPage("Pitch")}
                 className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
               >
                 Pitch
               </button>
               <button
-                onClick={() => setPage("LinkedIn")}
+                onClick={() => setPage("Poème")}
                 className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
               >
                 Poème
               </button>
             </div>
+
+            {page !== "" && (
+              <div className="w-screen px-10 mt-10">
+                <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
+                  {page === "CV" && (
+                    <iframe
+                      src="/Romain_Mailliu_FlowCV_Portfolio.pdf#toolbar=0"
+                      className="w-full h-[90vh] rounded-lg bg-white"
+                    />
+                  )}
+
+                  {page === "Pitch" && (
+                    <div className="space-y-4 text-gray-700">
+                      <p className="whitespace-pre-line">
+                        Ingénieur avec 9 ans d'expérience à l'international, en
+                        entreprise comme en ONG, je mets l'entrepreneuriat et
+                        l'innovation au service des défis sociaux et
+                        environnementaux.
+                      </p>
+                      <p>
+                        Aujourd'hui, j'accompagne des entrepreneurs en phase de
+                        lancement à passer de l'idée aux premières ventes, en
+                        développant leurs outils tech (sites web,
+                        automatisations, CRM…) et en structurant leur activité
+                        et leur proposition de valeur. En parallèle, après une
+                        formation de développeur.
+                      </p>
+                      <p>
+                        Egalement producteur du film{" "}
+                        <span className="font-semibold">I AM THE FUTURE</span>,
+                        sorti en salles en septembre 2025, qui donne la parole à
+                        de jeunes adultes en première ligne des crises
+                        contemporaines, jusqu'aux Nations Unies à New York.
+                      </p>
+
+                      <p>
+                        <span className="font-semibold">Stack :</span> HTML 5,
+                        CSS, JavaScript, TypeScript, React, React Native, Redux,
+                        Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel,
+                        Git, GitHub, TDD, n8n, Wordpress, WebFlow
+                      </p>
+                    </div>
+                  )}
+
+                  {page === "Poème" && <p>J'y travaille 😅</p>}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* 👉 DROITE : projets */}
-          <div className="fixed right-0 top-0 h-full p-8">
-            <h2 className="font-semibold text-lg mb-4">Derniers projets</h2>
-            <div className="flex flex-col gap-2">
+          <div
+            className="md:fixed md:right-0 md:top-0 md:h-full md:p-7
+                flex flex-col items-center md:items-end
+                order-first md:order-none
+                mb-4 md:mb-0 w-full md:w-auto"
+          >
+            <h2 className="font-semibold text-lg mb-3 md:text-right text-center">
+              Derniers projets
+            </h2>
+
+            {/* 📱 Scroll horizontal mobile / vertical desktop */}
+            <div className="flex flex-row flex-nowrap overflow-x-auto gap-4 md:flex-col md:overflow-x-visible md:gap-1 w-full md:w-auto pb-2">
               <a
-                href=""
-                className="relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+                href="https://www.youth-visions.com/"
+                className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
               >
-                Projet Matthieu
+                La camaraderie,
+                <br />
+                brasserie solidaire
               </a>
               <a
-                href=""
-                className="relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+                href="https://www.youth-visions.com/"
+                className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
               >
-                Projet Brasserie
+                Youth Visions,
+                <br />
+                production de documentaires
+              </a>
+              <a
+                href="https://www.prendstadose.fr/"
+                className="min-w-max md:text-right text-center relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                PrendsTaDose,
+                <br />
+                webzine
               </a>
             </div>
           </div>
