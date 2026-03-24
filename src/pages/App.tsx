@@ -175,7 +175,30 @@ function App() {
                 )}
                 {page === "Pitch" && (
                   <div className="space-y-4 text-gray-700">
-                    <p>Ingénieur avec 9 ans d'expérience...</p>
+                    <p className="whitespace-pre-line">
+                      Ingénieur avec 9 ans d'expérience à l'international, en
+                      entreprise comme en ONG, je mets l'entrepreneuriat et
+                      l'innovation au service des défis sociaux et
+                      environnementaux.
+                    </p>
+                    <p>
+                      Aujourd'hui, j'accompagne des entrepreneurs en phase de
+                      lancement à passer de l'idée aux premières ventes, en
+                      développant leurs outils tech (sites web, automatisations,
+                      CRM…) et en structurant leur activité et leur proposition
+                      de valeur.
+                    </p>
+                    <p>
+                      Egalement producteur du film{" "}
+                      <span className="font-semibold">I AM THE FUTURE</span>,
+                      sorti en salles en septembre 2025.
+                    </p>
+                    <p>
+                      <span className="font-semibold">Stack :</span> HTML 5,
+                      CSS, JavaScript, TypeScript, React, React Native, Redux,
+                      Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel, Git,
+                      GitHub, TDD, n8n, Wordpress, WebFlow
+                    </p>
                   </div>
                 )}
                 {page === "Poème" && <p>J'y travaille 😅</p>}
