@@ -168,10 +168,21 @@ function App() {
             <div className="w-screen px-10 mt-10">
               <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
                 {page === "CV" && (
-                  <iframe
-                    src="/Romain_Mailliu_FlowCV_Portfolio.pdf#toolbar=0"
-                    className="w-full h-[90vh] rounded-lg bg-white"
-                  />
+                  <>
+                    <div className="flex justify-start mb-3">
+                      <a
+                        href="/Romain_Mailliu_FlowCV_Portfolio.pdf"
+                        download
+                        className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
+                      >
+                        Télécharger le CV
+                      </a>
+                    </div>
+                    <iframe
+                      src="/Romain_Mailliu_FlowCV_Portfolio.pdf#toolbar=0"
+                      className="w-full h-[90vh] rounded-lg bg-white"
+                    />
+                  </>
                 )}
                 {page === "Pitch" && (
                   <div className="space-y-4 text-gray-700">
