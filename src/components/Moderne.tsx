@@ -6,7 +6,7 @@ function Moderne() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
     setSent(true);

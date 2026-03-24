@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Classique from "../components/Classique";
-import Future from "../components/Future";
-import Moderne from "../components/Moderne";
+import Classique from "../components/Classique.tsx";
+import Futuriste from "../components/Futuriste.tsx";
+import Moderne from "../components/Moderne.tsx";
 
 import "../styles/App.css";
 
@@ -22,7 +22,7 @@ function App() {
   };
 
   if (window.location.pathname === "/future") {
-    return <Future />;
+    return <Futuriste />;
   }
 
   return (
