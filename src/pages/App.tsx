@@ -132,7 +132,7 @@ function App() {
                 window.location.href = "/future";
               }}
             >
-              Future
+              Futuriste
             </button>
           </div>
 
