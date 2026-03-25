@@ -113,7 +113,7 @@ function Moderne() {
           />
           <button
             type="submit"
-            className="bg-black rounded-lg py-2 text-sm font-semibold text-white cursor-pointer animate-shimmer"
+            className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
           >
             Envoyer
           </button>

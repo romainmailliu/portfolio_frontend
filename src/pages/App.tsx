@@ -6,14 +6,14 @@ import Moderne from "../components/Moderne.tsx";
 import "../styles/App.css";
 
 type DesignOption = "Classique" | "Moderne" | "Future";
-type PageOption = "CV" | "Pitch" | "Poème" | "";
+type PageOption = "Offre" | "Pitch" | "Poème" | "";
 
 function App() {
   const [activeButton, setActiveButton] = useState<DesignOption | null>(
     "Moderne",
   );
   const [design, setDesign] = useState<DesignOption>("Moderne");
-  const [page, setPage] = useState<PageOption>("");
+  const [page, setPage] = useState<PageOption>("Offre");
 
   const handleButtonClick = (
     buttonName: DesignOption,
@@ -147,10 +147,10 @@ function App() {
           {/* 🔘 Boutons page */}
           <div className="flex gap-8 mt-2 self-stretch justify-center items-center">
             <button
-              onClick={() => setPage("CV")}
-              className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
+              onClick={() => setPage("Offre")}
+              className="px-4 bg-gray-800 rounded-lg py-2 text-white cursor-pointer animate-shimmer  hover:bg-gray-700"
             >
-              CV
+              Offre
             </button>
             <button
               onClick={() => setPage("Pitch")}
@@ -169,25 +169,139 @@ function App() {
           {page !== "" && (
             <div className="w-screen px-10 mt-10">
               <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
-                {page === "CV" && (
+                {page === "Offre" && (
                   <>
+                    {/* Header avec titre */}
+                    <div className="mb-8">
+                      <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
+                        Création de site web
+                      </h2>
+                    </div>
+
+                    {/* Grille des offres */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {/* 🟢 Essentiel */}
+                      <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                        <div>
+                          <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-2 mb-1" />
+                          <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                            Essentiel
+                          </span>
+                          <p className="text-sm text-gray-500 mt-1">
+                            Idéal pour démarrer rapidement avec un site vitrine
+                          </p>
+                        </div>
+
+                        <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                          {[
+                            "3 à 5 pages (présentation, services, équipe, contact…)",
+                            "Module d'articles / actualités",
+                            "Formulaire de contact + inscription newsletter",
+                            "Formation + vidéo pour gérer le site facilement",
+                            "Sans abonnement mensuel ",
+                          ].map((item) => (
+                            <li key={item} className="flex items-start gap-2">
+                              <span className="mt-1 shrink-0 text-gray-300">
+                                —
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                          ⏱ Délai estimé : ~1 semaine
+                        </p>
+                      </div>
+
+                      {/* 🔵 Visibilité */}
+                      <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                        <div>
+                          <span className="inline-block w-2 h-2 rounded-full bg-blue-400 mr-2 mb-1" />
+                          <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                            Visibilité
+                          </span>
+                          <p className="text-sm text-gray-500 mt-1">
+                            Pour être trouvé facilement sur Google
+                          </p>
+                        </div>
+
+                        <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                          {[
+                            "Tout ce qui est inclus dans l'offre Essentiel",
+                            "Connexion à Google Business (Google Maps)",
+                            "Installation de Google Analytics",
+                            "Optimisation SEO de base (référencement naturel)",
+                          ].map((item, i) => (
+                            <li key={item} className="flex items-start gap-2">
+                              <span
+                                className={`mt-1 shrink-0 ${i === 0 ? "text-blue-300" : "text-gray-300"}`}
+                              >
+                                {i === 0 ? "↳" : "—"}
+                              </span>
+                              <span
+                                className={
+                                  i === 0 ? "font-medium text-gray-700" : ""
+                                }
+                              >
+                                {item}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                          ⏱ Délai estimé : ~2 semaines
+                        </p>
+                      </div>
+
+                      {/* 🔴 Avancé */}
+                      <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                        <div>
+                          <span className="inline-block w-2 h-2 rounded-full bg-red-400 mr-2 mb-1" />
+                          <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                            Avancé
+                          </span>
+                          <p className="text-sm text-gray-500 mt-1">
+                            Pour vendre en ligne ou développer un projet plus
+                            complet
+                          </p>
+                        </div>
+
+                        <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                          {[
+                            "Création d'un site e-commerce (boutique en ligne)",
+                            "Gestion des produits, paiements, commandes",
+                            "Accompagnement sur la stratégie digitale",
+                            "Fonctionnalités sur mesure selon vos besoins",
+                          ].map((item) => (
+                            <li key={item} className="flex items-start gap-2">
+                              <span className="mt-1 shrink-0 text-gray-300">
+                                —
+                              </span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                          ⏱ Délai selon le projet
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {page === "Pitch" && (
+                  <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
                         href="/Romain_Mailliu_FlowCV_Portfolio.pdf"
                         download
                         className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
                       >
-                        Télécharger le CV
+                        Télécharger mon CV
                       </a>
                     </div>
-                    <iframe
-                      src="/Romain_Mailliu_FlowCV_Portfolio.pdf#toolbar=0"
-                      className="w-full h-[90vh] rounded-lg bg-white"
-                    />
-                  </>
-                )}
-                {page === "Pitch" && (
-                  <div className="space-y-4 text-gray-700">
                     <p className="whitespace-pre-line">
                       Ingénieur avec 9 ans d'expérience à l'international, en
                       entreprise comme en ONG, je mets l'entrepreneuriat et
@@ -204,7 +318,9 @@ function App() {
                     <p>
                       Egalement producteur du film{" "}
                       <span className="font-semibold">I AM THE FUTURE</span>,
-                      sorti en salles en septembre 2025.
+                      sorti en salles en septembre 2025, qui donne la parole à
+                      de jeunes adultes en première ligne des crises
+                      contemporaines, jusqu’aux Nations Unies à New York.
                     </p>
                     <p>
                       <span className="font-semibold">Stack :</span> HTML 5,
