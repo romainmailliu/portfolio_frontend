@@ -150,9 +150,17 @@ function App() {
           <div className="flex gap-8 mt-2 self-stretch justify-center items-center">
             <button
               onClick={() => setPage("Offre")}
-              className="px-4 bg-gray-800 rounded-lg py-2 text-white cursor-pointer animate-shimmer  hover:bg-gray-700"
+              className="relative px-4 py-2 bg-gray-800 text-white rounded-lg cursor-pointer overflow-hidden hover:bg-gray-700 transition"
             >
-              Offre
+              <span className="relative z-10">Offre</span>
+
+              <span className="pointer-events-none absolute inset-0 rounded-lg">
+                <span
+                  className="absolute inset-[-2px] rounded-lg 
+     bg-[conic-gradient(from_0deg,#3b82f6,#8b5cf6,#ec4899,#3b82f6)] 
+      animate-[spin_4s_linear_infinite] opacity-70 blur-[2px]"
+                ></span>
+              </span>
             </button>
             <button
               onClick={() => setPage("Pitch")}
