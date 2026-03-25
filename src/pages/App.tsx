@@ -2,6 +2,7 @@ import { useState } from "react";
 import Classique from "../components/Classique.tsx";
 import Futuriste from "../components/Futuriste.tsx";
 import Moderne from "../components/Moderne.tsx";
+import { MousePointer2 } from "lucide-react";
 
 import "../styles/App.css";
 
@@ -71,8 +72,9 @@ function App() {
       <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-36 md:pt-24 p-10">
         {/* 👉 PROJETS desktop — fixed, hors du flux */}
         <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 flex-col items-end">
-          <h2 className="font-semibold text-lg mb-2 text-right">
+          <h2 className="font-semibold text-base mb-1 text-center flex items-center justify-center gap-1">
             Derniers projets
+            <MousePointer2 size={16} className="text-black" />
           </h2>
           <div className="flex flex-col gap-1">
             <a
@@ -295,7 +297,7 @@ function App() {
                   <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
-                        href="/Romain_Mailliu_FlowCV_Portfolio.pdf"
+                        href="/Romain_Mailliu_CV_2026.pdf"
                         download
                         className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
                       >
