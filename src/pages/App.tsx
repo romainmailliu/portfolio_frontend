@@ -9,8 +9,10 @@ type DesignOption = "Classique" | "Moderne" | "Future";
 type PageOption = "CV" | "Pitch" | "Poème" | "";
 
 function App() {
-  const [activeButton, setActiveButton] = useState<DesignOption | null>(null);
-  const [design, setDesign] = useState<DesignOption>("Classique");
+  const [activeButton, setActiveButton] = useState<DesignOption | null>(
+    "Moderne",
+  );
+  const [design, setDesign] = useState<DesignOption>("Moderne");
   const [page, setPage] = useState<PageOption>("");
 
   const handleButtonClick = (
@@ -94,7 +96,7 @@ function App() {
               production de documentaires
             </a>
             <a
-              href="https://www.youth-visions.com/"
+              href="https://www.prendstadose.fr/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
@@ -138,8 +140,8 @@ function App() {
 
           {/* 💼 Carte */}
           <div>
-            {design === "Classique" && <Classique />}
             {design === "Moderne" && <Moderne />}
+            {design === "Classique" && <Classique />}
           </div>
 
           {/* 🔘 Boutons page */}
