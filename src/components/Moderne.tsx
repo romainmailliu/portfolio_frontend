@@ -67,7 +67,7 @@ function Moderne() {
             Romain Mailliu
           </h1>
           <p className="text-black-500 text-xs uppercase tracking-widest">
-            Développeur Web
+            Développeur Web & IA
           </p>
         </div>
       </div>
