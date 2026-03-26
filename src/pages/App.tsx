@@ -184,16 +184,16 @@ function App() {
                     {/* Header avec titre */}
                     <div className="mb-8">
                       <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
-                        Création de site web
+                        Site web & application
                       </h2>
                     </div>
 
                     {/* Grille des offres */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* 🟢 Essentiel */}
+                      {/* 🟣 Essentiel */}
                       <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
                         <div>
-                          <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-2 mb-1" />
+                          <span className="inline-block w-2 h-2 rounded-full bg-purple-400 mr-2 mb-1" />
                           <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
                             Essentiel
                           </span>
@@ -241,7 +241,7 @@ function App() {
                             "Tout ce qui est inclus dans l'offre Essentiel",
                             "Connexion à Google Business (Google Maps)",
                             "Installation de Google Analytics",
-                            "Optimisation SEO de base (référencement naturel)",
+                            "Optimisation SEO (référencement naturel)",
                           ].map((item, i) => (
                             <li key={item} className="flex items-start gap-2">
                               <span
@@ -265,10 +265,10 @@ function App() {
                         </p>
                       </div>
 
-                      {/* 🔴 Avancé */}
+                      {/* 🟢 Avancé */}
                       <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
                         <div>
-                          <span className="inline-block w-2 h-2 rounded-full bg-red-400 mr-2 mb-1" />
+                          <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-2 mb-1" />
                           <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
                             Avancé
                           </span>
@@ -299,13 +299,124 @@ function App() {
                         </p>
                       </div>
                     </div>
+
+                    {/* 🤖 Offre IA */}
+                    <div className="mt-12">
+                      <div className="mb-8">
+                        <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
+                          Automatisation & IA
+                        </h2>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* 🟣 Diagnostic */}
+                        <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                          <div>
+                            <span className="inline-block w-2 h-2 rounded-full bg-purple-400 mr-2 mb-1" />
+                            <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                              Diagnostic
+                            </span>
+                            <p className="text-sm text-gray-500 mt-1">
+                              Identifier les tâches à automatiser en priorité
+                            </p>
+                          </div>
+
+                          <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                            {[
+                              "Audit gratuit de vos processus",
+                              "Cartographie des tâches chronophages",
+                              "Identification des opportunités d'automatisation avec l'IA",
+                              "Recommandations concrètes et priorisées",
+                            ].map((item) => (
+                              <li key={item} className="flex items-start gap-2">
+                                <span className="mt-1 shrink-0 text-gray-300">
+                                  —
+                                </span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                            🎁 Gratuit — sans engagement
+                          </p>
+                        </div>
+
+                        {/* 🔵 Automatisation */}
+                        <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                          <div>
+                            <span className="inline-block w-2 h-2 rounded-full bg-blue-400 mr-2 mb-1" />
+                            <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                              Automatisation
+                            </span>
+                            <p className="text-sm text-gray-500 mt-1">
+                              Gagner du temps sur vos opérations quotidiennes
+                            </p>
+                          </div>
+
+                          <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                            {[
+                              "Automatisation des tâches répétitives (emails, reporting, CRM…)",
+                              "Mise en place de workflows (n8n, Airtable…)",
+                              "Connexion de vos outils existants",
+                              "Réduction du temps passé sur l’administratif",
+                            ].map((item) => (
+                              <li key={item} className="flex items-start gap-2">
+                                <span className="mt-1 shrink-0 text-gray-300">
+                                  —
+                                </span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                            ⏱ Délai : quelques jours à 2 semaines
+                          </p>
+                        </div>
+
+                        {/* 🟢 IA sur mesure */}
+                        <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                          <div>
+                            <span className="inline-block w-2 h-2 rounded-full bg-green-400 mr-2 mb-1" />
+                            <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                              IA sur mesure
+                            </span>
+                            <p className="text-sm text-gray-500 mt-1">
+                              Créer des outils adaptés à votre mission
+                            </p>
+                          </div>
+
+                          <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
+                            {[
+                              "Chatbots internes ou externes",
+                              "Génération de contenus (emails, rapports, posts…)",
+                              "Outils d’aide à la décision",
+                              "Solutions personnalisées selon vos besoins terrain",
+                            ].map((item) => (
+                              <li key={item} className="flex items-start gap-2">
+                                <span className="mt-1 shrink-0 text-gray-300">
+                                  —
+                                </span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+
+                          <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
+                            ⏱ Délai selon le projet
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </>
                 )}
+
                 {page === "Pitch" && (
                   <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
-                        href="/Romain_Mailliu_CV_2026.pdf"
+                        href="/Romain_Mailliu_CV_Dev_2026.pdf"
                         download
                         className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
                       >
@@ -318,13 +429,20 @@ function App() {
                       l'innovation au service des défis sociaux et
                       environnementaux.
                     </p>
-                    <p>
-                      Aujourd'hui, j'accompagne des entrepreneurs en phase de
-                      lancement à passer de l'idée aux premières ventes, en
-                      développant leurs outils tech (sites web, automatisations,
-                      CRM…) et en structurant leur activité et leur proposition
-                      de valeur.
-                    </p>
+                    <p>Aujourd'hui, j'accompagne :</p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      <li>
+                        Des entrepreneurs en phase de lancement à passer de
+                        l'idée aux premières ventes, en développant leurs outils
+                        tech (sites web, automatisations, CRM…) et leur
+                        proposition de valeur.
+                      </li>
+                      <li>
+                        Des associations et entreprises à impact à automatiser
+                        leurs processus chronophages avec l'IA pour se
+                        concentrer sur leur cœur de métier.
+                      </li>
+                    </ul>
                     <p>
                       Egalement producteur du film{" "}
                       <span className="font-semibold">I AM THE FUTURE</span>,
@@ -336,7 +454,7 @@ function App() {
                       <span className="font-semibold">Stack :</span> HTML 5,
                       CSS, JavaScript, TypeScript, React, React Native, Redux,
                       Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel, Git,
-                      GitHub, TDD, n8n, Wordpress, WebFlow
+                      GitHub, TDD, n8n, Airtable, Wordpress, WebFlow
                     </p>
                   </div>
                 )}
