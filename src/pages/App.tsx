@@ -371,7 +371,7 @@ function App() {
                           </ul>
 
                           <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                            ⏱ Délai : quelques jours à 2 semaines
+                            ⏱ Délai : 1-2 semaines
                           </p>
                         </div>
 
