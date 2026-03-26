@@ -7,7 +7,7 @@ function Classique() {
           Romain Mailliu
         </h1>
         <p className="text-gray-600 text-sm uppercase tracking-widest">
-          Développeur Web
+          Développeur Web & IA
         </p>
       </div>
 
