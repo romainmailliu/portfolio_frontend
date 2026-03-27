@@ -44,7 +44,17 @@ function App() {
           >
             La camaraderie,
             <br />
-            brasserie solidaire (en cours)
+            brasserie sociale d'insertion (en cours)
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-center text-sm px-2 py-1"
+          >
+            Spazzo,
+            <br />
+            partage de locaux entre pros (en cours)
           </a>
           <a
             href="https://www.youth-visions.com/"
