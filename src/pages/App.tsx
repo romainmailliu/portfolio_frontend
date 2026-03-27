@@ -32,8 +32,11 @@ function App() {
     <>
       {/* 📱 PROJETS mobile — fixed en haut, hors du flux */}
       <div className="md:hidden fixed top-0 left-0 w-full bg-white/95 backdrop-blur z-50 px-4 pt-3 pb-2 border-b border-gray-200">
-        <h2 className="font-semibold text-base mb-1 text-center">
-          Derniers projets
+        <h2 className="font-semibold text-base mb-1 flex items-center justify-center md:justify-between">
+          <span className="flex items-center gap-2">
+            Derniers projets
+            <MousePointer2 size={16} className="text-black" />
+          </span>
         </h2>
         <div className="flex flex-row flex-nowrap overflow-x-auto gap-4 pb-1 scrollbar-hide justify-start">
           <a
@@ -82,8 +85,8 @@ function App() {
       <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-36 md:pt-24 p-10">
         {/* 👉 PROJETS desktop — fixed, hors du flux */}
         <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 flex-col items-end">
-          <h2 className="font-semibold text-base mb-1 text-center flex items-center justify-center gap-1">
-            Derniers projets
+          <h2 className="font-semibold text-base mb-1 flex items-center justify-between">
+            <span className="mx-auto">Derniers projets</span>
             <MousePointer2 size={16} className="text-black" />
           </h2>
           <div className="flex flex-col gap-1">
@@ -97,6 +100,17 @@ function App() {
               <br />
               brasserie solidaire {"(en cours)"}
             </a>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+            >
+              Spazzo,
+              <br />
+              partage de locaux entre pros {"(en cours)"}
+            </a>
+
             <a
               href="https://www.youth-visions.com/"
               target="_blank"
