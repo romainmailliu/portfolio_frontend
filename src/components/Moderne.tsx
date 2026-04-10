@@ -14,7 +14,7 @@ function Moderne() {
     try {
       await emailjs.send(
         "service_xkwi2nk", // ton service_id
-        "template_jve0sdl", // ton template_id
+        "template_z789237", // ton template_id
         { email, phone },
         "Y0Vh6DS8F21xy5zPw", // ta public_key
       );
