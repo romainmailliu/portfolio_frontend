@@ -772,7 +772,9 @@ function App() {
                       <span className="font-semibold">Stack :</span> HTML 5,
                       CSS, JavaScript, TypeScript, React, React Native, Redux,
                       Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel, Git,
-                      GitHub, TDD, n8n, Airtable, Wordpress, WebFlow
+                      GitHub, TDD, n8n, Airtable, Wordpress, WebFlow, Claude
+                      Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma
+                      et Midjourney
                     </p>
                   </div>
                 )}
