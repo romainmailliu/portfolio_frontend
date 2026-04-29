@@ -38,9 +38,47 @@ function Future() {
         ← retour à la carte de visite
       </button>
 
-      <p className="text-white text-3xl md:text-5xl font-light tracking-widest uppercase">
-        en construction
-      </p>
+      <div className="max-w-4xl mx-6 md:mx-10 rounded-2xl border border-white/20 bg-black/30 backdrop-blur-sm p-6 md:p-10 text-white">
+        <h1 className="text-2xl md:text-4xl font-semibold tracking-tight mb-6">
+          Et vous, c&apos;est quoi votre projet un peu fou ?
+        </h1>
+
+        <div className="space-y-5 text-white/90 leading-relaxed">
+          <p>
+            Avec une équipe talentueuse au possible, nous avons produit un film
+            documentaire -{" "}
+            <span className="font-semibold">I AM THE FUTURE</span> - sorti au
+            cinéma en 2025.
+          </p>
+
+          <p>
+            Réalisateur engagé, producteur d&apos;impact, entrepreneur idéaliste
+            - au plaisir d&apos;échanger et de partager quelques retours
+            d&apos;expérience.
+          </p>
+
+          <p>
+            <span className="font-semibold">Synopsis :</span> Des rêves plein la
+            tête malgré les difficultés qu&apos;ils rencontrent, quatre jeunes
+            s&apos;interrogent sur leur avenir et celui de leur communauté.
+            Venus de France, d&apos;Indonésie, d&apos;Inde et du Liban, leurs
+            destins convergent à New York où ils témoignent de leur expérience
+            de la pauvreté aux Nations Unies. Au travers de l&apos;écriture, de
+            la danse, de la photographie et du dessin, les protagonistes posent,
+            avec courage et joie, un oeil rare sur les grands défis
+            contemporains.
+          </p>
+
+          <a
+            href="https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013816.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-2 text-white font-medium underline underline-offset-4 hover:text-white/80 transition-colors"
+          >
+            En savoir +
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

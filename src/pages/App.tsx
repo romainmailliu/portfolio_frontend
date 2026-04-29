@@ -1,19 +1,18 @@
 import { useState } from "react";
-import Classique from "../components/Classique.tsx";
 import Futuriste from "../components/Futuriste.tsx";
 import Moderne from "../components/Moderne.tsx";
 import { MousePointer2 } from "lucide-react";
 
 import "../styles/App.css";
 
-type DesignOption = "Classique" | "Moderne" | "Future";
+type DesignOption = "Contact" | "OffreTechIA" | "Production";
 type PageOption = "Offre" | "Pitch" | "Poème" | "";
 
 function App() {
   const [activeButton, setActiveButton] = useState<DesignOption | null>(
-    "Moderne",
+    "Contact",
   );
-  const [design, setDesign] = useState<DesignOption>("Moderne");
+  const [design, setDesign] = useState<DesignOption>("Contact");
   const [page, setPage] = useState<PageOption>("Offre");
 
   const handleButtonClick = (
@@ -22,7 +21,18 @@ function App() {
   ) => {
     setActiveButton(buttonName);
     setDesign(designType);
+    if (designType === "OffreTechIA") {
+      setPage("Offre");
+    }
   };
+
+  const showOfferOnly = design === "OffreTechIA";
+  const showPitchOnly = design === "Contact";
+  const currentPage: PageOption = showOfferOnly
+    ? "Offre"
+    : showPitchOnly
+      ? "Pitch"
+      : page;
 
   if (window.location.pathname === "/future") {
     return <Futuriste />;
@@ -31,7 +41,7 @@ function App() {
   return (
     <>
       {/* 📱 PROJETS mobile — fixed en haut, hors du flux */}
-      <div className="md:hidden fixed top-0 left-0 w-full bg-white/95 backdrop-blur z-50 px-4 pt-3 pb-2 border-b border-gray-200">
+      <div className="md:hidden fixed top-0 left-0 w-full bg-white/95 backdrop-blur z-0 px-4 pt-3 pb-2 border-b border-gray-200">
         <h2 className="font-semibold text-base mb-1 flex items-center justify-center md:justify-between">
           <span className="flex items-center gap-2">
             Derniers projets
@@ -40,17 +50,57 @@ function App() {
         </h2>
         <div className="flex flex-row flex-nowrap overflow-x-auto gap-4 pb-1 scrollbar-hide justify-start">
           <a
+            href="https://ats-seduction.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-center text-sm px-2 py-1"
+          >
+            ATS Séductions,
+            <br />
+            CV pour (faire) craquer les algorithmes de recrutement.
+          </a>
+          <a
+            href="https://www.amidou.eu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-center text-sm px-2 py-1"
+          >
+            Amidou,
+            <br />
+            garder le lien avec les seniors isolés
+          </a>
+          <a
+            href="https://www.gomett.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-center text-sm px-2 py-1"
+          >
+            Gomett,
+            <br />
+            trocs de compétences entre entrepreneur.e.s
+          </a>
+          <a
             href=""
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 text-center text-sm px-2 py-1"
           >
-            La camaraderie,
+            La Camaraderie,
             <br />
             brasserie sociale d'insertion (en cours)
           </a>
           <a
             href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 text-center text-sm px-2 py-1"
+          >
+            Coexister,
+            <br />
+            faciliter le vivre ensemble.
+          </a>
+          <a
+            href="https://www.spazzo.fr/"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 text-center text-sm px-2 py-1"
@@ -70,7 +120,7 @@ function App() {
             production de documentaires
           </a>
           <a
-            href="https://www.youth-visions.com/"
+            href="https://www.prendstadose.fr/"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 text-center text-sm px-2 py-1"
@@ -82,57 +132,203 @@ function App() {
         </div>
       </div>
 
-      <section className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 flex items-start justify-center pt-36 md:pt-24 p-10">
-        {/* 👉 PROJETS desktop — fixed, hors du flux */}
-        <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 flex-col items-end">
-          <h2 className="font-semibold text-base mb-1 flex items-center justify-between">
-            <span className="mx-auto">Derniers projets</span>
-            <MousePointer2 size={16} className="text-black" />
-          </h2>
-          <div className="flex flex-col gap-1">
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-            >
-              La camaraderie,
-              <br />
-              brasserie solidaire {"(en cours)"}
-            </a>
-            <a
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-            >
-              Spazzo,
-              <br />
-              partage de locaux entre pros {"(en cours)"}
-            </a>
-
-            <a
-              href="https://www.youth-visions.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-            >
-              Youth Visions,
-              <br />
-              production de documentaires
-            </a>
-            <a
-              href="https://www.prendstadose.fr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-right relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-            >
-              PrendsTaDose,
-              <br />
-              webzine
-            </a>
+      <section
+        className={`relative z-10 min-h-screen bg-gradient-to-br from-white via-gray-50 to-stone-100 p-10 ${
+          showOfferOnly
+            ? "flex flex-col items-center justify-start pt-36 md:pt-16"
+            : "flex items-start justify-center pt-36 md:pt-24"
+        }`}
+      >
+        {showOfferOnly && (
+          <div className="hidden md:block w-full max-w-5xl mb-8">
+            <div className="rounded-2xl border border-gray-200/80 bg-white/80 backdrop-blur-sm shadow-sm px-4 py-3">
+              <h2 className="font-semibold text-base mb-2 flex items-center justify-center">
+                <span className="flex items-center gap-2 text-center">
+                  Derniers projets
+                  <MousePointer2 size={14} className="text-black" />
+                </span>
+              </h2>
+              <div className="mt-2 flex flex-row flex-nowrap overflow-x-auto gap-4 pb-1 scrollbar-hide justify-start">
+                <a
+                  href="https://ats-seduction.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  ATS Séductions,
+                  <br />
+                  CV pour (faire) craquer les algorithmes de recrutement.
+                </a>
+                <a
+                  href="https://www.amidou.eu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  Amidou,
+                  <br />
+                  garder le lien avec les seniors isolés
+                </a>
+                <a
+                  href="https://www.gomett.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  Gomett,
+                  <br />
+                  trocs de compétences entre entrepreneur.e.s
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  La Camaraderie,
+                  <br />
+                  brasserie sociale d'insertion (en cours)
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  Coexister,
+                  <br />
+                  faciliter le vivre ensemble.
+                </a>
+                <a
+                  href="https://www.spazzo.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  Spazzo,
+                  <br />
+                  partage de locaux entre pros (en cours)
+                </a>
+                <a
+                  href="https://www.youth-visions.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  Youth Visions,
+                  <br />
+                  production de documentaires
+                </a>
+                <a
+                  href="https://www.prendstadose.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-center text-sm px-2 py-1"
+                >
+                  PrendsTaDose,
+                  <br />
+                  webzine
+                </a>
+              </div>
+              <p className="text-xs text-gray-500 text-center mt-2">
+                Défiler →
+              </p>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* 👉 PROJETS desktop — fixed, hors du flux */}
+        {!showOfferOnly && (
+          <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 z-0 flex-col items-end">
+            <h2 className="font-semibold text-base mb-1 flex items-center justify-between">
+              <span className="mx-auto">Derniers projets</span>
+              <MousePointer2 size={16} className="text-black" />
+            </h2>
+            <div className="flex flex-col gap-1">
+              <a
+                href="https://ats-seduction.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                ATS Séductions,
+                <br />
+                CV pour (faire) craquer les algorithmes de recrutement.
+              </a>
+              <a
+                href="https://www.amidou.eu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                Amidou,
+                <br />
+                garder le lien avec les seniors isolés
+              </a>
+              <a
+                href="https://www.gomett.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                Gomett,
+                <br />
+                trocs de compétences entre entrepreneur.e.s
+              </a>
+              <a
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                La Camaraderie,
+                <br />
+                brasserie solidaire {"(en cours)"}
+              </a>
+              <a
+                href=""
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                Coexister,
+                <br />
+                faciliter le vivre ensemble.
+              </a>
+              <a
+                href="https://www.spazzo.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                Spazzo,
+                <br />
+                partage de locaux entre pros {"(en cours)"}
+              </a>
+
+              <a
+                href="https://www.youth-visions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                Youth Visions,
+                <br />
+                production de documentaires
+              </a>
+              <a
+                href="https://www.prendstadose.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
+              >
+                PrendsTaDose,
+                <br />
+                webzine
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* 🔲 CENTRE */}
         <div className="flex flex-col items-center gap-1 w-full max-w-5xl">
@@ -140,91 +336,189 @@ function App() {
           <div className="flex gap-5 mb-2 self-stretch justify-center items-center">
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
-              ${activeButton === "Classique" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
-              onClick={() => handleButtonClick("Classique", "Classique")}
+              ${activeButton === "Contact" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
+              onClick={() => handleButtonClick("Contact", "Contact")}
             >
-              Classique
+              Contact
             </button>
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
-              ${activeButton === "Moderne" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
-              onClick={() => handleButtonClick("Moderne", "Moderne")}
+              ${activeButton === "OffreTechIA" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
+              onClick={() => handleButtonClick("OffreTechIA", "OffreTechIA")}
             >
-              Moderne
+              Offre Tech & IA
             </button>
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
-              ${activeButton === "Future" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
+              ${activeButton === "Production" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
               onClick={() => {
-                handleButtonClick("Future", "Future");
+                handleButtonClick("Production", "Production");
                 window.location.href = "/future";
               }}
             >
-              Futuriste
+              Production
             </button>
           </div>
 
           {/* 💼 Carte */}
           <div>
-            {design === "Moderne" && <Moderne />}
-            {design === "Classique" && <Classique />}
+            {design === "Contact" && <Moderne />}
           </div>
 
           {/* 🔘 Boutons page */}
-          <div className="flex gap-8 mt-2 self-stretch justify-center items-center">
-            <button
-              onClick={() => setPage("Offre")}
-              className="relative px-4 py-2 bg-gray-800 text-white rounded-lg cursor-pointer overflow-hidden hover:bg-gray-700 transition"
-            >
-              <span className="relative z-10">Offre</span>
+          {!showOfferOnly && !showPitchOnly && (
+            <div className="flex gap-8 mt-2 self-stretch justify-center items-center">
+              <button
+                onClick={() => setPage("Offre")}
+                className="relative px-4 py-2 bg-gray-800 text-white rounded-lg cursor-pointer overflow-hidden hover:bg-gray-700 transition"
+              >
+                <span className="relative z-10">Offre</span>
 
-              <span className="pointer-events-none absolute inset-0 rounded-lg">
-                <span
-                  className="absolute inset-[-2px] rounded-lg 
+                <span className="pointer-events-none absolute inset-0 rounded-lg">
+                  <span
+                    className="absolute inset-[-2px] rounded-lg 
      bg-[conic-gradient(from_0deg,#3b82f6,#8b5cf6,#ec4899,#3b82f6)] 
       animate-[spin_4s_linear_infinite] opacity-70 blur-[2px]"
-                ></span>
-              </span>
-            </button>
-            <button
-              onClick={() => setPage("Pitch")}
-              className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-            >
-              Pitch
-            </button>
-            <button
-              onClick={() => setPage("Poème")}
-              className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-            >
-              Poème
-            </button>
-          </div>
+                  ></span>
+                </span>
+              </button>
+              <button
+                onClick={() => setPage("Pitch")}
+                className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
+              >
+                Pitch
+              </button>
+              <button
+                onClick={() => setPage("Poème")}
+                className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
+              >
+                Poème
+              </button>
+            </div>
+          )}
 
-          {page !== "" && (
+          {currentPage !== "" && (
             <div className="w-screen px-10 mt-10">
               <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
-                {page === "Offre" && (
+                {currentPage === "Offre" && (
                   <>
-                    {/* Header avec titre */}
-                    <div className="mb-8">
-                      <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
-                        Site web & application
-                      </h2>
-                    </div>
-
-                    {/* Grille des offres */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* 🟣 Essentiel */}
-                      <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                    {showOfferOnly && (
+                      <div className="space-y-8 text-gray-700">
                         <div>
-                          <span className="inline-block w-2 h-2 rounded-full bg-purple-400 mr-2 mb-1" />
-                          <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
-                            Essentiel
-                          </span>
-                          <p className="text-sm text-gray-500 mt-1">
-                            Idéal pour démarrer rapidement avec un site vitrine
-                          </p>
+                          <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
+                            La technologie et l’IA au service de votre mission,
+                            au juste prix.
+                          </h2>
                         </div>
+
+                        <div className="space-y-3">
+                          <p>
+                            Associations, entrepreneurs, collectifs : si vous
+                            sentez que la tech devrait vous simplifier la vie
+                            mais que ce n&apos;est pas encore le cas, on est
+                            fait pour travailler ensemble.
+                          </p>
+                          <ul className="list-disc pl-5 space-y-2">
+                            <li>
+                              <span className="font-semibold">
+                                Une demi-journée pour voir clair — offerte :
+                              </span>{" "}
+                              On vient chez vous, on observe, on écoute. À la
+                              fin, vous savez où la technologie peut vous faire
+                              gagner du temps et apporter de nouvelles
+                              opportunités.
+                            </li>
+                            <li>
+                              <span className="font-semibold">
+                                Pas de devis impersonnel.
+                              </span>{" "}
+                              On part de votre budget et on priorise.
+                            </li>
+                            <li>
+                              On construit ce dont vous avez{" "}
+                              <span className="italic">vraiment</span> besoin -
+                              pas plus, pas moins.
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-800 tracking-tight mb-3">
+                            Nos dernières réalisations :
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                              <p className="text-sm">
+                                <span className="font-semibold">Léo</span> avait
+                                besoin d&apos;être visible avant son lancement -
+                                {">"} un site optimisé pour Google et les IA,
+                                prêt le jour J
+                              </p>
+                            </div>
+                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                              <p className="text-sm">
+                                <span className="font-semibold">
+                                  La Camaraderie
+                                </span>{" "}
+                                voulait publier ses événements en autonomie, sans
+                                dépendre de personne - {">"} un site simple,
+                                bien référencé, qu&apos;ils gèrent eux-mêmes
+                              </p>
+                            </div>
+                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                              <p className="text-sm">
+                                <span className="font-semibold">Antoine</span>{" "}
+                                perdait du temps à éditer des bons de commande à
+                                la main - {">"} ses fichiers Excel génèrent
+                                maintenant les documents automatiquement
+                              </p>
+                            </div>
+                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                              <p className="text-sm">
+                                <span className="font-semibold">Jade</span>{" "}
+                                voulait faciliter le troc de compétences entre
+                                entrepreneurs - {">"} une application sur mesure
+                                pour sa communauté
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <section
+                      className={
+                        showOfferOnly
+                          ? "mt-12 rounded-2xl border border-gray-200 bg-gray-50/70 p-6 md:p-8 shadow-sm"
+                          : "mt-0"
+                      }
+                    >
+                      {showOfferOnly && (
+                        <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider">
+                          Offres détaillées
+                        </p>
+                      )}
+                        {/* Header avec titre */}
+                        <div className="mb-8">
+                          <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
+                            Site web & application
+                          </h2>
+                        </div>
+
+                        {/* Grille des offres */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          {/* 🟣 Essentiel */}
+                          <div className="border border-gray-100 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow">
+                            <div>
+                              <span className="inline-block w-2 h-2 rounded-full bg-purple-400 mr-2 mb-1" />
+                              <span className="text-xs uppercase tracking-widest text-gray-400 font-medium">
+                                Essentiel
+                              </span>
+                              <p className="text-sm text-gray-500 mt-1">
+                                Idéal pour démarrer rapidement avec un site
+                                vitrine
+                              </p>
+                            </div>
 
                         <ul className="flex flex-col gap-2 text-sm text-gray-600 flex-1">
                           {[
@@ -433,10 +727,11 @@ function App() {
                         </div>
                       </div>
                     </div>
+                  </section>
                   </>
                 )}
 
-                {page === "Pitch" && (
+                {currentPage === "Pitch" && (
                   <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
@@ -468,7 +763,7 @@ function App() {
                       </li>
                     </ul>
                     <p>
-                      Egalement producteur du film{" "}
+                      Également producteur du film{" "}
                       <span className="font-semibold">I AM THE FUTURE</span>,
                       sorti en salles en septembre 2025, qui donne la parole à
                       de jeunes adultes en première ligne des crises
@@ -482,7 +777,7 @@ function App() {
                     </p>
                   </div>
                 )}
-                {page === "Poème" && <p>J'y travaille 😅</p>}
+                {currentPage === "Poème" && <p>J'y travaille 😅</p>}
               </div>
             </div>
           )}

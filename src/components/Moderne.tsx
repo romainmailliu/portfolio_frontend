@@ -78,7 +78,6 @@ function Moderne() {
       {/* Infos */}
       <div className="space-y-2 text-sm text-gray-600 mb-4">
         <p>✉️ romain.mailliu@gmail.com</p>
-        <p>📱 +33 6 08 04 83 19</p>
         <p>🌐 www.romainmailliu.com</p>
         <p>📍 Marseille, France</p>
       </div>
