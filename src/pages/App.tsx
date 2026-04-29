@@ -239,7 +239,7 @@ function App() {
 
         {/* 👉 PROJETS desktop — fixed, hors du flux */}
         {!showOfferOnly && (
-          <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 z-0 flex-col items-end">
+          <div className="hidden md:flex md:fixed md:right-0 md:top-0 md:h-full md:p-7 z-20 flex-col items-end">
             <h2 className="font-semibold text-base mb-1 flex items-center justify-between">
               <span className="mx-auto">Derniers projets</span>
               <MousePointer2 size={16} className="text-black" />
@@ -773,8 +773,8 @@ function App() {
                       CSS, JavaScript, TypeScript, React, React Native, Redux,
                       Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel, Git,
                       GitHub, TDD, n8n, Airtable, Wordpress, WebFlow, Claude
-                      Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma
-                      et Midjourney
+                      Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma,
+                      SupaBase et Midjourney
                     </p>
                   </div>
                 )}
