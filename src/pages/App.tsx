@@ -413,17 +413,16 @@ function App() {
 
                         <div className="space-y-3">
                           <p>
-                            Associations, entrepreneurs, collectifs : si vous
-                            sentez que la tech devrait vous simplifier la vie
-                            mais que ce n&apos;est pas encore le cas, on est
-                            fait pour travailler ensemble.
+                            Associations, entrepreneurs, collectifs : libérez-vous des tâches répétitives et créez de nouvelles opportunités grâce à des outils tech alignés avec votre mission.
                           </p>
+                          <p>Nous proposons :</p>
                           <ul className="list-disc pl-5 space-y-2">
                             <li>
                               <span className="font-semibold">
                                 Une demi-journée pour voir clair — offerte :
                               </span>{" "}
-                              On vient chez vous, on observe, on écoute. À la
+                              Nous venons chez vous, nous observons, nous
+                              écoutons. À la
                               fin, vous savez où la technologie peut vous faire
                               gagner du temps et apporter de nouvelles
                               opportunités.
@@ -432,10 +431,10 @@ function App() {
                               <span className="font-semibold">
                                 Pas de devis impersonnel.
                               </span>{" "}
-                              On part de votre budget et on priorise.
+                              Nous partons de votre budget et nous priorisons.
                             </li>
                             <li>
-                              On construit ce dont vous avez{" "}
+                              Nous construisons ce dont vous avez{" "}
                               <span className="italic">vraiment</span> besoin -
                               pas plus, pas moins.
                             </li>
