@@ -1,12 +1,63 @@
+"use client";
+
 import { useState } from "react";
-import Futuriste from "../components/Futuriste.tsx";
-import Moderne from "../components/Moderne.tsx";
+import Moderne from "../components/Moderne";
 import { MousePointer2 } from "lucide-react";
 
 import "../styles/App.css";
 
 type DesignOption = "Contact" | "OffreTechIA" | "Production";
 type PageOption = "Offre" | "Pitch" | "Poème" | "";
+type ProjectItem = {
+  name: string;
+  href: string;
+  description: string;
+  desktopDescription?: string;
+};
+
+const PROJECTS: ProjectItem[] = [
+  {
+    name: "ATS Séductions",
+    href: "https://ats-seduction.vercel.app/",
+    description: "CV pour (faire) craquer les algorithmes de recrutement.",
+  },
+  {
+    name: "Amidou",
+    href: "https://www.amidou.eu/",
+    description: "garder le lien avec les seniors isolés",
+  },
+  {
+    name: "Gomett",
+    href: "https://www.gomett.com/",
+    description: "trocs de compétences entre entrepreneur.e.s",
+  },
+  {
+    name: "La Camaraderie",
+    href: "",
+    description: "brasserie sociale d'insertion (en cours)",
+    desktopDescription: "brasserie solidaire (en cours)",
+  },
+  {
+    name: "Coexister",
+    href: "",
+    description: "faciliter le vivre ensemble.",
+  },
+  {
+    name: "Spazzo",
+    href: "https://www.spazzo.fr/",
+    description: "partage de locaux entre pros (en cours)",
+  },
+  {
+    name: "Youth Visions",
+    href: "https://www.youth-visions.com/",
+    description: "production de documentaires",
+  },
+  {
+    name: "PrendsTaDose",
+    href: "https://www.prendstadose.fr/",
+    description: "webzine",
+  },
+];
 
 function App() {
   const [activeButton, setActiveButton] = useState<DesignOption | null>(
@@ -34,9 +85,25 @@ function App() {
       ? "Pitch"
       : page;
 
-  if (window.location.pathname === "/future") {
-    return <Futuriste />;
-  }
+  const renderProjectLinks = (
+    linkClassName: string,
+    useDesktopDescription = false,
+  ) =>
+    PROJECTS.map((project) => (
+      <a
+        key={project.name}
+        href={project.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkClassName}
+      >
+        {project.name},
+        <br />
+        {useDesktopDescription && project.desktopDescription
+          ? project.desktopDescription
+          : project.description}
+      </a>
+    ));
 
   return (
     <>
@@ -49,86 +116,7 @@ function App() {
           </span>
         </h2>
         <div className="flex flex-row flex-nowrap overflow-x-auto gap-4 pb-1 scrollbar-hide justify-start">
-          <a
-            href="https://ats-seduction.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            ATS Séductions,
-            <br />
-            CV pour (faire) craquer les algorithmes de recrutement.
-          </a>
-          <a
-            href="https://www.amidou.eu/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            Amidou,
-            <br />
-            garder le lien avec les seniors isolés
-          </a>
-          <a
-            href="https://www.gomett.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            Gomett,
-            <br />
-            trocs de compétences entre entrepreneur.e.s
-          </a>
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            La Camaraderie,
-            <br />
-            brasserie sociale d'insertion (en cours)
-          </a>
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            Coexister,
-            <br />
-            faciliter le vivre ensemble.
-          </a>
-          <a
-            href="https://www.spazzo.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            Spazzo,
-            <br />
-            partage de locaux entre pros (en cours)
-          </a>
-          <a
-            href="https://www.youth-visions.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            Youth Visions,
-            <br />
-            production de documentaires
-          </a>
-          <a
-            href="https://www.prendstadose.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-center text-sm px-2 py-1"
-          >
-            PrendsTaDose,
-            <br />
-            webzine
-          </a>
+          {renderProjectLinks("shrink-0 text-center text-sm px-2 py-1")}
         </div>
       </div>
 
@@ -149,86 +137,7 @@ function App() {
                 </span>
               </h2>
               <div className="mt-2 flex flex-row flex-nowrap overflow-x-auto gap-4 pb-1 scrollbar-hide justify-start">
-                <a
-                  href="https://ats-seduction.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  ATS Séductions,
-                  <br />
-                  CV pour (faire) craquer les algorithmes de recrutement.
-                </a>
-                <a
-                  href="https://www.amidou.eu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  Amidou,
-                  <br />
-                  garder le lien avec les seniors isolés
-                </a>
-                <a
-                  href="https://www.gomett.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  Gomett,
-                  <br />
-                  trocs de compétences entre entrepreneur.e.s
-                </a>
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  La Camaraderie,
-                  <br />
-                  brasserie sociale d'insertion (en cours)
-                </a>
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  Coexister,
-                  <br />
-                  faciliter le vivre ensemble.
-                </a>
-                <a
-                  href="https://www.spazzo.fr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  Spazzo,
-                  <br />
-                  partage de locaux entre pros (en cours)
-                </a>
-                <a
-                  href="https://www.youth-visions.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  Youth Visions,
-                  <br />
-                  production de documentaires
-                </a>
-                <a
-                  href="https://www.prendstadose.fr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 text-center text-sm px-2 py-1"
-                >
-                  PrendsTaDose,
-                  <br />
-                  webzine
-                </a>
+                {renderProjectLinks("shrink-0 text-center text-sm px-2 py-1")}
               </div>
               <p className="text-xs text-gray-500 text-center mt-2">
                 Défiler →
@@ -245,87 +154,10 @@ function App() {
               <MousePointer2 size={16} className="text-black" />
             </h2>
             <div className="flex flex-col gap-1">
-              <a
-                href="https://ats-seduction.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                ATS Séductions,
-                <br />
-                CV pour (faire) craquer les algorithmes de recrutement.
-              </a>
-              <a
-                href="https://www.amidou.eu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                Amidou,
-                <br />
-                garder le lien avec les seniors isolés
-              </a>
-              <a
-                href="https://www.gomett.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                Gomett,
-                <br />
-                trocs de compétences entre entrepreneur.e.s
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                La Camaraderie,
-                <br />
-                brasserie solidaire {"(en cours)"}
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                Coexister,
-                <br />
-                faciliter le vivre ensemble.
-              </a>
-              <a
-                href="https://www.spazzo.fr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                Spazzo,
-                <br />
-                partage de locaux entre pros {"(en cours)"}
-              </a>
-
-              <a
-                href="https://www.youth-visions.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                Youth Visions,
-                <br />
-                production de documentaires
-              </a>
-              <a
-                href="https://www.prendstadose.fr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full"
-              >
-                PrendsTaDose,
-                <br />
-                webzine
-              </a>
+              {renderProjectLinks(
+                "text-right text-sm relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all hover:after:w-full",
+                true,
+              )}
             </div>
           </div>
         )}
@@ -362,7 +194,6 @@ function App() {
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
               ${activeButton === "Production" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
               onClick={() => {
-                handleButtonClick("Production", "Production");
                 window.location.href = "/future";
               }}
             >
@@ -442,7 +273,7 @@ function App() {
                                 Une proposition constuite ensemble, à prix libre.
                               </span>{" "}
                               Pas d'offre générique et impersonnelle. Nous
-                              partons de nos obervations, votre budget et nous
+                              partons de nos obervations, de votre budget et nous
                               priorisons.
                             </li>
                             <li>
