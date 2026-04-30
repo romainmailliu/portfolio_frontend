@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       {/* 📱 PROJETS mobile — fixed en haut, hors du flux */}
-      <div className="md:hidden fixed top-0 left-0 w-full bg-white/95 backdrop-blur z-0 px-4 pt-3 pb-2 border-b border-gray-200">
+      <div className="md:hidden fixed top-0 left-0 w-full bg-white/95 backdrop-blur z-50 px-4 pt-3 pb-2 border-b border-gray-200">
         <h2 className="font-semibold text-base mb-1 flex items-center justify-center md:justify-between">
           <span className="flex items-center gap-2">
             Derniers projets
@@ -332,6 +332,16 @@ function App() {
 
         {/* 🔲 CENTRE */}
         <div className="flex flex-col items-center gap-1 w-full max-w-5xl">
+          {design === "Contact" && (
+            <div className="mb-4 -rotate-1 bg-gradient-to-r from-sky-100 via-cyan-100 to-amber-100 text-sky-950 border-2 border-sky-400 px-5 py-3 shadow-[3px_4px_0px_rgba(12,74,110,0.45)] rounded-sm max-w-3xl relative before:absolute before:-inset-1 before:border before:border-amber-300/80 before:-z-10 before:rotate-[0.6deg]">
+              <p className="text-sm md:text-base text-center font-medium tracking-wide">
+                J&apos;accompagne les associations et entrepreneurs engagé.e.s
+                <br />
+                à mettre la Tech au service de leur mission, à prix libre.
+              </p>
+            </div>
+          )}
+
           {/* 🎨 Choix design */}
           <div className="flex gap-5 mb-2 self-stretch justify-center items-center">
             <button
@@ -416,7 +426,7 @@ function App() {
                             Associations, entrepreneurs, collectifs : libérez-vous des tâches répétitives et créez de nouvelles opportunités grâce à des outils tech alignés avec votre mission.
                           </p>
                           <p>Nous proposons :</p>
-                          <ul className="list-disc pl-5 space-y-2">
+                          <ol className="list-decimal pl-5 space-y-3 marker:text-gray-500 marker:font-medium">
                             <li>
                               <span className="font-semibold">
                                 Une demi-journée pour voir clair — offerte :
@@ -429,16 +439,18 @@ function App() {
                             </li>
                             <li>
                               <span className="font-semibold">
-                                Pas de devis impersonnel.
+                                Une proposition constuite ensemble, à prix libre.
                               </span>{" "}
-                              Nous partons de votre budget et nous priorisons.
+                              Pas d'offre générique et impersonnelle. Nous
+                              partons de nos obervations, votre budget et nous
+                              priorisons.
                             </li>
                             <li>
                               Nous construisons ce dont vous avez{" "}
                               <span className="italic">vraiment</span> besoin -
                               pas plus, pas moins.
                             </li>
-                          </ul>
+                          </ol>
                         </div>
 
                         <div>
@@ -446,7 +458,10 @@ function App() {
                             Nos dernières réalisations :
                           </h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                            <div className="relative border border-gray-100 rounded-xl p-4 pr-20 pb-10 bg-white hover:shadow-sm transition-shadow">
+                              <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-wider text-sky-700 bg-sky-100 border border-sky-200 rounded-full px-2 py-0.5">
+                                Marseille
+                              </span>
                               <p className="text-sm">
                                 <span className="font-semibold">Léo</span> avait
                                 besoin d&apos;être visible avant son lancement -
@@ -454,7 +469,10 @@ function App() {
                                 prêt le jour J
                               </p>
                             </div>
-                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                            <div className="relative border border-gray-100 rounded-xl p-4 pr-20 pb-10 bg-white hover:shadow-sm transition-shadow">
+                              <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-wider text-sky-700 bg-sky-100 border border-sky-200 rounded-full px-2 py-0.5">
+                                Marseille
+                              </span>
                               <p className="text-sm">
                                 <span className="font-semibold">
                                   La Camaraderie
@@ -464,7 +482,10 @@ function App() {
                                 bien référencé, qu&apos;ils gèrent eux-mêmes
                               </p>
                             </div>
-                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                            <div className="relative border border-gray-100 rounded-xl p-4 pr-20 pb-10 bg-white hover:shadow-sm transition-shadow">
+                              <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-wider text-sky-700 bg-sky-100 border border-sky-200 rounded-full px-2 py-0.5">
+                                Marseille
+                              </span>
                               <p className="text-sm">
                                 <span className="font-semibold">Antoine</span>{" "}
                                 perdait du temps à éditer des bons de commande à
@@ -472,7 +493,10 @@ function App() {
                                 maintenant les documents automatiquement
                               </p>
                             </div>
-                            <div className="border border-gray-100 rounded-xl p-4 bg-white hover:shadow-sm transition-shadow">
+                            <div className="relative border border-gray-100 rounded-xl p-4 pr-20 pb-10 bg-white hover:shadow-sm transition-shadow">
+                              <span className="absolute bottom-3 right-3 text-[10px] uppercase tracking-wider text-sky-700 bg-sky-100 border border-sky-200 rounded-full px-2 py-0.5">
+                                Marseille
+                              </span>
                               <p className="text-sm">
                                 <span className="font-semibold">Jade</span>{" "}
                                 voulait faciliter le troc de compétences entre
@@ -494,7 +518,7 @@ function App() {
                     >
                       {showOfferOnly && (
                         <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider">
-                          Offres détaillées
+                          Exemples d'offres détaillées
                         </p>
                       )}
                         {/* Header avec titre */}
