@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Moderne from "../components/Moderne";
 import { MousePointer2 } from "lucide-react";
 
 import "../styles/App.css";
 
-type DesignOption = "Contact" | "OffreTechIA" | "Production";
-type PageOption = "Offre" | "Pitch" | "Poème" | "";
+type DesignOption = "Contact" | "OffreTechIA";
+type PageOption = "Offre" | "Pitch";
 type ProjectItem = {
   name: string;
   href: string;
@@ -60,30 +62,14 @@ const PROJECTS: ProjectItem[] = [
 ];
 
 function App() {
-  const [activeButton, setActiveButton] = useState<DesignOption | null>(
-    "Contact",
+  const pathname = usePathname();
+  const isOfferPage = pathname === "/offre-tech-ia";
+  const [selectedDesign, setSelectedDesign] = useState<DesignOption>(
+    isOfferPage ? "OffreTechIA" : "Contact",
   );
-  const [design, setDesign] = useState<DesignOption>("Contact");
-  const [page, setPage] = useState<PageOption>("Offre");
-
-  const handleButtonClick = (
-    buttonName: DesignOption,
-    designType: DesignOption,
-  ) => {
-    setActiveButton(buttonName);
-    setDesign(designType);
-    if (designType === "OffreTechIA") {
-      setPage("Offre");
-    }
-  };
-
-  const showOfferOnly = design === "OffreTechIA";
-  const showPitchOnly = design === "Contact";
-  const currentPage: PageOption = showOfferOnly
-    ? "Offre"
-    : showPitchOnly
-      ? "Pitch"
-      : page;
+  const activeButton: DesignOption = isOfferPage ? "OffreTechIA" : selectedDesign;
+  const showOfferOnly = isOfferPage || selectedDesign === "OffreTechIA";
+  const currentPage: PageOption = showOfferOnly ? "Offre" : "Pitch";
 
   const renderProjectLinks = (
     linkClassName: string,
@@ -164,7 +150,7 @@ function App() {
 
         {/* 🔲 CENTRE */}
         <div className="flex flex-col items-center gap-1 w-full max-w-5xl">
-          {design === "Contact" && (
+          {!showOfferOnly && (
             <div className="mb-4 -rotate-1 bg-gradient-to-r from-sky-100 via-cyan-100 to-amber-100 text-sky-950 border-2 border-sky-400 px-5 py-3 shadow-[3px_4px_0px_rgba(12,74,110,0.45)] rounded-sm max-w-3xl relative before:absolute before:-inset-1 before:border before:border-amber-300/80 before:-z-10 before:rotate-[0.6deg]">
               <p className="text-sm md:text-base text-center font-medium tracking-wide">
                 J&apos;accompagne les associations et entrepreneurs engagé.e.s
@@ -179,22 +165,33 @@ function App() {
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
               ${activeButton === "Contact" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
-              onClick={() => handleButtonClick("Contact", "Contact")}
+              onClick={() => {
+                if (isOfferPage) {
+                  window.location.href = "/";
+                  return;
+                }
+                setSelectedDesign("Contact");
+              }}
             >
               Contact
             </button>
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
               ${activeButton === "OffreTechIA" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
-              onClick={() => handleButtonClick("OffreTechIA", "OffreTechIA")}
+              onClick={() => {
+                if (isOfferPage) {
+                  return;
+                }
+                setSelectedDesign("OffreTechIA");
+              }}
             >
               Offre Tech & IA
             </button>
             <button
               className={`relative px-2 py-1 cursor-pointer after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:transition-all
-              ${activeButton === "Production" ? "font-bold after:w-full" : "font-normal hover:after:w-full"}`}
+              font-normal hover:after:w-full`}
               onClick={() => {
-                window.location.href = "/future";
+                window.location.href = "/production-documentaire";
               }}
             >
               Production
@@ -203,45 +200,13 @@ function App() {
 
           {/* 💼 Carte */}
           <div>
-            {design === "Contact" && <Moderne />}
+            {!showOfferOnly && <Moderne />}
           </div>
 
           {/* 🔘 Boutons page */}
-          {!showOfferOnly && !showPitchOnly && (
-            <div className="flex gap-8 mt-2 self-stretch justify-center items-center">
-              <button
-                onClick={() => setPage("Offre")}
-                className="relative px-4 py-2 bg-gray-800 text-white rounded-lg cursor-pointer overflow-hidden hover:bg-gray-700 transition"
-              >
-                <span className="relative z-10">Offre</span>
-
-                <span className="pointer-events-none absolute inset-0 rounded-lg">
-                  <span
-                    className="absolute inset-[-2px] rounded-lg 
-     bg-[conic-gradient(from_0deg,#3b82f6,#8b5cf6,#ec4899,#3b82f6)] 
-      animate-[spin_4s_linear_infinite] opacity-70 blur-[2px]"
-                  ></span>
-                </span>
-              </button>
-              <button
-                onClick={() => setPage("Pitch")}
-                className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-              >
-                Pitch
-              </button>
-              <button
-                onClick={() => setPage("Poème")}
-                className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-              >
-                Poème
-              </button>
-            </div>
-          )}
-
-          {currentPage !== "" && (
-            <div className="w-screen px-10 mt-10">
-              <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
-                {currentPage === "Offre" && (
+          <div className="w-screen px-10 mt-10">
+            <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow">
+              {currentPage === "Offre" && (
                   <>
                     {showOfferOnly && (
                       <div className="space-y-8 text-gray-700">
@@ -250,6 +215,14 @@ function App() {
                             La technologie et l’IA au service de votre mission,
                             au juste prix.
                           </h2>
+                          <p className="mt-2">
+                            <Link
+                              href="/offre-tech-ia"
+                              className="text-sm text-gray-600 underline underline-offset-4 hover:text-black"
+                            >
+                              Voir la version dédiée de l&apos;offre
+                            </Link>
+                          </p>
                         </div>
 
                         <div className="space-y-3">
@@ -585,8 +558,8 @@ function App() {
                   </>
                 )}
 
-                {currentPage === "Pitch" && (
-                  <div className="space-y-4 text-gray-700">
+              {currentPage === "Pitch" && (
+                <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
                         href="/Romain_Mailliu_CV_Dev_2026.pdf"
@@ -631,12 +604,10 @@ function App() {
                       Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma,
                       SupaBase et Midjourney
                     </p>
-                  </div>
-                )}
-                {currentPage === "Poème" && <p>J'y travaille 😅</p>}
-              </div>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </section>
     </>

@@ -9,10 +9,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: "https://www.romainmailliu.com/future",
+      url: "https://www.romainmailliu.com/production-documentaire",
       lastModified: new Date("2026-04-30"),
       changeFrequency: "monthly",
       priority: 0.7,
+    },
+    {
+      url: "https://www.romainmailliu.com/offre-tech-ia",
+      lastModified: new Date("2026-04-30"),
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
 }

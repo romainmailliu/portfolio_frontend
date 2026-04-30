@@ -1,5 +1,5 @@
-import Future from "../../components/Futuriste";
+import { redirect } from "next/navigation";
 
 export default function FuturePage() {
-  return <Future />;
+  redirect("/production-documentaire");
 }
