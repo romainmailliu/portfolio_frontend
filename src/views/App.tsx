@@ -565,11 +565,12 @@ function App() {
                 <div className="space-y-4 text-gray-700">
                     <div className="flex justify-start mb-3">
                       <a
-                        href="/Romain_Mailliu_CV_Dev_2026.pdf"
-                        download
+                        href="https://www.linkedin.com/in/romain-mailliu/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
                       >
-                        Télécharger mon CV
+                        Voir mon profil LinkedIn
                       </a>
                     </div>
                     <p className="whitespace-pre-line">
