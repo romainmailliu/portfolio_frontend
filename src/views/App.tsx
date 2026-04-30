@@ -215,14 +215,6 @@ function App() {
                             La technologie et l’IA au service de votre mission,
                             au juste prix.
                           </h2>
-                          <p className="mt-2">
-                            <Link
-                              href="/offre-tech-ia"
-                              className="text-sm text-gray-600 underline underline-offset-4 hover:text-black"
-                            >
-                              Voir la version dédiée de l&apos;offre
-                            </Link>
-                          </p>
                         </div>
 
                         <div className="space-y-3">
@@ -555,6 +547,16 @@ function App() {
                       </div>
                     </div>
                   </section>
+                  {showOfferOnly && (
+                    <div className="mt-6 text-center">
+                      <Link
+                        href="/offre-tech-ia"
+                        className="text-sm text-gray-600 underline underline-offset-4 hover:text-black"
+                      >
+                        Voir la version dédiée de l&apos;offre
+                      </Link>
+                    </div>
+                  )}
                   </>
                 )}
 
