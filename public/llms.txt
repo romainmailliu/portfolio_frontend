@@ -1,0 +1,87 @@
+# Romain Mailliu — Développeur Web & IA
+
+## About
+
+Romain Mailliu est développeur web et IA basé à Marseille, France.
+Il accompagne associations, ONG et entrepreneurs engagés à mettre la technologie au service de leur mission.
+9 ans d'expérience à l'international, en entreprise et en ONG.
+Il connaît le secteur de l'impact social de l'intérieur.
+Il utilise l'IA pour coder 5x plus vite et répercute ce gain sur ses tarifs.
+Il applique des méthodes de suivi de projet issues du conseil en stratégie.
+Une dizaine de projets livrés depuis 2025.
+Également producteur du film documentaire "I AM THE FUTURE", sorti en salles en septembre 2025.
+
+## Services and Pricing
+
+**Sites web**
+- Site vitrine (3-5 pages, formulaire de contact, module actualités, formation incluse) : 500€ — livraison ~1 semaine
+- Site + Visibilité (tout le précédent + SEO, Google Business, Google Analytics) : 900€ — livraison ~2 semaines
+- E-commerce personnalisé (boutique en ligne, paiements, gestion commandes, fonctionnalités sur mesure) : à partir de 1500€ — délai selon projet
+
+**Automatisation & IA**
+- Diagnostic IA (audit des processus, cartographie des tâches chronophages, recommandations priorisées) : gratuit, sans engagement
+- Automatisation (workflows n8n, Airtable, connexion d'outils, réduction tâches répétitives) : à partir de 300€ — livraison 1-2 semaines
+- IA sur mesure (chatbots, génération de contenus, outils d'aide à la décision) : sur devis selon projet
+
+## Locations
+
+Marseille, France.
+Interventions possible en présentiel à Marseille et en remote pour toute la France.
+
+## Contact
+
+- Email : romain.mailliu@gmail.com
+- Site : www.romainmailliu.com
+
+## Service Area
+
+Marseille (présentiel) et toute la France (remote).
+
+## Key Facts
+
+- Tarifs adaptés à la vitesse de développement avec l'IA : site vitrine à 500€ là où le marché est à 2000-5000€
+- Diagnostic IA offert, sans engagement
+- Première demi-journée d'observation chez le client offerte avant toute proposition
+- Stack : React, Next.js, TypeScript, Node.js, MongoDB, Supabase, Vercel, n8n, Airtable, WordPress, Webflow
+- Projets livrés : Amidou (lien social seniors), Gomett (troc de compétences), Spazzo (partage de locaux), La Camaraderie (brasserie solidaire), Youth Visions (documentaires), PrendsTaDose (webzine)
+
+## What Makes Us Different
+
+1. Connaissance du secteur ONG et impact social de l'intérieur — pas besoin d'expliquer les contraintes du secteur associatif.
+2. Tarifs justes : l'IA réduit le temps de développement, les économies sont répercutées sur les prix.
+3. Approche terrain : visite chez le client avant de proposer quoi que ce soit.
+4. Méthodes de suivi de projet issues du conseil en stratégie : réactivité, livrables clairs, pas de surprise.
+5. Propositions construites avec le client selon son budget réel, pas des offres génériques.
+
+## FAQ
+
+**Combien coûte un site web ?**
+Site vitrine : 500€. Site avec SEO et Google Business : 900€. E-commerce personnalisé : à partir de 1500€. Délais : 1 à 2 semaines pour les deux premiers.
+
+**Je suis une association avec un petit budget, tu peux m'aider ?**
+Oui, c'est le cœur de cible. Les tarifs sont adaptés au secteur associatif. La proposition est construite selon votre budget réel, pas l'inverse.
+
+**Quel est le délai de livraison ?**
+Site vitrine : ~1 semaine. Site + SEO : ~2 semaines. Automatisation : 1-2 semaines. E-commerce et IA sur mesure : selon le projet.
+
+**Le diagnostic IA, c'est quoi exactement ?**
+Une demi-journée chez vous (ou en visio) pour observer vos processus, identifier les tâches répétitives et proposer des pistes d'automatisation concrètes. Gratuit, sans engagement.
+
+**Tu travailles à distance ?**
+Oui. Marseille en présentiel, toute la France en remote.
+
+**Quelle différence avec un développeur classique ?**
+Tarifs 3 à 5 fois moins élevés grâce à l'IA. Connaissance du secteur ONG/impact. Approche conseil avant de coder quoi que ce soit.
+
+**Tu assures le suivi après livraison ?**
+Formation incluse dans chaque site livré pour que le client gère son contenu en autonomie. Suivi disponible selon les besoins.
+
+**Tu fais aussi les contenus et le design ?**
+Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traitance cachée.
+
+## Markdown Mirrors
+
+Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
+
+- https://www.romainmailliu.com/index.md — Page d'accueil (services, tarifs, projets, à propos)
+- https://www.romainmailliu.com/future.md — Page Production (film documentaire I AM THE FUTURE)
