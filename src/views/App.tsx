@@ -227,8 +227,8 @@ function App() {
                               <span className="font-semibold">
                                 Une demi-journée pour voir clair — offerte :
                               </span>{" "}
-                              Nous venons chez vous, nous observons, nous
-                              écoutons. À la
+                              Nous venons découvrir votre projet et comprendre
+                              vos objectifs. À la
                               fin, vous savez où la technologie peut vous faire
                               gagner du temps et apporter de nouvelles
                               opportunités.
@@ -259,7 +259,8 @@ function App() {
                                 Marseille
                               </span>
                               <p className="text-sm">
-                                <span className="font-semibold">Léo</span> avait
+                                <span className="font-semibold">Léo</span>{" "}
+                                avait
                                 besoin d&apos;être visible avant son lancement -
                                 {">"} un site optimisé pour Google et les IA,
                                 prêt le jour J

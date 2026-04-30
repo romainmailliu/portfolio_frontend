@@ -5,11 +5,12 @@ import "../styles/index.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.romainmailliu.com"),
   title: {
-    default: "Romain Mailliu | Développeur Web & IA à Marseille",
+    default:
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
     template: "%s | Romain Mailliu",
   },
   description:
-    "Développeur Web & IA à Marseille. J'accompagne associations et entrepreneurs engagé.e.s pour créer des sites, automatisations et outils IA utiles, à prix libre.",
+    "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
   alternates: {
     canonical: "/",
   },
@@ -17,16 +18,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: "/",
-    title: "Romain Mailliu | Développeur Web & IA à Marseille",
+    title:
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
     description:
-      "Sites web, automatisation et IA au service de votre mission, à Marseille et à distance.",
+      "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
     siteName: "Romain Mailliu",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Romain Mailliu | Développeur Web & IA à Marseille",
+    title:
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
     description:
-      "Sites web, automatisation et IA au service de votre mission, à Marseille et à distance.",
+      "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
   },
 };
 
