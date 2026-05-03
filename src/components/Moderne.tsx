@@ -82,7 +82,6 @@ function Moderne() {
       {/* Infos */}
       <div className="space-y-2 text-sm text-gray-600 mb-4">
         <p>✉️ romain.mailliu@gmail.com</p>
-        <p>🌐 www.romainmailliu.com</p>
         <p>📍 Marseille, France</p>
       </div>
 
@@ -97,7 +96,7 @@ function Moderne() {
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <p className="text-xs text-gray-400 uppercase tracking-widest">
-            Je vous recontacte
+            Votre projet en quelques mots
           </p>
           <input
             type="email"
@@ -114,16 +113,14 @@ function Moderne() {
             placeholder="06 00 00 00 00 (optionnel)"
             className="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
           />
-          <label className="text-xs font-medium text-gray-600">
-            Votre projet en quelques mots
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Ex. : site pour une asso, automatisation Excel…"
-              rows={3}
-              className="mt-1 w-full resize-y bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
-            />
-          </label>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Ex. : site pour une asso, automatisation Excel…"
+            rows={3}
+            aria-label="Description de votre projet"
+            className="w-full resize-y bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
+          />
           <button
             type="submit"
             className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
