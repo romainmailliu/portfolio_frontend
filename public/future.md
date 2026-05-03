@@ -7,7 +7,7 @@ last_updated: 2026-04-30
 
 # Et vous, c'est quoi votre projet un peu fou ?
 
-Avec une équipe talentueuse, j'ai produit un film documentaire — **I AM THE FUTURE** — sorti au cinéma en septembre 2025.
+Avec une équipe talentueuse, nous avons produit un film documentaire — **I AM THE FUTURE** — sorti au cinéma en septembre 2025.
 
 Réalisateur engagé, producteur d'impact, entrepreneur idéaliste.
 

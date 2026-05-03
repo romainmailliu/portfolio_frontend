@@ -238,10 +238,10 @@ function App() {
                                 Une proposition constuite ensemble, à prix libre.
                               </span>{" "}
                               Pas d'offre générique et impersonnelle. Je pars de
-                              mes observations, de votre budget et je priorise.
+                              mes observations, de votre budget et nous priorisons.
                             </li>
                             <li>
-                              Je construis ce dont vous avez{" "}
+                              Nous construisons ce dont vous avez{" "}
                               <span className="italic">vraiment</span> besoin -
                               pas plus, pas moins.
                             </li>
@@ -274,7 +274,8 @@ function App() {
                                   La Camaraderie
                                 </span>{" "}
                                 voulait publier ses événements en autonomie, sans
-                                dépendre de personne - {">"} un site simple,
+                                dépendre de personne - {">"}
+                                {" "}un site simple,
                                 bien référencé, qu&apos;ils gèrent eux-mêmes
                               </p>
                             </div>

@@ -52,7 +52,7 @@ function Future() {
 
           <div className="space-y-5 leading-relaxed text-white/90">
             <p>
-              Avec une équipe talentueuse, j&apos;ai produit un film documentaire
+              Avec une équipe talentueuse, nous avons produit un film documentaire
               -{" "}
               <span className="font-semibold">I AM THE FUTURE</span> - sorti au
               cinéma en 2025.
