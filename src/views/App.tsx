@@ -221,13 +221,13 @@ function App() {
                           <p>
                             Associations, entrepreneurs, collectifs : libérez-vous des tâches répétitives et créez de nouvelles opportunités grâce à des outils tech alignés avec votre mission.
                           </p>
-                          <p>Nous proposons :</p>
+                          <p>Je propose :</p>
                           <ol className="list-decimal pl-5 space-y-3 marker:text-gray-500 marker:font-medium">
                             <li>
                               <span className="font-semibold">
                                 Une demi-journée pour voir clair — offerte :
                               </span>{" "}
-                              Nous venons découvrir votre projet et comprendre
+                              Je viens découvrir votre projet et comprendre
                               vos objectifs. À la
                               fin, vous savez où la technologie peut vous faire
                               gagner du temps et apporter de nouvelles
@@ -237,12 +237,11 @@ function App() {
                               <span className="font-semibold">
                                 Une proposition constuite ensemble, à prix libre.
                               </span>{" "}
-                              Pas d'offre générique et impersonnelle. Nous
-                              partons de nos obervations, de votre budget et nous
-                              priorisons.
+                              Pas d'offre générique et impersonnelle. Je pars de
+                              mes observations, de votre budget et je priorise.
                             </li>
                             <li>
-                              Nous construisons ce dont vous avez{" "}
+                              Je construis ce dont vous avez{" "}
                               <span className="italic">vraiment</span> besoin -
                               pas plus, pas moins.
                             </li>
@@ -251,7 +250,7 @@ function App() {
 
                         <div>
                           <h3 className="text-xl font-semibold text-gray-800 tracking-tight mb-3">
-                            Nos dernières réalisations :
+                            Les dernières réalisations :
                           </h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="relative border border-gray-100 rounded-xl p-4 pr-20 pb-10 bg-white hover:shadow-sm transition-shadow">

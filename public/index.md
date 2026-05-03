@@ -17,11 +17,11 @@ Marseille, France — romain.mailliu@gmail.com — www.romainmailliu.com
 
 La technologie et l'IA au service de votre mission, au juste prix.
 
-### Notre approche
+### Mon approche
 
-1. **Une demi-journée pour voir clair — offerte** : Nous venons chez vous, observons, écoutons. À la fin, vous savez où la technologie peut vous faire gagner du temps.
-2. **Une proposition construite ensemble** : pas d'offre générique, nous partons de vos besoins et de votre budget réel.
-3. Nous construisons ce dont vous avez *vraiment* besoin — pas plus, pas moins.
+1. **Une demi-journée pour voir clair — offerte** : Je viens chez vous, j'observe et j'écoute. À la fin, vous savez où la technologie peut vous faire gagner du temps.
+2. **Une proposition construite ensemble** : pas d'offre générique, je pars de vos besoins et de votre budget réel.
+3. Je construis ce dont vous avez *vraiment* besoin — pas plus, pas moins.
 
 ### Réalisations récentes
 

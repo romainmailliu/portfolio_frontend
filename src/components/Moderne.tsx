@@ -8,6 +8,7 @@ function Moderne() {
   const [sent, setSent] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
   const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,12 +18,13 @@ function Moderne() {
       await emailjs.send(
         "service_xkwi2nk", // ton service_id
         "template_z789237", // ton template_id
-        { email, phone },
+        { email, phone, message },
         "Y0Vh6DS8F21xy5zPw", // ta public_key
       );
       setSent(true);
       setEmail("");
       setPhone("");
+      setMessage("");
     } catch (error) {
       console.error("Erreur envoi :", error);
       alert("Erreur lors de l'envoi 😕");
@@ -112,6 +114,16 @@ function Moderne() {
             placeholder="06 00 00 00 00 (optionnel)"
             className="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
           />
+          <label className="text-xs font-medium text-gray-600">
+            Votre projet en quelques mots
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Ex. : site pour une asso, automatisation Excel…"
+              rows={3}
+              className="mt-1 w-full resize-y bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
+            />
+          </label>
           <button
             type="submit"
             className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
