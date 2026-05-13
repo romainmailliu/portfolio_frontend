@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.romainmailliu.com"),
   title: {
     default:
-      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
     template: "%s | Romain Mailliu",
   },
   description:
-    "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+    "La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
   alternates: {
     canonical: "/",
   },
@@ -25,17 +25,17 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/",
     title:
-      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
     description:
-      "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+      "La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
     siteName: "Romain Mailliu",
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+      "Romain Mailliu | La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
     description:
-      "La Tech à prix libre pour des associations et entrepreneurs engagé.e.s.",
+      "La Tech à prix libre pour des associations et entrepreneur.e.s engagé.e.s.",
   },
 };
 

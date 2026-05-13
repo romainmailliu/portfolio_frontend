@@ -1,13 +1,13 @@
 ---
 title: Romain Mailliu — Développeur Web & IA
-description: Portfolio et offres de services — développement web, automatisation et IA pour associations et entrepreneurs engagés
+description: Portfolio et offres de services — développement web, automatisation et IA pour associations et entrepreneur.e.s engagé.e.s
 url: https://www.romainmailliu.com/
 last_updated: 2026-04-30
 ---
 
 # Romain Mailliu — Développeur Web & IA
 
-J'accompagne les associations et entrepreneurs engagés à mettre la Tech au service de leur mission, à prix juste.
+J'accompagne les associations et entrepreneur.e.s engagé.e.s à mettre la Tech au service de leur mission, à prix libre.
 
 Marseille, France — romain.mailliu@gmail.com — www.romainmailliu.com
 
@@ -28,7 +28,7 @@ La technologie et l'IA au service de votre mission, au juste prix.
 - **Léo** — site optimisé pour Google et les IA, prêt le jour du lancement (Marseille)
 - **La Camaraderie** — site simple, bien référencé, géré en autonomie (Marseille)
 - **Antoine** — ses fichiers Excel génèrent maintenant les bons de commande automatiquement (Marseille)
-- **Jade** — application sur mesure pour le troc de compétences entre entrepreneurs (Marseille)
+- **Jade** — application sur mesure pour le troc de compétences entre entrepreneur.e.s (Marseille)
 
 ---
 
@@ -80,7 +80,7 @@ La technologie et l'IA au service de votre mission, au juste prix.
 Ingénieur avec 9 ans d'expérience à l'international, en entreprise et en ONG.
 
 J'accompagne :
-- Des entrepreneurs en phase de lancement à passer de l'idée aux premières ventes (sites web, automatisations, CRM)
+- Des entrepreneur.e.s en phase de lancement à passer de l'idée aux premières ventes (sites web, automatisations, CRM)
 - Des associations et entreprises à impact à automatiser leurs processus chronophages avec l'IA
 
 Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.js, Express, MongoDB, Vercel, n8n, Airtable, WordPress, Webflow, Figma, Framer, Supabase
@@ -89,11 +89,11 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 
 ## Derniers projets
 
+- [Coexister](https://www.coexister.fr/) — faciliter le vivre ensemble
 - [ATS Séductions](https://ats-seduction.vercel.app/) — CV optimisé pour les algorithmes de recrutement
 - [Amidou](https://www.amidou.eu/) — garder le lien avec les seniors isolés
-- [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneurs
+- [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneur.e.s
 - La Camaraderie — brasserie sociale d'insertion (en cours)
-- Coexister — faciliter le vivre ensemble
 - [Spazzo](https://www.spazzo.fr/) — partage de locaux entre pros (en cours)
 - [Youth Visions](https://www.youth-visions.com/) — production de documentaires
 - [PrendsTaDose](https://www.prendstadose.fr/) — webzine

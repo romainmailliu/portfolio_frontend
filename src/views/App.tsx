@@ -19,6 +19,11 @@ type ProjectItem = {
 
 const PROJECTS: ProjectItem[] = [
   {
+    name: "Coexister",
+    href: "https://www.coexister.fr/",
+    description: "faciliter le vivre ensemble.",
+  },
+  {
     name: "ATS Séductions",
     href: "https://ats-seduction.vercel.app/",
     description: "CV pour (faire) craquer les algorithmes de recrutement.",
@@ -38,11 +43,6 @@ const PROJECTS: ProjectItem[] = [
     href: "",
     description: "brasserie sociale d'insertion (en cours)",
     desktopDescription: "brasserie solidaire (en cours)",
-  },
-  {
-    name: "Coexister",
-    href: "",
-    description: "faciliter le vivre ensemble.",
   },
   {
     name: "Spazzo",
@@ -153,7 +153,7 @@ function App() {
           {!showOfferOnly && (
             <div className="mb-4 -rotate-1 bg-gradient-to-r from-sky-100 via-cyan-100 to-amber-100 text-sky-950 border-2 border-sky-400 px-5 py-3 shadow-[3px_4px_0px_rgba(12,74,110,0.45)] rounded-sm max-w-3xl relative before:absolute before:-inset-1 before:border before:border-amber-300/80 before:-z-10 before:rotate-[0.6deg]">
               <p className="text-sm md:text-base text-center font-medium tracking-wide">
-                J&apos;accompagne les associations et entrepreneurs engagé.e.s
+                J&apos;accompagne les associations et entrepreneur.e.s engagé.e.s
                 <br />
                 à mettre la Tech au service de leur mission, à prix libre.
               </p>
@@ -219,7 +219,7 @@ function App() {
 
                         <div className="space-y-3">
                           <p>
-                            Associations, entrepreneurs, collectifs : libérez-vous des tâches répétitives et créez de nouvelles opportunités grâce à des outils tech alignés avec votre mission.
+                            Associations, entrepreneur.e.s, collectifs : libérez-vous des tâches répétitives et créez de nouvelles opportunités grâce à des outils tech alignés avec votre mission.
                           </p>
                           <p>Je propose :</p>
                           <ol className="list-decimal pl-5 space-y-3 marker:text-gray-500 marker:font-medium">
@@ -297,7 +297,7 @@ function App() {
                               <p className="text-sm">
                                 <span className="font-semibold">Jade</span>{" "}
                                 voulait faciliter le troc de compétences entre
-                                entrepreneurs - {">"} une application sur mesure
+                                entrepreneur.e.s - {">"} une application sur mesure
                                 pour sa communauté
                               </p>
                             </div>
@@ -582,7 +582,7 @@ function App() {
                     <p>Aujourd'hui, j'accompagne :</p>
                     <ul className="list-disc pl-5 space-y-2">
                       <li>
-                        Des entrepreneurs en phase de lancement à passer de
+                        Des entrepreneur.e.s en phase de lancement à passer de
                         l'idée aux premières ventes, en développant leurs outils
                         tech (sites web, automatisations, CRM…) et leur
                         proposition de valeur.
