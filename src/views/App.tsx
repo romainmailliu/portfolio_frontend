@@ -21,7 +21,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Coexister",
     href: "https://www.coexister.fr/",
-    description: "faciliter le vivre ensemble.",
+    description: "faciliter le vivre ensemble",
   },
   {
     name: "Gomett",
