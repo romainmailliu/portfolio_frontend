@@ -570,7 +570,7 @@ function App() {
                         rel="noopener noreferrer"
                         className="text-base underline underline-offset-4 text-gray-600 hover:text-black"
                       >
-                        Voir mon profil LinkedIn
+                        Mon LinkedIn
                       </a>
                     </div>
                     <p className="whitespace-pre-line">
