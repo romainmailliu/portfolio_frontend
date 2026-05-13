@@ -81,7 +81,7 @@ Ingénieur avec 9 ans d'expérience à l'international, en entreprise et en ONG.
 
 J'accompagne :
 - Des entrepreneur.e.s en phase de lancement à passer de l'idée aux premières ventes (sites web, automatisations, CRM)
-- Des associations et entreprises à impact à automatiser leurs processus chronophages avec l'IA
+- Des associations et entreprises à impact pour automatiser leurs processus chronophages avec l'IA
 
 Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.js, Express, MongoDB, Vercel, n8n, Airtable, WordPress, Webflow, Figma, Framer, Supabase
 
@@ -90,9 +90,9 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 ## Derniers projets
 
 - [Coexister](https://www.coexister.fr/) — faciliter le vivre ensemble
+- [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneur.e.s
 - [ATS Séductions](https://ats-seduction.vercel.app/) — CV optimisé pour les algorithmes de recrutement
 - [Amidou](https://www.amidou.eu/) — garder le lien avec les seniors isolés
-- [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneur.e.s
 - La Camaraderie — brasserie sociale d'insertion (en cours)
 - [Spazzo](https://www.spazzo.fr/) — partage de locaux entre pros (en cours)
 - [Youth Visions](https://www.youth-visions.com/) — production de documentaires

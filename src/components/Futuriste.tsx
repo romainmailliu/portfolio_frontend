@@ -72,7 +72,7 @@ function Future() {
               destins convergent à New York où ils témoignent de leur expérience
               de la pauvreté aux Nations Unies. Au travers de l&apos;écriture, de
               la danse, de la photographie et du dessin, les protagonistes posent,
-              avec courage et joie, un oeil rare sur les grands défis
+              avec courage et joie, un œil rare sur les grands défis
               contemporains.
             </p>
 

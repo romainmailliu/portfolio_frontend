@@ -24,6 +24,11 @@ const PROJECTS: ProjectItem[] = [
     description: "faciliter le vivre ensemble.",
   },
   {
+    name: "Gomett",
+    href: "https://www.gomett.com/",
+    description: "trocs de compétences entre entrepreneur.e.s",
+  },
+  {
     name: "ATS Séductions",
     href: "https://ats-seduction.vercel.app/",
     description: "CV pour (faire) craquer les algorithmes de recrutement.",
@@ -32,11 +37,6 @@ const PROJECTS: ProjectItem[] = [
     name: "Amidou",
     href: "https://www.amidou.eu/",
     description: "garder le lien avec les seniors isolés",
-  },
-  {
-    name: "Gomett",
-    href: "https://www.gomett.com/",
-    description: "trocs de compétences entre entrepreneur.e.s",
   },
   {
     name: "La Camaraderie",
@@ -235,7 +235,7 @@ function App() {
                             </li>
                             <li>
                               <span className="font-semibold">
-                                Une proposition constuite ensemble, à prix libre.
+                                Une proposition construite ensemble, à prix libre.
                               </span>{" "}
                               Pas d'offre générique et impersonnelle. Je pars de
                               mes observations, de votre budget et nous priorisons.
@@ -346,7 +346,7 @@ function App() {
                             "Module d'articles / actualités",
                             "Formulaire de contact + inscription newsletter",
                             "Formation + vidéo pour gérer le site facilement",
-                            "Sans abonnement mensuel ",
+                            "Sans abonnement mensuel",
                           ].map((item) => (
                             <li key={item} className="flex items-start gap-2">
                               <span className="mt-1 shrink-0 text-gray-300">
@@ -588,7 +588,7 @@ function App() {
                         proposition de valeur.
                       </li>
                       <li>
-                        Des associations et entreprises à impact à automatiser
+                        Des associations et entreprises à impact pour automatiser
                         leurs processus chronophages avec l'IA pour se
                         concentrer sur leur cœur de métier.
                       </li>
@@ -601,12 +601,12 @@ function App() {
                       contemporaines, jusqu’aux Nations Unies à New York.
                     </p>
                     <p>
-                      <span className="font-semibold">Stack :</span> HTML 5,
+                      <span className="font-semibold">Stack :</span> HTML5,
                       CSS, JavaScript, TypeScript, React, React Native, Redux,
-                      Next.js, NodeJS, Express, MongoDB, Mongoose, Vercel, Git,
-                      GitHub, TDD, n8n, Airtable, Wordpress, WebFlow, Claude
+                      Next.js, Node.js, Express, MongoDB, Mongoose, Vercel, Git,
+                      GitHub, TDD, n8n, Airtable, WordPress, Webflow, Claude
                       Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma,
-                      SupaBase et Midjourney
+                      Supabase et Midjourney
                     </p>
                 </div>
               )}
