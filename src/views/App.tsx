@@ -574,10 +574,10 @@ function App() {
                       </a>
                     </div>
                     <p className="whitespace-pre-line">
-                      Ingénieur avec 9 ans d'expérience à l'international, en
-                      entreprise comme en ONG, je mets l'entrepreneuriat et
-                      l'innovation au service des défis sociaux et
-                      environnementaux.
+                      Ingénieur évoluant entre entreprises et ONG, en France et
+                      à l'international, je mets l'entrepreneuriat et
+                      l'innovation au service de l'impact social et
+                      environnemental.
                     </p>
                     <p>Aujourd'hui, j'accompagne :</p>
                     <ul className="list-disc pl-5 space-y-2">

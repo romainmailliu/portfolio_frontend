@@ -77,7 +77,7 @@ La technologie et l'IA au service de votre mission, au juste prix.
 
 ## À propos
 
-Ingénieur avec 9 ans d'expérience à l'international, en entreprise et en ONG.
+Ingénieur évoluant entre entreprises et ONG, en France et à l'international, je mets l'entrepreneuriat et l'innovation au service de l'impact social et environnemental.
 
 J'accompagne :
 - Des entrepreneur.e.s en phase de lancement à passer de l'idée aux premières ventes (sites web, automatisations, CRM)
