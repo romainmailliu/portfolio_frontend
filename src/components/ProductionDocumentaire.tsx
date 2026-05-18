@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-function Future() {
+function ProductionDocumentaire() {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -91,4 +91,4 @@ function Future() {
   );
 }
 
-export default Future;
+export default ProductionDocumentaire;

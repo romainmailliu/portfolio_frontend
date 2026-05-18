@@ -84,4 +84,4 @@ Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traita
 Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
 
 - https://www.romainmailliu.com/index.md — Page d'accueil (services, tarifs, projets, à propos)
-- https://www.romainmailliu.com/future.md — Page Production (film documentaire I AM THE FUTURE)
+- https://www.romainmailliu.com/production-documentaire.md — Page Production documentaire (film documentaire I AM THE FUTURE)
