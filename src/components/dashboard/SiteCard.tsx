@@ -3,7 +3,14 @@ import { type AnalyticsSite, publicSiteHref } from "../../config/analytics-sites
 import type { PosthogVisitorHistory } from "../../lib/analytics/posthog";
 import { KPIBox } from "./KPIBox";
 import { VisitorHistoryPanel } from "./VisitorHistoryPanel";
-import { formatCompactNumber, getEvolution } from "../../lib/analytics/math";
+import {
+  formatCompactNumber,
+  formatPagesPerVisitorRatio,
+  getEvolution,
+  getPagesPerVisitorEngagement,
+  getPagesPerVisitorRatio,
+} from "../../lib/analytics/math";
+import { RatioEngagementIndicator } from "./RatioEngagementIndicator";
 
 export type SiteMetricPayload = {
   site: AnalyticsSite;
@@ -11,7 +18,8 @@ export type SiteMetricPayload = {
   previousPageviews: number;
   currentVisitors: number;
   previousVisitors: number;
-  seoClicks: number;
+  currentGoogleVisitors: number;
+  previousGoogleVisitors: number;
   visitorHistory: PosthogVisitorHistory | null;
   error?: string | null;
 };
@@ -22,12 +30,19 @@ export function SiteCard({
   previousPageviews,
   currentVisitors,
   previousVisitors,
-  seoClicks,
+  currentGoogleVisitors,
+  previousGoogleVisitors,
   visitorHistory,
   error,
 }: SiteMetricPayload) {
   const evolutionPv = getEvolution(currentPageviews, previousPageviews);
   const evolutionVisitors = getEvolution(currentVisitors, previousVisitors);
+  const evolutionGoogle = getEvolution(
+    currentGoogleVisitors,
+    previousGoogleVisitors,
+  );
+  const ratio = getPagesPerVisitorRatio(currentPageviews, currentVisitors);
+  const ratioEngagement = getPagesPerVisitorEngagement(ratio);
   const siteHref = publicSiteHref(site.gscSiteUrl);
 
   return (
@@ -73,19 +88,21 @@ export function SiteCard({
           title="Ratio pages / visiteur"
           subtitle="sur 30 j"
           source="Pages vues ÷ visiteurs — engagement moyen"
-          value={
-            currentVisitors > 0
-              ? `${(currentPageviews / currentVisitors).toFixed(1)}×`
-              : "—"
+          value={formatPagesPerVisitorRatio(ratio)}
+          valueClassName={ratioEngagement?.valueClass}
+          footer={
+            ratioEngagement ? (
+              <RatioEngagementIndicator engagement={ratioEngagement} />
+            ) : null
           }
           deltaPercent={null}
         />
         <KPIBox
-          title="Clics SEO"
-          subtitle="30 j · fenêtre glissante"
-          source="Google Search Console · agrégat sur la même période"
-          value={formatCompactNumber(seoClicks)}
-          deltaPercent={null}
+          title="Visiteurs Google"
+          subtitle="30 j · referrer Google"
+          source="PostHog · visiteurs uniques avec $referring_domain ou $referrer Google (trafic organique approximatif, une fois sur le site)"
+          value={formatCompactNumber(currentGoogleVisitors)}
+          deltaPercent={evolutionGoogle}
         />
       </div>
 

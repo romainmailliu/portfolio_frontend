@@ -1,6 +1,5 @@
 import type { SiteMetricPayload } from "../../components/dashboard/SiteCard";
 import { ANALYTICS_SITES } from "../../config/analytics-sites";
-import { getGSCClicks } from "./gsc";
 import {
   getPosthogTrafficMetrics,
   getPosthogVisitorHistory,
@@ -15,7 +14,8 @@ const emptyPayload = (
   previousPageviews: 0,
   currentVisitors: 0,
   previousVisitors: 0,
-  seoClicks: 0,
+  currentGoogleVisitors: 0,
+  previousGoogleVisitors: 0,
   visitorHistory: null,
   error,
 });
@@ -41,14 +41,14 @@ export async function loadDashboardRows(): Promise<SiteMetricPayload[]> {
       let previousPageviews = 0;
       let currentVisitors = 0;
       let previousVisitors = 0;
-      let seoClicks = 0;
+      let currentGoogleVisitors = 0;
+      let previousGoogleVisitors = 0;
       let visitorHistory: SiteMetricPayload["visitorHistory"] = null;
       const errs: string[] = [];
 
-      const [rMetrics, rHistory, rSeo] = await Promise.allSettled([
+      const [rMetrics, rHistory] = await Promise.allSettled([
         getPosthogTrafficMetrics(site.id),
         getPosthogVisitorHistory(site.id),
-        getGSCClicks(site.gscSiteUrl),
       ]);
 
       if (rMetrics.status === "fulfilled") {
@@ -56,6 +56,8 @@ export async function loadDashboardRows(): Promise<SiteMetricPayload[]> {
         previousPageviews = rMetrics.value.previousPageviews;
         currentVisitors = rMetrics.value.currentVisitors;
         previousVisitors = rMetrics.value.previousVisitors;
+        currentGoogleVisitors = rMetrics.value.currentGoogleVisitors;
+        previousGoogleVisitors = rMetrics.value.previousGoogleVisitors;
       } else {
         const msg =
           rMetrics.reason instanceof Error
@@ -74,23 +76,14 @@ export async function loadDashboardRows(): Promise<SiteMetricPayload[]> {
         errs.push(msg);
       }
 
-      if (rSeo.status === "fulfilled") {
-        seoClicks = rSeo.value;
-      } else {
-        const msg =
-          rSeo.reason instanceof Error
-            ? rSeo.reason.message
-            : "Search Console : erreur";
-        errs.push(msg);
-      }
-
       return {
         site,
         currentPageviews,
         previousPageviews,
         currentVisitors,
         previousVisitors,
-        seoClicks,
+        currentGoogleVisitors,
+        previousGoogleVisitors,
         visitorHistory,
         error: errs.length ? errs.join(" · ") : null,
       };

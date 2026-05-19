@@ -63,7 +63,7 @@ async function runHogQLJson(
       query: { kind: "HogQLQuery", query: hogql },
       name: queryName,
     }),
-    next: { revalidate: 600 },
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -171,7 +171,18 @@ export type PosthogTrafficMetrics = {
   previousPageviews: number;
   currentVisitors: number;
   previousVisitors: number;
+  currentGoogleVisitors: number;
+  previousGoogleVisitors: number;
 };
+
+/** Sessions dont le referrer indique Google (trafic organique approximatif côté site). */
+const GOOGLE_REFERRER_FILTER = `
+  AND (
+    ilike(toString(properties.\`$referring_domain\`), '%google.%')
+    OR ilike(toString(properties.\`$referring_domain\`), '%google%')
+    OR ilike(toString(properties.\`$referrer\`), '%google.%')
+  )
+`.trim();
 
 /**
  * Fenêtres glissantes 30 j vs 30 j précédents — pages vues et visiteurs uniques PostHog.
@@ -226,6 +237,26 @@ export async function getPosthogTrafficMetrics(
       ${extra}
   `.trim();
 
+  const googleVisitorCurrent = `
+    SELECT uniq(person_id) AS c
+    FROM events
+    WHERE event = '$pageview'
+      AND timestamp >= now() - INTERVAL 30 DAY
+      AND timestamp < now()
+      ${GOOGLE_REFERRER_FILTER}
+      ${extra}
+  `.trim();
+
+  const googleVisitorPrevious = `
+    SELECT uniq(person_id) AS c
+    FROM events
+    WHERE event = '$pageview'
+      AND timestamp >= now() - INTERVAL 60 DAY
+      AND timestamp < now() - INTERVAL 30 DAY
+      ${GOOGLE_REFERRER_FILTER}
+      ${extra}
+  `.trim();
+
   const pid = site.posthogProjectId;
 
   const [
@@ -233,11 +264,15 @@ export async function getPosthogTrafficMetrics(
     previousPageviews,
     currentVisitors,
     previousVisitors,
+    currentGoogleVisitors,
+    previousGoogleVisitors,
   ] = await Promise.all([
     runHogQLScalar(pid, pageCurrent, credentials, "dash_pv_current"),
     runHogQLScalar(pid, pagePrevious, credentials, "dash_pv_previous"),
     runHogQLScalar(pid, visitorCurrent, credentials, "dash_vis_current"),
     runHogQLScalar(pid, visitorPrevious, credentials, "dash_vis_previous"),
+    runHogQLScalar(pid, googleVisitorCurrent, credentials, "dash_google_vis_current"),
+    runHogQLScalar(pid, googleVisitorPrevious, credentials, "dash_google_vis_previous"),
   ]);
 
   return {
@@ -245,6 +280,8 @@ export async function getPosthogTrafficMetrics(
     previousPageviews,
     currentVisitors,
     previousVisitors,
+    currentGoogleVisitors,
+    previousGoogleVisitors,
   };
 }
 

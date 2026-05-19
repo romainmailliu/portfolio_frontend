@@ -7,7 +7,7 @@ export type AnalyticsSite = {
   posthogProjectId: string;
   /** Extra HogQL predicates, e.g. `AND ilike(toString(properties.$host), '%mysite.com%')` */
   posthogExtraFilter?: string;
-  /** Search Console property: https://www.example.com/ ou sc-domain:example.com */
+  /** URL publique du site (lien « Site ») : https://www.example.com/ ou sc-domain:example.com */
   gscSiteUrl: string;
   /**
    * Identifiants dédiés : `POSTHOG_API_KEY_<SUFFIX>` et `POSTHOG_HOST_<SUFFIX>`.
@@ -44,6 +44,26 @@ const amidou: AnalyticsSite = {
   posthogCredentialSuffix: "AMIDOU",
 };
 
+/** Gomett — clé / ID dédiés (suffixe GOMETT). https://www.gomett.com/ */
+const gomett: AnalyticsSite = {
+  id: "gomett",
+  name: "Gomett",
+  posthogProjectId: process.env.POSTHOG_PROJECT_ID_GOMETT ?? "",
+  gscSiteUrl:
+    process.env.GSC_SITE_URL_GOMETT ?? "https://www.gomett.com/",
+  posthogCredentialSuffix: "GOMETT",
+};
+
+/** Coexister — clé / ID dédiés (suffixe COEXISTER). https://www.coexister.fr/ */
+const coexister: AnalyticsSite = {
+  id: "coexister",
+  name: "Coexister",
+  posthogProjectId: process.env.POSTHOG_PROJECT_ID_COEXISTER ?? "",
+  gscSiteUrl:
+    process.env.GSC_SITE_URL_COEXISTER ?? "https://www.coexister.fr/",
+  posthogCredentialSuffix: "COEXISTER",
+};
+
 const portfolio: AnalyticsSite | null = process.env.POSTHOG_PROJECT_ID_PORTFOLIO
   ? {
       id: "portfolio",
@@ -61,6 +81,8 @@ const portfolio: AnalyticsSite | null = process.env.POSTHOG_PROJECT_ID_PORTFOLIO
 export const ANALYTICS_SITES: AnalyticsSite[] = [
   atsSeduction,
   amidou,
+  gomett,
+  coexister,
   ...(portfolio ? [portfolio] : []),
 ];
 

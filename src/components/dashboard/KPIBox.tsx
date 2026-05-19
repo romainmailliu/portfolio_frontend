@@ -8,6 +8,10 @@ type KPIBoxProps = {
   /** Évolution vs la fenêtre −30 j (même durée), affichée sous la valeur */
   deltaPercent?: number | null;
   valueEvolutionHint?: number | null;
+  /** Couleur du chiffre principal (ex. ratio engagement) */
+  valueClassName?: string;
+  /** Contenu sous la valeur (jauge, pastille…) */
+  footer?: React.ReactNode;
 };
 
 export function KPIBox({
@@ -17,6 +21,8 @@ export function KPIBox({
   value,
   deltaPercent,
   valueEvolutionHint,
+  valueClassName,
+  footer,
 }: KPIBoxProps) {
   const showDeltaLine =
     deltaPercent !== undefined && deltaPercent !== null && Number.isFinite(deltaPercent);
@@ -25,11 +31,12 @@ export function KPIBox({
     x === 0 ? "text-neutral-600" : x > 0 ? "text-emerald-600" : "text-red-600";
 
   const valueTone =
-    valueEvolutionHint !== undefined &&
+    valueClassName ??
+    (valueEvolutionHint !== undefined &&
     valueEvolutionHint !== null &&
     Number.isFinite(valueEvolutionHint)
       ? toneFrom(valueEvolutionHint)
-      : "text-neutral-900";
+      : "text-neutral-900");
 
   const deltaTone = showDeltaLine ? toneFrom(deltaPercent!) : "";
 
@@ -52,6 +59,7 @@ export function KPIBox({
       <p className={`mt-2 text-2xl font-semibold tabular-nums ${valueTone}`}>
         {value}
       </p>
+      {footer}
       {showDeltaLine ? (
         <p className={`mt-1 text-sm font-medium tabular-nums ${deltaTone}`}>
           vs fenêtre −30 j · {formattedDelta}
