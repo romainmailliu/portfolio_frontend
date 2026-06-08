@@ -1,4 +1,4 @@
-/** Session dashboard : HMAC via Web Crypto (Edge middleware + routes Node). */
+/** Session dashboard : HMAC via Web Crypto (proxy + routes Node). */
 
 const SESSION_SEP = ".";
 
