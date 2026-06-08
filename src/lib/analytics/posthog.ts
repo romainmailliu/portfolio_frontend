@@ -7,6 +7,15 @@ function normalizeHost(raw: string): string {
   return raw.replace(/\/$/, "");
 }
 
+/** HogQL `/query` exige une clé personnelle (phx_), pas la clé projet client (phc_). */
+function assertPersonalApiKey(apiKey: string, varName: string): void {
+  if (apiKey.startsWith("phc_")) {
+    throw new Error(
+      `${varName} : clé projet (phc_) détectée. Créez une clé personnelle (phx_) dans PostHog → Settings → Personal API keys, scope « query:read ».`,
+    );
+  }
+}
+
 /** Clé + host API pour HogQL selon le site (compte global ou suffixe dédié). */
 function resolvePosthogCredentials(site: AnalyticsSite): {
   apiKey: string;
@@ -31,6 +40,7 @@ function resolvePosthogCredentials(site: AnalyticsSite): {
           : `${keyVar} manquant (${site.name}, compte PostHog dédié).`,
       );
     }
+    assertPersonalApiKey(apiKey, keyVar);
     const rawHost =
       process.env[hostVar]?.trim() ||
       process.env.POSTHOG_HOST ||
@@ -43,6 +53,7 @@ function resolvePosthogCredentials(site: AnalyticsSite): {
     throw new Error(
       "POSTHOG_API_KEY manquant (ex. carte Portfolio sans suffixe)",
     );
+  assertPersonalApiKey(apiKey, "POSTHOG_API_KEY");
   const rawHost = process.env.POSTHOG_HOST || DEFAULT_POSTHOG_HOST;
   return { apiKey, host: normalizeHost(rawHost) };
 }
@@ -70,7 +81,16 @@ async function runHogQLJson(
 
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`PostHog ${res.status}: ${body.slice(0, 180)}`);
+    let hint = "";
+    if (
+      res.status === 403 &&
+      body.includes("authentication_failed") &&
+      body.includes("invalid")
+    ) {
+      hint =
+        " Vérifiez : clé personnelle phx_ (scope query:read), POSTHOG_HOST = région du compte (eu.posthog.com vs us.posthog.com), clé du même compte que le project ID.";
+    }
+    throw new Error(`PostHog ${res.status}: ${body.slice(0, 180)}${hint}`);
   }
 
   return res.json();
