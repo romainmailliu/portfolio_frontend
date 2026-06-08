@@ -4,7 +4,7 @@ import { verifyDashboardSessionCookie } from "./lib/dashboard-session";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname === "/dashboard/login") {
+  if (pathname === "/admin/login") {
     return NextResponse.next();
   }
 
@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
     !secret ||
     !(await verifyDashboardSessionCookie(token, secret))
   ) {
-    const login = new URL("/dashboard/login", request.url);
+    const login = new URL("/admin/login", request.url);
     login.searchParams.set("from", pathname);
     return NextResponse.redirect(login);
   }
@@ -24,5 +24,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard", "/dashboard/:path*"],
+  matcher: ["/admin", "/admin/:path*"],
 };

@@ -42,7 +42,7 @@ export default async function DashboardPage({
           >
             ← Site public
           </Link>
-          <form action="/api/dashboard/logout" method="POST">
+          <form action="/api/admin/logout" method="POST">
             <input type="hidden" name="csrf" value={logoutCsrf} />
             <button
               type="submit"

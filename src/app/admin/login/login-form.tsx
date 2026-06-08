@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function DashboardLoginForm() {
   const searchParams = useSearchParams();
-  const from = searchParams.get("from") ?? "/dashboard";
+  const from = searchParams.get("from") ?? "/admin";
 
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export function DashboardLoginForm() {
     setError(null);
     setPending(true);
     try {
-      const res = await fetch("/api/dashboard/login", {
+      const res = await fetch("/api/admin/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
@@ -29,7 +29,7 @@ export function DashboardLoginForm() {
         setPending(false);
         return;
       }
-      window.location.href = from.startsWith("/dashboard") ? from : "/dashboard";
+      window.location.href = from.startsWith("/admin") ? from : "/admin";
     } catch {
       setError("Erreur réseau — réessayez");
       setPending(false);

@@ -64,6 +64,15 @@ const coexister: AnalyticsSite = {
   posthogCredentialSuffix: "COEXISTER",
 };
 
+/** Annuaire La Ruche Transforama — suffixe ANNUAIRE_LA_RUCHE */
+const annuaireLaRuche: AnalyticsSite = {
+  id: "annuaire-la-ruche",
+  name: "Annuaire La Ruche",
+  posthogProjectId: process.env.POSTHOG_PROJECT_ID_ANNUAIRE_LA_RUCHE ?? "",
+  gscSiteUrl: process.env.GSC_SITE_URL_ANNUAIRE_LA_RUCHE ?? "",
+  posthogCredentialSuffix: "ANNUAIRE_LA_RUCHE",
+};
+
 const portfolio: AnalyticsSite | null = process.env.POSTHOG_PROJECT_ID_PORTFOLIO
   ? {
       id: "portfolio",
@@ -76,13 +85,14 @@ const portfolio: AnalyticsSite | null = process.env.POSTHOG_PROJECT_ID_PORTFOLIO
   : null;
 
 /**
- * Sites sur /dashboard (une carte par ligne). Ordre d’affichage.
+ * Sites sur /admin (une carte par ligne). Ordre d’affichage.
  */
 export const ANALYTICS_SITES: AnalyticsSite[] = [
   atsSeduction,
   amidou,
   gomett,
   coexister,
+  annuaireLaRuche,
   ...(portfolio ? [portfolio] : []),
 ];
 
