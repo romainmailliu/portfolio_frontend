@@ -18,15 +18,17 @@ function resolvePosthogCredentials(site: AnalyticsSite): {
     const keyVar = `POSTHOG_API_KEY_${suffix}` as const;
     const hostVar = `POSTHOG_HOST_${suffix}` as const;
     let apiKey = process.env[keyVar]?.trim() ?? "";
-    const separateAccountNoLegacyFallback = suffix === "AMIDOU";
-    if (!apiKey && !separateAccountNoLegacyFallback) {
+    // Repli global uniquement pour ATS (héritage) — évite un 403 si POSTHOG_API_KEY
+    // pointe vers un autre compte alors que le project ID est dédié.
+    const allowLegacyGlobalKey = suffix === "ATS_SEDUCTION";
+    if (!apiKey && allowLegacyGlobalKey) {
       apiKey = process.env.POSTHOG_API_KEY?.trim() ?? "";
     }
     if (!apiKey) {
       throw new Error(
-        separateAccountNoLegacyFallback
-          ? `${keyVar} manquant (${site.name}, compte PostHog dédié).`
-          : `${keyVar} ou POSTHOG_API_KEY manquant (${site.name}).`,
+        allowLegacyGlobalKey
+          ? `${keyVar} ou POSTHOG_API_KEY manquant (${site.name}).`
+          : `${keyVar} manquant (${site.name}, compte PostHog dédié).`,
       );
     }
     const rawHost =

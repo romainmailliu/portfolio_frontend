@@ -11,7 +11,7 @@ export type AnalyticsSite = {
   gscSiteUrl: string;
   /**
    * Identifiants dédiés : `POSTHOG_API_KEY_<SUFFIX>` et `POSTHOG_HOST_<SUFFIX>`.
-   * Host : repli sur `POSTHOG_HOST`. Clé Amidou (`AMIDOU`) sans repli ; ATS (`ATS_SEDUCTION`) repli `POSTHOG_API_KEY` (héritage).
+   * Host : repli sur `POSTHOG_HOST`. Repli `POSTHOG_API_KEY` global : ATS (`ATS_SEDUCTION`) uniquement.
    */
   posthogCredentialSuffix?: string;
 };
