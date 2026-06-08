@@ -13,11 +13,11 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     csrf = formData.get("csrf")?.toString();
   } catch {
-    return NextResponse.redirect(new URL("/admin?logout_err=form", request.url));
+    return NextResponse.redirect(new URL("/admin?logout_err=form", request.url), 303);
   }
 
   if (!(await verifyLogoutCsrfToken(csrf, secret))) {
-    return NextResponse.redirect(new URL("/admin?logout_err=csrf", request.url));
+    return NextResponse.redirect(new URL("/admin?logout_err=csrf", request.url), 303);
   }
 
   const jar = await cookies();
@@ -29,5 +29,5 @@ export async function POST(request: Request) {
     sameSite: "lax",
   });
 
-  return NextResponse.redirect(new URL("/admin/login", request.url));
+  return NextResponse.redirect(new URL("/admin/login", request.url), 303);
 }
