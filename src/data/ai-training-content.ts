@@ -7,6 +7,7 @@ export type Testimonial = {
 export type CredibilityStat = {
   value: string;
   label: string;
+  tag?: string;
   isPlaceholder?: boolean;
 };
 
@@ -181,6 +182,26 @@ export const portfolioClientStories: Testimonial[] = [
 export const testimonialsIntro =
   "Same approach across projects: practical tools, real time saved, no jargon.";
 
+/** Short quotes for the hero — fills space below CTA on desktop. */
+export const heroTestimonials: Testimonial[] = [
+  {
+    quote:
+      "Was losing hours on purchase orders — Excel now generates them automatically.",
+    name: "Antoine",
+    role: "Manager, Solerra",
+  },
+  {
+    quote: "We publish events on our own now — no developer needed.",
+    name: "Pierre",
+    role: "Manager, La Camaraderie",
+  },
+];
+
+export const statsContent = {
+  label: "Track record",
+  title: "By the numbers",
+};
+
 export const offers: Offer[] = [
   {
     number: "01",
@@ -220,17 +241,20 @@ export const offers: Offer[] = [
 export const credibilityStats: CredibilityStat[] = [
   {
     value: "20+",
-    label: "Clients on tech, automation & AI projects — since early 2026",
+    tag: "Clients",
+    label: "On tech, automation & AI projects — since early 2026",
     isPlaceholder: false,
   },
   {
     value: "10+",
+    tag: "Experience",
     label: "Years training teams & advising managers",
     isPlaceholder: false,
   },
   {
     value: "2–4h",
-    label: "Typical weekly time recovered (inbox workflow, post-session)",
+    tag: "Time back",
+    label: "Typical weekly hours recovered (inbox workflow, post-session)",
     isPlaceholder: false,
   },
 ];

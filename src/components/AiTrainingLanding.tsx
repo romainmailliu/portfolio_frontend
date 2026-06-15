@@ -7,9 +7,12 @@ import {
   Calendar,
   ChevronDown,
   ClipboardList,
+  GraduationCap,
   Mail,
   MessageSquare,
   Sparkles,
+  Timer,
+  Users,
 } from "lucide-react";
 import {
   SketchClaudeLogo,
@@ -36,6 +39,8 @@ import {
   profilePhotoSrc,
   paymentNote,
   stackContent,
+  statsContent,
+  heroTestimonials,
   testimonialsIntro,
 } from "../data/ai-training-content";
 
@@ -197,20 +202,76 @@ function ProfilePhoto({ className = "" }: { className?: string }) {
   );
 }
 
-function StatCard({ stat }: { stat: CredibilityStat }) {
+function StatCard({ stat, index }: { stat: CredibilityStat; index: number }) {
+  const configs = [
+    { icon: Users, accent: "sky", tilt: "left" as const },
+    { icon: GraduationCap, accent: "mint", tilt: "center" as const, featured: true },
+    { icon: Timer, accent: "sun", tilt: "right" as const },
+  ];
+  const cfg = configs[index] ?? configs[0];
+  const Icon = cfg.icon;
+
   return (
-    <div className="ai-card relative p-6 text-center">
-      {stat.isPlaceholder && showEditorHints && (
-        <span className="absolute right-3 top-3 rounded-full border border-dashed border-sky-300 bg-sky-50 px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider text-sky-700">
-          TBD
-        </span>
+    <div
+      className={`ai-stat-card ai-stat-card--${cfg.accent} ai-stat-card--tilt-${cfg.tilt} ${
+        cfg.featured ? "ai-stat-card--featured" : ""
+      }`}
+    >
+      <div className="ai-stat-card__glow" aria-hidden />
+      {stat.tag && (
+        <span className="ai-stat-card__tag">{stat.tag}</span>
       )}
-      <p
-        className={`text-3xl font-bold tracking-tight md:text-4xl ${stat.isPlaceholder ? "text-sky-600/70" : "text-slate-900"}`}
+      <div
+        className={`ai-sketch-logo-wrap ai-sketch-reason-icon ai-sketch-reason-icon--${cfg.accent} ai-stat-card__icon mx-auto ${
+          cfg.tilt === "right"
+            ? "ai-sketch-logo-wrap--tilt-right"
+            : cfg.tilt === "left"
+              ? "ai-sketch-logo-wrap--tilt-left"
+              : ""
+        }`}
       >
-        {stat.value}
+        <Icon className="h-full w-full" strokeWidth={1.5} />
+      </div>
+      <p className="ai-stat-card__value tabular-nums">{stat.value}</p>
+      <p className="ai-stat-card__label">{stat.label}</p>
+    </div>
+  );
+}
+
+function HeroTestimonials() {
+  return (
+    <div className="mt-10 lg:mt-auto lg:pt-10">
+      <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
+        What clients say
       </p>
-      <p className="mt-2 text-xs leading-relaxed text-balance text-slate-500">{stat.label}</p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {heroTestimonials.map((item, i) => (
+          <figure
+            key={`${item.name}-${i}`}
+            className={`ai-hero-quote ${i % 2 === 0 ? "ai-hero-quote--tilt-left" : "ai-hero-quote--tilt-right"}`}
+          >
+            <blockquote className="text-sm leading-snug text-slate-700">
+              &ldquo;{item.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-3 flex items-center gap-2">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-800">
+                {item.name.charAt(0)}
+              </span>
+              <div className="min-w-0 text-left">
+                <p className="truncate text-xs font-semibold text-slate-900">{item.name}</p>
+                <p className="truncate text-[11px] text-slate-500">{item.role}</p>
+              </div>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <a
+        href="#testimonials"
+        className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-sky-700 transition-colors hover:text-sky-900"
+      >
+        More client stories
+        <ArrowRight className="h-3 w-3" />
+      </a>
     </div>
   );
 }
@@ -411,8 +472,8 @@ export default function AiTrainingLanding() {
       <main className="relative z-[1] pb-24 sm:pb-0">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-5 pb-16 pt-[max(4rem,env(safe-area-inset-top))] sm:px-8 md:pb-24 md:pt-20">
-          <div className="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
-            <div>
+          <div className="lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-16">
+            <div className="flex flex-col">
               <h1
                 className="text-[clamp(2.35rem,5.5vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-slate-900"
                 style={{
@@ -464,6 +525,15 @@ export default function AiTrainingLanding() {
                 </p>
                 <BookingPlaceholder />
               </div>
+
+              <div
+                style={{
+                  opacity: heroReady ? 1 : 0,
+                  transition: "opacity 0.55s ease 0.4s",
+                }}
+              >
+                <HeroTestimonials />
+              </div>
             </div>
 
             <div
@@ -485,15 +555,23 @@ export default function AiTrainingLanding() {
         </section>
 
         {/* Stats */}
-        <section className="border-y border-slate-200 bg-white/80 backdrop-blur-sm">
-          <div className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
+        <section className="ai-stats-band relative overflow-hidden border-y border-slate-200">
+          <div className="ai-stats-band__glow pointer-events-none absolute inset-0" aria-hidden />
+          <div className="relative mx-auto max-w-6xl px-5 py-14 sm:px-8 md:py-16">
             <Reveal>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {credibilityStats.map((stat) => (
-                  <StatCard key={stat.label} stat={stat} />
-                ))}
-              </div>
+              <SectionHeader
+                label={statsContent.label}
+                title={statsContent.title}
+                stickerTilt="left"
+              />
             </Reveal>
+            <div className="mt-12 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              {credibilityStats.map((stat, i) => (
+                <Reveal key={stat.label} delay={80 + i * 100}>
+                  <StatCard stat={stat} index={i} />
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
