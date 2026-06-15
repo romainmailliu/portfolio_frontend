@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Practical AI Training for Leaders and Teams">
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#cbd5e1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.6"/>
+  <text x="80" y="120" fill="#0369a1" font-family="system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="4">PRACTICAL AI TRAINING</text>
+  <text x="80" y="220" fill="#0f172a" font-family="system-ui, sans-serif" font-size="58" font-weight="700">Give your team</text>
+  <text x="80" y="300" fill="#0f172a" font-family="system-ui, sans-serif" font-size="58" font-weight="700">practical AI skills</text>
+  <text x="80" y="380" fill="#0369a1" font-family="system-ui, sans-serif" font-size="48" font-weight="700">without the hype</text>
+  <text x="80" y="470" fill="#64748b" font-family="system-ui, sans-serif" font-size="26">Romain Mailliu · Remote sessions for leaders &amp; teams</text>
+</svg>
