@@ -8,6 +8,7 @@ import {
   ChevronDown,
   ClipboardList,
   GraduationCap,
+  Linkedin,
   Mail,
   MessageSquare,
   Sparkles,
@@ -33,6 +34,7 @@ import {
   getMailtoHref,
   hasBookingLink,
   inboxExample,
+  linkedinUrl,
   offers,
   portfolioClientStories,
   profileBio,
@@ -545,10 +547,20 @@ export default function AiTrainingLanding() {
               }}
             >
               <ProfilePhoto className="mx-auto aspect-[4/5] w-full max-w-sm lg:mx-0" />
-              <div className="ai-card mt-4 p-5">
-                <p className="text-lg font-bold text-slate-900">{profileBio.name}</p>
+              <div className="ai-card relative mt-4 p-5">
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:border-sky-200 hover:bg-sky-50 hover:text-sky-700"
+                  aria-label="Romain Mailliu on LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" strokeWidth={1.75} />
+                </a>
+                <p className="pr-10 text-lg font-bold text-slate-900">{profileBio.name}</p>
                 <p className="mt-1 text-sm font-medium text-sky-800">{profileBio.title}</p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{profileBio.bio}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{profileBio.languages}</p>
               </div>
             </div>
           </div>

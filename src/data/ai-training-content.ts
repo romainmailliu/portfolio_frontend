@@ -134,8 +134,11 @@ export const ogImagePath = "/ai-training-og.svg";
 export const profileBio = {
   name: "Romain Mailliu",
   title: "Engineer · AI Coach for Managers",
-  bio: "Background in consulting, international development projects (France, Lebanon, Indonesia, India, England, United States), and entrepreneurship. I work in French and English.",
+  bio: "Background in consulting, international development projects (France, Lebanon, Indonesia, India, England, United States), and entrepreneurship.",
+  languages: "I work in French and English.",
 };
+
+export const linkedinUrl = "https://www.linkedin.com/in/romain-mailliu/";
 
 export const mailtoSubject = "2-hour AI coaching session — booking";
 
