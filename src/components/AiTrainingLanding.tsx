@@ -6,6 +6,7 @@ import {
   ArrowRight,
   Calendar,
   ChevronDown,
+  ClipboardList,
   Mail,
   MessageSquare,
   Sparkles,
@@ -35,6 +36,7 @@ import {
   profilePhotoSrc,
   paymentNote,
   stackContent,
+  testimonialsIntro,
 } from "../data/ai-training-content";
 
 function useInView(threshold = 0.15) {
@@ -259,7 +261,7 @@ function FaqAccordion() {
   );
 }
 
-const inboxStepIcons = [MessageSquare, Sparkles, Calendar] as const;
+const inboxStepIcons = [MessageSquare, Sparkles, Calendar, ClipboardList] as const;
 
 const reasons = [
   {
@@ -419,8 +421,8 @@ export default function AiTrainingLanding() {
                   transition: "opacity 0.55s ease 0.08s, transform 0.55s ease 0.08s",
                 }}
               >
-                Give your team practical AI skills
-                <span className="block text-sky-700">without the hype</span>
+                Start with you.
+                <span className="block text-sky-700">Scale to your team.</span>
               </h1>
 
               <p
@@ -431,8 +433,8 @@ export default function AiTrainingLanding() {
                   transition: "opacity 0.55s ease 0.16s, transform 0.55s ease 0.16s",
                 }}
               >
-                Hands-on training for you and your team — set up real workflows on
-                day one, not another slide deck.
+                A 2-hour session to put AI in your day-to-day — then scale to your team.
+                Real workflows on day one, not another slide deck.
               </p>
 
               <div
@@ -578,7 +580,7 @@ export default function AiTrainingLanding() {
                 By connecting an AI assistant like Claude to your email, you can:
               </p>
             </Reveal>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {inboxExample.steps.map((step, i) => {
                 const Icon = inboxStepIcons[i] ?? MessageSquare;
                 return (
@@ -637,7 +639,7 @@ export default function AiTrainingLanding() {
               <SectionHeader
                 label="Recent client work"
                 title="Problems solved, results delivered"
-                description="Recent projects from my portfolio."
+                description={testimonialsIntro}
                 stickerTilt="left"
               />
             </Reveal>
@@ -715,7 +717,7 @@ export default function AiTrainingLanding() {
                   Book your 2-hour coaching session
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-lg text-slate-600">
-                  Claude set up on your email, priorities, and calendar — in one call.
+                  Claude set up on your email, priorities, calendar, and meeting notes — in one call.
                   {` ${paymentNote}`}
                 </p>
                 <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -738,7 +740,7 @@ export default function AiTrainingLanding() {
         </section>
 
         <footer className="border-t border-slate-200 py-10 text-center text-sm text-slate-400">
-          <p>© {new Date().getFullYear()} Romain Mailliu · Practical AI Training</p>
+          <p>© {new Date().getFullYear()} Romain Mailliu · Practical AI Coaching</p>
         </footer>
       </main>
 

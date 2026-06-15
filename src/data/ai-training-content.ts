@@ -37,7 +37,7 @@ export type Offer = {
 
 export const approachContent = {
   label: "The approach",
-  title: "First you. Then your team.",
+  title: "Start with you. Scale to your team.",
   intro: "A 2-hour call to put AI in your day-to-day and save time.",
   footnote: "Remote sessions · Flexible scheduling. Pay at the end — only if you're satisfied.",
 };
@@ -52,7 +52,7 @@ export const stackContent = {
     name: "Claude",
     logoSrc: "/ai-training/logos/claude.svg",
     label: "I work with Claude",
-    note: "Hands-on setup during your session — not a generic demo.",
+    note: "Hands-on setup during your session — not a generic demo. Advanced features (MCP, Skills) only if useful for your role.",
     techTags: ["MCP", "Skills", "Cowork", "Claude Code"],
   },
   adapt: {
@@ -105,7 +105,7 @@ export type InboxExample = {
 
 export const contactEmail = "romain.mailliu@gmail.com";
 
-// bookingUrl: your Cal.com event for the 2-hour coaching session (not a discovery call)
+// Cal.com slug is /15min; event is "Personal coaching - 2h meeting"
 export const bookingUrl: string | null =
   "https://cal.com/mailliu-romain-tcumz2/15min";
 
@@ -132,7 +132,7 @@ export const ogImagePath = "/ai-training-og.svg";
 
 export const profileBio = {
   name: "Romain Mailliu",
-  title: "Engineer · Your AI coach",
+  title: "Engineer · AI Coach for Managers",
   bio: "Background in consulting, international development projects (France, Lebanon, Indonesia, India, England, United States), and entrepreneurship. I work in French and English.",
 };
 
@@ -151,8 +151,13 @@ export function hasBookingLink(): boolean {
   return Boolean(bookingUrl);
 }
 
-/** Client stories from romainmailliu.com portfolio (dernières réalisations). */
 export const portfolioClientStories: Testimonial[] = [
+  {
+    quote:
+      "Was losing hours editing purchase orders by hand — Excel files now generate the documents automatically.",
+    name: "Antoine",
+    role: "Manager, Solerra",
+  },
   {
     quote:
       "Needed to be visible before launch — got a site optimized for Google and AI tools, ready on day one.",
@@ -167,17 +172,14 @@ export const portfolioClientStories: Testimonial[] = [
   },
   {
     quote:
-      "Was losing hours editing purchase orders by hand — Excel files now generate the documents automatically.",
-    name: "Antoine",
-    role: "Manager, Solerra",
-  },
-  {
-    quote:
       "We wanted to make skill swaps easier for entrepreneurs — we built a custom app for our community.",
     name: "Jade",
     role: "Founder, Gomett",
   },
 ];
+
+export const testimonialsIntro =
+  "Same approach across projects: practical tools, real time saved, no jargon.";
 
 export const offers: Offer[] = [
   {
@@ -190,9 +192,11 @@ export const offers: Offer[] = [
       "Claude set up on your tools",
       "Email: triage, draft replies, priorities",
       "Calendar connected to your workflow",
+      "Meeting notes: summaries, action items, and follow-ups from your calls",
+      "Your data stays yours — I don't access your accounts, emails, or files",
     ],
     outcome:
-      "After 2 hours, Claude is set up and ready — emails, priorities, and agenda.",
+      "After 2 hours, Claude is set up and ready — emails, priorities, agenda, and meeting notes. Ready to use the next day.",
     bestFor: "You, one-on-one.",
   },
   {
@@ -202,8 +206,9 @@ export const offers: Offer[] = [
     priceNote: "On quote",
     summary: "Deploy the same setup across your team.",
     bullets: [
-      "Same workflows: email, priorities, calendar",
+      "Same workflows: email, priorities, calendar, meeting notes",
       "Adapted to each role in your organization",
+      "Same security model — your data stays on your accounts",
       "Hands-on sessions for you and your team",
     ],
     outcome: "Once it works for you, your team gets there too.",
@@ -215,7 +220,7 @@ export const offers: Offer[] = [
 export const credibilityStats: CredibilityStat[] = [
   {
     value: "20+",
-    label: "Clients accompanied on tech, automation & AI projects — since early 2026",
+    label: "Clients on tech, automation & AI projects — since early 2026",
     isPlaceholder: false,
   },
   {
@@ -225,8 +230,8 @@ export const credibilityStats: CredibilityStat[] = [
   },
   {
     value: "2–4h",
-    label: "Typical weekly time you could recover (inbox workflow, post-session)",
-    isPlaceholder: true,
+    label: "Typical weekly time recovered (inbox workflow, post-session)",
+    isPlaceholder: false,
   },
 ];
 
@@ -260,6 +265,11 @@ export const inboxExample: InboxExample = {
       title: "Weekly plan",
       text: "Your emails and meetings turned into priorities, delegations, and follow-ups.",
       timeSaved: "~30–45 min saved vs. manual recap",
+    },
+    {
+      title: "Meeting recap",
+      text: "Summaries, action items, and follow-ups from your calls — ready to review and share.",
+      timeSaved: "~20–30 min saved per meeting",
     },
   ],
   timeBreakdown: [
@@ -303,7 +313,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Is your company data safe?",
     answer:
-      "Yes. You stay in control of what tools connect to what data, and every output is reviewed before you use it.",
+      "Yes. I never access your accounts, emails, or files — you configure everything on your own tools. Every output is reviewed before you use it.",
   },
   {
     question: "How much does it cost?",
@@ -318,7 +328,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "How soon will you see results?",
     answer:
-      "After the 2-hour session, Claude is set up on your email, priorities, and calendar. You use it the next day.",
+      "After the 2-hour session, Claude is set up on your email, priorities, calendar, and meeting notes. You use it the next day.",
   },
   {
     question: "Personal session or team rollout?",

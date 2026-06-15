@@ -10,26 +10,26 @@ const sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Practical AI Training for Managers and Teams",
+  title: "Practical AI Coaching for Managers",
   description:
-    "Hands-on AI coaching for you and your team — no hype, real productivity gains. Remote sessions tailored to your business.",
+    "Start with you. Scale to your team. Hands-on 2-hour Claude coaching for managers — no hype, real productivity gains.",
   robots: {
     index: false,
     follow: false,
     googleBot: { index: false, follow: false },
   },
   openGraph: {
-    title: "Practical AI Training for Managers and Teams",
+    title: "Practical AI Coaching for Managers",
     description:
-      "Hands-on AI coaching for you and your team — no hype, real productivity gains.",
-    images: [{ url: ogImagePath, width: 1200, height: 630, alt: "Practical AI Training" }],
+      "Start with you. Scale to your team. Hands-on 2-hour Claude coaching for managers — no hype, real productivity gains.",
+    images: [{ url: ogImagePath, width: 1200, height: 630, alt: "Practical AI Coaching" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Practical AI Training for Managers and Teams",
+    title: "Practical AI Coaching for Managers",
     description:
-      "Hands-on AI coaching for you and your team — no hype, real productivity gains.",
+      "Start with you. Scale to your team. Hands-on 2-hour Claude coaching for managers — no hype, real productivity gains.",
     images: [ogImagePath],
   },
 };
