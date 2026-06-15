@@ -155,43 +155,44 @@ export function hasBookingLink(): boolean {
 export const portfolioClientStories: Testimonial[] = [
   {
     quote:
-      "Was losing hours editing purchase orders by hand — Excel files now generate the documents automatically.",
+      "Was losing hours on purchase orders every week — Excel and automation now generate them in minutes, not afternoons.",
     name: "Antoine",
     role: "Manager, Solerra",
   },
   {
     quote:
-      "Needed to be visible before launch — got a site optimized for Google and AI tools, ready on day one.",
+      "Needed to be findable before launch — got a site built for Google and AI search, ready on day one without an agency retainer.",
     name: "Léo",
     role: "Founder, Amidou",
   },
   {
     quote:
-      "We wanted to publish events on our own, without depending on a developer — we now run a simple, well-referenced site ourselves.",
+      "Every event update meant waiting on a developer — we publish ourselves now, in minutes instead of days.",
     name: "Pierre",
     role: "Manager, La Camaraderie",
   },
   {
     quote:
-      "We wanted to make skill swaps easier for entrepreneurs — we built a custom app for our community.",
+      "Skill swaps used to mean endless emails and spreadsheets — the app handles matching and follow-ups for our community.",
     name: "Jade",
     role: "Founder, Gomett",
   },
 ];
 
 export const testimonialsIntro =
-  "Same approach across projects: practical tools, real time saved, no jargon.";
+  "Same approach every time: automate the repetitive work, keep you in control, give time back.";
 
 /** Short quotes for the hero — fills space below CTA on desktop. */
 export const heroTestimonials: Testimonial[] = [
   {
     quote:
-      "Was losing hours on purchase orders — Excel now generates them automatically.",
+      "Purchase orders ate my afternoons — automation generates them in minutes now.",
     name: "Antoine",
     role: "Manager, Solerra",
   },
   {
-    quote: "We publish events on our own now — no developer needed.",
+    quote:
+      "Event updates used to wait on a developer — we publish ourselves in minutes.",
     name: "Pierre",
     role: "Manager, La Camaraderie",
   },
