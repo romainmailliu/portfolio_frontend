@@ -421,8 +421,8 @@ export default function AiTrainingLanding() {
                   transition: "opacity 0.55s ease 0.08s, transform 0.55s ease 0.08s",
                 }}
               >
-                Start with you.
-                <span className="block text-sky-700">Scale to your team.</span>
+                Practical AI for managers
+                <span className="block text-sky-700">set up, not slides</span>
               </h1>
 
               <p
@@ -434,7 +434,6 @@ export default function AiTrainingLanding() {
                 }}
               >
                 A 2-hour session to put AI in your day-to-day — then scale to your team.
-                Real workflows on day one, not another slide deck.
               </p>
 
               <div
