@@ -265,7 +265,7 @@ export const credibilityStats: CredibilityStat[] = [
 
 /** Inbox example — baseline tuned for managers; savings are illustrative workflow ranges. */
 export const inboxExample: InboxExample = {
-  headline: "Start with the inbox",
+  headline: "Start with the inbox — 2–4 hours back every week",
   problemIntro:
     "You probably spend 1–2 hours a day on email — sorting what matters, drafting replies, and catching up between meetings. That adds up fast across your week.",
   baseline: {
