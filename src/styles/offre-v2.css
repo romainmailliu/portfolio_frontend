@@ -267,6 +267,22 @@
   margin-inline: auto;
 }
 
+@media (max-width: 639px) {
+  .offre-idle-screen__content {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .offre-idle-screen__press {
+    font-size: 0.75rem;
+  }
+
+  .offre-idle-screen__art {
+    font-size: 0.5rem;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
 @media (min-width: 640px) {
   .offre-contact-ctas {
     grid-template-columns: repeat(2, minmax(0, 1fr));

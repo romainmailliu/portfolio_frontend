@@ -48,6 +48,11 @@ body {
   }
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Typography utilities */
 .font-display {
   font-family: var(--font-display), "Archivo Black", sans-serif;
@@ -409,6 +414,13 @@ button.nav-link {
 .mobile-header__nav {
   width: fit-content;
   max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobile-header__nav::-webkit-scrollbar {
+  display: none;
 }
 
 .page-container {
@@ -448,6 +460,12 @@ button.nav-link {
   .btn-outline,
   .btn-pastel {
     padding: 10px 16px;
+  }
+
+  .tagline-badge {
+    max-width: 100%;
+    text-align: center;
+    text-wrap: balance;
   }
 }
 

@@ -150,8 +150,9 @@ function App() {
       >
         Offre Tech & IA
       </button>
-      <a href="/production-documentaire" className="nav-link whitespace-nowrap">
-        <span className="md:hidden">Prod. doc.</span>
+      <a href="/production-documentaire" className="nav-link">
+        <span className="sm:hidden">Prod. doc.</span>
+        <span className="hidden sm:inline md:hidden">Production doc.</span>
         <span className="hidden md:inline">Production doc.</span>
       </a>
     </nav>
@@ -213,7 +214,7 @@ function App() {
       >
         {showOfferOnly &&
           renderMainNav(
-            "nav-pill hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 z-50 items-center gap-2 px-4 py-2",
+            "nav-pill hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 z-50 items-center justify-center gap-1 px-3 py-2 max-w-[calc(100vw-2rem)] flex-wrap",
           )}
 
         {showOfferOnly && (

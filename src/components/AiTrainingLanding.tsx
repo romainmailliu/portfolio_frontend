@@ -856,7 +856,7 @@ export default function AiTrainingLanding() {
                   <CtaButton size="large" className="group" tilt="left" />
                   <a
                     href={getMailtoHref()}
-                    className="ai-btn-secondary ai-btn-sticker--tilt-right min-h-[56px] px-8 py-4 text-base"
+                    className="ai-btn-secondary ai-btn-sticker--tilt-right min-h-[56px] max-w-full min-w-0 break-all px-5 py-4 text-base sm:px-8 sm:break-normal"
                   >
                     <Mail className="h-5 w-5" />
                     {contactEmail}

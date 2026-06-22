@@ -84,8 +84,8 @@
 
 @media (min-width: 768px) {
   .pdoc-moodboard {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.75rem 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
     align-items: start;
   }
 
@@ -95,6 +95,13 @@
 
   .pdoc-note--team {
     grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pdoc-moodboard {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2rem;
   }
 }
 
@@ -206,6 +213,12 @@
 }
 
 @media (min-width: 768px) {
+  .pdoc-team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
   .pdoc-team-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -384,6 +397,11 @@
   .pdoc-back {
     font-size: 0.8125rem;
     padding: 10px 14px;
+    max-width: calc(100vw - 1.5rem);
+  }
+
+  .pdoc-team-grid {
+    grid-template-columns: 1fr;
   }
 }
 
