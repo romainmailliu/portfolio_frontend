@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { ArrowUpRight, Clapperboard, Film } from "lucide-react";
+import { contactEmail } from "../data/ai-training-content";
 import "../styles/production-documentaire.css";
+
+const teamCtaMailto = `mailto:${contactEmail}?subject=${encodeURIComponent(
+  "Échange production documentaire"
+)}`;
 
 const LOCATIONS = [
   "France",
@@ -55,42 +60,7 @@ function ProductionDocumentaire() {
               <p className="text-caption leading-relaxed">
                 Quatre voix, quatre continents, un même horizon.
               </p>
-            </div>
-          </article>
 
-          <article className="pdoc-note-wrap">
-            <div className="pdoc-note pdoc-note--blush">
-              <p className="field-label">L&apos;équipe</p>
-              <p className="text-caption leading-relaxed mt-2">
-                Réalisateur engagé, producteur d&apos;impact, entrepreneur
-                idéaliste — au plaisir d&apos;échanger et de partager quelques
-                retours d&apos;expérience.
-              </p>
-              <div className="pdoc-roles">
-                <span className="pdoc-role">Production</span>
-                <span className="pdoc-role">Impact</span>
-                <span className="pdoc-role">Distribution</span>
-              </div>
-            </div>
-          </article>
-
-          <article className="pdoc-note-wrap">
-            <span className="pdoc-timecode" aria-hidden>
-              00:01:24:08
-            </span>
-            <div className="pdoc-note pdoc-note--cream">
-              <p className="field-label">Format</p>
-              <div className="flex items-center gap-2 mt-2 text-caption">
-                <Clapperboard size={16} strokeWidth={1.75} aria-hidden />
-                Long-métrage documentaire · DocuFiction · Multilingue
-              </div>
-            </div>
-          </article>
-
-          <article className="pdoc-note-wrap pdoc-note--synopsis">
-            <div className="pdoc-tape pdoc-tape--br" aria-hidden />
-            <div className="pdoc-note pdoc-note--teal">
-              <p className="field-label">Synopsis</p>
               <p className="text-caption leading-relaxed mt-3">
                 Des rêves plein la tête malgré les difficultés qu&apos;ils
                 rencontrent, quatre jeunes s&apos;interrogent sur leur avenir et
@@ -118,6 +88,51 @@ function ProductionDocumentaire() {
                   New York · ONU
                 </span>
               </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <div className="pdoc-note pdoc-note--blush">
+              <p className="field-label">L&apos;équipe</p>
+              <p className="text-caption leading-relaxed mt-2">
+                Réalisateur engagé, producteur d&apos;impact, entrepreneur
+                idéaliste.
+              </p>
+              <div className="pdoc-roles">
+                <span className="pdoc-role">Production</span>
+                <span className="pdoc-role">Impact</span>
+                <span className="pdoc-role">Distribution</span>
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <span className="pdoc-timecode" aria-hidden>
+              00:01:24:08
+            </span>
+            <div className="pdoc-note pdoc-note--cream">
+              <p className="field-label">Format</p>
+              <div className="flex items-center gap-2 mt-2 text-caption">
+                <Clapperboard size={16} strokeWidth={1.75} aria-hidden />
+                Long-métrage documentaire · DocuFiction · Multilingue
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap pdoc-note--synopsis">
+            <div className="pdoc-tape pdoc-tape--br" aria-hidden />
+            <div className="pdoc-note pdoc-note--teal">
+              <p className="field-label">Échangeons</p>
+              <p className="text-caption leading-relaxed mt-3">
+                Réalisateur engagé, producteur d&apos;impact, entrepreneur
+                idéaliste — au plaisir d&apos;échanger et de partager quelques
+                retours d&apos;expérience.
+              </p>
+              <a href={teamCtaMailto} className="btn-primary mt-4">
+                <span aria-hidden>→</span>
+                Échanger avec moi
+                <ArrowUpRight size={16} aria-hidden />
+              </a>
             </div>
           </article>
 
