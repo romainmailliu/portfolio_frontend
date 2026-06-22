@@ -1,6 +1,29 @@
 import type { Metadata, Viewport } from "next";
+import { Bricolage_Grotesque, Inter, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 import "../styles/index.css";
+import "../styles/design-system.css";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["800"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 /** Court : onglet du navigateur + titre des cartes de partage (évite le doublon avec la description). */
 const siteTitleDefault =
@@ -76,8 +99,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body>
+    <html
+      lang="fr"
+      className={`${bricolage.variable} ${inter.variable} ${robotoMono.variable}`}
+    >
+      <body className="font-body bg-cream text-forest antialiased">
         <Script id="schema-org-jsonld" type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </Script>

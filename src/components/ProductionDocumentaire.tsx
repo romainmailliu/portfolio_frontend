@@ -1,92 +1,152 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ArrowUpRight, Clapperboard, Film } from "lucide-react";
+import "../styles/production-documentaire.css";
+
+const LOCATIONS = [
+  "France",
+  "Indonésie",
+  "Inde",
+  "Liban",
+] as const;
 
 function ProductionDocumentaire() {
-  const [tick, setTick] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTick((prev) => prev + 1);
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
-
-  const t = tick * 0.5;
-
-  // ✅ Luminosité bien plus haute (25-40%) pour voir les couleurs
-  const c1 = `hsl(${t % 360}, 100%, 30%)`;
-  const c2 = `hsl(${(t + 90) % 360}, 90%, 25%)`;
-  const c3 = `hsl(${(t + 180) % 360}, 100%, 35%)`;
-  const c4 = `hsl(${(t + 270) % 360}, 90%, 28%)`;
-
   return (
-    <div
-      className="relative min-h-[100dvh] overflow-x-hidden flex flex-col items-stretch pb-[max(1.5rem,env(safe-area-inset-bottom))]"
-      style={{
-        background: `
-          radial-gradient(ellipse at ${50 + Math.sin(t * 0.02) * 30}% ${40 + Math.cos(t * 0.015) * 20}%, ${c1} 0%, transparent 55%),
-          radial-gradient(ellipse at ${60 + Math.cos(t * 0.018) * 25}% ${60 + Math.sin(t * 0.02) * 25}%, ${c2} 0%, transparent 50%),
-          radial-gradient(ellipse at ${30 + Math.sin(t * 0.022) * 20}% ${70 + Math.cos(t * 0.01) * 20}%, ${c3} 0%, transparent 55%),
-          radial-gradient(ellipse at ${70 + Math.cos(t * 0.012) * 30}% ${30 + Math.sin(t * 0.025) * 20}%, ${c4} 0%, transparent 50%),
-          #050510
-        `,
-      }}
-    >
-      <Link
-        href="/"
-        className="fixed z-[100] flex min-h-[44px] items-center gap-2 rounded-full border border-white/25 bg-black/55 px-4 py-2.5 text-sm font-medium text-white shadow-lg backdrop-blur-md transition-colors hover:border-white/40 hover:bg-black/70 active:bg-black/80 left-[max(0.75rem,env(safe-area-inset-left))] top-[max(0.75rem,env(safe-area-inset-top))]"
-      >
+    <div className="pdoc-page page-shell">
+      <div className="pdoc-film-edge pdoc-film-edge--left" aria-hidden />
+      <div className="pdoc-film-edge pdoc-film-edge--right" aria-hidden />
+
+      <Link href="/" className="pdoc-back nav-pill">
         <span aria-hidden>←</span>
-        <span className="max-w-[min(16rem,calc(100vw-5rem))] leading-tight underline decoration-white/40 underline-offset-2">
-          retour à la carte de visite
-        </span>
+        Carte de visite
       </Link>
 
-      <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center px-4 pb-6 pt-[max(5.5rem,calc(4.5rem+env(safe-area-inset-top)))] md:px-10">
-        <div className="rounded-2xl border border-white/20 bg-black/30 p-6 text-white backdrop-blur-sm md:p-10 break-words">
-          <h1 className="mb-6 text-xl font-semibold tracking-tight sm:text-2xl md:text-4xl">
-            Et vous, c&apos;est quoi votre projet un peu fou ?
-          </h1>
-
-          <div className="space-y-5 leading-relaxed text-white/90">
-            <p>
-              Avec une équipe talentueuse, nous avons produit un film documentaire
-              -{" "}
-              <span className="font-semibold">I AM THE FUTURE</span> - sorti au
-              cinéma en 2025.
-            </p>
-
-            <p>
-              Réalisateur engagé, producteur d&apos;impact, entrepreneur idéaliste
-              - au plaisir d&apos;échanger et de partager quelques retours
-              d&apos;expérience.
-            </p>
-
-            <p>
-              <span className="font-semibold">Synopsis :</span> Des rêves plein la
-              tête malgré les difficultés qu&apos;ils rencontrent, quatre jeunes
-              s&apos;interrogent sur leur avenir et celui de leur communauté.
-              Venus de France, d&apos;Indonésie, d&apos;Inde et du Liban, leurs
-              destins convergent à New York où ils témoignent de leur expérience
-              de la pauvreté aux Nations Unies. Au travers de l&apos;écriture, de
-              la danse, de la photographie et du dessin, les protagonistes posent,
-              avec courage et joie, un œil rare sur les grands défis
-              contemporains.
-            </p>
-
-            <a
-              href="https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013816.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-block font-medium text-white underline underline-offset-4 transition-colors hover:text-white/80"
-            >
-              En savoir +
-            </a>
+      <main className="pdoc-main page-container">
+        <header className="pdoc-header">
+          <div className="tagline-badge">
+            <Film size={14} aria-hidden />
+            Production documentaire
           </div>
+
+          <h1 className="font-display pdoc-headline">
+            Et vous,
+            <br />
+            c&apos;est quoi
+            <br />
+            votre{" "}
+            <span className="highlight-word">projet un peu fou</span>
+            &nbsp;?
+          </h1>
+        </header>
+
+        <div className="pdoc-moodboard">
+          <article className="pdoc-note-wrap pdoc-note--hero">
+            <div className="pdoc-tape pdoc-tape--tl" aria-hidden />
+            <div className="pdoc-note pdoc-note--mint">
+              <p className="field-label">Le film</p>
+              <p className="text-body-lg leading-relaxed mt-2">
+                Avec une équipe talentueuse, nous avons produit un documentaire
+                sorti au cinéma en 2025.
+              </p>
+              <span className="pdoc-film-title">
+                <span>I AM THE FUTURE</span>
+              </span>
+              <p className="text-caption leading-relaxed">
+                Quatre voix, quatre continents, un même horizon.
+              </p>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <div className="pdoc-note pdoc-note--blush">
+              <p className="field-label">L&apos;équipe</p>
+              <p className="text-caption leading-relaxed mt-2">
+                Réalisateur engagé, producteur d&apos;impact, entrepreneur
+                idéaliste — au plaisir d&apos;échanger et de partager quelques
+                retours d&apos;expérience.
+              </p>
+              <div className="pdoc-roles">
+                <span className="pdoc-role">Production</span>
+                <span className="pdoc-role">Impact</span>
+                <span className="pdoc-role">Distribution</span>
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <span className="pdoc-timecode" aria-hidden>
+              00:01:24:08
+            </span>
+            <div className="pdoc-note pdoc-note--cream">
+              <p className="field-label">Format</p>
+              <div className="flex items-center gap-2 mt-2 text-caption">
+                <Clapperboard size={16} strokeWidth={1.75} aria-hidden />
+                Long-métrage documentaire · DocuFiction · Multilingue
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap pdoc-note--synopsis">
+            <div className="pdoc-tape pdoc-tape--br" aria-hidden />
+            <div className="pdoc-note pdoc-note--teal">
+              <p className="field-label">Synopsis</p>
+              <p className="text-caption leading-relaxed mt-3">
+                Des rêves plein la tête malgré les difficultés qu&apos;ils
+                rencontrent, quatre jeunes s&apos;interrogent sur leur avenir et
+                celui de leur communauté. Venus de France, d&apos;Indonésie,
+                d&apos;Inde et du Liban, leurs destins convergent à New York où
+                ils témoignent de leur expérience de la pauvreté aux Nations
+                Unies.
+              </p>
+              <p className="text-caption leading-relaxed mt-3">
+                Au travers de l&apos;écriture, de la danse, de la photographie et
+                du dessin, les protagonistes posent, avec courage et joie, un œil
+                rare sur les grands défis contemporains.
+              </p>
+
+              <div className="pdoc-locations">
+                {LOCATIONS.map((place) => (
+                  <span key={place} className="pdoc-location">
+                    {place}
+                  </span>
+                ))}
+                <span className="pdoc-location-arrow" aria-hidden>
+                  →
+                </span>
+                <span className="pdoc-location pdoc-location--dest">
+                  New York · ONU
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <div className="pdoc-note pdoc-note--terracotta">
+              <p className="field-label">Voir le film</p>
+              <div className="pdoc-cta-block">
+                <a
+                  href="https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013816.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{
+                    background: "var(--cream-paper)",
+                    color: "var(--forest-ink)",
+                  }}
+                >
+                  <span aria-hidden>→</span>
+                  En savoir +
+                  <ArrowUpRight size={16} aria-hidden />
+                </a>
+                <span className="reassurance-caption" style={{ color: "rgba(252,250,245,0.7)" }}>
+                  Fiche Allociné · sortie septembre 2025
+                </span>
+              </div>
+            </div>
+          </article>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

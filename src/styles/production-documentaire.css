@@ -1,0 +1,305 @@
+/* Production documentaire — moodboard cinéma sur papier crème */
+
+.pdoc-page {
+  position: relative;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background-color: var(--cream-paper);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 233, 92, 0.22) 0%, transparent 42%),
+    radial-gradient(circle at 88% 72%, rgba(168, 229, 229, 0.28) 0%, transparent 38%),
+    radial-gradient(circle at 72% 12%, rgba(246, 208, 255, 0.2) 0%, transparent 32%);
+}
+
+.pdoc-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.pdoc-film-edge {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.12;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--forest-ink) 0,
+    var(--forest-ink) 10px,
+    transparent 10px,
+    transparent 26px
+  );
+}
+
+.pdoc-film-edge--left {
+  left: 0;
+  border-right: 1px solid var(--forest-ink);
+}
+
+.pdoc-film-edge--right {
+  right: 0;
+  border-left: 1px solid var(--forest-ink);
+}
+
+.pdoc-back {
+  position: fixed;
+  z-index: 100;
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: max(0.75rem, env(safe-area-inset-left));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--forest-ink);
+}
+
+.pdoc-main {
+  position: relative;
+  z-index: 2;
+  padding-top: max(5.5rem, calc(4rem + env(safe-area-inset-top)));
+  padding-bottom: max(3rem, env(safe-area-inset-bottom));
+}
+
+.pdoc-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pdoc-moodboard {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pdoc-moodboard {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2rem;
+    align-items: start;
+  }
+
+  .pdoc-note--hero {
+    grid-column: 1 / -1;
+  }
+
+  .pdoc-note--synopsis {
+    grid-column: 1 / -1;
+  }
+}
+
+.pdoc-note {
+  border: 1px solid var(--forest-ink);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.75rem;
+  color: var(--forest-ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pdoc-note:hover {
+  transform: rotate(0deg) translateY(-2px) !important;
+  box-shadow: var(--shadow-btn-hover);
+}
+
+.pdoc-note--mint {
+  background: var(--sticky-mint);
+  transform: rotate(-1.1deg);
+}
+
+.pdoc-note--blush {
+  background: var(--sticky-blush);
+  transform: rotate(1.3deg);
+}
+
+.pdoc-note--teal {
+  background: var(--sticky-teal);
+  transform: rotate(-0.7deg);
+}
+
+.pdoc-note--cream {
+  background: var(--cream-paper);
+  border-color: var(--pencil-gray);
+  transform: rotate(0.5deg);
+}
+
+.pdoc-note--terracotta {
+  background: var(--terracotta);
+  color: var(--cream-paper);
+  transform: rotate(-0.4deg);
+}
+
+.pdoc-note--terracotta .field-label {
+  color: var(--cream-paper);
+  opacity: 0.85;
+}
+
+.pdoc-film-title {
+  display: block;
+  margin: 0.75rem 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.pdoc-film-title span {
+  background: var(--highlighter-yellow);
+  color: var(--forest-ink);
+  padding: 0 0.15em;
+}
+
+.pdoc-locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.pdoc-location {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--forest-ink);
+  border-radius: var(--radius-tag);
+  background: var(--cream-paper);
+}
+
+.pdoc-location--dest {
+  background: var(--highlighter-yellow);
+  font-weight: 600;
+}
+
+.pdoc-location-arrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  color: var(--forest-ink);
+  opacity: 0.5;
+  align-self: center;
+}
+
+.pdoc-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+}
+
+.pdoc-role {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.pdoc-role::before {
+  content: "● ";
+  opacity: 0.4;
+}
+
+.pdoc-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .pdoc-cta-block {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.pdoc-headline {
+  font-size: clamp(2.5rem, 7.5vw, 4.75rem);
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-wrap: balance;
+  max-width: 14ch;
+  margin: 1.25rem auto 0;
+}
+
+.pdoc-tape {
+  position: absolute;
+  width: 72px;
+  height: 22px;
+  background: rgba(255, 233, 92, 0.55);
+  border: 1px solid rgba(26, 51, 0, 0.15);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.pdoc-tape--tl {
+  top: -10px;
+  left: 24px;
+  transform: rotate(-28deg);
+}
+
+.pdoc-tape--br {
+  bottom: -8px;
+  right: 20px;
+  transform: rotate(14deg);
+}
+
+.pdoc-note-wrap {
+  position: relative;
+}
+
+.pdoc-timecode {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+}
+
+@media (max-width: 767px) {
+  .pdoc-film-edge {
+    display: none;
+  }
+
+  .pdoc-main {
+    padding-top: max(4.5rem, calc(3.5rem + env(safe-area-inset-top)));
+  }
+
+  .pdoc-header {
+    margin-bottom: 2rem;
+  }
+
+  .pdoc-note {
+    padding: 1.25rem 1.35rem;
+  }
+
+  .pdoc-headline {
+    max-width: 100%;
+  }
+
+  .pdoc-back {
+    font-size: 0.8125rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdoc-note:hover {
+    transform: none !important;
+  }
+}

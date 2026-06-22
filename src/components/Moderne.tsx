@@ -16,10 +16,10 @@ function Moderne() {
 
     try {
       await emailjs.send(
-        "service_xkwi2nk", // ton service_id
-        "template_z789237", // ton template_id
+        "service_xkwi2nk",
+        "template_z789237",
         { email, phone, message },
-        "Y0Vh6DS8F21xy5zPw", // ta public_key
+        "Y0Vh6DS8F21xy5zPw",
       );
       setSent(true);
       setEmail("");
@@ -27,7 +27,7 @@ function Moderne() {
       setMessage("");
     } catch (error) {
       console.error("Erreur envoi :", error);
-      alert("Erreur lors de l'envoi 😕");
+      alert("Erreur lors de l'envoi");
     }
   };
 
@@ -40,23 +40,20 @@ function Moderne() {
   }, []);
 
   return (
-    <div className="w-96 bg-gradient-to-br from-white via-gray-50 to-stone-100 rounded-2xl p-6 shadow-2xl border-2 border-black">
-      {/* Header */}
-      <div className="flex items-center gap-4 mb-5">
+    <div className="sticky-card sticky-card--cream w-full shadow-cta p-5 md:p-6">
+      <div className="flex items-center gap-3 mb-3">
         <div
-          className="w-14 h-14 rounded-full overflow-hidden relative"
+          className="w-12 h-12 rounded-btn overflow-hidden relative border border-forest shrink-0"
           style={{ perspective: "500px" }}
         >
-          {/* Initiales */}
           <div
-            className={`absolute inset-0 bg-black flex items-center justify-center text-xl font-bold text-white transition-all duration-500
+            className={`absolute inset-0 bg-forest flex items-center justify-center text-lg font-bold text-cream transition-all duration-500
       ${showPhoto ? "[transform:rotateY(90deg)]" : "[transform:rotateY(0deg)]"}`}
             style={{ backfaceVisibility: "hidden" }}
           >
             RM
           </div>
 
-          {/* Photo */}
           <img
             src="/moi.png"
             alt="Photo de profil"
@@ -67,66 +64,59 @@ function Moderne() {
         </div>
 
         <div>
-          <h1 className="text-xl font-bold tracking-wide text-gray-900">
+          <h1 className="text-lg font-bold text-forest font-body leading-tight">
             Romain Mailliu
           </h1>
-          <p className="text-black-500 text-xs uppercase tracking-widest">
+          <p className="font-mono-label text-micro uppercase tracking-widest text-forest/70">
             Développeur Web & IA
           </p>
         </div>
       </div>
 
-      {/* Ligne */}
-      <div className="border-t border-gray-200 mb-5"></div>
+      <div className="border-t border-pencil mb-3" />
 
-      {/* Infos */}
-      <div className="space-y-2 text-sm text-gray-600 mb-4">
-        <p>✉️ romain.mailliu@gmail.com</p>
-        <p>📍 Marseille, France</p>
-      </div>
+      <p className="text-caption text-forest/80 mb-3">
+        romain.mailliu@gmail.com · Marseille
+      </p>
 
-      {/* Ligne */}
-      <div className="border-t border-gray-200 mb-4"></div>
+      <div className="border-t border-pencil mb-3" />
 
-      {/* Formulaire */}
       {sent ? (
-        <p className="text-green-500 text-sm text-center py-2">
-          ✅ Reçu ! Je vous recontacte bientôt.
+        <p className="text-caption text-center py-1 text-forest font-medium">
+          Reçu — je vous recontacte bientôt.
         </p>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-          <p className="text-xs text-gray-400 uppercase tracking-widest">
-            Votre projet en quelques mots
-          </p>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="votre@email.com"
-            className="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
+            required
+            className="field-input py-2"
           />
-          {/* ✅ Champ téléphone non obligatoire */}
           <input
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="06 00 00 00 00 (optionnel)"
-            className="bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
+            className="field-input py-2"
           />
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Ex. : site pour une asso, automatisation Excel…"
-            rows={3}
-            aria-label="Description de votre projet"
-            className="w-full resize-y bg-white border border-gray-200 rounded-lg px-4 py-2 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-black transition"
+            placeholder="Votre projet en quelques mots — ex. site pour une asso, automatisation Excel…"
+            rows={2}
+            aria-label="Votre projet en quelques mots"
+            className="field-input resize-y py-2 min-h-[4.5rem]"
           />
-          <button
-            type="submit"
-            className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700"
-          >
+          <button type="submit" className="btn-primary w-full mt-0.5">
+            <span aria-hidden="true">→</span>
             Envoyer
           </button>
+          <p className="reassurance-caption text-center !mt-1">
+            réponse sous 48h, sans engagement.
+          </p>
         </form>
       )}
     </div>
