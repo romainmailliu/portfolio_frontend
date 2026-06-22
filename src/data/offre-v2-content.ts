@@ -77,8 +77,14 @@ export const profiles: ProfileEntry[] = [
         context: "avait besoin d'être visible avant son lancement",
         outcome:
           "un site optimisé pour Google et les IA, prêt le jour J",
-        projectHref: "https://www.amidou.eu/",
-        projectLabel: "Amidou",
+      },
+      {
+        name: "Klink",
+        context: "proposait des dégustations de vin sans vitrine en ligne à la hauteur",
+        outcome:
+          "un site vitrine clair, trouvable et fidèle à leur univers",
+        projectHref: "https://www.lesonduvin.fr/",
+        projectLabel: "Klink, le son du vin",
       },
       {
         name: "Antoine",
@@ -131,13 +137,6 @@ export const profiles: ProfileEntry[] = [
         outcome: "un outil numérique au service de leur mission",
         projectHref: "https://www.coexister.fr/",
         projectLabel: "Coexister",
-      },
-      {
-        name: "Amidou",
-        context: "cherche à garder le lien avec les seniors isolés",
-        outcome: "une plateforme pensée pour le lien humain",
-        projectHref: "https://www.amidou.eu/",
-        projectLabel: "Amidou",
       },
     ],
     propose: {
