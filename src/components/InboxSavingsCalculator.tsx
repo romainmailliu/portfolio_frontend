@@ -50,13 +50,6 @@ export default function InboxSavingsCalculator() {
 
   return (
     <div className="ai-card ai-savings-calc overflow-hidden p-6 md:p-8">
-      <div className="mb-8 max-w-2xl">
-        <h3 className="text-lg font-bold text-slate-900">{savingsCalculatorContent.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          {savingsCalculatorContent.intro}
-        </p>
-      </div>
-
       <div className="space-y-8">
         {results.rows.map(({ task, before, after, saved }) => (
           <div key={task.id}>

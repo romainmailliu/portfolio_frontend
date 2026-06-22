@@ -38,7 +38,7 @@ export type Offer = {
 
 export const approachContent = {
   label: "The approach",
-  title: "Start with you. Scale to your team.",
+  title: "Start with you, scale to your team",
   intro: "A 2-hour Claude coaching call to put AI in your day-to-day and save time.",
   footnote:
     "Remote sessions · Tuesdays & Thursdays, 8am–8pm · Pay at the end — only if you're satisfied.",
@@ -375,7 +375,6 @@ export type SavingsCalculatorTask = {
 };
 
 export const savingsCalculatorContent = {
-  title: "Estimate your time back",
   intro: "Move the sliders to match how long you spend today — see a typical weekly gain after a Claude inbox setup.",
   disclaimer:
     "Illustrative ranges based on client sessions. Results vary by inbox volume, role, and how often you use the workflow.",

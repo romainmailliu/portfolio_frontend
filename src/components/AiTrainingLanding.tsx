@@ -43,6 +43,7 @@ import {
   paymentNote,
   pricingContent,
   schedulingContent,
+  savingsCalculatorContent,
   stackContent,
   statsContent,
   heroTestimonials,
@@ -709,12 +710,19 @@ export default function AiTrainingLanding() {
         <section className="border-t border-slate-200">
           <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8 md:py-28">
             <Reveal>
-              <SectionHeader
-                label="A practical example"
-                title={inboxExample.headline}
-                description={inboxExample.problemIntro}
-                stickerTilt="right"
-              />
+              <div className="max-w-4xl">
+                <StickerLabel tilt="right">A practical example</StickerLabel>
+                <h2 className="text-2xl font-bold leading-snug tracking-tight text-slate-900 md:text-3xl md:leading-tight">
+                  {inboxExample.headline}
+                  <span className="font-medium text-slate-400"> · </span>
+                  <span className="font-medium text-slate-600">
+                    {savingsCalculatorContent.intro}
+                  </span>
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+                  {inboxExample.problemIntro}
+                </p>
+              </div>
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-6 inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium text-slate-600">
