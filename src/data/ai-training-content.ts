@@ -41,7 +41,7 @@ export const approachContent = {
   title: "Start with you. Scale to your team.",
   intro: "A 2-hour call to put AI in your day-to-day and save time.",
   footnote:
-    "Remote sessions · Evening & Saturday slots available · Pay at the end — only if you're satisfied.",
+    "Remote sessions · Evening slots available · Pay at the end — only if you're satisfied.",
 };
 
 export type StackLogo = {
@@ -111,7 +111,7 @@ export type InboxExample = {
 export const contactEmail = "romain.mailliu@gmail.com";
 
 // Cal.com slug is /15min; event is "Personal coaching - 2h meeting"
-// Cal.com setup (dashboard): add evening hours (e.g. 18:00–20:00) + Saturday availability;
+// Cal.com setup (dashboard): add evening hours (e.g. 18:00–20:00);
 // Settings → Appearance → 24-hour time format (or account locale fr-FR).
 export const bookingUrl: string | null =
   "https://cal.com/mailliu-romain-tcumz2/15min";
@@ -129,7 +129,7 @@ export const pricingContent = {
 };
 
 export const schedulingContent = {
-  availability: "Evening & Saturday slots available on the calendar.",
+  availability: "Evening slots available on the calendar.",
   customTimePrompt: "Need a specific time?",
   customTimeCta: "Email me your preferred slot",
 };
