@@ -115,7 +115,7 @@ function Moderne() {
             Envoyer
           </button>
           <p className="reassurance-caption text-center !mt-1">
-            réponse sous 48h, sans engagement.
+            réponse sous 48h.
           </p>
         </form>
       )}
