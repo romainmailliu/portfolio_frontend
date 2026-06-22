@@ -28,7 +28,7 @@ export const proposeSteps = [
     body: "Pas de grille tarifaire. Nous ajustons selon vos priorités et ce que vous pouvez investir.",
   },
   {
-    title: "On développe ce dont vous avez besoin maintenant.",
+    title: "On développe ce dont vous avez vraiment besoin.",
     body: "",
   },
 ] as const;
