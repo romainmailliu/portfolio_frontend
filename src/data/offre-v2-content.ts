@@ -66,7 +66,7 @@ export const profiles: ProfileEntry[] = [
     statementShort: "Développer mes ventes",
     accent: "#0c4a6e",
     situations: [
-      "Votre activité accélère et vous n'avez pas encore de vitrine en ligne — ou elle ne vous ressemble pas",
+      "Votre activité accélère et vous n'avez pas encore de vitrine en ligne, ou une vitrine qui ne vous ressemble plus",
       "Vous passez des heures sur les mêmes devis, bons de commande ou relances clients",
       "Vos contacts sont éparpillés (Excel, mails, carnets) et vous perdez des opportunités",
       "Vous savez ce que vous vendez, mais peinez à le formuler clairement pour vos premiers clients",
@@ -121,7 +121,7 @@ export const profiles: ProfileEntry[] = [
       "Les inscriptions et la communication avec vos membres prennent plus de temps que votre mission sur le terrain",
       "Votre équipe s'épuise sur l'administratif : tableurs, mails en chaîne, doublons",
       "Vous perdez des adhérents car vous n'avez pas le temps de faire des campagnes d'adhésion structurées",
-      "Vous payez des services tech obsolètes",
+      "Vous payez encore des outils tech dépassés que plus personne n'utilise vraiment",
     ],
     caseStudies: [
       {
@@ -144,7 +144,7 @@ export const profiles: ProfileEntry[] = [
       devisExamples: [
         "Un site que votre équipe met à jour seule (événements, actualités, adhésions)",
         "Une présence visible là où vos membres et partenaires vous cherchent",
-        "Des inscriptions et rappels qui tournent sans vous — adaptés à votre façon de travailler",
+        "Des inscriptions et rappels qui tournent sans vous, adaptés à votre façon de travailler",
       ],
     },
   },
@@ -155,10 +155,10 @@ export const profiles: ProfileEntry[] = [
     statementShort: "Développer ma communauté",
     accent: "#7c3aed",
     situations: [
-      "Vous produisez beaucoup de contenu, mais il reste sur une seule plateforme — ou vous n'avez pas le temps de le décliner",
+      "Vous produisez beaucoup de contenu, mais il reste sur une seule plateforme : pas le temps de le décliner ailleurs",
       "La publication et la veille vous mangent vos créneaux de création",
-      "Vous ne savez pas quels contenus touchent votre communauté — vous publiez à l'aveugle",
-      "La technique (formats, outils, diffusion) vous ralentit plus qu'elle ne vous aide",
+      "Vous publiez à l'aveugle, sans savoir ce qui touche vraiment votre communauté",
+      "Choisir les formats, les outils et les canaux de diffusion vous prend plus de temps que créer",
     ],
     caseStudies: [
       {
@@ -181,7 +181,7 @@ export const profiles: ProfileEntry[] = [
       devisExamples: [
         "Une présence en ligne cohérente avec votre voix, sur les bons canaux",
         "Des workflows pour publier et recycler sans perdre le contrôle éditorial",
-        "Des outils IA qui enlèvent le répétitif — pas votre singularité",
+        "Des outils IA pour automatiser la veille et le formatage, pas l'écriture",
       ],
     },
   },
@@ -193,7 +193,7 @@ export const profiles: ProfileEntry[] = [
     accent: "#047857",
     situations: [
       "Votre boîte mail et vos comptes-rendus vous suivent le soir et le week-end",
-      "Vous refaites les mêmes tâches chaque semaine — copier-coller, relances, mises en forme",
+      "Vous refaites les mêmes tâches chaque semaine : copier-coller, relances, mises en forme",
       "Votre équipe sous-utilise les outils déjà payés (Microsoft 365, Google Workspace)",
       "Vous hésitez à investir dans l'IA faute de preuves concrètes sur votre quotidien",
     ],

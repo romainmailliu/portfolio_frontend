@@ -164,7 +164,7 @@ export const managerPropose = {
   title: "Un accompagnement IA concret, en 2 heures",
   bullets: [
     "Session sur Claude calée sur votre quotidien : mails, calendrier, comptes-rendus",
-    "Des réflexes applicables dès la semaine suivante — pas une formation théorique",
+    "Des réflexes applicables dès la semaine suivante, directement sur vos mails et vos comptes-rendus",
     "Compatible avec votre environnement (Microsoft 365, Google Workspace)",
     "Vous payez à la fin, seulement si l'échange vous a été utile",
   ],
