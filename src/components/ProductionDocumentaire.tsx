@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Clapperboard, Film } from "lucide-react";
+import { ArrowUpRight, Clapperboard, Film, Globe } from "lucide-react";
 import { contactEmail } from "../data/ai-training-content";
 import "../styles/production-documentaire.css";
 
@@ -14,6 +14,56 @@ const LOCATIONS = [
   "Indonésie",
   "Inde",
   "Liban",
+] as const;
+
+const VOD_PLATFORMS = [
+  {
+    name: "Sooner",
+    href: "https://www.sooner.fr/films/i-am-the-future",
+  },
+  {
+    name: "Prime Video",
+    href: "https://www.primevideo.com/-/fr/detail/0QRYN1IVNWDCZ3FC76TG4X5TXT",
+  },
+  {
+    name: "Canal+",
+    href: "https://www.canalplus.com/cinema/i-am-the-future/h/30267470_40099",
+  },
+  {
+    name: "Première Max",
+    href: "https://www.premieremax.com/",
+  },
+] as const;
+
+const PARTNER_ASSOCIATIONS = [
+  "ATD Quart Monde",
+  "Amnesty International",
+  "La Cimade",
+  "Jesuit Refugee Service",
+  "SINGA",
+  "Utopia 56",
+  "Massajobs",
+  "Campus de l'inclusion",
+  "1 Lettre 1 Sourire",
+] as const;
+
+const TEAM_CORE = [
+  { name: "Rachel Cisinski", role: "Réalisation" },
+  { name: "Romain Mailliu", role: "Production" },
+  { name: "Bertrand Guerry", role: "Production déléguée" },
+] as const;
+
+const TEAM_CREW = [
+  { name: "Mathilde d'Alançon", role: "Co-auteur·ice · Communication" },
+  { name: "Gwenvaël Bigi", role: "Image · co-auteur" },
+  { name: "Virgile Loiseau", role: "Son · co-auteur" },
+  { name: "Simon Bart", role: "Montage" },
+  { name: "Camille Rocailleux", role: "Musique originale" },
+] as const;
+
+const TEAM_ASSISTANTS = [
+  { name: "Andréa Arcamone", role: "Assistante de production" },
+  { name: "Manon Sabrier", role: "Assistante de production" },
 ] as const;
 
 function ProductionDocumentaire() {
@@ -108,41 +158,130 @@ function ProductionDocumentaire() {
           </article>
 
           <article className="pdoc-note-wrap">
-            <div className="pdoc-note pdoc-note--blush">
-              <p className="field-label">L&apos;équipe</p>
+            <div className="pdoc-tape pdoc-tape--tl" aria-hidden />
+            <div className="pdoc-note pdoc-note--terracotta">
+              <p className="field-label">Disponibilité</p>
               <p className="text-caption leading-relaxed mt-2">
-                Réalisateur engagé, producteur d&apos;impact, entrepreneur
-                idéaliste.
+                <span className="font-semibold">I AM THE FUTURE</span> est
+                disponible en VOD.
               </p>
-              <p className="text-caption leading-relaxed mt-3">
-                Un projet réalisé en partenariat avec l&apos;association{" "}
+
+              <div className="pdoc-availability-group mt-3">
+                <p className="pdoc-availability-label">
+                  <Film size={14} aria-hidden />
+                  En ligne
+                </p>
+                <div className="pdoc-locations">
+                  {VOD_PLATFORMS.map((platform) => (
+                    <a
+                      key={platform.name}
+                      href={platform.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pdoc-location pdoc-location--light pdoc-location--link"
+                    >
+                      {platform.name}
+                      <ArrowUpRight size={12} aria-hidden />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-caption leading-relaxed mt-4 opacity-90">
+                Une partie des ventes revient à l&apos;association{" "}
                 <a
                   href="https://www.lp4y.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-2"
+                  className="underline underline-offset-2 font-semibold"
                 >
-                  LP4Y
+                  Life Project 4 Youth (LP4Y)
                 </a>
-                , le producteur{" "}
+                , sans qui ce film n&apos;existerait pas.
+              </p>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap">
+            <div className="pdoc-note pdoc-note--teal">
+              <p className="field-label">En tournée</p>
+              <p className="text-caption leading-relaxed mt-2">
+                <Globe size={14} className="inline-block mr-1 -mt-0.5" aria-hidden />
+                Depuis la sortie, plus de{" "}
+                <strong>400 projections au cinéma</strong> dans plus de{" "}
+                <strong>10 pays</strong>, avec l&apos;aide de dizaines
+                d&apos;associations partenaires. Et ça continue.
+              </p>
+
+              <div className="pdoc-locations mt-3">
+                {PARTNER_ASSOCIATIONS.map((partner) => (
+                  <span key={partner} className="pdoc-location">
+                    {partner}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+
+          <article className="pdoc-note-wrap pdoc-note--team">
+            <div className="pdoc-note pdoc-note--blush">
+              <p className="field-label">L&apos;équipe</p>
+              <p className="text-caption leading-relaxed mt-2">
+                Plus de deux ans, une vingtaine de professionnels et
+                entrepreneurs, des dizaines de bénévoles : autant de mains pour
+                raconter quatre parcours de jeunes adultes qui s&apos;engagent
+                pour leur avenir.
+              </p>
+
+              <div className="pdoc-team-grid mt-4">
+                {TEAM_CORE.map((member) => (
+                  <div key={member.name} className="pdoc-team-member">
+                    <span className="pdoc-team-name">{member.name}</span>
+                    <span className="pdoc-team-role">{member.role}</span>
+                  </div>
+                ))}
+                {TEAM_CREW.map((member) => (
+                  <div key={member.name} className="pdoc-team-member">
+                    <span className="pdoc-team-name">{member.name}</span>
+                    <span className="pdoc-team-role">{member.role}</span>
+                  </div>
+                ))}
+                {TEAM_ASSISTANTS.map((member) => (
+                  <div key={member.name} className="pdoc-team-member">
+                    <span className="pdoc-team-name">{member.name}</span>
+                    <span className="pdoc-team-role">{member.role}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="pdoc-availability-label mt-4">Production</p>
+              <p className="text-caption leading-relaxed mt-2">
                 <a
                   href="https://www.mitiki.com/en/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-2"
+                  className="underline underline-offset-2 font-semibold"
                 >
                   Mitiki
                 </a>{" "}
-                et la société de production{" "}
+                · coproduction{" "}
+                <a
+                  href="https://www.lp4y.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 font-semibold"
+                >
+                  LP4Y
+                </a>{" "}
+                · distribution{" "}
                 <a
                   href="https://www.waynapitch.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline underline-offset-2"
+                  className="underline underline-offset-2 font-semibold"
                 >
                   Wayna Pitch
                 </a>
-                .
               </p>
             </div>
           </article>
@@ -155,19 +294,19 @@ function ProductionDocumentaire() {
               <p className="field-label">Format</p>
               <div className="flex items-center gap-2 mt-2 text-caption">
                 <Clapperboard size={16} strokeWidth={1.75} aria-hidden />
-                Long-métrage documentaire · DocuFiction · Multilingue
+                Long-métrage documentaire · DocuFiction · Multilingue · 1h38
               </div>
             </div>
           </article>
 
-          <article className="pdoc-note-wrap pdoc-note--synopsis">
+          <article className="pdoc-note-wrap">
             <div className="pdoc-tape pdoc-tape--br" aria-hidden />
             <div className="pdoc-note pdoc-note--teal">
               <p className="field-label">Échangeons</p>
               <p className="text-caption leading-relaxed mt-3">
-                Réalisateur engagé, producteur d&apos;impact, entrepreneur
-                idéaliste — au plaisir d&apos;échanger et de partager quelques
-                retours d&apos;expérience.
+                Producteur d&apos;impact sur ce projet — au plaisir
+                d&apos;échanger sur la production documentaire engagée et les
+                retours d&apos;expérience du terrain.
               </p>
               <a href={teamCtaMailto} className="btn-primary mt-4">
                 <span aria-hidden>→</span>
