@@ -57,8 +57,8 @@ function ProductionDocumentaire() {
               <span className="pdoc-film-title">
                 <span>I AM THE FUTURE</span>
               </span>
-              <p className="text-caption leading-relaxed">
-                Quatre voix, quatre continents, un même horizon.
+              <p className="text-caption leading-relaxed font-semibold">
+                Synopsis :
               </p>
 
               <p className="text-caption leading-relaxed mt-3">
@@ -88,6 +88,22 @@ function ProductionDocumentaire() {
                   New York · ONU
                 </span>
               </div>
+
+              <div className="pdoc-cta-block mt-4">
+                <a
+                  href="https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013816.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  <span aria-hidden>→</span>
+                  En savoir +
+                  <ArrowUpRight size={16} aria-hidden />
+                </a>
+                <span className="reassurance-caption">
+                  Fiche Allociné · sortie septembre 2025
+                </span>
+              </div>
             </div>
           </article>
 
@@ -103,6 +119,36 @@ function ProductionDocumentaire() {
                 <span className="pdoc-role">Impact</span>
                 <span className="pdoc-role">Distribution</span>
               </div>
+              <p className="text-caption leading-relaxed mt-3">
+                Un projet réalisé en partenariat avec l&apos;association{" "}
+                <a
+                  href="https://www.lp4y.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  LP4Y
+                </a>
+                , le producteur{" "}
+                <a
+                  href="https://www.mitiki.com/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  Mitiki
+                </a>{" "}
+                et la société de production{" "}
+                <a
+                  href="https://www.waynapitch.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2"
+                >
+                  Wayna Pitch
+                </a>
+                .
+              </p>
             </div>
           </article>
 
@@ -130,34 +176,9 @@ function ProductionDocumentaire() {
               </p>
               <a href={teamCtaMailto} className="btn-primary mt-4">
                 <span aria-hidden>→</span>
-                Échanger avec moi
+                Échanger
                 <ArrowUpRight size={16} aria-hidden />
               </a>
-            </div>
-          </article>
-
-          <article className="pdoc-note-wrap">
-            <div className="pdoc-note pdoc-note--terracotta">
-              <p className="field-label">Voir le film</p>
-              <div className="pdoc-cta-block">
-                <a
-                  href="https://www.allocine.fr/film/fichefilm_gen_cfilm=1000013816.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{
-                    background: "var(--cream-paper)",
-                    color: "var(--forest-ink)",
-                  }}
-                >
-                  <span aria-hidden>→</span>
-                  En savoir +
-                  <ArrowUpRight size={16} aria-hidden />
-                </a>
-                <span className="reassurance-caption" style={{ color: "rgba(252,250,245,0.7)" }}>
-                  Fiche Allociné · sortie septembre 2025
-                </span>
-              </div>
             </div>
           </article>
         </div>
