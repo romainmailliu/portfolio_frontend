@@ -45,6 +45,11 @@ const PROJECTS: ProjectItem[] = [
     desktopDescription: "brasserie solidaire (en cours)",
   },
   {
+    name: "Klink, le son du vin",
+    href: "https://www.lesonduvin.fr/",
+    description: "dégustation (fun) de vin",
+  },
+  {
     name: "Spazzo",
     href: "https://www.spazzo.fr/",
     description: "partage de locaux entre pros (en cours)",
@@ -358,7 +363,7 @@ function App() {
                         </ul>
 
                         <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                          ⏱ Délai estimé : ~1 semaine
+                          → ~1 semaine
                         </p>
                       </div>
 
@@ -399,7 +404,7 @@ function App() {
                         </ul>
 
                         <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                          ⏱ Délai estimé : ~2 semaines
+                          → ~2 semaines
                         </p>
                       </div>
 
@@ -433,12 +438,12 @@ function App() {
                         </ul>
 
                         <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                          ⏱ Délai selon le projet
+                          → Délai selon le projet
                         </p>
                       </div>
                     </div>
 
-                    {/* 🤖 Offre IA */}
+                    {/* ✨ Offre IA */}
                     <div className="mt-12">
                       <div className="mb-8">
                         <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
@@ -476,7 +481,7 @@ function App() {
                           </ul>
 
                           <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                            🎁 Gratuit — sans engagement
+                            🙌 Gratuit — sans engagement
                           </p>
                         </div>
 
@@ -509,7 +514,7 @@ function App() {
                           </ul>
 
                           <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                            ⏱ Délai : 1-2 semaines
+                            → ~1-2 semaines
                           </p>
                         </div>
 
@@ -542,7 +547,7 @@ function App() {
                           </ul>
 
                           <p className="text-xs text-gray-400 pt-2 border-t border-gray-100">
-                            ⏱ Délai selon le projet
+                            → Délai selon le projet
                           </p>
                         </div>
                       </div>
