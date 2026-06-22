@@ -1,21 +1,17 @@
 ---
-title: Romain Mailliu — Développeur Web & IA
-description: Portfolio et offres de services — développement web, automatisation et IA pour associations et entrepreneur.e.s engagé.e.s
+title: Offre Tech & IA — Romain Mailliu, Marseille
+description: Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s — à prix libre, à Marseille et en remote.
 url: https://www.romainmailliu.com/
-last_updated: 2026-04-30
+last_updated: 2026-06-22
 ---
 
-# Romain Mailliu — Développeur Web & IA
+# Offre Tech & IA — Romain Mailliu
 
-J'accompagne les associations et entrepreneur.e.s engagé.e.s à mettre la Tech au service de leur mission, à prix libre.
+La technologie et l'IA au service de votre mission, au juste prix.
 
 Marseille, France — romain.mailliu@gmail.com — www.romainmailliu.com
 
----
-
-## Offre Tech & IA
-
-La technologie et l'IA au service de votre mission, au juste prix.
+[Page contact](https://www.romainmailliu.com/contact) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
 ### Mon approche
 
@@ -91,6 +87,7 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 
 - [Coexister](https://www.coexister.fr/) — faciliter le vivre ensemble
 - [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneur.e.s
+- [Klink, le son du vin](https://www.lesonduvin.fr/) — dégustation (fun) de vin
 - [ATS Séductions](https://ats-seduction.vercel.app/) — CV optimisé pour les algorithmes de recrutement
 - [Amidou](https://www.amidou.eu/) — garder le lien avec les seniors isolés
 - La Camaraderie — brasserie sociale d'insertion (en cours)

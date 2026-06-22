@@ -11,6 +11,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/offre-tech-ia",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/future.md",
         destination: "/production-documentaire.md",
         permanent: true,

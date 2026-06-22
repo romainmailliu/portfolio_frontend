@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Lightbulb, MousePointer2 } from "lucide-react";
 import Moderne from "../components/Moderne";
@@ -8,8 +8,6 @@ import OffreTechIA from "../components/OffreTechIA";
 import { contactCardAnchor } from "../data/offre-v2-content";
 
 import "../styles/App.css";
-
-type DesignOption = "Contact" | "OffreTechIA";
 type ProjectItem = {
   name: string;
   href: string;
@@ -29,6 +27,11 @@ const PROJECTS: ProjectItem[] = [
     description: "trocs de compétences entre entrepreneur.e.s",
   },
   {
+    name: "Klink, le son du vin",
+    href: "https://www.lesonduvin.fr/",
+    description: "dégustation (fun) de vin",
+  },
+  {
     name: "ATS Séductions",
     href: "https://ats-seduction.vercel.app/",
     description: "CV pour (faire) craquer les algorithmes de recrutement.",
@@ -43,11 +46,6 @@ const PROJECTS: ProjectItem[] = [
     href: "",
     description: "brasserie sociale d'insertion (en cours)",
     desktopDescription: "brasserie solidaire (en cours)",
-  },
-  {
-    name: "Klink, le son du vin",
-    href: "https://www.lesonduvin.fr/",
-    description: "dégustation (fun) de vin",
   },
   {
     name: "Spazzo",
@@ -70,12 +68,8 @@ const STICKY_ACCENTS = ["project-chip--mint", "project-chip--teal", "project-chi
 
 function App() {
   const pathname = usePathname();
-  const isOfferPage = pathname === "/offre-tech-ia";
-  const [selectedDesign, setSelectedDesign] = useState<DesignOption>(
-    isOfferPage ? "OffreTechIA" : "Contact",
-  );
-  const activeButton: DesignOption = isOfferPage ? "OffreTechIA" : selectedDesign;
-  const showOfferOnly = isOfferPage || selectedDesign === "OffreTechIA";
+  const isContactPage = pathname === "/contact";
+  const showOfferOnly = !isContactPage;
 
   const renderProjectChips = (
     options: { useDesktopDescription?: boolean; compact?: boolean } = {},
@@ -127,34 +121,23 @@ function App() {
 
   const renderMainNav = (className: string) => (
     <nav className={className} aria-label="Navigation principale">
-      <button
-        type="button"
-        className={`nav-link ${activeButton === "Contact" ? "nav-link--active" : ""}`}
-        onClick={() => {
-          if (isOfferPage) {
-            window.location.href = "/";
-            return;
-          }
-          setSelectedDesign("Contact");
-        }}
+      <Link
+        href="/contact"
+        className={`nav-link ${isContactPage ? "nav-link--active" : ""}`}
       >
         Contact
-      </button>
-      <button
-        type="button"
-        className={`nav-link ${activeButton === "OffreTechIA" ? "nav-link--active" : ""}`}
-        onClick={() => {
-          if (isOfferPage) return;
-          setSelectedDesign("OffreTechIA");
-        }}
+      </Link>
+      <Link
+        href="/"
+        className={`nav-link ${showOfferOnly ? "nav-link--active" : ""}`}
       >
         Offre Tech & IA
-      </button>
-      <a href="/production-documentaire" className="nav-link">
+      </Link>
+      <Link href="/production-documentaire" className="nav-link">
         <span className="sm:hidden">Prod. doc.</span>
         <span className="hidden sm:inline md:hidden">Production doc.</span>
         <span className="hidden md:inline">Production doc.</span>
-      </a>
+      </Link>
     </nav>
   );
 
@@ -324,10 +307,10 @@ function App() {
           {showOfferOnly && (
             <div className="w-full mt-8 space-y-8">
               <div className="max-w-4xl mx-auto space-y-4 text-center">
-                <h2 className="font-display text-heading text-center">
+                <h1 className="font-display text-heading text-center">
                   La technologie et l&apos;IA au service de{" "}
                   <span className="highlight-word">votre mission</span>
-                </h2>
+                </h1>
                 <p className="text-body-lg max-w-[600px] mx-auto text-forest">
                   Associations, entrepreneur.e.s, collectifs : libérez-vous des
                   tâches répétitives et créez de nouvelles opportunités grâce à

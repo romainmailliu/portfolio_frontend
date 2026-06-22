@@ -106,7 +106,7 @@ export const profiles: ProfileEntry[] = [
     propose: {
       showGeneralSteps: true,
       devisExamples: [
-        "Un site prêt pour votre jour J, pensé pour être trouvé (Google et moteurs IA)",
+        "Un site avec une proposition de valeur claire, pensé pour être trouvé (Google et moteurs IA)",
         "Des devis et relances qui partent sans vous, depuis vos outils actuels",
         "Un suivi client simple : qui a commandé, qui relancer, sans CRM surdimensionné",
       ],

@@ -25,13 +25,12 @@ const robotoMono = Roboto_Mono({
   display: "swap",
 });
 
-/** Court : onglet du navigateur + titre des cartes de partage (évite le doublon avec la description). */
+/** Page d'accueil : offre Tech & IA (canonical /). */
 const siteTitleDefault =
-  "Romain Mailliu | Tech & IA à prix libre — Marseille";
+  "Offre Tech & IA à Marseille | Romain Mailliu";
 
-/** Sous-titre partagé : aperçus de liens, SEO, cohérent avec le bandeau du site. */
 const siteDescription =
-  "J'accompagne les associations et entrepreneur.e.s engagé.e.s à mettre la Tech au service de leur mission, à prix libre.";
+  "Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s — à prix libre, à Marseille et en remote.";
 
 export const viewport: Viewport = {
   width: "device-width",
