@@ -114,11 +114,6 @@ function ProductionDocumentaire() {
                 Réalisateur engagé, producteur d&apos;impact, entrepreneur
                 idéaliste.
               </p>
-              <div className="pdoc-roles">
-                <span className="pdoc-role">Production</span>
-                <span className="pdoc-role">Impact</span>
-                <span className="pdoc-role">Distribution</span>
-              </div>
               <p className="text-caption leading-relaxed mt-3">
                 Un projet réalisé en partenariat avec l&apos;association{" "}
                 <a
