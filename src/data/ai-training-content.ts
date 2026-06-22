@@ -40,7 +40,8 @@ export const approachContent = {
   label: "The approach",
   title: "Start with you. Scale to your team.",
   intro: "A 2-hour call to put AI in your day-to-day and save time.",
-  footnote: "Remote sessions · Flexible scheduling. Pay at the end — only if you're satisfied.",
+  footnote:
+    "Remote sessions · Evening & Saturday slots available · Pay at the end — only if you're satisfied.",
 };
 
 export type StackLogo = {
@@ -52,21 +53,22 @@ export const stackContent = {
   claude: {
     name: "Claude",
     logoSrc: "/ai-training/logos/claude.svg",
-    label: "I work with Claude",
-    note: "Hands-on setup during your session — not a generic demo. Advanced features (MCP, Skills) only if useful for your role.",
+    label: "Hands-on AI setup",
+    note: "Sessions usually start with Claude for depth and flexibility. If your company standard is Microsoft Copilot or Google Gemini, we set that up instead — on tools you already pay for.",
     techTags: ["MCP", "Skills", "Cowork", "Claude Code"],
+    enterpriseTags: ["Microsoft Copilot", "Google Gemini", "Teams"],
   },
   adapt: {
     label: "I adapt to your environment",
-    note: "Gmail or Outlook, Google Calendar or Microsoft — your stack, not mine.",
+    note: "Most teams I work with run Microsoft 365 — Outlook, Teams, and calendar. Google Workspace works too. Your stack, not mine.",
     platforms: [
-      {
-        name: "Google Workspace",
-        logoSrc: "/ai-training/logos/google-workspace.svg",
-      },
       {
         name: "Microsoft 365",
         logoSrc: "/ai-training/logos/microsoft.svg",
+      },
+      {
+        name: "Google Workspace",
+        logoSrc: "/ai-training/logos/google-workspace.svg",
       },
     ] satisfies StackLogo[],
   },
@@ -82,6 +84,8 @@ export type InboxTimeRow = {
 export type InboxExample = {
   headline: string;
   problemIntro: string;
+  worksWithNote: string;
+  connectIntro: string;
   baseline: {
     hoursPerDay: string;
     percentOfWeek: string;
@@ -107,12 +111,30 @@ export type InboxExample = {
 export const contactEmail = "romain.mailliu@gmail.com";
 
 // Cal.com slug is /15min; event is "Personal coaching - 2h meeting"
+// Cal.com setup (dashboard): add evening hours (e.g. 18:00–20:00) + Saturday availability;
+// Settings → Appearance → 24-hour time format (or account locale fr-FR).
 export const bookingUrl: string | null =
   "https://cal.com/mailliu-romain-tcumz2/15min";
 
 export const bookingCallLabel = "2-hour session";
 export const bookingCtaLabel = "Book your 2-hour session";
 export const paymentNote = "Payment at the end — only if you're satisfied.";
+
+export const pricingContent = {
+  amount: "400€",
+  detail: "excl. VAT",
+  expenseNote: "Expensable as professional training",
+  roiNote:
+    "Less than half a day of external consulting — you leave with AI running on your tools the next day.",
+};
+
+export const schedulingContent = {
+  availability: "Evening & Saturday slots available on the calendar.",
+  customTimePrompt: "Need a specific time?",
+  customTimeCta: "Email me your preferred slot",
+};
+
+export const mailtoScheduleSubject = "2-hour session — request a specific time slot";
 
 /** Bullet list marks — change activeBulletMarkSet to switch style */
 export const bulletMarkSets = {
@@ -144,6 +166,14 @@ export const mailtoSubject = "2-hour AI coaching session — booking";
 
 export function getMailtoHref(): string {
   return `mailto:${contactEmail}?subject=${encodeURIComponent(mailtoSubject)}`;
+}
+
+export function getScheduleRequestMailtoHref(): string {
+  return `mailto:${contactEmail}?subject=${encodeURIComponent(mailtoScheduleSubject)}`;
+}
+
+export function getHeroPricingLine(): string {
+  return `${pricingContent.amount} ${pricingContent.detail} · ${pricingContent.expenseNote.toLowerCase()} · ${paymentNote}`;
 }
 
 export function getBookingHref(): string {
@@ -212,10 +242,11 @@ export const offers: Offer[] = [
     title: "Personal coaching",
     duration: "2 hours · Remote",
     price: "400€",
+    priceNote: "excl. VAT · expensable training budget",
     summary: "Put AI in your day-to-day and start saving time.",
     bullets: [
-      "Claude set up on your tools",
-      "Email: triage, draft replies, priorities",
+      "Claude, Copilot, or Gemini — matched to what your company already licenses",
+      "Email (Outlook or Gmail): triage, draft replies, priorities",
       "Calendar connected to your workflow",
       "Meeting notes: summaries, action items, and follow-ups from your calls",
       "Your data stays yours — I don't access your accounts, emails, or files",
@@ -231,7 +262,8 @@ export const offers: Offer[] = [
     priceNote: "On quote",
     summary: "Deploy the same setup across your team.",
     bullets: [
-      "Same workflows: email, priorities, calendar, meeting notes",
+      "Same workflows: Outlook or Gmail, priorities, calendar, meeting notes",
+      "Microsoft Copilot, Gemini, or Claude — per company license",
       "Adapted to each role in your organization",
       "Same security model — your data stays on your accounts",
       "Hands-on sessions for you and your team",
@@ -267,7 +299,10 @@ export const credibilityStats: CredibilityStat[] = [
 export const inboxExample: InboxExample = {
   headline: "Start with your inbox — save up to 4 hours a week",
   problemIntro:
-    "You probably spend 1–2 hours a day on email — sorting what matters, drafting replies, and catching up between meetings. That adds up fast across your week.",
+    "Whether you use Outlook or Gmail, you probably spend 1–2 hours a day on email — sorting what matters, drafting replies, and catching up between meetings.",
+  worksWithNote: "Outlook & Gmail · Microsoft 365 or Google Workspace",
+  connectIntro:
+    "Connected to your inbox (Outlook or Gmail), an AI assistant can help you:",
   baseline: {
     hoursPerDay: "1–2h",
     percentOfWeek: "12–25%",
@@ -281,22 +316,22 @@ export const inboxExample: InboxExample = {
   steps: [
     {
       title: "Morning briefing",
-      text: "Which emails actually need your attention today — and why.",
+      text: "In Outlook or Gmail: which messages need your attention today — and why.",
       timeSaved: "~15–25 min saved vs. manual sorting",
     },
     {
       title: "Draft replies",
-      text: "Routine messages drafted in your tone, ready to review and send.",
+      text: "Routine emails drafted in your tone, ready to review and send.",
       timeSaved: "~10–15 min saved per routine reply",
     },
     {
       title: "Weekly plan",
-      text: "Your emails and meetings turned into priorities, delegations, and follow-ups.",
+      text: "Your inbox and calendar turned into priorities, delegations, and follow-ups.",
       timeSaved: "~30–45 min saved vs. manual recap",
     },
     {
       title: "Meeting recap",
-      text: "Summaries, action items, and follow-ups from your calls — ready to review and share.",
+      text: "Summaries and action items from Teams, Zoom, or in-person calls — ready to share.",
       timeSaved: "~20–30 min saved per meeting",
     },
   ],
@@ -321,7 +356,7 @@ export const inboxExample: InboxExample = {
     },
   ],
   footerNote:
-    "You stay fully in control — every draft is reviewed before you send it. In a 2-hour session, you leave with this workflow on your own inbox, not a generic demo.",
+    "You stay fully in control — every draft is reviewed before you send it. In a 2-hour session, you leave with this workflow on your own inbox (Outlook or Gmail), not a generic demo.",
 };
 
 export const clientLogos: ClientLogo[] = [
@@ -346,7 +381,17 @@ export const faqItems: FaqItem[] = [
   {
     question: "How much does it cost?",
     answer:
-      "Personal coaching (2 hours): 400€. You pay at the end of the session — only if you're satisfied. Team rollout: on quote, depending on your team size and scope.",
+      "Personal coaching (2 hours): 400€ excl. VAT — expensable as professional training for most companies. You pay at the end of the session, only if you're satisfied. Team rollout: on quote, depending on team size and scope.",
+  },
+  {
+    question: "Can my company pay for this?",
+    answer:
+      "Yes. The session is priced as B2B professional training (400€ excl. VAT). I can issue an invoice for your expense report or training budget. Many managers book it as a skills upgrade, not personal spend.",
+  },
+  {
+    question: "Do you work with Microsoft 365 and Copilot?",
+    answer:
+      "Yes — most of my clients use Outlook and Microsoft 365. We set up on Copilot when your company already licenses it, or Claude/Gemini when that's your stack. The inbox example works the same on Outlook and Gmail.",
   },
   {
     question: "When do I pay?",

@@ -30,7 +30,9 @@ import {
   credibilityStats,
   faqItems,
   getBookingHref,
+  getHeroPricingLine,
   getMailtoHref,
+  getScheduleRequestMailtoHref,
   hasBookingLink,
   inboxExample,
   linkedinUrl,
@@ -39,6 +41,8 @@ import {
   profileBio,
   profilePhotoSrc,
   paymentNote,
+  pricingContent,
+  schedulingContent,
   stackContent,
   statsContent,
   heroTestimonials,
@@ -139,6 +143,13 @@ function StackStrip() {
                 <div className="mt-2.5 flex max-w-[9.5rem] flex-wrap gap-1.5">
                   {stackContent.claude.techTags.map((tag) => (
                     <span key={tag} className="ai-tech-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-1.5 flex max-w-[11rem] flex-wrap gap-1.5">
+                  {stackContent.claude.enterpriseTags.map((tag) => (
+                    <span key={tag} className="ai-tech-tag ai-tech-tag--enterprise">
                       {tag}
                     </span>
                   ))}
@@ -416,6 +427,21 @@ function CtaButton({
   );
 }
 
+function SchedulingNote({ className = "" }: { className?: string }) {
+  return (
+    <p className={`text-sm leading-relaxed text-slate-500 ${className}`}>
+      {schedulingContent.availability}{" "}
+      {schedulingContent.customTimePrompt}{" "}
+      <a
+        href={getScheduleRequestMailtoHref()}
+        className="font-medium text-sky-700 underline-offset-2 hover:text-sky-900 hover:underline"
+      >
+        {schedulingContent.customTimeCta}
+      </a>
+    </p>
+  );
+}
+
 function BookingPlaceholder() {
   if (hasBookingLink() || !showEditorHints) return null;
 
@@ -534,9 +560,8 @@ export default function AiTrainingLanding() {
                   transition: "opacity 0.55s ease 0.32s",
                 }}
               >
-                <p className="mt-4 text-sm text-slate-500">
-                  400€ · {paymentNote}
-                </p>
+                <p className="mt-4 text-sm text-slate-500">{getHeroPricingLine()}</p>
+                <SchedulingNote className="mt-2" />
                 <BookingPlaceholder />
               </div>
 
@@ -623,11 +648,18 @@ export default function AiTrainingLanding() {
                     <h3 className="text-2xl font-bold text-slate-900">{offer.title}</h3>
                     <p className="mt-2 text-sm font-semibold text-sky-700">{offer.duration}</p>
                     {offer.price && (
-                      <p className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
-                        {offer.price}
-                      </p>
+                      <>
+                        <p className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+                          {offer.price}
+                        </p>
+                        {offer.priceNote && (
+                          <p className="mt-1 text-sm font-medium text-slate-500">
+                            {offer.priceNote}
+                          </p>
+                        )}
+                      </>
                     )}
-                    {offer.priceNote && (
+                    {offer.priceNote && !offer.price && (
                       <p className="mt-3 text-lg font-semibold text-slate-500">{offer.priceNote}</p>
                     )}
                     <p className="mt-4 leading-relaxed text-slate-600">{offer.summary}</p>
@@ -658,9 +690,10 @@ export default function AiTrainingLanding() {
             </div>
             <StackStrip />
             <Reveal delay={240}>
-              <p className="mt-10 text-center text-sm text-slate-500">
-                {approachContent.footnote}
-              </p>
+              <div className="mt-10 space-y-2 text-center text-sm text-slate-500">
+                <p>{approachContent.footnote}</p>
+                <p className="text-slate-400">{pricingContent.roiNote}</p>
+              </div>
             </Reveal>
           </div>
         </section>
@@ -677,9 +710,12 @@ export default function AiTrainingLanding() {
               />
             </Reveal>
             <Reveal delay={80}>
-              <p className="mt-10 text-lg text-slate-700">
-                By connecting an AI assistant like Claude to your email, you can:
+              <p className="mt-6 inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-xs font-medium text-slate-600">
+                {inboxExample.worksWithNote}
               </p>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-8 text-lg text-slate-700">{inboxExample.connectIntro}</p>
             </Reveal>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {inboxExample.steps.map((step, i) => {
@@ -832,8 +868,9 @@ export default function AiTrainingLanding() {
                   </a>
                 </div>
                 <BookingPlaceholder />
+                <SchedulingNote className="mt-6" />
                 <p className="mt-4 text-xs text-slate-400">
-                  400€ · 2 hours · {paymentNote} · Team rollout on quote.
+                  {pricingContent.amount} {pricingContent.detail} · {pricingContent.expenseNote.toLowerCase()} · 2 hours · {paymentNote} · Team rollout on quote.
                 </p>
               </div>
             </Reveal>
