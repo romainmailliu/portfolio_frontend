@@ -77,9 +77,11 @@ export const profiles: ProfileEntry[] = [
         context: "avait besoin d'être visible avant son lancement",
         outcome:
           "un site optimisé pour Google et les IA, prêt le jour J",
+        projectHref: "https://www.amidou.eu/",
+        projectLabel: "Amidou",
       },
       {
-        name: "Klink",
+        name: "Léa",
         context: "proposait des dégustations de vin sans vitrine en ligne à la hauteur",
         outcome:
           "un site vitrine clair, trouvable et fidèle à leur univers",
@@ -156,7 +158,7 @@ export const profiles: ProfileEntry[] = [
     accent: "#7c3aed",
     situations: [
       "Vous produisez beaucoup de contenu, mais il reste sur une seule plateforme : pas le temps de le décliner ailleurs",
-      "La publication et la veille vous mangent vos créneaux de création",
+      "Vous avez de l'audience, mais aucun système pour transformer un follower en client",
       "Vous publiez à l'aveugle, sans savoir ce qui touche vraiment votre communauté",
       "Choisir les formats, les outils et les canaux de diffusion vous prend plus de temps que créer",
     ],
@@ -171,7 +173,7 @@ export const profiles: ProfileEntry[] = [
       {
         name: "Youth Visions",
         context: "produit des documentaires à fort impact",
-        outcome: "des outils numériques pour amplifier leur voix",
+        outcome: "des outils numériques pour créer la campagne d'impact autour des films",
         projectHref: "https://www.youth-visions.com/",
         projectLabel: "Youth Visions",
       },
