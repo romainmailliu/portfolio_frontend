@@ -31,7 +31,6 @@ import {
   credibilityStats,
   faqItems,
   getBookingHref,
-  getHeroPricingLine,
   getMailtoHref,
   getScheduleRequestMailtoHref,
   hasBookingLink,
@@ -564,9 +563,7 @@ export default function AiTrainingLanding() {
                   transition: "opacity 0.55s ease 0.32s",
                 }}
               >
-                <p className="mt-4 text-sm text-slate-500">{getHeroPricingLine()}</p>
-                <p className="mt-1 text-xs text-slate-400">{pricingContent.claudeSubscription}</p>
-                <SchedulingNote className="mt-2" />
+                <SchedulingNote className="mt-4" />
                 <BookingPlaceholder />
               </div>
 
