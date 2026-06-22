@@ -1,16 +1,11 @@
 type KPIBoxProps = {
   title: string;
-  /** Précision courte (ex. « 30 j · fenêtre glissante ») */
   subtitle?: string;
-  /** Détail technique / provenance */
   source?: string;
   value: string;
-  /** Évolution vs la fenêtre −30 j (même durée), affichée sous la valeur */
   deltaPercent?: number | null;
   valueEvolutionHint?: number | null;
-  /** Couleur du chiffre principal (ex. ratio engagement) */
   valueClassName?: string;
-  /** Contenu sous la valeur (jauge, pastille…) */
   footer?: React.ReactNode;
 };
 
@@ -28,7 +23,7 @@ export function KPIBox({
     deltaPercent !== undefined && deltaPercent !== null && Number.isFinite(deltaPercent);
 
   const toneFrom = (x: number) =>
-    x === 0 ? "text-neutral-600" : x > 0 ? "text-emerald-600" : "text-red-600";
+    x === 0 ? "text-forest/60" : x > 0 ? "text-emerald-700" : "text-red-700";
 
   const valueTone =
     valueClassName ??
@@ -36,7 +31,7 @@ export function KPIBox({
     valueEvolutionHint !== null &&
     Number.isFinite(valueEvolutionHint)
       ? toneFrom(valueEvolutionHint)
-      : "text-neutral-900");
+      : "text-forest");
 
   const deltaTone = showDeltaLine ? toneFrom(deltaPercent!) : "";
 
@@ -46,15 +41,13 @@ export function KPIBox({
       : "";
 
   return (
-    <div className="rounded-xl border border-neutral-200 bg-white px-4 py-3 shadow-sm">
-      <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-        {title}
-      </p>
+    <div className="sticky-card sticky-card--cream px-4 py-3 !bg-cream/90">
+      <p className="field-label !opacity-100">{title}</p>
       {subtitle ? (
-        <p className="mt-0.5 text-xs font-medium text-neutral-600">{subtitle}</p>
+        <p className="mt-0.5 text-xs font-medium text-forest/80">{subtitle}</p>
       ) : null}
       {source ? (
-        <p className="mt-1 text-[11px] leading-snug text-neutral-400">{source}</p>
+        <p className="mt-1 text-[11px] leading-snug text-pencil">{source}</p>
       ) : null}
       <p className={`mt-2 text-2xl font-semibold tabular-nums ${valueTone}`}>
         {value}

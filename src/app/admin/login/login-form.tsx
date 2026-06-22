@@ -37,38 +37,39 @@ export function DashboardLoginForm() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 py-16">
-      <h1 className="text-center text-2xl font-semibold text-neutral-900">
-        Accès dashboard
-      </h1>
-      <p className="mt-2 text-center text-sm text-neutral-600">
-        Réservé — mot de passe défini sur le serveur.
-      </p>
+    <main className="page-container mx-auto flex min-h-screen max-w-md flex-col justify-center py-16">
+      <div className="mb-6 text-center">
+        <p className="font-mono-label text-micro uppercase tracking-wider text-forest/70 mb-2">
+          Accès réservé
+        </p>
+        <h1 className="admin-title text-forest">Dashboard</h1>
+        <p className="mt-2 text-caption text-forest/80">
+          Mot de passe défini sur le serveur.
+        </p>
+      </div>
       <form
         onSubmit={onSubmit}
-        className="mt-8 space-y-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
+        className="sticky-card sticky-card--cream p-6 space-y-4"
       >
         <label className="block">
-          <span className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-            Mot de passe
-          </span>
+          <span className="field-label">Mot de passe</span>
           <input
             type="password"
             autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 text-neutral-900 shadow-sm focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+            className="field-input mt-2 py-2"
           />
         </label>
         {error ? (
-          <p className="text-sm text-red-600" role="alert">
+          <p className="admin-error-box" role="alert">
             {error}
           </p>
         ) : null}
         <button
           type="submit"
           disabled={pending || !password}
-          className="w-full rounded-lg bg-neutral-900 py-2.5 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-50"
+          className="btn-primary w-full disabled:opacity-50"
         >
           {pending ? "Connexion…" : "Entrer"}
         </button>

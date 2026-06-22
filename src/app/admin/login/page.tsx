@@ -3,8 +3,8 @@ import { DashboardLoginForm } from "./login-form";
 
 function LoginFallback() {
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center px-4 py-16">
-      <p className="text-center text-sm text-neutral-500">Chargement…</p>
+    <main className="page-container mx-auto flex min-h-screen max-w-md flex-col justify-center py-16">
+      <p className="text-center text-caption text-forest/70">Chargement…</p>
     </main>
   );
 }

@@ -16,37 +16,35 @@ export function VisitorHistoryPanel({ history, siteName }: Props) {
   );
 
   return (
-    <div className="mt-5 rounded-2xl border border-neutral-200 bg-white px-5 py-5 shadow-sm">
-      <div className="border-b border-neutral-100 pb-4">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-500">
+    <div className="sticky-card sticky-card--cream mt-5 px-5 py-5 !border-pencil">
+      <div className="border-b border-pencil pb-4">
+        <h3 className="field-label !opacity-100">
           Historique visiteurs — {siteName}
         </h3>
-        <p className="mt-2 text-2xl font-semibold tabular-nums text-neutral-900">
+        <p className="mt-2 text-2xl font-semibold tabular-nums text-forest">
           {formatCompactNumber(totalUniqueVisitorsAllTime)}{" "}
-          <span className="text-base font-normal text-neutral-600">
+          <span className="text-base font-normal text-forest/70">
             visiteurs uniques depuis le début
           </span>
         </p>
-        <p className="mt-2 max-w-3xl text-xs leading-relaxed text-neutral-500">
-          Une personne ne compte qu’une fois sur tout l’historique (agrégation PostHog{" "}
-          <code className="rounded bg-neutral-100 px-1">uniq(person_id)</code> sur{" "}
-          <code className="rounded bg-neutral-100 px-1">$pageview</code>).
+        <p className="mt-2 max-w-3xl text-xs leading-relaxed text-forest/70">
+          Une personne ne compte qu&apos;une fois sur tout l&apos;historique (agrégation PostHog{" "}
+          <code className="rounded bg-whisper px-1 text-forest">uniq(person_id)</code> sur{" "}
+          <code className="rounded bg-whisper px-1 text-forest">$pageview</code>).
         </p>
       </div>
 
       <div className="mt-5">
-        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
-          Graphique par mois
-        </p>
-        <p className="mb-4 text-[11px] leading-snug text-neutral-400">
+        <p className="field-label !opacity-100">Graphique par mois</p>
+        <p className="mb-4 mt-1 text-[11px] leading-snug text-pencil">
           Chaque barre = visiteurs <em>distincts</em> ayant eu au moins une page vue pendant{" "}
-          <span className="text-neutral-500">ce mois calendaire</span> (UTC). La même
+          <span className="text-forest/80">ce mois calendaire</span> (UTC). La même
           personne peut être dans plusieurs mois : la somme des barres peut dépasser le
           total « depuis le début ».
         </p>
 
         {monthlyActiveVisitors.length === 0 ? (
-          <p className="rounded-lg bg-neutral-50 py-8 text-center text-sm text-neutral-500">
+          <p className="rounded-card border border-pencil bg-whisper py-8 text-center text-sm text-forest/70">
             Pas encore assez de données pour un graphique mensuel.
           </p>
         ) : (
@@ -64,20 +62,20 @@ export function VisitorHistoryPanel({ history, siteName }: Props) {
                     key={bin.monthKey}
                     className="flex w-12 shrink-0 flex-col items-center gap-1.5 sm:w-14"
                   >
-                    <span className="h-4 text-[11px] font-medium tabular-nums text-neutral-600">
+                    <span className="h-4 text-[11px] font-medium tabular-nums text-forest/80">
                       {formatCompactNumber(bin.visitors)}
                     </span>
                     <div
-                      className="relative w-full rounded-t-md bg-neutral-100"
+                      className="admin-chart-track relative w-full rounded-t-md"
                       style={{ height: PLOT_HEIGHT_PX }}
                       title={`${bin.label} : ${bin.visitors} visiteurs`}
                     >
                       <div
-                        className="absolute bottom-0 left-0 right-0 rounded-t-md bg-gradient-to-t from-sky-700 to-sky-500 transition-opacity hover:opacity-90"
+                        className="admin-chart-bar absolute bottom-0 left-0 right-0 rounded-t-md transition-opacity hover:opacity-90"
                         style={{ height: `${barPct}%` }}
                       />
                     </div>
-                    <span className="max-w-[3.75rem] text-center text-[10px] leading-tight text-neutral-400">
+                    <span className="max-w-[3.75rem] text-center text-[10px] leading-tight text-pencil">
                       {bin.label}
                     </span>
                   </div>

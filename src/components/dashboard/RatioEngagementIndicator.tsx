@@ -2,7 +2,6 @@ import type { PagesPerVisitorEngagement } from "../../lib/analytics/math";
 
 type RatioEngagementIndicatorProps = {
   engagement: PagesPerVisitorEngagement;
-  /** compact = pastille + label ; full = + jauge 4 segments */
   variant?: "compact" | "full";
 };
 
@@ -33,7 +32,7 @@ export function RatioEngagementIndicator({
               className={`h-1.5 flex-1 rounded-full ${
                 segment <= engagement.barSegments
                   ? engagement.barFillClass
-                  : "bg-neutral-200"
+                  : "bg-pencil/40"
               }`}
             />
           ))}
@@ -42,4 +41,3 @@ export function RatioEngagementIndicator({
     </div>
   );
 }
-

@@ -24,6 +24,13 @@ export type SiteMetricPayload = {
   error?: string | null;
 };
 
+const CARD_SURFACES = [
+  "sticky-card--cream",
+  "sticky-card--mint",
+  "sticky-card--teal",
+  "sticky-card--blush",
+] as const;
+
 export function SiteCard({
   site,
   currentPageviews,
@@ -44,30 +51,30 @@ export function SiteCard({
   const ratio = getPagesPerVisitorRatio(currentPageviews, currentVisitors);
   const ratioEngagement = getPagesPerVisitorEngagement(ratio);
   const siteHref = publicSiteHref(site.gscSiteUrl);
+  const surfaceIndex =
+    site.id.split("").reduce((sum, char) => sum + char.charCodeAt(0), 0) %
+    CARD_SURFACES.length;
+  const surface = CARD_SURFACES[surfaceIndex];
 
   return (
-    <section className="rounded-2xl border border-neutral-200 bg-neutral-50/80 p-5 shadow-sm">
+    <section className={`sticky-card ${surface} p-5`}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold text-neutral-900">{site.name}</h2>
+        <h2 className="text-lg font-semibold text-forest">{site.name}</h2>
         {siteHref ? (
           <a
             href={siteHref}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Ouvrir le site ${site.name} (nouvel onglet)`}
-            className="inline-flex items-center gap-1 rounded-md border border-neutral-200/90 bg-white/90 px-2 py-1 text-xs font-medium text-neutral-500 shadow-sm transition-colors hover:border-neutral-300 hover:text-neutral-800"
+            className="case-study-tag"
           >
             Site
-            <ExternalLink className="h-3 w-3 opacity-70" aria-hidden />
+            <ExternalLink className="h-3 w-3 opacity-80" aria-hidden />
           </a>
         ) : null}
       </div>
 
-      {error ? (
-        <p className="mb-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800">
-          {error}
-        </p>
-      ) : null}
+      {error ? <p className="admin-error-box mb-4">{error}</p> : null}
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <KPIBox

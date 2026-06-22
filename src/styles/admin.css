@@ -1,0 +1,85 @@
+/* Admin dashboard — charte sketchbook */
+
+.admin-shell {
+  min-height: 100svh;
+  background: var(--cream-paper);
+  color: var(--forest-ink);
+}
+
+.admin-title {
+  font-family: var(--font-display), "Archivo Black", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.admin-alert {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--terracotta);
+  background: rgba(203, 85, 33, 0.08);
+  color: var(--forest-ink);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.admin-error-box {
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--terracotta);
+  background: rgba(203, 85, 33, 0.1);
+  color: var(--forest-ink);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+}
+
+.admin-table-wrap {
+  overflow: hidden;
+}
+
+.admin-table thead tr {
+  background: var(--sticky-mint);
+  border-bottom: 1px solid var(--forest-ink);
+}
+
+.admin-table th {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest-ink);
+  opacity: 0.75;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid rgba(182, 182, 182, 0.45);
+  transition: background 0.15s ease;
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(213, 245, 194, 0.28);
+}
+
+.admin-table tfoot tr {
+  background: rgba(255, 233, 92, 0.22);
+  border-top: 1px solid var(--forest-ink);
+  font-weight: 600;
+}
+
+.admin-cell-top {
+  background: var(--sticky-teal) !important;
+}
+
+.admin-chart-track {
+  background: var(--whisper-gray);
+}
+
+.admin-chart-bar {
+  background: linear-gradient(to top, var(--forest-ink) 0%, #4a6b20 100%);
+}
+
+.admin-skeleton {
+  border-radius: var(--radius-card);
+  border: 1px solid var(--pencil-gray);
+  background: rgba(241, 241, 241, 0.8);
+}
