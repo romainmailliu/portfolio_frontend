@@ -151,8 +151,8 @@ function App() {
         Offre Tech & IA
       </button>
       <a href="/production-documentaire" className="nav-link whitespace-nowrap">
-        <span className="sm:hidden">Prod. doc.</span>
-        <span className="hidden sm:inline">Production doc.</span>
+        <span className="md:hidden">Prod. doc.</span>
+        <span className="hidden md:inline">Production doc.</span>
       </a>
     </nav>
   );
@@ -190,7 +190,7 @@ function App() {
   return (
     <div className="page-shell">
       <header className="mobile-header md:hidden">
-        <div className="mobile-header__projects">
+        <div className="nav-pill mobile-header__projects">
           <p className="font-mono-label text-micro uppercase tracking-wider text-forest/70 mb-2 flex items-center justify-center gap-2">
             Derniers projets
             <MousePointer2 size={14} className="text-forest" aria-hidden />
@@ -199,9 +199,11 @@ function App() {
             {renderProjectChips({ compact: true })}
           </div>
         </div>
-        {renderMainNav(
-          "nav-pill mobile-header__nav flex max-w-[calc(100%-1.5rem)] items-center gap-0.5 px-2 py-1.5",
-        )}
+        <div className="mobile-header__nav-row">
+          {renderMainNav(
+            "nav-pill mobile-header__nav flex items-center justify-center gap-0.5 px-2 py-1.5",
+          )}
+        </div>
       </header>
 
       <section

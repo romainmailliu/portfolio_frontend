@@ -223,13 +223,27 @@ body {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.2;
   color: var(--forest-ink);
   text-decoration: none;
   padding: 6px 12px;
+  border: none;
   border-radius: var(--radius-btn);
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  box-sizing: border-box;
   transition: background 0.15s ease;
+}
+
+button.nav-link {
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .nav-link:hover {
@@ -376,19 +390,25 @@ body {
   top: 0;
   z-index: 50;
   background: var(--cream-paper);
-  border-bottom: 1px solid var(--pencil-gray);
-  box-shadow: var(--shadow-nav-glow);
   padding-top: max(0.75rem, env(safe-area-inset-top));
+  padding-bottom: 0.625rem;
 }
 
 .mobile-header__projects {
-  padding: 0 0.75rem 0.5rem;
+  margin: 0 0.75rem;
+  padding: 0.625rem 0.75rem 0.5rem;
+}
+
+.mobile-header__nav-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.625rem;
+  padding: 0 0.75rem;
 }
 
 .mobile-header__nav {
-  margin: 0 auto 0.5rem;
   width: fit-content;
-  max-width: calc(100% - 1.5rem);
+  max-width: 100%;
 }
 
 .page-container {
