@@ -39,7 +39,7 @@ export type Offer = {
 export const approachContent = {
   label: "The approach",
   title: "Start with you. Scale to your team.",
-  intro: "A 2-hour call to put AI in your day-to-day and save time.",
+  intro: "A 2-hour Claude coaching call to put AI in your day-to-day and save time.",
   footnote:
     "Remote sessions · Tuesdays & Thursdays, 8am–8pm · Pay at the end — only if you're satisfied.",
 };
@@ -53,14 +53,16 @@ export const stackContent = {
   claude: {
     name: "Claude",
     logoSrc: "/ai-training/logos/claude.svg",
-    label: "Hands-on AI setup",
-    note: "Sessions usually start with Claude for depth and flexibility. If your company standard is Microsoft Copilot or Google Gemini, we set that up instead — on tools you already pay for.",
+    label: "The 2-hour session — Claude",
+    note: "Personal coaching is built on Claude — that's where my hands-on expertise is today. Email, calendar, meeting notes, and workflows you keep using the next day.",
     techTags: ["MCP", "Skills", "Cowork", "Claude Code"],
     enterpriseTags: ["Microsoft Copilot", "Google Gemini", "Teams"],
   },
   adapt: {
     label: "I adapt to your environment",
     note: "Most teams I work with run Microsoft 365 — Outlook, Teams, and calendar. Google Workspace works too. Your stack, not mine.",
+    teamAiNote:
+      "For team rollouts, I can adapt to Copilot, Gemini, or other tools your company already licenses. Today's deep expertise: Claude.",
     platforms: [
       {
         name: "Microsoft 365",
@@ -125,7 +127,9 @@ export const pricingContent = {
   detail: "excl. VAT",
   expenseNote: "Expensable as professional training",
   roiNote:
-    "Less than half a day of external consulting — you leave with AI running on your tools the next day.",
+    "Less than half a day of external consulting — you leave with Claude running on your tools the next day.",
+  claudeSubscription:
+    "Plan for a Claude Pro subscription (~€20/month) — separate from the session fee.",
 };
 
 export const schedulingContent = {
@@ -243,9 +247,9 @@ export const offers: Offer[] = [
     duration: "2 hours · Remote",
     price: "400€",
     priceNote: "excl. VAT · expensable training budget",
-    summary: "Put AI in your day-to-day and start saving time.",
+    summary: "A focused 2-hour Claude setup on your day-to-day workflows.",
     bullets: [
-      "Claude, Copilot, or Gemini — matched to what your company already licenses",
+      "Claude set up on your tools — my core expertise today",
       "Email (Outlook or Gmail): triage, draft replies, priorities",
       "Calendar connected to your workflow",
       "Meeting notes: summaries, action items, and follow-ups from your calls",
@@ -260,10 +264,10 @@ export const offers: Offer[] = [
     title: "Team rollout",
     duration: "Custom · Remote",
     priceNote: "On quote",
-    summary: "Deploy the same setup across your team.",
+    summary: "Deploy the same workflows across your team — on Claude or your company's AI.",
     bullets: [
+      "Claude by default; Copilot, Gemini, or other tools when that's your license",
       "Same workflows: Outlook or Gmail, priorities, calendar, meeting notes",
-      "Microsoft Copilot, Gemini, or Claude — per company license",
       "Adapted to each role in your organization",
       "Same security model — your data stays on your accounts",
       "Hands-on sessions for you and your team",
@@ -302,7 +306,7 @@ export const inboxExample: InboxExample = {
     "Whether you use Outlook or Gmail, you probably spend 1–2 hours a day on email — sorting what matters, drafting replies, and catching up between meetings.",
   worksWithNote: "Outlook & Gmail · Microsoft 365 or Google Workspace",
   connectIntro:
-    "Connected to your inbox (Outlook or Gmail), an AI assistant can help you:",
+    "With Claude connected to your inbox (Outlook or Gmail), you can:",
   baseline: {
     hoursPerDay: "1–2h",
     percentOfWeek: "12–25%",
@@ -356,8 +360,60 @@ export const inboxExample: InboxExample = {
     },
   ],
   footerNote:
-    "You stay fully in control — every draft is reviewed before you send it. In a 2-hour session, you leave with this workflow on your own inbox (Outlook or Gmail), not a generic demo.",
+    "You stay fully in control — every draft is reviewed before you send it. In a 2-hour session, you leave with this Claude workflow on your own inbox (Outlook or Gmail), not a generic demo.",
 };
+
+export type SavingsCalculatorTask = {
+  id: string;
+  label: string;
+  unit: "day" | "week";
+  minMinutes: number;
+  maxMinutes: number;
+  defaultMinutes: number;
+  afterRatio: number;
+  afterFloor: number;
+};
+
+export const savingsCalculatorContent = {
+  title: "Estimate your time back",
+  intro: "Move the sliders to match how long you spend today — see a typical weekly gain after a Claude inbox setup.",
+  disclaimer:
+    "Illustrative ranges based on client sessions. Results vary by inbox volume, role, and how often you use the workflow.",
+  workDaysPerWeek: 5,
+};
+
+export const savingsCalculatorTasks: SavingsCalculatorTask[] = [
+  {
+    id: "triage",
+    label: "Morning inbox triage",
+    unit: "day",
+    minMinutes: 10,
+    maxMinutes: 60,
+    defaultMinutes: 32,
+    afterRatio: 0.35,
+    afterFloor: 10,
+  },
+  {
+    id: "replies",
+    label: "Routine replies (×2–3/day)",
+    unit: "day",
+    minMinutes: 15,
+    maxMinutes: 75,
+    defaultMinutes: 38,
+    afterRatio: 0.45,
+    afterFloor: 15,
+  },
+  {
+    id: "recap",
+    label: "Weekly priorities recap",
+    unit: "week",
+    minMinutes: 20,
+    maxMinutes: 90,
+    defaultMinutes: 52,
+    afterRatio: 0.32,
+    afterFloor: 15,
+  },
+];
 
 export const clientLogos: ClientLogo[] = [
   { name: "Gomett", initials: "Go", logoSrc: null },
@@ -391,7 +447,12 @@ export const faqItems: FaqItem[] = [
   {
     question: "Do you work with Microsoft 365 and Copilot?",
     answer:
-      "Yes — most of my clients use Outlook and Microsoft 365. We set up on Copilot when your company already licenses it, or Claude/Gemini when that's your stack. The inbox example works the same on Outlook and Gmail.",
+      "The 2-hour personal session is Claude — that's my expertise today. For team rollouts, I adapt to Copilot, Gemini, or other tools your company licenses. The inbox workflow works the same on Outlook and Gmail.",
+  },
+  {
+    question: "Is there a subscription to plan for?",
+    answer:
+      "Yes. Claude Pro is about €20/month — separate from the 400€ session fee. You subscribe directly to Anthropic; I help you set it up during the call if needed.",
   },
   {
     question: "When do I pay?",

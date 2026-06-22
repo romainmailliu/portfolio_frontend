@@ -19,6 +19,7 @@ import {
   sketchPlatformLogos,
 } from "./SketchBrandLogos";
 import { sketchReasonIcons } from "./SketchReasonIcons";
+import InboxSavingsCalculator from "./InboxSavingsCalculator";
 import {
   type CredibilityStat,
   type Testimonial,
@@ -179,6 +180,9 @@ function StackStrip() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-slate-600">
               {stackContent.adapt.note}
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-500">
+              {stackContent.adapt.teamAiNote}
             </p>
           </div>
         </div>
@@ -561,6 +565,7 @@ export default function AiTrainingLanding() {
                 }}
               >
                 <p className="mt-4 text-sm text-slate-500">{getHeroPricingLine()}</p>
+                <p className="mt-1 text-xs text-slate-400">{pricingContent.claudeSubscription}</p>
                 <SchedulingNote className="mt-2" />
                 <BookingPlaceholder />
               </div>
@@ -676,6 +681,11 @@ export default function AiTrainingLanding() {
                         {offer.outcome}
                       </p>
                     )}
+                    {offer.number === "01" && (
+                      <p className="mt-3 text-xs leading-relaxed text-slate-500">
+                        {pricingContent.claudeSubscription}
+                      </p>
+                    )}
                     <p
                       className={`mt-6 border-t pt-6 text-sm text-slate-500 ${
                         offer.featured ? "border-sky-100" : "border-slate-100"
@@ -736,32 +746,12 @@ export default function AiTrainingLanding() {
                 );
               })}
             </div>
-            <Reveal delay={360}>
-              <div className="ai-card mt-10 overflow-hidden">
-                <div className="hidden grid-cols-4 gap-px bg-slate-100 text-xs font-semibold uppercase tracking-wider text-slate-500 sm:grid">
-                  <div className="bg-slate-50 px-5 py-3">Task</div>
-                  <div className="bg-slate-50 px-5 py-3 text-center">Before</div>
-                  <div className="bg-slate-50 px-5 py-3 text-center">After AI</div>
-                  <div className="bg-slate-50 px-5 py-3 text-center">Saved</div>
-                </div>
-                {inboxExample.timeBreakdown.map((row) => (
-                  <div
-                    key={row.task}
-                    className="border-t border-slate-100 px-5 py-4 sm:grid sm:grid-cols-4 sm:items-center sm:gap-4"
-                  >
-                    <p className="text-sm font-medium text-slate-900">{row.task}</p>
-                    <p className="mt-2 text-sm text-slate-500 sm:mt-0 sm:text-center">{row.before}</p>
-                    <p className="mt-1 text-sm font-medium text-slate-800 sm:mt-0 sm:text-center">
-                      {row.after}
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-sky-700 sm:mt-0 sm:text-center">
-                      {row.saved}
-                    </p>
-                  </div>
-                ))}
+            <Reveal delay={280}>
+              <div className="mt-10">
+                <InboxSavingsCalculator />
               </div>
             </Reveal>
-            <Reveal delay={440}>
+            <Reveal delay={360}>
               <div className="ai-card mt-6 border-sky-200 bg-sky-50/40 p-6 md:p-8">
                 <p className="text-lg leading-relaxed text-slate-800">{inboxExample.footerNote}</p>
               </div>
