@@ -49,12 +49,12 @@ const PARTNER_ASSOCIATIONS = [
 
 const TEAM_CORE = [
   { name: "Rachel Cisinski", role: "Réalisation" },
-  { name: "Romain Mailliu", role: "Production" },
+  { name: "Romain Mailliu", role: "Production · co-auteur" },
   { name: "Bertrand Guerry", role: "Production déléguée" },
 ] as const;
 
 const TEAM_CREW = [
-  { name: "Mathilde d'Alançon", role: "Co-auteur·ice · Communication" },
+  { name: "Mathilde d'Alançon", role: "Communication · co-autrice" },
   { name: "Gwenvaël Bigi", role: "Image · co-auteur" },
   { name: "Virgile Loiseau", role: "Son · co-auteur" },
   { name: "Simon Bart", role: "Montage" },
@@ -254,8 +254,8 @@ function ProductionDocumentaire() {
                 ))}
               </div>
 
-              <p className="pdoc-availability-label mt-4">Production</p>
-              <p className="text-caption leading-relaxed mt-2">
+              <p className="text-caption leading-relaxed mt-4">
+                Production{" "}
                 <a
                   href="https://www.mitiki.com/en/"
                   target="_blank"
@@ -263,8 +263,8 @@ function ProductionDocumentaire() {
                   className="underline underline-offset-2 font-semibold"
                 >
                   Mitiki
-                </a>{" "}
-                · coproduction{" "}
+                </a>
+                {" · coproduction "}
                 <a
                   href="https://www.lp4y.org/"
                   target="_blank"
@@ -272,8 +272,8 @@ function ProductionDocumentaire() {
                   className="underline underline-offset-2 font-semibold"
                 >
                   LP4Y
-                </a>{" "}
-                · distribution{" "}
+                </a>
+                {" · distribution "}
                 <a
                   href="https://www.waynapitch.com/"
                   target="_blank"
@@ -304,9 +304,8 @@ function ProductionDocumentaire() {
             <div className="pdoc-note pdoc-note--teal">
               <p className="field-label">Échangeons</p>
               <p className="text-caption leading-relaxed mt-3">
-                Producteur d&apos;impact sur ce projet — au plaisir
-                d&apos;échanger sur la production documentaire engagée et les
-                retours d&apos;expérience du terrain.
+                Au plaisir d&apos;échanger sur la production documentaire
+                engagée et les retours d&apos;expérience du terrain.
               </p>
               <a href={teamCtaMailto} className="btn-primary mt-4">
                 <span aria-hidden>→</span>
