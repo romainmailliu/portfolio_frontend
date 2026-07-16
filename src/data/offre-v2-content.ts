@@ -120,7 +120,6 @@ export const profiles: ProfileEntry[] = [
     accent: "#b45309",
     situations: [
       "Votre association n'est pas assez visible en ligne : les gens qui vous cherchent ne vous trouvent pas toujours",
-      "Les inscriptions et la communication avec vos membres prennent plus de temps que votre mission sur le terrain",
       "Votre équipe s'épuise sur l'administratif : tableurs, mails en chaîne, doublons",
       "Vous perdez des adhérents car vous n'avez pas le temps de faire des campagnes d'adhésion structurées",
       "Vous payez encore des outils tech dépassés que plus personne n'utilise vraiment",
@@ -140,13 +139,22 @@ export const profiles: ProfileEntry[] = [
         projectHref: "https://www.coexister.fr/",
         projectLabel: "Coexister",
       },
+      {
+        name: "Asso LEVAT",
+        context:
+          "menait une campagne citoyenne pour préserver le couvent Levat",
+        outcome:
+          "un site pour rassembler soutiens, adhérents et structures du quartier",
+        projectHref: "https://www.assolevat.fr/",
+        projectLabel: "Asso LEVAT",
+      },
     ],
     propose: {
       showGeneralSteps: true,
       devisExamples: [
-        "Un site que votre équipe met à jour seule (événements, actualités, adhésions)",
-        "Une présence visible là où vos membres et partenaires vous cherchent",
-        "Des inscriptions et rappels qui tournent sans vous, adaptés à votre façon de travailler",
+        "Un CRM léger pour centraliser adhérents, contacts et historiques (sans tableurs éparpillés)",
+        "Une campagne citoyenne en ligne pour le plaidoyer : pétition, lettre de soutien, diffusion",
+        "Un site que votre équipe met à jour seule (événements, actualités, appels à mobilisation)",
       ],
     },
   },

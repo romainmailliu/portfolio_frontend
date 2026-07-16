@@ -62,6 +62,11 @@ const PROJECTS: ProjectItem[] = [
     href: "https://www.prendstadose.fr/",
     description: "webzine",
   },
+  {
+    name: "Asso LEVAT",
+    href: "https://www.assolevat.fr/",
+    description: "campagne citoyenne pour préserver le couvent Levat",
+  },
 ];
 
 const STICKY_ACCENTS = ["project-chip--mint", "project-chip--teal", "project-chip--blush"] as const;
