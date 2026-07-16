@@ -16,6 +16,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/offre-v2",
+        destination: "/offre",
+        permanent: true,
+      },
+      {
+        source: "/offre-v2/:profil",
+        destination: "/offre/:profil",
+        permanent: true,
+      },
+      {
         source: "/future.md",
         destination: "/production-documentaire.md",
         permanent: true,

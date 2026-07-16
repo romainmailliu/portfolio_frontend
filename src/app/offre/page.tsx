@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Choisissez votre profil pour découvrir comment la tech et l'IA peuvent vous aider — entrepreneur·e, association, créateur·rice ou manager.",
   alternates: {
-    canonical: "/offre-v2",
+    canonical: "/offre",
   },
   openGraph: {
     title: "Quel est votre profil ? | Romain Mailliu",
     description:
       "Choisissez votre profil pour découvrir comment la tech et l'IA peuvent vous aider — entrepreneur·e, association, créateur·rice ou manager.",
-    url: "/offre-v2",
+    url: "/offre",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };

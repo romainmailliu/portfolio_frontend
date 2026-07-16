@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map(
     (slug) => ({
-      url: `${BASE_URL}/offre-v2/${slug}`,
+      url: `${BASE_URL}/offre/${slug}`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/offre-v2`,
+      url: `${BASE_URL}/offre`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,

@@ -33,7 +33,7 @@ export default function OffreV2Hub() {
           {profiles.map((profile, i) => (
             <Link
               key={profile.slug}
-              href={`/offre-v2/${profile.slug}`}
+              href={`/offre/${profile.slug}`}
               className="sticky-card sticky-card--cream offre-v2-reveal group block p-5 md:p-6 transition-[box-shadow] hover:shadow-cta"
               style={{ animationDelay: `${80 + i * 70}ms` }}
             >

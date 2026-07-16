@@ -18,7 +18,7 @@ export default function OffreV2Profile({ profile }: Props) {
     <div className="page-shell">
       <div className="page-container max-w-2xl py-12 md:py-20">
         <Link
-          href="/offre-v2"
+          href="/offre"
           className="nav-pill inline-flex items-center gap-1.5 px-4 py-2 text-sm text-forest mb-10 transition-colors hover:opacity-90"
         >
           <ArrowLeft size={15} aria-hidden />
@@ -46,7 +46,7 @@ export default function OffreV2Profile({ profile }: Props) {
             {otherProfiles.map((other) => (
               <Link
                 key={other.slug}
-                href={`/offre-v2/${other.slug}`}
+                href={`/offre/${other.slug}`}
                 className="text-body-sm text-forest/80 hover:text-forest underline underline-offset-4 transition-colors"
               >
                 {other.statementShort}

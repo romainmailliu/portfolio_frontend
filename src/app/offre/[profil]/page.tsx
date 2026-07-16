@@ -26,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: profile.statementShort,
     description: profile.situations[0],
     alternates: {
-      canonical: `/offre-v2/${profile.slug}`,
+      canonical: `/offre/${profile.slug}`,
     },
     openGraph: {
       title: `${profile.statementShort} | Romain Mailliu`,
       description: profile.situations[0],
-      url: `/offre-v2/${profile.slug}`,
+      url: `/offre/${profile.slug}`,
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
