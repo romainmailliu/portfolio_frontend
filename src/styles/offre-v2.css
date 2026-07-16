@@ -210,11 +210,18 @@
 }
 
 .offre-profile-card__caret {
+  display: inline-block;
   flex-shrink: 0;
   margin-top: 0.2rem;
   font-size: 0.65rem;
   line-height: 1;
   color: var(--forest-ink, #1a3300);
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.offre-profile-card__caret.is-open {
+  transform: rotate(90deg);
 }
 
 .case-study-tag {

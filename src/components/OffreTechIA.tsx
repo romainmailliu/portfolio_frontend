@@ -228,7 +228,10 @@ export default function OffreTechIA() {
               }`}
             >
               <p className="flex items-start gap-2 text-sm md:text-[0.95rem] font-medium text-forest leading-snug">
-                <span className="offre-profile-card__caret" aria-hidden="true">
+                <span
+                  className={`offre-profile-card__caret${isSelected ? " is-open" : ""}`}
+                  aria-hidden="true"
+                >
                   ▶
                 </span>
                 <span>{profile.statement}</span>
