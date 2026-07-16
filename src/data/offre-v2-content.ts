@@ -133,13 +133,6 @@ export const profiles: ProfileEntry[] = [
           "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
       },
       {
-        name: "Coexister",
-        context: "facilite le vivre-ensemble au quotidien",
-        outcome: "un outil numérique au service de leur mission",
-        projectHref: "https://www.coexister.fr/",
-        projectLabel: "Coexister",
-      },
-      {
         name: "Asso LEVAT",
         context:
           "menait une campagne citoyenne pour préserver le couvent Levat",
@@ -147,6 +140,13 @@ export const profiles: ProfileEntry[] = [
           "un site pour rassembler soutiens, adhérents et structures du quartier",
         projectHref: "https://www.assolevat.fr/",
         projectLabel: "Asso LEVAT",
+      },
+      {
+        name: "Coexister",
+        context: "facilite le vivre-ensemble au quotidien",
+        outcome: "un outil numérique au service de leur mission",
+        projectHref: "https://www.coexister.fr/",
+        projectLabel: "Coexister",
       },
     ],
     propose: {
