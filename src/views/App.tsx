@@ -17,9 +17,9 @@ type ProjectItem = {
 
 const PROJECTS: ProjectItem[] = [
   {
-    name: "Asso LEVAT",
+    name: "Jadin LEVAT",
     href: "https://www.assolevat.fr/",
-    description: "campagne citoyenne pour préserver le couvent Levat",
+    description: "campagne citoyenne participative",
   },
   {
     name: "Coexister",

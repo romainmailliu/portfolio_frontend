@@ -133,13 +133,13 @@ export const profiles: ProfileEntry[] = [
           "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
       },
       {
-        name: "Asso LEVAT",
+        name: "Jadin LEVAT",
         context:
-          "menait une campagne citoyenne pour préserver le couvent Levat",
+          "menait une campagne citoyenne participative",
         outcome:
           "un site pour rassembler soutiens, adhérents et structures du quartier",
         projectHref: "https://www.assolevat.fr/",
-        projectLabel: "Asso LEVAT",
+        projectLabel: "Jadin LEVAT",
       },
       {
         name: "Coexister",
