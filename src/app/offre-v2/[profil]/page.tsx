@@ -25,9 +25,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: profile.statementShort,
     description: profile.situations[0],
-    robots: {
-      index: false,
-      follow: false,
+    alternates: {
+      canonical: `/offre-v2/${profile.slug}`,
+    },
+    openGraph: {
+      title: `${profile.statementShort} | Romain Mailliu`,
+      description: profile.situations[0],
+      url: `/offre-v2/${profile.slug}`,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   };
 }

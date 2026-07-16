@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description:
       "Contactez Romain Mailliu pour un accompagnement tech et IA à prix libre pour associations et entrepreneur.e.s engagé.e.s.",
     url: "/contact",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
