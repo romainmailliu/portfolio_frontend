@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import {
   profiles,
   contactCtas,
+  associationDiscountSticker,
   type ProfileEntry,
   type ProfileSlug,
 } from "../data/offre-v2-content";
@@ -86,7 +87,7 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
               {managerPropose.bullets.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <span className="mt-1 shrink-0 text-pencil" aria-hidden>
-                    —
+                    ·
                   </span>
                   <span>{item}</span>
                 </li>
@@ -132,7 +133,7 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
                         className="flex items-start gap-2 text-caption"
                       >
                         <span className="mt-1 shrink-0 text-pencil" aria-hidden>
-                          —
+                          ·
                         </span>
                         <span>{example}</span>
                       </li>
@@ -221,12 +222,20 @@ export default function OffreTechIA() {
               type="button"
               onClick={() => setSelectedSlug(profile.slug)}
               aria-pressed={isSelected}
-              className={`offre-profile-card text-left rounded-card border p-4 md:p-5 transition-all ${
+              className={`offre-profile-card relative text-left rounded-card border p-4 md:p-5 transition-all ${
                 isSelected
                   ? "sticky-card--mint border-forest shadow-cta"
                   : "sticky-card--cream border-pencil hover:border-forest"
               }`}
             >
+              {profile.slug === "association" && (
+                <span
+                  className="offre-discount-sticker offre-discount-sticker--on-card"
+                  aria-label={associationDiscountSticker.ariaLabel}
+                >
+                  {associationDiscountSticker.label}
+                </span>
+              )}
               <p className="flex items-start gap-2 text-sm md:text-[0.95rem] font-medium text-forest leading-snug">
                 <span
                   className={`offre-profile-card__caret${isSelected ? " is-open" : ""}`}

@@ -83,7 +83,7 @@ function Moderne() {
 
       {sent ? (
         <p className="text-caption text-center py-1 text-forest font-medium">
-          Reçu — je vous recontacte bientôt.
+          Reçu, je vous recontacte bientôt.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
@@ -105,7 +105,7 @@ function Moderne() {
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Votre projet en quelques mots — ex. site pour une asso, automatisation Excel…"
+            placeholder="Votre projet en quelques mots, ex. site pour une asso, automatisation Excel…"
             rows={2}
             aria-label="Votre projet en quelques mots"
             className="field-input resize-y py-2 min-h-[4.5rem]"

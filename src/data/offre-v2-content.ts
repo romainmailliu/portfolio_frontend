@@ -25,12 +25,12 @@ export type ProfileProposeConfig = {
 
 export type ProfileEntry = {
   slug: ProfileSlug;
-  /** Première personne, objectif client — pas la solution */
+  /** Première personne, objectif client, pas la solution */
   statement: string;
   /** Version courte pour la carte */
   statementShort: string;
   accent: string;
-  /** Situations concrètes — « Vous êtes au bon endroit si » */
+  /** Situations concrètes : « Vous êtes au bon endroit si » */
   situations: string[];
   caseStudies: ProfileCaseStudy[];
   propose: ProfileProposeConfig;
@@ -38,13 +38,19 @@ export type ProfileEntry = {
 
 export const contactCardAnchor = "contact-romain";
 
+/** Sticker tarif associations */
+export const associationDiscountSticker = {
+  label: "−50 % associations",
+  ariaLabel: "Moins 50 pour cent pour les associations",
+} as const;
+
 export const contactCtas = {
   marseille: {
     label: "Prenons un café à Marseille",
     href: `#${contactCardAnchor}`,
   },
   visio: {
-    label: "Rencontrons-nous en viso",
+    label: "Rencontrons-nous en visio",
     href: `#${contactCardAnchor}`,
   },
 } as const;
@@ -53,9 +59,9 @@ export const hubContent = {
   eyebrow: "Par où commencer ?",
   title: "Quel est votre profil ?",
   intro:
-    "Pas de catalogue d'offres ici. Dites-moi qui vous êtes et ce que vous voulez accomplir — on part de là.",
+    "Pas de catalogue d'offres ici. Dites-moi qui vous êtes et ce que vous voulez accomplir. On part de là.",
   footnote:
-    "Associations, entrepreneur·e·s, collectifs : accompagnement à prix libre, à Marseille et à distance.",
+    "Associations, entrepreneur·e·s, collectifs : accompagnement au juste prix, à Marseille et à distance.",
 };
 
 export const profiles: ProfileEntry[] = [
@@ -72,6 +78,15 @@ export const profiles: ProfileEntry[] = [
       "Vous savez ce que vous vendez, mais peinez à le formuler clairement pour vos premiers clients",
     ],
     caseStudies: [
+      {
+        name: "Albane",
+        context:
+          "lançait son activité de coaching et facilitation sans site à son image",
+        outcome:
+          "un site vitrine clair, pour présenter ateliers et accompagnements",
+        projectHref: "https://www.albanedharcourt.com/",
+        projectLabel: "Albane d'Harcourt",
+      },
       {
         name: "Léo",
         context: "avait besoin d'être visible avant son lancement",

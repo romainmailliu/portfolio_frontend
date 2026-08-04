@@ -23,6 +23,31 @@
   box-shadow: var(--ov2-shadow);
 }
 
+.offre-discount-sticker {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--forest-ink, #1a3300);
+  background: var(--highlighter-yellow, #f5e66b);
+  border: 1.5px solid var(--forest-ink, #1a3300);
+  border-radius: 0.35rem;
+  transform: rotate(-2.5deg);
+  box-shadow: 2px 2px 0 rgba(26, 51, 0, 0.12);
+  white-space: nowrap;
+}
+
+.offre-discount-sticker--on-card {
+  position: absolute;
+  top: -0.55rem;
+  right: 0.75rem;
+  z-index: 1;
+}
+
 .offre-v2-card {
   position: relative;
   border: 2px solid var(--ov2-border);

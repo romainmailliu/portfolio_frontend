@@ -1,4 +1,4 @@
-/** Contenu historique de l'offre Tech & IA — source de vérité pour « Je propose » */
+/** Contenu historique de l'offre Tech & IA, source de vérité pour « Je propose » */
 
 export type OfferTier = {
   id: string;
@@ -24,8 +24,8 @@ export const proposeSteps = [
     body: "Vous repartez avec une cartographie claire : où la tech vous fait gagner des opportunités et où ce n'est pas encore le moment d'investir.",
   },
   {
-    title: "Ensuite, un devis construit ensemble — à prix libre.",
-    body: "Pas de grille tarifaire. Nous ajustons selon vos priorités et ce que vous pouvez investir.",
+    title: "Ensuite, un devis construit ensemble, au juste prix.",
+    body: "Calé sur vos priorités et ce que vous pouvez investir.",
   },
   {
     title: "On développe ce dont vous avez vraiment besoin.",
@@ -130,7 +130,7 @@ export const automationTiers: OfferTier[] = [
       "Identification des opportunités d'automatisation avec l'IA",
       "Recommandations concrètes et priorisées",
     ],
-    footnote: "🙌 Gratuit — sans engagement",
+    footnote: "🙌 Gratuit, sans engagement",
   },
   {
     id: "automatisation",

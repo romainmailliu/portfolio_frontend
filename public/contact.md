@@ -1,17 +1,17 @@
 ---
-title: Contact — Romain Mailliu, Développeur Web & IA
-description: Contactez Romain Mailliu pour un accompagnement tech et IA à prix libre — sites web, automatisation et outils sur mesure pour associations et entrepreneur.e.s engagé.e.s.
+title: Contact · Romain Mailliu, Développeur Web & IA
+description: Contactez Romain Mailliu pour un accompagnement tech et IA au juste prix : sites web, automatisation et outils sur mesure pour associations et entrepreneur.e.s engagé.e.s.
 url: https://www.romainmailliu.com/contact
 last_updated: 2026-06-22
 ---
 
-# Contact — Romain Mailliu
+# Contact · Romain Mailliu
 
-Tech & IA à prix libre — Marseille
+Tech & IA au juste prix, Marseille
 
 La Tech au service de **votre mission**.
 
-J'accompagne les associations et entrepreneur.e.s engagé.e.s à mettre la Tech au service de leur mission, à prix libre.
+J'accompagne les associations et entrepreneur.e.s engagé.e.s à mettre la Tech au service de leur mission, au juste prix.
 
 ## Contact
 
@@ -34,14 +34,14 @@ Aujourd'hui, j'accompagne :
 
 ## Derniers projets
 
-- [Coexister](https://www.coexister.fr/) — faciliter le vivre ensemble
-- [Gomett](https://www.gomett.com/) — troc de compétences entre entrepreneur.e.s
-- [Klink, le son du vin](https://www.lesonduvin.fr/) — dégustation (fun) de vin
-- [ATS Séductions](https://ats-seduction.vercel.app/) — CV optimisé pour les algorithmes de recrutement
-- [Amidou](https://www.amidou.eu/) — garder le lien avec les seniors isolés
-- La Camaraderie — brasserie sociale d'insertion (en cours)
-- [Spazzo](https://www.spazzo.fr/) — partage de locaux entre pros (en cours)
-- [Youth Visions](https://www.youth-visions.com/) — production de documentaires
-- [PrendsTaDose](https://www.prendstadose.fr/) — webzine
+- [Coexister](https://www.coexister.fr/) : faciliter le vivre ensemble
+- [Gomett](https://www.gomett.com/) : troc de compétences entre entrepreneur.e.s
+- [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation (fun) de vin
+- [ATS Séductions](https://ats-seduction.vercel.app/) : CV optimisé pour les algorithmes de recrutement
+- [Amidou](https://www.amidou.eu/) : garder le lien avec les seniors isolés
+- La Camaraderie : brasserie sociale d'insertion (en cours)
+- [Spazzo](https://www.spazzo.fr/) : partage de locaux entre pros (en cours)
+- [Youth Visions](https://www.youth-visions.com/) : production de documentaires
+- [PrendsTaDose](https://www.prendstadose.fr/) : webzine
 
 [Retour à l'offre Tech & IA](https://www.romainmailliu.com/)

@@ -30,7 +30,7 @@ const siteTitleDefault =
   "Offre Tech & IA à Marseille | Romain Mailliu";
 
 const siteDescription =
-  "Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s — à prix libre, à Marseille et en remote.";
+  "Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s. Au juste prix, à Marseille et en remote.";
 
 export const viewport: Viewport = {
   width: "device-width",

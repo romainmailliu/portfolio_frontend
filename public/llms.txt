@@ -1,4 +1,4 @@
-# Romain Mailliu — Développeur Web & IA
+# Romain Mailliu · Développeur Web & IA
 
 ## About
 
@@ -14,13 +14,13 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 ## Services and Pricing
 
 **Sites web**
-- Site vitrine (3-5 pages, formulaire de contact, module actualités, formation incluse) : 500€ — livraison ~1 semaine
-- Site + Visibilité (tout le précédent + SEO, Google Business, Google Analytics) : 900€ — livraison ~2 semaines
-- E-commerce personnalisé (boutique en ligne, paiements, gestion commandes, fonctionnalités sur mesure) : à partir de 1500€ — délai selon projet
+- Site vitrine (3-5 pages, formulaire de contact, module actualités, formation incluse) : 500€, livraison ~1 semaine
+- Site + Visibilité (tout le précédent + SEO, Google Business, Google Analytics) : 900€, livraison ~2 semaines
+- E-commerce personnalisé (boutique en ligne, paiements, gestion commandes, fonctionnalités sur mesure) : à partir de 1500€, délai selon projet
 
 **Automatisation & IA**
 - Diagnostic IA (audit des processus, cartographie des tâches chronophages, recommandations priorisées) : gratuit, sans engagement
-- Automatisation (workflows n8n, Airtable, connexion d'outils, réduction tâches répétitives) : à partir de 300€ — livraison 1-2 semaines
+- Automatisation (workflows n8n, Airtable, connexion d'outils, réduction tâches répétitives) : à partir de 300€, livraison 1-2 semaines
 - IA sur mesure (chatbots, génération de contenus, outils d'aide à la décision) : sur devis selon projet
 
 ## Locations
@@ -47,7 +47,7 @@ Marseille (présentiel) et toute la France (remote).
 
 ## What Makes Us Different
 
-1. Connaissance du secteur ONG et impact social de l'intérieur — pas besoin d'expliquer les contraintes du secteur associatif.
+1. Connaissance du secteur ONG et impact social de l'intérieur : pas besoin d'expliquer les contraintes du secteur associatif.
 2. Tarifs justes : l'IA réduit le temps de développement, les économies sont répercutées sur les prix.
 3. Approche terrain : visite chez le client avant de proposer quoi que ce soit.
 4. Méthodes de suivi de projet issues du conseil en stratégie : réactivité, livrables clairs, pas de surprise.
@@ -83,6 +83,6 @@ Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traita
 
 Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
 
-- https://www.romainmailliu.com/index.md — Offre Tech & IA (accueil, services, tarifs, réalisations)
-- https://www.romainmailliu.com/contact.md — Contact et à propos
-- https://www.romainmailliu.com/production-documentaire.md — Production documentaire (film I AM THE FUTURE)
+- https://www.romainmailliu.com/index.md · Offre Tech & IA (accueil, services, tarifs, réalisations)
+- https://www.romainmailliu.com/contact.md · Contact et à propos
+- https://www.romainmailliu.com/production-documentaire.md · Production documentaire (film I AM THE FUTURE)

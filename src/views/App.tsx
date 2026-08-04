@@ -5,9 +5,13 @@ import { usePathname } from "next/navigation";
 import { Lightbulb, MousePointer2 } from "lucide-react";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
-import { contactCardAnchor } from "../data/offre-v2-content";
+import {
+  associationDiscountSticker,
+  contactCardAnchor,
+} from "../data/offre-v2-content";
 
 import "../styles/App.css";
+import "../styles/offre-v2.css";
 type ProjectItem = {
   name: string;
   href: string;
@@ -16,6 +20,11 @@ type ProjectItem = {
 };
 
 const PROJECTS: ProjectItem[] = [
+  {
+    name: "Albane d'Harcourt",
+    href: "https://www.albanedharcourt.com/",
+    description: "site vitrine coaching & facilitation",
+  },
   {
     name: "Jadin LEVAT",
     href: "https://www.assolevat.fr/",
@@ -238,9 +247,17 @@ function App() {
               )}
 
               <div className="hero-copy flex flex-col items-center gap-5 text-center">
-                <div className="tagline-badge">
-                  <Lightbulb size={14} aria-hidden />
-                  Tech & IA à prix libre — Marseille
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <div className="tagline-badge">
+                    <Lightbulb size={14} aria-hidden />
+                    Tech & IA au juste prix, Marseille
+                  </div>
+                  <span
+                    className="offre-discount-sticker"
+                    aria-label={associationDiscountSticker.ariaLabel}
+                  >
+                    {associationDiscountSticker.label}
+                  </span>
                 </div>
 
                 <h1 className="font-display hero-headline">
@@ -250,8 +267,8 @@ function App() {
 
                 <p className="text-body-lg max-w-[32rem] text-forest">
                   J&apos;accompagne les associations et entrepreneur.e.s
-                  engagé.e.s à mettre la Tech au service de leur mission, à
-                  prix libre.
+                  engagé.e.s à mettre la Tech au service de leur mission, au
+                  juste prix.
                 </p>
               </div>
 

@@ -1,5 +1,5 @@
 ---
-title: Production documentaire — I AM THE FUTURE
+title: Production documentaire · I AM THE FUTURE
 description: Romain Mailliu, producteur du documentaire I AM THE FUTURE sorti en salles en septembre 2025
 url: https://www.romainmailliu.com/production-documentaire
 last_updated: 2026-04-30
@@ -7,7 +7,7 @@ last_updated: 2026-04-30
 
 # Et vous, c'est quoi votre projet un peu fou ?
 
-Avec une équipe talentueuse, nous avons produit un film documentaire — **I AM THE FUTURE** — sorti au cinéma en septembre 2025.
+Avec une équipe talentueuse, nous avons produit un film documentaire, **I AM THE FUTURE**, sorti au cinéma en septembre 2025.
 
 Réalisateur engagé, producteur d'impact, entrepreneur idéaliste.
 
@@ -23,4 +23,4 @@ Des rêves plein la tête malgré les difficultés qu'ils rencontrent, quatre je
 
 ## Contact
 
-romain.mailliu@gmail.com — www.romainmailliu.com — Marseille, France
+romain.mailliu@gmail.com · www.romainmailliu.com · Marseille, France

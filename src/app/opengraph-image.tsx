@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Romain Mailliu — Tech & IA au service de votre mission, à Marseille";
+  "Romain Mailliu · Tech & IA au service de votre mission, à Marseille";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default function OpenGraphImage() {
             La technologie et l&apos;IA au service de votre mission
           </div>
           <div style={{ fontSize: 34, opacity: 0.8 }}>
-            Sites web · Automatisation · Outils IA — à prix libre
+            Sites web · Automatisation · Outils IA · au juste prix
           </div>
         </div>
 

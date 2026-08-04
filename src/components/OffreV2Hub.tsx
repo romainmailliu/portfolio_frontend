@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { hubContent, profiles } from "../data/offre-v2-content";
+import {
+  associationDiscountSticker,
+  hubContent,
+  profiles,
+} from "../data/offre-v2-content";
 import "../styles/offre-v2.css";
 
 export default function OffreV2Hub() {
@@ -34,9 +38,17 @@ export default function OffreV2Hub() {
             <Link
               key={profile.slug}
               href={`/offre/${profile.slug}`}
-              className="sticky-card sticky-card--cream offre-v2-reveal group block p-5 md:p-6 transition-[box-shadow] hover:shadow-cta"
+              className="sticky-card sticky-card--cream offre-v2-reveal group relative block p-5 md:p-6 transition-[box-shadow] hover:shadow-cta"
               style={{ animationDelay: `${80 + i * 70}ms` }}
             >
+              {profile.slug === "association" && (
+                <span
+                  className="offre-discount-sticker offre-discount-sticker--on-card"
+                  aria-label={associationDiscountSticker.ariaLabel}
+                >
+                  {associationDiscountSticker.label}
+                </span>
+              )}
               <div className="flex items-start gap-4">
                 <span
                   className="mt-2 h-2 w-2 shrink-0 rounded-full"
@@ -73,7 +85,7 @@ export default function OffreV2Hub() {
           style={{ animationDelay: "480ms", transform: "rotate(-0.8deg)" }}
         >
           <p className="text-sm font-medium tracking-wide text-forest">
-            Une demi-journée pour voir clair — offerte, sans engagement.
+            Une demi-journée pour voir clair, offerte, sans engagement.
           </p>
         </div>
       </div>
