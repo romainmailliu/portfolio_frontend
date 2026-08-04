@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import OffreV2Profile from "../../../components/OffreV2Profile";
+import OffreProfile from "../../../components/OffreProfile";
 import {
   getProfileBySlug,
   getProfileSlugs,
-} from "../../../data/offre-v2-content";
+} from "../../../data/offre-content";
 
 type Props = {
   params: Promise<{ profil: string }>;
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function OffreV2ProfilPage({ params }: Props) {
+export default async function OffreProfilPage({ params }: Props) {
   const { profil } = await params;
   const profile = getProfileBySlug(profil);
 
@@ -45,5 +45,5 @@ export default async function OffreV2ProfilPage({ params }: Props) {
     notFound();
   }
 
-  return <OffreV2Profile profile={profile} />;
+  return <OffreProfile profile={profile} />;
 }

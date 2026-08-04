@@ -9,13 +9,13 @@ import {
   associationDiscountSticker,
   type ProfileEntry,
   type ProfileSlug,
-} from "../data/offre-v2-content";
+} from "../data/offre-content";
 import {
   managerPropose,
   personalizedQuoteIntro,
   proposeSteps,
 } from "../data/old-offre-tech-ia";
-import "../styles/offre-v2.css";
+import "../styles/offre.css";
 
 const CASE_STUDY_SURFACES = [
   "sticky-card--mint",

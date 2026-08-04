@@ -8,10 +8,10 @@ import OffreTechIA from "../components/OffreTechIA";
 import {
   associationDiscountSticker,
   contactCardAnchor,
-} from "../data/offre-v2-content";
+} from "../data/offre-content";
 
 import "../styles/App.css";
-import "../styles/offre-v2.css";
+import "../styles/offre.css";
 type ProjectItem = {
   name: string;
   href: string;

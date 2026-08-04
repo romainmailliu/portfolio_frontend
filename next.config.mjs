@@ -16,8 +16,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/offre",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/offre-v2",
-        destination: "/offre",
+        destination: "/",
         permanent: true,
       },
       {

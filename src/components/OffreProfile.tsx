@@ -2,34 +2,34 @@
 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import type { ProfileEntry } from "../data/offre-v2-content";
+import type { ProfileEntry } from "../data/offre-content";
 import {
   associationDiscountSticker,
   profiles,
-} from "../data/offre-v2-content";
+} from "../data/offre-content";
 import { ProfileDetail } from "./OffreTechIA";
-import "../styles/offre-v2.css";
+import "../styles/offre.css";
 
 type Props = {
   profile: ProfileEntry;
 };
 
-export default function OffreV2Profile({ profile }: Props) {
+export default function OffreProfile({ profile }: Props) {
   const otherProfiles = profiles.filter((p) => p.slug !== profile.slug);
 
   return (
     <div className="page-shell">
       <div className="page-container max-w-2xl py-12 md:py-20">
         <Link
-          href="/offre"
+          href="/"
           className="nav-pill inline-flex items-center gap-1.5 px-4 py-2 text-sm text-forest mb-10 transition-colors hover:opacity-90"
         >
           <ArrowLeft size={15} aria-hidden />
-          Choisir un autre profil
+          Retour à l&apos;offre
         </Link>
 
         <header
-          className="sticky-card sticky-card--cream border-l-4 p-5 md:p-6 mb-6 offre-v2-reveal relative"
+          className="sticky-card sticky-card--cream border-l-4 p-5 md:p-6 mb-6 offre-reveal relative"
           style={{ borderLeftColor: profile.accent }}
         >
           {profile.slug === "association" && (
