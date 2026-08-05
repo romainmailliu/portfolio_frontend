@@ -48,7 +48,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Klink, le son du vin",
     href: "https://www.lesonduvin.fr/",
-    description: "dégustation (fun) de vin",
+    description: "dégustation fun",
   },
   {
     name: "ATS Séductions",

@@ -89,7 +89,7 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 - [Albane](https://www.albanedharcourt.com/) : site vitrine coaching & facilitation
 - [Coexister](https://www.coexister.fr/) : faciliter le vivre ensemble
 - [Gomett](https://www.gomett.com/) : troc de compétences entre entrepreneur.e.s
-- [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation (fun) de vin
+- [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation fun
 - [ATS Séductions](https://ats-seduction.vercel.app/) : CV optimisé pour les algorithmes de recrutement
 - [Amidou](https://www.amidou.eu/) : garder le lien avec les seniors isolés
 - La Camaraderie : brasserie sociale d'insertion (en cours)
