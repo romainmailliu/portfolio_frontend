@@ -148,13 +148,13 @@ export const profiles: ProfileEntry[] = [
           "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
       },
       {
-        name: "Rivière de rêves",
+        name: "Rivière",
         context:
           "animait ses ateliers et ses rencontres sans vitrine pour les rassembler",
         outcome:
           "un site vitrine qui porte leur univers et leur agenda d'événements",
         projectHref: "https://www.rivieredereves.org/",
-        projectLabel: "Rivière de rêves",
+        projectLabel: "Rivière",
       },
       {
         name: "Jadin LEVAT",

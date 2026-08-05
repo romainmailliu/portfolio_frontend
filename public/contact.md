@@ -35,7 +35,7 @@ Aujourd'hui, j'accompagne :
 ## Derniers projets
 
 - [Albane](https://www.albanedharcourt.com/) : site vitrine coaching & facilitation
-- [Rivière de rêves](https://www.rivieredereves.org/) : ateliers et rencontres pour se remettre à rêver
+- [Rivière](https://www.rivieredereves.org/) : ateliers et rencontres pour retrouver votre capacité à rêver
 - [Coexister](https://www.coexister.fr/) : faciliter le vivre ensemble
 - [Gomett](https://www.gomett.com/) : troc de compétences entre entrepreneur.e.s
 - [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation (fun) de vin

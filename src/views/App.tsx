@@ -26,10 +26,9 @@ const PROJECTS: ProjectItem[] = [
     description: "site vitrine coaching & facilitation",
   },
   {
-    name: "Rivière de rêves",
+    name: "Rivière",
     href: "https://www.rivieredereves.org/",
-    description: "ateliers et rencontres pour se remettre à rêver",
-    desktopDescription: "ateliers et rencontres pour rêver",
+    description: "ateliers et rencontres pour retrouver votre capacité à rêver.",
   },
   {
     name: "Jadin LEVAT",
