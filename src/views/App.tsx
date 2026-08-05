@@ -23,7 +23,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Rivière",
     href: "https://www.rivieredereves.org/",
-    description: "retrouver sa capacité à rêver.",
+    description: "retrouver sa capacité à rêver",
   },
   {
     name: "Albane",
@@ -53,7 +53,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "ATS Séductions",
     href: "https://ats-seduction.vercel.app/",
-    description: "CV pour (faire) craquer les algorithmes de recrutement.",
+    description: "CV pour (faire) craquer les algorithmes de recrutement",
   },
   {
     name: "Amidou",
