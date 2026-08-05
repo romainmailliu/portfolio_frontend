@@ -23,7 +23,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Rivière",
     href: "https://www.rivieredereves.org/",
-    description: "ateliers et rencontres pour retrouver votre capacité à rêver.",
+    description: "association pour retrouver votre capacité à rêver.",
   },
   {
     name: "Albane",
