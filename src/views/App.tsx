@@ -21,9 +21,15 @@ type ProjectItem = {
 
 const PROJECTS: ProjectItem[] = [
   {
-    name: "Albane d'Harcourt",
+    name: "Albane",
     href: "https://www.albanedharcourt.com/",
     description: "site vitrine coaching & facilitation",
+  },
+  {
+    name: "Rivière de rêves",
+    href: "https://www.rivieredereves.org/",
+    description: "ateliers et rencontres pour se remettre à rêver",
+    desktopDescription: "ateliers et rencontres pour rêver",
   },
   {
     name: "Jadin LEVAT",

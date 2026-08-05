@@ -72,6 +72,7 @@ const jsonLd = {
       jobTitle: "Développeur Web & IA",
       url: "https://www.romainmailliu.com/",
       email: "romain.mailliu@gmail.com",
+      image: "https://www.romainmailliu.com/logo.png",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Marseille",
@@ -82,6 +83,8 @@ const jsonLd = {
       "@type": "ProfessionalService",
       name: "Romain Mailliu - Développement Web & IA",
       url: "https://www.romainmailliu.com/",
+      logo: "https://www.romainmailliu.com/logo.png",
+      image: "https://www.romainmailliu.com/logo.png",
       areaServed: ["Marseille", "France"],
       serviceType: [
         "Développement de site web",

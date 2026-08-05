@@ -85,7 +85,7 @@ export const profiles: ProfileEntry[] = [
         outcome:
           "un site vitrine clair, pour présenter ateliers et accompagnements",
         projectHref: "https://www.albanedharcourt.com/",
-        projectLabel: "Albane d'Harcourt",
+        projectLabel: "Albane",
       },
       {
         name: "Léo",
@@ -146,6 +146,15 @@ export const profiles: ProfileEntry[] = [
           "voulait publier ses événements en autonomie, sans dépendre de personne",
         outcome:
           "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
+      },
+      {
+        name: "Rivière de rêves",
+        context:
+          "animait ses ateliers et ses rencontres sans vitrine pour les rassembler",
+        outcome:
+          "un site vitrine qui porte leur univers et leur agenda d'événements",
+        projectHref: "https://www.rivieredereves.org/",
+        projectLabel: "Rivière de rêves",
       },
       {
         name: "Jadin LEVAT",
