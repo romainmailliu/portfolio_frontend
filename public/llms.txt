@@ -14,17 +14,17 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 ## Services and Pricing
 
 **Sites vitrines** (grille détaillée : https://www.romainmailliu.com/tarifs)
-- Rénovation (le site existe mais a vieilli : design actualisé, mobile, rapide, contenus conservés) : 300€
-- Création (site vitrine sur mesure, de la maquette à la mise en ligne, nom de domaine, mobile, référencement de base) : 400€
+- Rénovation (le site existe mais a vieilli : reconstruit avec le même socle technique qu'une création, en repartant des contenus actuels du client) : 300€
+- Création (site vitrine sur mesure, de la maquette à la mise en ligne, nom de domaine configuré — achat ~15€/an à la charge du client, mobile, référencement de base) : 400€
 - Création modifiable (le même site, plus l'autonomie : le client modifie textes, images et contenus lui-même) : 500€ — offre recommandée
 - Livraison en une semaine une fois les contenus du client reçus.
-- Inclus dans tous les forfaits : mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts, 2 tours de retours (au-delà 70€/h).
-- Non inclus : rédaction des contenus, photos et visuels, nom de domaine (~15€/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+- Inclus dans les trois offres : design sur mesure construit avec ses outils, mise en ligne, version mobile, référencement de base, formulaire de contact, 2 tours de retours (au-delà 70€/h), 2 mois de maintenance offerts.
+- Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
 
-**Maintenance**
-- Maintenance annuelle : 120€/an, les 2 premiers mois sont offerts. Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance.
-- Modifications illimitées sur l'existant, traitées sous 5 jours ouvrés. Besoin urgent traité sous 24h : 50€.
-- Alternative à l'usage : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€, nouvelle fonctionnalité sur devis.
+**Après la mise en ligne — trois options au choix du client**
+- Vous vous débrouillez : gratuit. Hébergement au nom du client, mises à jour et sauvegardes à sa charge, aucun engagement.
+- Maintenance : 10€/mois facturé 120€ à l'année, les 2 premiers mois sont offerts. Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance. Modifications illimitées sur l'existant, traitées sous 5 jours ouvrés. Besoin urgent traité sous 24h : 50€.
+- À la carte : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€, nouvelle fonctionnalité sur devis.
 - Paiement par carte (Stripe) ou par virement sur facture.
 
 **Automatisation & IA**
@@ -65,7 +65,7 @@ Marseille (présentiel) et toute la France (remote).
 ## FAQ
 
 **Combien coûte un site web ?**
-Rénovation d'un site existant : 300€. Création d'un site vitrine : 400€. Création modifiable, où le client gère lui-même ses contenus : 500€. Maintenance : 120€/an, les 2 premiers mois offerts. Boutique, paiement ou réservation : sur devis.
+Rénovation d'un site existant : 300€. Création d'un site vitrine : 400€. Création modifiable, où le client gère lui-même ses contenus : 500€. Maintenance : 10€/mois facturé 120€ à l'année, les 2 premiers mois offerts, ou rien du tout si le client gère lui-même. Boutique, paiement ou réservation : sur devis.
 
 **Je suis une association avec un petit budget, tu peux m'aider ?**
 Oui, c'est le cœur de cible. Les tarifs sont adaptés au secteur associatif. La proposition est construite selon votre budget réel, pas l'inverse.
@@ -83,7 +83,7 @@ Oui. Marseille en présentiel, toute la France en remote.
 Tarifs 3 à 5 fois moins élevés grâce à l'IA. Connaissance du secteur ONG/impact. Approche conseil avant de coder quoi que ce soit.
 
 **Tu assures le suivi après livraison ?**
-Oui. La maintenance annuelle (120€/an, 2 premiers mois offerts) couvre l'hébergement, les mises à jour de sécurité, les sauvegardes et les modifications illimitées sur l'existant. Une alternative à l'usage existe : pack 5 modifications à 50€.
+Oui, au choix. La maintenance (10€/mois facturé 120€ à l'année, 2 premiers mois offerts) couvre l'hébergement, les mises à jour de sécurité, les sauvegardes et les modifications illimitées sur l'existant. Une alternative à l'usage existe : pack 5 modifications à 50€.
 
 **Tu fais aussi les contenus et le design ?**
 Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traitance cachée.

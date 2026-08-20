@@ -105,7 +105,7 @@ export const offres: Offre[] = [
     slug: "renovation",
     name: "Rénovation",
     detail:
-      "Votre site existe mais il a vieilli. Je le reprends : design actualisé, mobile, rapide. Vos contenus sont conservés.",
+      "Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels. Même site neuf, moins de travail : c'est ce qui fait le prix.",
     price: "300 €",
   },
   {
@@ -130,10 +130,16 @@ export const offres: Offre[] = [
 export const offresHeading = "Tarifs";
 
 /**
- * Matrice de comparaison — une ligne par prestation, une colonne par offre.
- * L'ordre des booléens suit celui du tableau `offres` ci-dessus.
- * Décomposition des trois descriptifs d'offre et du bloc « inclus dans tous
- * les forfaits » : rien n'y est ajouté.
+ * Matrice de comparaison — une ligne par prestation, une colonne par offre,
+ * dans l'ordre du tableau `offres`.
+ *
+ * Les lignes sont réparties en deux groupes : ce qui distingue les offres, et
+ * ce qui est commun aux trois. Sans cette séparation, huit lignes sur dix
+ * affichaient trois coches identiques et noyaient les vraies différences.
+ *
+ * Le socle technique est le même dans les trois cas ; la rénovation coûte
+ * moins cher parce que les contenus existent déjà, pas parce qu'elle serait
+ * bricolée sur l'ancien site.
  */
 export type OffreFeature = {
   label: string;
@@ -142,36 +148,60 @@ export type OffreFeature = {
   note?: string;
 };
 
-export const offreFeatures: OffreFeature[] = [
-  { label: "Reprise de votre site existant", included: [true, false, false] },
-  { label: "Vos contenus actuels conservés", included: [true, false, false] },
-  { label: "Maquette sur mesure", included: [false, true, true] },
-  { label: "Mise en ligne", included: [true, true, true] },
-  { label: "Version mobile", included: [true, true, true] },
-  { label: "Référencement de base", included: [true, true, true] },
-  { label: "Formulaire de contact", included: [true, true, true] },
+export type OffreFeatureGroup = {
+  title: string;
+  features: OffreFeature[];
+};
+
+export const offreFeatureGroups: OffreFeatureGroup[] = [
   {
-    label: "Nom de domaine configuré",
-    note: "achat du nom de domaine à votre charge, ~15 €/an",
-    included: [false, true, true],
+    title: "Ce qui change d'une offre à l'autre",
+    features: [
+      {
+        label: "Je repars de vos contenus actuels",
+        note: "textes et images déjà en ligne : c'est ce qui fait la différence de prix",
+        included: [true, false, false],
+      },
+      {
+        label: "Nom de domaine configuré",
+        note: "achat du nom de domaine à votre charge, ~15 €/an",
+        included: [false, true, true],
+      },
+      {
+        label: "Vous modifiez textes, images et contenus vous-même",
+        included: [false, false, true],
+      },
+    ],
   },
-  { label: "2 tours de retours", included: [true, true, true] },
-  { label: "2 mois de maintenance offerts", included: [true, true, true] },
   {
-    label: "Vous modifiez textes, images et contenus vous-même",
-    included: [false, false, true],
+    title: "Inclus dans les trois offres",
+    features: [
+      {
+        label: "Design sur mesure, construit avec mes outils",
+        included: [true, true, true],
+      },
+      { label: "Mise en ligne", included: [true, true, true] },
+      { label: "Version mobile", included: [true, true, true] },
+      { label: "Référencement de base", included: [true, true, true] },
+      { label: "Formulaire de contact", included: [true, true, true] },
+      {
+        label: "2 tours de retours",
+        note: "au-delà : 70 €/h",
+        included: [true, true, true],
+      },
+      { label: "2 mois de maintenance offerts", included: [true, true, true] },
+    ],
   },
 ];
 
+/**
+ * Ce qui est inclus vit désormais dans le tableau : ne reste ici que ce qui
+ * ne s'y exprime pas, à savoir ce qui n'est pas compris.
+ */
 export const mentions = {
-  included: {
-    label: "Inclus dans tous les forfaits",
-    body: "mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts.",
-  },
-  revisions: "2 tours de retours inclus. Au-delà : 70 €/h.",
   excluded: {
     label: "Non inclus",
-    body: "rédaction des contenus, photos et visuels, nom de domaine (~15 €/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.",
+    body: "rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.",
   },
 } as const;
 
@@ -179,28 +209,65 @@ export const mentions = {
 /* Section 4 — Maintenance                                             */
 /* ------------------------------------------------------------------ */
 
-export const maintenance = {
-  heading: "Maintenance",
-  price: "120 €/an",
-  freeMonths: "Les 2 premiers mois sont offerts.",
-  headline: "Votre site reste en ligne, à jour et sauvegardé.",
-  headlineDetail:
-    "Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance.",
-  bonusTitle: "Modifications illimitées sur l'existant.",
-  bonusDetail:
-    "Changer un texte, remplacer une photo, mettre à jour vos horaires ou vos tarifs, ajuster une couleur, ajouter une actualité, un projet, un membre de l'équipe. Si ça existe déjà sur votre site, c'est inclus.",
-  sla: "Demandes par email, traitées sous 5 jours ouvrés.",
-  slaUrgent: "Besoin urgent, traité sous 24h : 50 €.",
-} as const;
+export const maintenanceHeading = "Et après la mise en ligne ?";
+export const maintenanceIntro =
+  "Trois façons de faire vivre votre site. Vous choisissez à la livraison, et vous pouvez changer d'avis ensuite.";
 
-export const payAsYouGo = {
-  title: "Vous préférez payer à l'usage ?",
-  items: [
-    "Pack 5 modifications — 50 €, valable 12 mois.",
-    "Nouvelle page — 50 €.",
-    "Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis.",
-  ],
-} as const;
+export type MaintenanceOption = {
+  slug: string;
+  name: string;
+  price: string;
+  /** Précision sous le prix (facturation, mois offerts…). */
+  priceNote?: string;
+  summary: string;
+  items: string[];
+  /** Ligne de bas de carte, en petit. */
+  footnote?: string;
+  featured?: boolean;
+  badge?: string;
+};
+
+export const maintenanceOptions: MaintenanceOption[] = [
+  {
+    slug: "autonomie",
+    name: "Vous vous débrouillez",
+    price: "Gratuit",
+    summary: "Vous reprenez la main à la livraison.",
+    items: [
+      "Hébergement à votre nom",
+      "Mises à jour et sauvegardes à votre charge",
+      "Aucun engagement, aucune facture récurrente",
+    ],
+    footnote: "Le bon choix si quelqu'un s'en occupe déjà chez vous.",
+  },
+  {
+    slug: "maintenance",
+    name: "Maintenance",
+    price: "10 €/mois",
+    priceNote: "facturé 120 € à l'année · les 2 premiers mois sont offerts",
+    summary: "Votre site reste en ligne, à jour et sauvegardé.",
+    items: [
+      "Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance",
+      "Modifications illimitées sur l'existant : un texte, une photo, vos horaires, une actualité, un membre de l'équipe",
+      "Demandes par email, traitées sous 5 jours ouvrés",
+    ],
+    footnote: "Besoin urgent, traité sous 24h : 50 €.",
+    featured: true,
+    badge: "Recommandé",
+  },
+  {
+    slug: "a-la-carte",
+    name: "À la carte",
+    price: "Au besoin",
+    summary: "Vous payez quand vous avez besoin de moi.",
+    items: [
+      "Pack 5 modifications — 50 €, valable 12 mois",
+      "Nouvelle page — 50 €",
+      "Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis",
+    ],
+    footnote: "Sur les tarifs convenus ensemble, sans surprise.",
+  },
+];
 
 export const paymentNote =
   "Paiement par carte (Stripe) ou par virement sur facture.";

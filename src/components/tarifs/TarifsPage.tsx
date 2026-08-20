@@ -3,13 +3,14 @@ import MainNav from "../MainNav";
 import CandidatureForm from "./CandidatureForm";
 import PreuveCard from "./PreuveCard";
 import TarifsTable from "./TarifsTable";
+import MaintenanceOptions from "./MaintenanceOptions";
 import {
   candidatureAnchor,
   hero,
-  maintenance,
+  maintenanceHeading,
+  maintenanceIntro,
   mentions,
   offresHeading,
-  payAsYouGo,
   paymentNote,
   preuves,
   preuvesHeading,
@@ -30,7 +31,7 @@ export default function TarifsPage() {
 
       <main className="page-container tarifs-main">
         {/* --- Section 1 — Headline ---------------------------------- */}
-        <section className="flex flex-col items-center text-center gap-6">
+        <section className="tarifs-hero flex flex-col items-center text-center gap-6">
           <p className="tagline-badge">
             <Lightbulb size={14} aria-hidden />
             {hero.badge}
@@ -78,61 +79,26 @@ export default function TarifsPage() {
 
           <TarifsTable />
 
-          <div className="sticky-card sticky-card--cream tarifs-mentions mt-6">
-            <p>
-              <strong>{mentions.included.label}</strong> — {mentions.included.body}
-            </p>
-            <p>{mentions.revisions}</p>
-            <p>
-              <strong>{mentions.excluded.label}</strong> — {mentions.excluded.body}
-            </p>
-          </div>
+          <p className="tarifs-mentions mt-5">
+            <strong>{mentions.excluded.label}</strong> — {mentions.excluded.body}
+          </p>
         </section>
 
         {/* --- Section 4 — Maintenance ------------------------------- */}
         <section className="section-gap" aria-labelledby="maintenance-title">
-          <div className="sticky-card sticky-card--teal maintenance-box">
-            <div className="maintenance-head">
-              <h2 id="maintenance-title" className="maintenance-price">
-                {maintenance.heading} — {maintenance.price}
-              </h2>
-              <p className="text-caption font-medium">
-                {maintenance.freeMonths}
-              </p>
-            </div>
+          <h2
+            id="maintenance-title"
+            className="tarifs-section-title text-center mb-3"
+          >
+            {maintenanceHeading}
+          </h2>
+          <p className="tarifs-section-intro text-center mb-6">
+            {maintenanceIntro}
+          </p>
 
-            <div>
-              <p className="maintenance-block__title">{maintenance.headline}</p>
-              <p className="maintenance-block__detail">
-                {maintenance.headlineDetail}
-              </p>
-            </div>
+          <MaintenanceOptions />
 
-            <div>
-              <p className="maintenance-block__title">
-                {maintenance.bonusTitle}
-              </p>
-              <p className="maintenance-block__detail">
-                {maintenance.bonusDetail}
-              </p>
-            </div>
-
-            <p className="maintenance-sla">
-              {maintenance.sla}
-              <br />
-              {maintenance.slaUrgent}
-            </p>
-          </div>
-
-          <div className="payg mt-5 max-w-[38rem]">
-            <p className="font-medium">{payAsYouGo.title}</p>
-            <ul>
-              {payAsYouGo.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p className="mt-3">{paymentNote}</p>
-          </div>
+          <p className="tarifs-mentions mt-5">{paymentNote}</p>
         </section>
 
         {/* --- Formulaire de candidature ----------------------------- */}

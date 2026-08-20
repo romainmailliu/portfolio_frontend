@@ -33,25 +33,25 @@ Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 Grille complète et formulaire de candidature : [Tarifs](https://www.romainmailliu.com/tarifs)
 
 **Rénovation · 300€**
-- Votre site existe mais il a vieilli : design actualisé, mobile, rapide
-- Vos contenus sont conservés
+- Votre site existe mais il a vieilli : je le reconstruis avec mes outils
+- Même socle technique qu'une création ; je repars de vos contenus actuels, c'est ce qui fait le prix
 
 **Création · 400€**
 - Site vitrine sur mesure, de la maquette à la mise en ligne
-- Nom de domaine, version mobile, référencement de base
+- Nom de domaine configuré (achat ~15€/an à votre charge), version mobile, référencement de base
 
 **Création modifiable · 500€ · recommandé**
 - Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même
 - Pour les structures et les artistes qui publient souvent (nouvelle date, nouvelle œuvre, nouvelle photo)
 
 Inclus dans tous les forfaits : mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts. 2 tours de retours inclus, au-delà 70€/h.
-Non inclus : rédaction des contenus, photos et visuels, nom de domaine (~15€/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
 Délai : une semaine une fois vos contenus reçus.
 
-**Maintenance · 120€/an** (les 2 premiers mois sont offerts)
-- Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance
-- Modifications illimitées sur l'existant, traitées sous 5 jours ouvrés (besoin urgent sous 24h : 50€)
-- À l'usage : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€
+**Après la mise en ligne, trois options**
+- Vous vous débrouillez : gratuit, hébergement à votre nom, mises à jour et sauvegardes à votre charge
+- Maintenance · 10€/mois facturé 120€ à l'année (2 premiers mois offerts) : hébergement, sécurité, sauvegardes, surveillance, modifications illimitées sur l'existant sous 5 jours ouvrés (urgence 24h : 50€)
+- À la carte : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€, nouvelle fonctionnalité sur devis
 
 **Sur devis**
 - Boutique en ligne, paiement, réservation, espace membre, multilingue

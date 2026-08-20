@@ -1,5 +1,9 @@
 import { Check, Minus } from "lucide-react";
-import { offreFeatures, offres } from "../../data/tarifs-content";
+import {
+  offreFeatureGroups,
+  offres,
+  type OffreFeature,
+} from "../../data/tarifs-content";
 
 /** Cellule ✓ / — avec un libellé lu par les lecteurs d'écran. */
 function Cell({ included }: { included: boolean }) {
@@ -16,14 +20,13 @@ function Cell({ included }: { included: boolean }) {
   );
 }
 
-function ColumnHead({ index }: { index: number }) {
-  const offre = offres[index];
+function FeatureLabel({ feature }: { feature: OffreFeature }) {
   return (
     <>
-      {offre.badge && <span className="tarifs-table__badge">{offre.badge}</span>}
-      <span className="tarifs-table__plan">{offre.name}</span>
-      <span className="tarifs-table__price">{offre.price}</span>
-      <span className="tarifs-table__detail">{offre.detail}</span>
+      {feature.label}
+      {feature.note && (
+        <span className="tarifs-table__note">{feature.note}</span>
+      )}
     </>
   );
 }
@@ -50,39 +53,55 @@ export default function TarifsTable() {
             <tr>
               <td />
               {offres.map((offre, index) => (
-                <th key={offre.slug} scope="col" className={cls(index, "tarifs-table__head")}>
-                  <ColumnHead index={index} />
+                <th
+                  key={offre.slug}
+                  scope="col"
+                  className={cls(index, "tarifs-table__head")}
+                >
+                  {offre.badge && (
+                    <span className="tarifs-table__badge">{offre.badge}</span>
+                  )}
+                  <span className="tarifs-table__plan">{offre.name}</span>
+                  <span className="tarifs-table__price">{offre.price}</span>
+                  <span className="tarifs-table__detail">{offre.detail}</span>
+                  {offre.hook && (
+                    <span className="tarif-card__hook">{offre.hook}</span>
+                  )}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
-            {offreFeatures.map((feature) => (
-              <tr key={feature.label}>
-                <th scope="row" className="tarifs-table__feature">
-                  {feature.label}
-                  {feature.note && (
-                    <span className="tarifs-table__note">{feature.note}</span>
-                  )}
+
+          {offreFeatureGroups.map((group) => (
+            <tbody key={group.title} className="tarifs-table__group">
+              <tr>
+                <th scope="colgroup" className="tarifs-table__group-title">
+                  {group.title}
                 </th>
-                {feature.included.map((included, index) => (
-                  <td key={offres[index].slug} className={cls(index, "tarifs-table__cell")}>
-                    <Cell included={included} />
-                  </td>
+                {offres.map((offre, index) => (
+                  <td
+                    key={offre.slug}
+                    className={cls(index, "tarifs-table__group-filler")}
+                  />
                 ))}
               </tr>
-            ))}
-            <tr>
-              <td />
-              {offres.map((offre, index) => (
-                <td key={offre.slug} className={cls(index, "tarifs-table__foot")}>
-                  {offre.hook && (
-                    <span className="tarifs-table__hook">{offre.hook}</span>
-                  )}
-                </td>
+              {group.features.map((feature) => (
+                <tr key={feature.label}>
+                  <th scope="row" className="tarifs-table__feature">
+                    <FeatureLabel feature={feature} />
+                  </th>
+                  {feature.included.map((included, index) => (
+                    <td
+                      key={offres[index].slug}
+                      className={cls(index, "tarifs-table__cell")}
+                    >
+                      <Cell included={included} />
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          </tbody>
+            </tbody>
+          ))}
         </table>
       </div>
 
@@ -105,16 +124,18 @@ export default function TarifsTable() {
             <p className="tarif-card__detail">{offre.detail}</p>
 
             <ul className="tarif-card__list">
-              {offreFeatures
+              {offreFeatureGroups
+                .flatMap((group) => group.features)
                 .filter((feature) => feature.included[index])
                 .map((feature) => (
                   <li key={feature.label}>
-                    <Check size={16} aria-hidden className="tarifs-table__check" />
+                    <Check
+                      size={16}
+                      aria-hidden
+                      className="tarifs-table__check"
+                    />
                     <span>
-                      {feature.label}
-                      {feature.note && (
-                        <span className="tarifs-table__note">{feature.note}</span>
-                      )}
+                      <FeatureLabel feature={feature} />
                     </span>
                   </li>
                 ))}

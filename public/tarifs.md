@@ -26,7 +26,7 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 ## Tarifs
 
 **Rénovation · 300 €**
-Votre site existe mais il a vieilli. Je le reprends : design actualisé, mobile, rapide. Vos contenus sont conservés.
+Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels. Le socle technique est le même que pour une création ; c'est le travail en moins sur les contenus qui fait le prix.
 
 **Création · 400 €**
 Un site vitrine sur mesure, de la maquette à la mise en ligne. Nom de domaine, mobile, référencement de base.
@@ -35,31 +35,29 @@ Un site vitrine sur mesure, de la maquette à la mise en ligne. Nom de domaine, 
 Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même, en deux minutes, sans m'attendre.
 Nouvelle date, nouvelle œuvre, nouvelle photo : vous publiez vous-même.
 
-**Inclus dans tous les forfaits** — mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts.
+**Ce qui change d'une offre à l'autre**
+- Je repars de vos contenus actuels : Rénovation uniquement
+- Nom de domaine configuré : Création et Création modifiable (achat du domaine à votre charge, ~15 €/an)
+- Vous modifiez textes, images et contenus vous-même : Création modifiable uniquement
 
-2 tours de retours inclus. Au-delà : 70 €/h.
+**Inclus dans les trois offres** — design sur mesure construit avec mes outils, mise en ligne, version mobile, référencement de base, formulaire de contact, 2 tours de retours (au-delà : 70 €/h), 2 mois de maintenance offerts.
 
-**Non inclus** — rédaction des contenus, photos et visuels, nom de domaine (~15 €/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.
+**Non inclus** — rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.
 
 ---
 
-## Maintenance · 120 €/an
+## Et après la mise en ligne ?
 
-Les 2 premiers mois sont offerts.
+Trois façons de faire vivre votre site. Le client choisit à la livraison et peut changer d'avis ensuite.
 
-**Votre site reste en ligne, à jour et sauvegardé.**
-Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance.
+**Vous vous débrouillez · gratuit**
+Vous reprenez la main à la livraison : hébergement à votre nom, mises à jour et sauvegardes à votre charge. Aucun engagement, aucune facture récurrente. Le bon choix si quelqu'un s'en occupe déjà chez vous.
 
-**Modifications illimitées sur l'existant.**
-Changer un texte, remplacer une photo, mettre à jour vos horaires ou vos tarifs, ajuster une couleur, ajouter une actualité, un projet, un membre de l'équipe. Si ça existe déjà sur votre site, c'est inclus.
+**Maintenance · 10 €/mois** — facturé 120 € à l'année, les 2 premiers mois sont offerts
+Votre site reste en ligne, à jour et sauvegardé : hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance. Modifications illimitées sur l'existant : un texte, une photo, vos horaires, une actualité, un membre de l'équipe. Demandes par email, traitées sous 5 jours ouvrés. Besoin urgent, traité sous 24h : 50 €.
 
-Demandes par email, traitées sous 5 jours ouvrés. Besoin urgent, traité sous 24h : 50 €.
-
-### Vous préférez payer à l'usage ?
-
-- Pack 5 modifications — 50 €, valable 12 mois.
-- Nouvelle page — 50 €.
-- Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis.
+**À la carte · au besoin**
+Vous payez quand vous avez besoin de moi, sur les tarifs convenus ensemble. Pack 5 modifications — 50 €, valable 12 mois. Nouvelle page — 50 €. Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis.
 
 Paiement par carte (Stripe) ou par virement sur facture.
 
