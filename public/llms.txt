@@ -15,11 +15,11 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 
 **Sites vitrines** (grille détaillée : https://www.romainmailliu.com/tarifs)
 - Refonte (le site existe mais n'est pas terminé ou à jour : reconstruit avec le même socle technique qu'une création, en repartant des contenus actuels du client) : 300€
-- Création (le client part de zéro : site vitrine sur mesure, de la maquette à la mise en ligne) : 400€
-- Site autonome (le site vitrine, avec la possibilité pour le client de modifier lui-même les sections de son choix : évènements, articles, galerie) : 500€
+- Création (le site vitrine sur mesure, de la maquette à la mise en ligne) : 400€
+- Site autonome (le site vitrine, avec la possibilité pour le client de modifier des sections lui-même : agenda, articles, galerie) : 500€
 - Livraison en une semaine une fois les contenus du client reçus.
-- Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à la charge du client), 2 mois de maintenance offerts.
-- Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+- Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à la charge du client), 2 mois de maintenance.
+- Accompagnement à la création de contenus pour les offres Création et Site autonome.
 
 **Après la mise en ligne — trois options au choix du client**
 - Autonome : gratuit. Documentation complète, code source, guides de déploiement.

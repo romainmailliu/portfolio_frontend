@@ -20,6 +20,9 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 - **Jadin LEVAT** · Association · campagne citoyenne participative · https://www.assolevat.fr/
 - **Klink, le son du vin** · Artiste / culture · dégustation fun · https://www.lesonduvin.fr/
 - **Albane** · Entrepreneur · site vitrine coaching & facilitation · https://www.albanedharcourt.com/
+- **Rivière** · Association · retrouver sa capacité à rêver · https://www.rivieredereves.org/
+- **Gomett** · Entrepreneur · trocs de compétences entre entrepreneur.e.s · https://www.gomett.com/
+- **Youth Visions** · Culture · production de documentaires · https://www.youth-visions.com/
 
 ---
 
@@ -29,16 +32,15 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus actuels.
 
 **Création · 400 €**
-Un site vitrine sur mesure, de la maquette à la mise en ligne.
+Votre site vitrine sur mesure, de la maquette à la mise en ligne.
 
 **Site autonome · 500 €**
-Votre site vitrine avec la possibilité de modifier les sections de votre choix (évènements, articles, etc.)
+Votre site vitrine avec la possibilité de modifier des sections vous-même.
 
-**Inclus dans les trois offres** — design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat à votre charge, ~15 €/an), 2 mois de maintenance offerts.
+**Inclus dans les trois offres** — design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat à votre charge, ~15 €/an), 2 mois de maintenance.
 
-**Ce qui distingue les offres** — la mise à jour de vos contenus actuels est propre à la Refonte ; les sections que vous modifiez vous-même (agenda, articles, galerie) sont propres au Site autonome.
+**Ce qui distingue les offres** — la mise à jour de vos contenus actuels est propre à la Refonte ; l'accompagnement à la création de contenus concerne la Création et le Site autonome ; les sections que vous modifiez vous-même (agenda, articles, galerie) sont propres au Site autonome.
 
-**Non inclus** — rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.
 
 ---
 

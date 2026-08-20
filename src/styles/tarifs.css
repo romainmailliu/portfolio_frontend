@@ -323,18 +323,6 @@
   line-height: 1;
 }
 
-.tarifs-mentions {
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: var(--forest-ink);
-  opacity: 0.7;
-  max-width: 52rem;
-}
-
-.tarifs-mentions strong {
-  font-weight: 600;
-}
-
 /* --- Section 4 : maintenance -------------------------------------------- */
 
 .tarifs-section-intro {

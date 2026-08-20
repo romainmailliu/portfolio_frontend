@@ -37,13 +37,12 @@ Grille complète et formulaire de candidature : [Tarifs](https://www.romainmaill
 - Je repars de vos contenus actuels, c'est ce qui fait le prix
 
 **Création · 400€**
-- Vous partez de zéro : site vitrine sur mesure, de la maquette à la mise en ligne
+- Votre site vitrine sur mesure, de la maquette à la mise en ligne
 
 **Site autonome · 500€**
-- Votre site vitrine avec la possibilité de modifier les sections de votre choix (évènements, articles, etc.)
+- Votre site vitrine avec la possibilité de modifier des sections vous-même
 
-Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), 2 mois de maintenance offerts.
-Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), accompagnement à la création de contenus (Création et Site autonome), 2 mois de maintenance.
 Délai : une semaine une fois vos contenus reçus.
 
 **Après la mise en ligne, trois options**

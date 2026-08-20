@@ -9,7 +9,6 @@ import {
   hero,
   maintenanceHeading,
   maintenanceIntro,
-  mentions,
   offresHeading,
   preuves,
   preuvesHeading,
@@ -78,10 +77,6 @@ export default function TarifsPage() {
           </h2>
 
           <TarifsTable />
-
-          <p className="tarifs-mentions mt-5">
-            <strong>{mentions.excluded.label}</strong> — {mentions.excluded.body}
-          </p>
         </section>
 
         {/* --- Section 4 — Maintenance ------------------------------- */}

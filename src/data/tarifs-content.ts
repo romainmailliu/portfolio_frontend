@@ -81,6 +81,36 @@ export const preuves: Preuve[] = [
     screenshotAlt: "Page d'accueil du site d'Albane, coaching et facilitation",
     surface: "sticky-card--mint",
   },
+  {
+    slug: "riviere",
+    name: "Rivière",
+    segment: "Association",
+    need: "retrouver sa capacité à rêver",
+    href: "https://www.rivieredereves.org/",
+    screenshot: "/screens/riviere.jpg",
+    screenshotAlt: "Page d'accueil du site de l'association Rivière de rêves",
+    surface: "sticky-card--blush",
+  },
+  {
+    slug: "gomett",
+    name: "Gomett",
+    segment: "Entrepreneur",
+    need: "trocs de compétences entre entrepreneur.e.s",
+    href: "https://www.gomett.com/",
+    screenshot: "/screens/gomett.jpg",
+    screenshotAlt: "Page d'accueil du site Gomett, troc de compétences entre entrepreneurs",
+    surface: "sticky-card--mint",
+  },
+  {
+    slug: "youthvisions",
+    name: "Youth Visions",
+    segment: "Culture",
+    need: "production de documentaires",
+    href: "https://www.youth-visions.com/",
+    screenshot: "/screens/youthvisions.jpg",
+    screenshotAlt: "Page d'accueil du site Youth Visions, production de documentaires",
+    surface: "sticky-card--teal",
+  },
 ];
 
 export const preuvesHeading = "Quelques exemples";
@@ -108,14 +138,14 @@ export const offres: Offre[] = [
     slug: "creation",
     name: "Création",
     detail:
-      "Un site vitrine sur mesure, de la maquette à la mise en ligne.",
+      "Votre site vitrine sur mesure, de la maquette à la mise en ligne.",
     price: "400 €",
   },
   {
     slug: "site-autonome",
     name: "Site autonome",
     detail:
-      "Votre site vitrine avec la possibilité de modifier les sections de votre choix (évènements, articles, etc.)",
+      "Votre site vitrine avec la possibilité de modifier des sections vous-même.",
     price: "500 €",
   },
 ];
@@ -149,10 +179,14 @@ export const offreFeatures: OffreFeature[] = [
     note: "achat à votre charge, ~15 €/an",
     included: [true, true, true],
   },
-  { label: "2 mois de maintenance offerts", included: [true, true, true] },
+  { label: "2 mois de maintenance", included: [true, true, true] },
   {
     label: "Mise à jour de vos contenus",
     included: [true, false, false],
+  },
+  {
+    label: "Accompagnement à la création de contenus",
+    included: [false, true, true],
   },
   {
     label: "Sections que vous modifiez vous-même",
@@ -160,17 +194,6 @@ export const offreFeatures: OffreFeature[] = [
     included: [false, false, true],
   },
 ];
-
-/**
- * Ce qui est inclus vit désormais dans le tableau : ne reste ici que ce qui
- * ne s'y exprime pas, à savoir ce qui n'est pas compris.
- */
-export const mentions = {
-  excluded: {
-    label: "Non inclus",
-    body: "rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.",
-  },
-} as const;
 
 /* ------------------------------------------------------------------ */
 /* Section 4 — Maintenance                                             */
