@@ -32,9 +32,9 @@ export default function MainNav({ className }: { className: string }) {
         Offre Tech &amp; IA
       </Link>
       <Link
-        href="/tarifs"
-        className={linkClass("/tarifs")}
-        aria-current={isActive("/tarifs") ? "page" : undefined}
+        href="/site-vitrine"
+        className={linkClass("/site-vitrine")}
+        aria-current={isActive("/site-vitrine") ? "page" : undefined}
       >
         Site vitrine
       </Link>

@@ -11,7 +11,7 @@ La technologie et l'IA au service de votre mission, au juste prix.
 
 Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 
-[Page contact](https://www.romainmailliu.com/contact) · [Tarifs sites vitrines](https://www.romainmailliu.com/tarifs) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
+[Page contact](https://www.romainmailliu.com/contact) · [Site vitrine](https://www.romainmailliu.com/site-vitrine) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
 ### Mon approche
 
@@ -30,7 +30,7 @@ Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 
 ## Sites web & applications
 
-Grille complète et formulaire de candidature : [Tarifs](https://www.romainmailliu.com/tarifs)
+Grille complète et formulaire de candidature : [Site vitrine](https://www.romainmailliu.com/site-vitrine)
 
 **Refonte · 300€**
 - Votre site existe mais n'est pas terminé ou à jour : je le reconstruis

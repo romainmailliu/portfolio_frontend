@@ -1,7 +1,7 @@
 ---
-title: Tarifs site vitrine à partir de 300 € · Romain Mailliu
+title: Site vitrine à partir de 300 € · Romain Mailliu
 description: "Sites vitrines pour entrepreneur·e·s, associations et artistes : rénovation 300 €, création 400 €, création modifiable 500 €. Maintenance 120 €/an, modifications illimitées."
-url: https://www.romainmailliu.com/tarifs
+url: https://www.romainmailliu.com/site-vitrine
 last_updated: 2026-08-20
 ---
 
@@ -9,7 +9,7 @@ last_updated: 2026-08-20
 
 Pour les entrepreneur·e·s qui lancent, les associations et les artistes.
 
-Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/tarifs. Je réponds sous 48h.
+Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/site-vitrine. Je réponds sous 48h.
 
 [Page contact](https://www.romainmailliu.com/contact) · [Offre Tech & IA](https://www.romainmailliu.com/) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
@@ -18,11 +18,9 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 ## Quelques exemples
 
 - **Jadin LEVAT** · Association · campagne citoyenne participative · https://www.assolevat.fr/
-- **Klink, le son du vin** · Artiste / culture · dégustation fun · https://www.lesonduvin.fr/
+- **Klink, le son du vin** · Entrepreneur · dégustation fun · https://www.lesonduvin.fr/
 - **Albane** · Entrepreneur · site vitrine coaching & facilitation · https://www.albanedharcourt.com/
 - **Rivière** · Association · retrouver sa capacité à rêver · https://www.rivieredereves.org/
-- **Gomett** · Entrepreneur · trocs de compétences entre entrepreneur.e.s · https://www.gomett.com/
-- **Youth Visions** · Culture · production de documentaires · https://www.youth-visions.com/
 
 ---
 
@@ -61,7 +59,7 @@ Pack 5 modifications : 50 €. Nouvelle page : 50 €. Nouvelle fonctionnalité 
 
 ## Présenter son projet
 
-Le formulaire de candidature se remplit en trois écrans, sur https://www.romainmailliu.com/tarifs :
+Le formulaire de candidature se remplit en trois écrans, sur https://www.romainmailliu.com/site-vitrine :
 
 1. **Vous** — prénom et nom, email, profil (entrepreneur·e, association, artiste, autre), nom du projet ou de la structure, site existant éventuel.
 2. **Le projet** — le projet en deux phrases, l'offre visée (Refonte, Création, Site autonome), les besoins (pages de présentation, formulaire de contact, actualités, galerie, agenda, réservation, boutique, espace membre, multilingue).

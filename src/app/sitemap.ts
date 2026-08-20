@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/tarifs`,
+      url: `${BASE_URL}/site-vitrine`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.9,

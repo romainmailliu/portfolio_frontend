@@ -20,7 +20,7 @@ import {
   type LeadInput,
 } from "../../lib/leads/lead-schema";
 import { track, type TrackEvent } from "../../lib/track";
-import { submitCandidature } from "../../app/tarifs/actions";
+import { submitCandidature } from "../../app/site-vitrine/actions";
 
 const STEP_COUNT = 3;
 const STEP_EVENTS: TrackEvent[] = ["form_step_1", "form_step_2", "form_step_3"];

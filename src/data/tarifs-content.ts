@@ -10,7 +10,6 @@ export const candidatureAnchor = "candidature";
 /* ------------------------------------------------------------------ */
 
 export const hero = {
-  badge: "Sites vitrines · Marseille et à distance",
   /** La headline est découpée pour surligner « livré en une semaine ». */
   titleLead: "Un site qui vous ressemble,",
   titleHighlight: "livré en une semaine",
@@ -91,26 +90,6 @@ export const preuves: Preuve[] = [
     screenshotAlt: "Page d'accueil du site de l'association Rivière de rêves",
     surface: "sticky-card--blush",
   },
-  {
-    slug: "gomett",
-    name: "Gomett",
-    segment: "Entrepreneur",
-    need: "trocs de compétences entre entrepreneur.e.s",
-    href: "https://www.gomett.com/",
-    screenshot: "/screens/gomett.jpg",
-    screenshotAlt: "Page d'accueil du site Gomett, troc de compétences entre entrepreneurs",
-    surface: "sticky-card--mint",
-  },
-  {
-    slug: "youthvisions",
-    name: "Youth Visions",
-    segment: "Culture",
-    need: "production de documentaires",
-    href: "https://www.youth-visions.com/",
-    screenshot: "/screens/youthvisions.jpg",
-    screenshotAlt: "Page d'accueil du site Youth Visions, production de documentaires",
-    surface: "sticky-card--teal",
-  },
 ];
 
 export const preuvesHeading = "Quelques exemples";
@@ -168,6 +147,14 @@ export type OffreFeature = {
 };
 
 export const offreFeatures: OffreFeature[] = [
+  {
+    label: "Mise à jour de vos contenus",
+    included: [true, false, false],
+  },
+  {
+    label: "Accompagnement à la création de contenus",
+    included: [false, true, true],
+  },
   { label: "Design", included: [true, true, true] },
   { label: "Mise en ligne", included: [true, true, true] },
   { label: "Version mobile", included: [true, true, true] },
@@ -180,14 +167,6 @@ export const offreFeatures: OffreFeature[] = [
     included: [true, true, true],
   },
   { label: "2 mois de maintenance", included: [true, true, true] },
-  {
-    label: "Mise à jour de vos contenus",
-    included: [true, false, false],
-  },
-  {
-    label: "Accompagnement à la création de contenus",
-    included: [false, true, true],
-  },
   {
     label: "Sections que vous modifiez vous-même",
     note: "agenda, articles, galerie…",

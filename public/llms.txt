@@ -13,7 +13,7 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 
 ## Services and Pricing
 
-**Sites vitrines** (grille détaillée : https://www.romainmailliu.com/tarifs)
+**Sites vitrines** (grille détaillée : https://www.romainmailliu.com/site-vitrine)
 - Refonte (le site existe mais n'est pas terminé ou à jour : reconstruit avec le même socle technique qu'une création, en repartant des contenus actuels du client) : 300€
 - Création (le site vitrine sur mesure, de la maquette à la mise en ligne) : 400€
 - Site autonome (le site vitrine, avec la possibilité pour le client de modifier des sections lui-même : agenda, articles, galerie) : 500€
@@ -92,6 +92,6 @@ Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traita
 Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
 
 - https://www.romainmailliu.com/index.md · Offre Tech & IA (accueil, services, tarifs, réalisations)
-- https://www.romainmailliu.com/tarifs.md · Tarifs des sites vitrines, maintenance et formulaire de candidature
+- https://www.romainmailliu.com/site-vitrine.md · Offre site vitrine : tarifs, maintenance et formulaire de candidature
 - https://www.romainmailliu.com/contact.md · Contact et à propos
 - https://www.romainmailliu.com/production-documentaire.md · Production documentaire (film I AM THE FUTURE)

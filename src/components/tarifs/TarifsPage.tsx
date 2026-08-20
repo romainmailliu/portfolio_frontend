@@ -1,4 +1,3 @@
-import { Lightbulb } from "lucide-react";
 import MainNav from "../MainNav";
 import CandidatureForm from "./CandidatureForm";
 import PreuveCard from "./PreuveCard";
@@ -30,11 +29,6 @@ export default function TarifsPage() {
       <main className="page-container tarifs-main">
         {/* --- Section 1 — Headline ---------------------------------- */}
         <section className="tarifs-hero flex flex-col items-center text-center gap-6">
-          <p className="tagline-badge">
-            <Lightbulb size={14} aria-hidden />
-            {hero.badge}
-          </p>
-
           <h1 className="tarifs-hero-title">
             {hero.titleLead}
             <br />
@@ -60,11 +54,12 @@ export default function TarifsPage() {
           >
             {preuvesHeading}
           </h2>
-          <div className="preuves-grid">
+          <div className="preuves-rail scrollbar-hide">
             {preuves.map((preuve) => (
               <PreuveCard key={preuve.slug} preuve={preuve} />
             ))}
           </div>
+          <p className="reassurance-caption text-center">Défiler →</p>
         </section>
 
         {/* --- Section 3 — Tarifs ------------------------------------ */}

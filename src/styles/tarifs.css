@@ -55,15 +55,27 @@
 
 /* --- Section 2 : preuves ------------------------------------------------ */
 
-.preuves-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+/* Rail horizontal : les exemples défilent sur une ligne à toutes les tailles,
+   comme les chips « Derniers projets » de la home. */
+.preuves-rail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 1.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding-bottom: 0.25rem;
+}
+
+.preuves-rail > * {
+  flex: 0 0 clamp(15rem, 78vw, 22rem);
+  scroll-snap-align: start;
 }
 
 @media (min-width: 900px) {
-  .preuves-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .preuves-rail > * {
+    flex-basis: 22rem;
   }
 }
 
@@ -117,10 +129,14 @@
   line-height: 1.45;
 }
 
+/* CTA autonome, donc hors de l'exception « lien dans une phrase » de la règle
+   de taille de cible : on garde 44px de haut en tactile, comme les boutons du
+   design system. */
 .preuve-card__link {
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
+  min-height: 24px;
   gap: 0.375rem;
   font-size: 0.875rem;
   font-weight: 600;
@@ -137,6 +153,12 @@
 .preuve-card__link:focus-visible {
   outline: 2px solid var(--forest-ink);
   outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .preuve-card__link {
+    min-height: 44px;
+  }
 }
 
 .preuve-card__quote {

@@ -35,6 +35,16 @@ const nextConfig = {
         destination: "/production-documentaire.md",
         permanent: true,
       },
+      {
+        source: "/tarifs",
+        destination: "/site-vitrine",
+        permanent: true,
+      },
+      {
+        source: "/tarifs.md",
+        destination: "/site-vitrine.md",
+        permanent: true,
+      },
     ];
   },
 };

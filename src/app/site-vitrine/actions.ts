@@ -57,7 +57,7 @@ export async function submitCandidature(
     await getLeadSink().deliver({
       ...parsed.data,
       submittedAt: new Date().toISOString(),
-      source: "/tarifs",
+      source: "/site-vitrine",
     });
   } catch (error) {
     console.error("[lead] échec de livraison", error);
