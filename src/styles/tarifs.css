@@ -16,34 +16,14 @@
   }
 }
 
-/* Headline. En dessous de 900px elle passe à la ligne ; au-dessus elle tient
-   sur une seule ligne, la taille étant calée sur la largeur de la fenêtre
-   (ratio mesuré sur la fonte réelle, voir le commentaire du média query). */
+/* Headline sur deux lignes, la coupure étant portée par le markup. */
 .tarifs-hero-title {
   font-family: var(--font-display), "Archivo Black", sans-serif;
   font-weight: 800;
-  font-size: clamp(2rem, 8vw, 3rem);
+  font-size: clamp(2rem, 6vw, 3.75rem);
   letter-spacing: 0.04em;
   line-height: 1.1;
-  text-wrap: balance;
   max-width: 100%;
-}
-
-/* La taille se calcule sur la largeur du conteneur (cqw), pas sur celle de la
-   fenêtre (vw) : vw ignore le padding de page ET la barre de défilement, ce
-   qui faisait dépasser le titre sur les machines à barre classique. */
-.tarifs-hero {
-  container-type: inline-size;
-  width: 100%;
-}
-
-@media (min-width: 900px) {
-  .tarifs-hero-title {
-    white-space: nowrap;
-    /* La chaîne mesure ~25,5em ; 3,55cqw laisse ~9 % de marge. */
-    font-size: min(3.55cqw, 3.5rem);
-    letter-spacing: 0.03em;
-  }
 }
 
 .tarifs-hero-intro {
@@ -251,20 +231,6 @@
   font-weight: 400;
 }
 
-/* Sorti du flux pour que les trois noms d'offre restent sur la même ligne de
-   base, et donc les trois prix aussi. */
-.tarifs-table__badge {
-  position: absolute;
-  top: -0.75rem;
-  left: 1.25rem;
-  padding: 4px 11px;
-  background: var(--highlighter-yellow);
-  border: 1px solid var(--forest-ink);
-  border-radius: var(--radius-tag);
-  font-size: 0.6875rem;
-  font-weight: 600;
-}
-
 .tarifs-table__feature {
   padding: 0.75rem 1.25rem 0.75rem 0;
   font-size: 0.9375rem;
@@ -289,6 +255,11 @@
   vertical-align: top;
 }
 
+.tarifs-table tbody tr:hover .tarifs-table__feature,
+.tarifs-table tbody tr:hover .tarifs-table__cell {
+  background: rgba(26, 51, 0, 0.035);
+}
+
 .tarifs-table__check {
   display: inline-block;
   color: var(--forest-ink);
@@ -299,59 +270,6 @@
   display: inline-block;
   color: var(--pencil-gray);
   vertical-align: middle;
-}
-
-/* Intertitre de groupe : sépare ce qui distingue les offres de ce qui est
-   commun aux trois, pour que les lignes identiques cessent de faire du bruit. */
-.tarifs-table__group-title {
-  padding: 1.75rem 1.25rem 0.5rem 0;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.55;
-  text-align: left;
-}
-
-.tarifs-table__group-filler {
-  padding: 0;
-}
-
-.tarifs-table__group tr:hover .tarifs-table__feature,
-.tarifs-table__group tr:hover .tarifs-table__cell {
-  background: rgba(26, 51, 0, 0.035);
-}
-
-.tarifs-table__group tr:hover .tarifs-table__cell--featured {
-  background: #cdf0b7;
-}
-
-/* La colonne recommandée est teintée sur toute sa hauteur. */
-.tarifs-table__head--featured,
-.tarifs-table__cell--featured,
-.tarifs-table__group-filler--featured {
-  background: var(--sticky-mint);
-  border-left: 2px solid var(--forest-ink);
-  border-right: 2px solid var(--forest-ink);
-}
-
-.tarifs-table__head--featured {
-  border-top: 2px solid var(--forest-ink);
-  border-bottom: 1px solid var(--forest-ink);
-  border-top-left-radius: var(--radius-card);
-  border-top-right-radius: var(--radius-card);
-}
-
-.tarifs-table__cell--featured {
-  border-bottom-color: rgba(26, 51, 0, 0.15);
-}
-
-/* Dernière cellule teintée : ferme la colonne. */
-.tarifs-table__group:last-child tr:last-child .tarifs-table__cell--featured {
-  border-bottom: 2px solid var(--forest-ink);
-  border-bottom-left-radius: var(--radius-card);
-  border-bottom-right-radius: var(--radius-card);
 }
 
 /* Liste de prestations dans les cartes mobiles. */
@@ -405,42 +323,6 @@
   line-height: 1;
 }
 
-.sticky-card.tarif-card--featured {
-  border-width: 2px;
-  box-shadow: var(--shadow-cta);
-}
-
-@media (min-width: 900px) {
-  .tarif-card--featured {
-    transform: scale(1.04);
-    z-index: 1;
-  }
-}
-
-.tarif-card__badge {
-  position: absolute;
-  top: -0.75rem;
-  right: 1rem;
-  padding: 5px 12px;
-  background: var(--highlighter-yellow);
-  border: 1px solid var(--forest-ink);
-  border-radius: var(--radius-tag);
-  font-size: 0.75rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.tarif-card__hook {
-  display: block;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(26, 51, 0, 0.25);
-  font-size: 0.8125rem;
-  line-height: 1.45;
-  font-style: italic;
-  font-weight: 400;
-}
-
 .tarifs-mentions {
   font-size: 0.8125rem;
   line-height: 1.55;
@@ -487,11 +369,6 @@
   gap: 0.5rem;
 }
 
-.sticky-card.maintenance-option--featured {
-  border-width: 2px;
-  box-shadow: var(--shadow-cta);
-}
-
 .maintenance-option__name {
   font-size: 1.0625rem;
   font-weight: 700;
@@ -504,12 +381,6 @@
   font-size: 1.875rem;
   letter-spacing: 0.02em;
   line-height: 1;
-}
-
-.maintenance-option__price-note {
-  font-size: 0.75rem;
-  line-height: 1.4;
-  opacity: 0.7;
 }
 
 .maintenance-option__summary {
@@ -704,8 +575,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .form-progress__fill,
-  .choice,
-  .tarif-card--featured {
+  .choice {
     transition: none;
   }
 }

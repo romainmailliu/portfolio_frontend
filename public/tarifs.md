@@ -25,22 +25,18 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 
 ## Tarifs
 
-**Rénovation · 300 €**
-Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels. Le socle technique est le même que pour une création ; c'est le travail en moins sur les contenus qui fait le prix.
+**Refonte · 300 €**
+Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels.
 
 **Création · 400 €**
-Un site vitrine sur mesure, de la maquette à la mise en ligne. Nom de domaine, mobile, référencement de base.
+Un site vitrine sur mesure, de la maquette à la mise en ligne.
 
-**Création modifiable · 500 € · recommandé**
-Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même, en deux minutes, sans m'attendre.
-Nouvelle date, nouvelle œuvre, nouvelle photo : vous publiez vous-même.
+**Site autonome · 500 €**
+Le même site, plus l'autonomie : vous modifiez les sections de votre choix (évènements, articles, etc.)
 
-**Ce qui change d'une offre à l'autre**
-- Je repars de vos contenus actuels : Rénovation uniquement
-- Nom de domaine configuré : Création et Création modifiable (achat du domaine à votre charge, ~15 €/an)
-- Vous modifiez textes, images et contenus vous-même : Création modifiable uniquement
+**Inclus dans les trois offres** — design, mise en ligne, version mobile, référencement de base, formulaire de contact, nom de domaine configuré (achat à votre charge, ~15 €/an), 2 mois de maintenance offerts.
 
-**Inclus dans les trois offres** — design sur mesure construit avec mes outils, mise en ligne, version mobile, référencement de base, formulaire de contact, 2 tours de retours (au-delà : 70 €/h), 2 mois de maintenance offerts.
+**Ce qui distingue les offres** — la mise à jour de vos contenus actuels est propre à la Refonte ; les sections que vous modifiez vous-même (agenda, articles, galerie) sont propres au Site autonome.
 
 **Non inclus** — rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique). Sur devis, prix annoncé avant.
 
@@ -48,18 +44,16 @@ Nouvelle date, nouvelle œuvre, nouvelle photo : vous publiez vous-même.
 
 ## Et après la mise en ligne ?
 
-Trois façons de faire vivre votre site. Le client choisit à la livraison et peut changer d'avis ensuite.
+Trois façons de faire vivre votre site.
 
-**Vous vous débrouillez · gratuit**
-Vous reprenez la main à la livraison : hébergement à votre nom, mises à jour et sauvegardes à votre charge. Aucun engagement, aucune facture récurrente. Le bon choix si quelqu'un s'en occupe déjà chez vous.
+**Autonome · gratuit**
+Vous reprenez la main à la livraison : documentation complète, code source, guides de déploiement. Parfait pour les équipes tech.
 
-**Maintenance · 10 €/mois** — facturé 120 € à l'année, les 2 premiers mois sont offerts
-Votre site reste en ligne, à jour et sauvegardé : hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance. Modifications illimitées sur l'existant : un texte, une photo, vos horaires, une actualité, un membre de l'équipe. Demandes par email, traitées sous 5 jours ouvrés. Besoin urgent, traité sous 24h : 50 €.
+**Maintenance · 10 €/mois**
+Votre site à jour, référencé et sauvegardé : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant (un texte, une photo, vos horaires, une actualité, un membre de l'équipe). Facturé 120 € à l'année, les 2 premiers mois sont offerts.
 
 **À la carte · au besoin**
-Vous payez quand vous avez besoin de moi, sur les tarifs convenus ensemble. Pack 5 modifications — 50 €, valable 12 mois. Nouvelle page — 50 €. Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis.
-
-Paiement par carte (Stripe) ou par virement sur facture.
+Pack 5 modifications : 50 €. Nouvelle page : 50 €. Nouvelle fonctionnalité : sur devis.
 
 ---
 
@@ -68,7 +62,7 @@ Paiement par carte (Stripe) ou par virement sur facture.
 Le formulaire de candidature se remplit en trois écrans, sur https://www.romainmailliu.com/tarifs :
 
 1. **Vous** — prénom et nom, email, profil (entrepreneur·e, association, artiste, autre), nom du projet ou de la structure, site existant éventuel.
-2. **Le projet** — le projet en deux phrases, l'offre visée, les besoins (pages de présentation, formulaire de contact, actualités, galerie, agenda, réservation, boutique, espace membre, multilingue).
+2. **Le projet** — le projet en deux phrases, l'offre visée (Refonte, Création, Site autonome), les besoins (pages de présentation, formulaire de contact, actualités, galerie, agenda, réservation, boutique, espace membre, multilingue).
 3. **Le cadrage** — état des contenus, échéance souhaitée, sites de référence, adéquation au budget affiché.
 
 Je lis chaque candidature moi-même et je réponds sous 48h, quelle que soit ma réponse. Si le projet correspond, je propose un échange de 30 minutes pour cadrer. Sinon, je le dis clairement et j'oriente vers ce qui conviendra mieux.

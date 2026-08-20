@@ -334,9 +334,8 @@ export default function CandidatureForm() {
       className="sticky-card sticky-card--cream scroll-mt-28"
     >
       <h2 className="tarifs-card-title">{formCopy.heading}</h2>
-      <p className="text-body-sm mt-2 mb-5 opacity-80">{formCopy.intro}</p>
 
-      <div className="flex flex-col gap-2 mb-6">
+      <div className="mb-6 mt-4">
         <div
           className="form-progress__track"
           role="progressbar"
@@ -350,22 +349,6 @@ export default function CandidatureForm() {
             style={{ width: `${progressPercent}%` }}
           />
         </div>
-        <ol className="form-progress__steps">
-          {formCopy.steps.map((item, index) => (
-            <li
-              key={item.title}
-              className={`form-progress__step ${
-                index === step
-                  ? "form-progress__step--current"
-                  : index < step
-                    ? "form-progress__step--done"
-                    : ""
-              }`}
-            >
-              {index + 1}. {item.title}
-            </li>
-          ))}
-        </ol>
       </div>
 
       <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-6">

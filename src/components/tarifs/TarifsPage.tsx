@@ -11,7 +11,6 @@ import {
   maintenanceIntro,
   mentions,
   offresHeading,
-  paymentNote,
   preuves,
   preuvesHeading,
 } from "../../data/tarifs-content";
@@ -38,7 +37,8 @@ export default function TarifsPage() {
           </p>
 
           <h1 className="tarifs-hero-title">
-            {hero.titleLead}{" "}
+            {hero.titleLead}
+            <br />
             <span className="highlight-word">{hero.titleHighlight}</span>
           </h1>
 
@@ -97,8 +97,6 @@ export default function TarifsPage() {
           </p>
 
           <MaintenanceOptions />
-
-          <p className="tarifs-mentions mt-5">{paymentNote}</p>
         </section>
 
         {/* --- Formulaire de candidature ----------------------------- */}

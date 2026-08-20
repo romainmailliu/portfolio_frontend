@@ -64,7 +64,7 @@ export const preuves: Preuve[] = [
   {
     slug: "lesonduvin",
     name: "Klink, le son du vin",
-    segment: "Artiste / culture",
+    segment: "Entrepreneur",
     need: "dégustation fun",
     href: "https://www.lesonduvin.fr/",
     screenshot: "/screens/lesonduvin.jpg",
@@ -94,36 +94,29 @@ export type Offre = {
   name: string;
   detail: string;
   price: string;
-  badge?: string;
-  /** Ligne d'accroche affichée sous l'offre. */
-  hook?: string;
-  featured?: boolean;
 };
 
 export const offres: Offre[] = [
   {
-    slug: "renovation",
-    name: "Rénovation",
+    slug: "refonte",
+    name: "Refonte",
     detail:
-      "Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels. Même site neuf, moins de travail : c'est ce qui fait le prix.",
+      "Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels.",
     price: "300 €",
   },
   {
     slug: "creation",
     name: "Création",
     detail:
-      "Un site vitrine sur mesure, de la maquette à la mise en ligne. Nom de domaine, mobile, référencement de base.",
+      "Un site vitrine sur mesure, de la maquette à la mise en ligne.",
     price: "400 €",
   },
   {
-    slug: "creation-modifiable",
-    name: "Création modifiable",
+    slug: "site-autonome",
+    name: "Site autonome",
     detail:
-      "Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même, en deux minutes, sans m'attendre.",
+      "Le même site, plus l'autonomie : vous modifiez les sections de votre choix (évènements, articles, etc.)",
     price: "500 €",
-    badge: "Recommandé",
-    hook: "Nouvelle date, nouvelle œuvre, nouvelle photo : vous publiez vous-même.",
-    featured: true,
   },
 ];
 
@@ -133,13 +126,9 @@ export const offresHeading = "Tarifs";
  * Matrice de comparaison — une ligne par prestation, une colonne par offre,
  * dans l'ordre du tableau `offres`.
  *
- * Les lignes sont réparties en deux groupes : ce qui distingue les offres, et
- * ce qui est commun aux trois. Sans cette séparation, huit lignes sur dix
- * affichaient trois coches identiques et noyaient les vraies différences.
- *
- * Le socle technique est le même dans les trois cas ; la rénovation coûte
- * moins cher parce que les contenus existent déjà, pas parce qu'elle serait
- * bricolée sur l'ancien site.
+ * Les prestations communes aux trois offres viennent en premier : elles
+ * rassurent. Les deux lignes qui distinguent réellement les offres ferment le
+ * tableau, là où se prend la décision.
  */
 export type OffreFeature = {
   label: string;
@@ -148,49 +137,26 @@ export type OffreFeature = {
   note?: string;
 };
 
-export type OffreFeatureGroup = {
-  title: string;
-  features: OffreFeature[];
-};
-
-export const offreFeatureGroups: OffreFeatureGroup[] = [
+export const offreFeatures: OffreFeature[] = [
+  { label: "Design", included: [true, true, true] },
+  { label: "Mise en ligne", included: [true, true, true] },
+  { label: "Version mobile", included: [true, true, true] },
+  { label: "Référencement de base", included: [true, true, true] },
+  { label: "Formulaire de contact", included: [true, true, true] },
   {
-    title: "Ce qui change d'une offre à l'autre",
-    features: [
-      {
-        label: "Je repars de vos contenus actuels",
-        note: "textes et images déjà en ligne : c'est ce qui fait la différence de prix",
-        included: [true, false, false],
-      },
-      {
-        label: "Nom de domaine configuré",
-        note: "achat du nom de domaine à votre charge, ~15 €/an",
-        included: [false, true, true],
-      },
-      {
-        label: "Vous modifiez textes, images et contenus vous-même",
-        included: [false, false, true],
-      },
-    ],
+    label: "Nom de domaine configuré",
+    note: "achat à votre charge, ~15 €/an",
+    included: [true, true, true],
+  },
+  { label: "2 mois de maintenance offerts", included: [true, true, true] },
+  {
+    label: "Mise à jour de vos contenus",
+    included: [true, false, false],
   },
   {
-    title: "Inclus dans les trois offres",
-    features: [
-      {
-        label: "Design sur mesure, construit avec mes outils",
-        included: [true, true, true],
-      },
-      { label: "Mise en ligne", included: [true, true, true] },
-      { label: "Version mobile", included: [true, true, true] },
-      { label: "Référencement de base", included: [true, true, true] },
-      { label: "Formulaire de contact", included: [true, true, true] },
-      {
-        label: "2 tours de retours",
-        note: "au-delà : 70 €/h",
-        included: [true, true, true],
-      },
-      { label: "2 mois de maintenance offerts", included: [true, true, true] },
-    ],
+    label: "Sections que vous modifiez vous-même",
+    note: "agenda, articles, galerie…",
+    included: [false, false, true],
   },
 ];
 
@@ -210,67 +176,50 @@ export const mentions = {
 /* ------------------------------------------------------------------ */
 
 export const maintenanceHeading = "Et après la mise en ligne ?";
-export const maintenanceIntro =
-  "Trois façons de faire vivre votre site. Vous choisissez à la livraison, et vous pouvez changer d'avis ensuite.";
+export const maintenanceIntro = "Trois façons de faire vivre votre site.";
 
 export type MaintenanceOption = {
   slug: string;
   name: string;
   price: string;
-  /** Précision sous le prix (facturation, mois offerts…). */
-  priceNote?: string;
-  summary: string;
+  summary?: string;
   items: string[];
   /** Ligne de bas de carte, en petit. */
   footnote?: string;
-  featured?: boolean;
-  badge?: string;
 };
 
 export const maintenanceOptions: MaintenanceOption[] = [
   {
-    slug: "autonomie",
-    name: "Vous vous débrouillez",
+    slug: "autonome",
+    name: "Autonome",
     price: "Gratuit",
     summary: "Vous reprenez la main à la livraison.",
-    items: [
-      "Hébergement à votre nom",
-      "Mises à jour et sauvegardes à votre charge",
-      "Aucun engagement, aucune facture récurrente",
-    ],
-    footnote: "Le bon choix si quelqu'un s'en occupe déjà chez vous.",
+    items: ["Documentation complète", "Code source", "Guides de déploiement"],
+    footnote: "Parfait pour les équipes tech",
   },
   {
     slug: "maintenance",
     name: "Maintenance",
     price: "10 €/mois",
-    priceNote: "facturé 120 € à l'année · les 2 premiers mois sont offerts",
-    summary: "Votre site reste en ligne, à jour et sauvegardé.",
+    summary: "Votre site à jour, référencé et sauvegardé.",
     items: [
-      "Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance",
-      "Modifications illimitées sur l'existant : un texte, une photo, vos horaires, une actualité, un membre de l'équipe",
-      "Demandes par email, traitées sous 5 jours ouvrés",
+      "Hébergement",
+      "Sécurité & sauvegardes automatiques",
+      "Modifications illimitées sur l'existant (un texte, une photo, vos horaires, une actualité, un membre de l'équipe, etc.)",
     ],
-    footnote: "Besoin urgent, traité sous 24h : 50 €.",
-    featured: true,
-    badge: "Recommandé",
+    footnote: "facturé 120 € à l'année · les 2 premiers mois sont offerts",
   },
   {
     slug: "a-la-carte",
     name: "À la carte",
     price: "Au besoin",
-    summary: "Vous payez quand vous avez besoin de moi.",
     items: [
-      "Pack 5 modifications — 50 €, valable 12 mois",
-      "Nouvelle page — 50 €",
-      "Nouvelle fonctionnalité (réservation, paiement, newsletter, multilingue) — sur devis",
+      "Pack 5 modifications : 50 €",
+      "Nouvelle page : 50 €",
+      "Nouvelle fonctionnalité : sur devis",
     ],
-    footnote: "Sur les tarifs convenus ensemble, sans surprise.",
   },
 ];
-
-export const paymentNote =
-  "Paiement par carte (Stripe) ou par virement sur facture.";
 
 /* ------------------------------------------------------------------ */
 /* Formulaire de candidature                                           */
@@ -284,9 +233,9 @@ export const PROFILE_OPTIONS = [
 ] as const;
 
 export const LOOKING_FOR_OPTIONS = [
-  "Rénovation",
+  "Refonte",
   "Création",
-  "Création modifiable",
+  "Site autonome",
   "Je ne sais pas encore",
 ] as const;
 
@@ -323,17 +272,14 @@ export const BUDGET_FIT_OPTIONS = [
 
 export const formCopy = {
   heading: "Présenter mon projet",
-  intro:
-    "Vous répondez sur trois écrans et vous envoyez à la fin. Rien ne part avant.",
   steps: [
     { title: "Vous", legend: "Qui vous êtes" },
     { title: "Le projet", legend: "Ce que vous voulez construire" },
     { title: "Le cadrage", legend: "Contenus, délai et budget" },
   ],
-  consentLabel:
-    "J'accepte que Romain Mailliu utilise ces informations pour répondre à ma demande.",
+  consentLabel: "J'accepte d'être recontacté·e pour ce projet.",
   consentDetail:
-    "Je lis vos réponses pour étudier votre projet et vous répondre. Je les garde 3 ans après notre dernier échange, puis je les supprime. Vous pouvez demander leur suppression avant.",
+    "Réponses conservées 3 ans, puis supprimées. Suppression sur simple demande.",
   submitLabel: "Envoyer ma candidature",
   backLabel: "Retour",
   nextLabel: "Continuer",

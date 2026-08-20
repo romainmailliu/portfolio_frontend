@@ -32,32 +32,28 @@ Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 
 Grille complète et formulaire de candidature : [Tarifs](https://www.romainmailliu.com/tarifs)
 
-**Rénovation · 300€**
+**Refonte · 300€**
 - Votre site existe mais il a vieilli : je le reconstruis avec mes outils
-- Même socle technique qu'une création ; je repars de vos contenus actuels, c'est ce qui fait le prix
+- Je repars de vos contenus actuels, c'est ce qui fait le prix
 
 **Création · 400€**
-- Site vitrine sur mesure, de la maquette à la mise en ligne
-- Nom de domaine configuré (achat ~15€/an à votre charge), version mobile, référencement de base
+- Vous partez de zéro : site vitrine sur mesure, de la maquette à la mise en ligne
 
-**Création modifiable · 500€ · recommandé**
-- Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même
-- Pour les structures et les artistes qui publient souvent (nouvelle date, nouvelle œuvre, nouvelle photo)
+**Site autonome · 500€**
+- Le même site, plus l'autonomie : vous modifiez les sections de votre choix (évènements, articles, etc.)
 
-Inclus dans tous les forfaits : mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts. 2 tours de retours inclus, au-delà 70€/h.
+Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), 2 mois de maintenance offerts.
 Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
 Délai : une semaine une fois vos contenus reçus.
 
 **Après la mise en ligne, trois options**
-- Vous vous débrouillez : gratuit, hébergement à votre nom, mises à jour et sauvegardes à votre charge
-- Maintenance · 10€/mois facturé 120€ à l'année (2 premiers mois offerts) : hébergement, sécurité, sauvegardes, surveillance, modifications illimitées sur l'existant sous 5 jours ouvrés (urgence 24h : 50€)
-- À la carte : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€, nouvelle fonctionnalité sur devis
+- Autonome : gratuit. Documentation complète, code source, guides de déploiement
+- Maintenance · 10€/mois facturé 120€ à l'année (2 premiers mois offerts) : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
+- À la carte : pack 5 modifications 50€, nouvelle page 50€, nouvelle fonctionnalité sur devis
 
 **Sur devis**
 - Boutique en ligne, paiement, réservation, espace membre, multilingue
 - Accompagnement stratégie digitale, fonctionnalités sur mesure
-
-Paiement par carte (Stripe) ou par virement sur facture.
 
 ---
 
