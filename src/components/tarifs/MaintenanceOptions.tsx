@@ -29,10 +29,6 @@ export default function MaintenanceOptions() {
               </li>
             ))}
           </ul>
-
-          {option.footnote && (
-            <p className="maintenance-option__footnote">{option.footnote}</p>
-          )}
         </article>
       ))}
     </div>

@@ -101,7 +101,7 @@ export const offres: Offre[] = [
     slug: "refonte",
     name: "Refonte",
     detail:
-      "Votre site existe mais il a vieilli. Je le reconstruis avec mes outils, en repartant de vos contenus actuels.",
+      "Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus actuels.",
     price: "300 €",
   },
   {
@@ -115,7 +115,7 @@ export const offres: Offre[] = [
     slug: "site-autonome",
     name: "Site autonome",
     detail:
-      "Le même site, plus l'autonomie : vous modifiez les sections de votre choix (évènements, articles, etc.)",
+      "Votre site vitrine avec la possibilité de modifier les sections de votre choix (évènements, articles, etc.)",
     price: "500 €",
   },
 ];
@@ -142,6 +142,7 @@ export const offreFeatures: OffreFeature[] = [
   { label: "Mise en ligne", included: [true, true, true] },
   { label: "Version mobile", included: [true, true, true] },
   { label: "Référencement de base", included: [true, true, true] },
+  { label: "Tableau de suivi du trafic", included: [true, true, true] },
   { label: "Formulaire de contact", included: [true, true, true] },
   {
     label: "Nom de domaine configuré",
@@ -184,8 +185,6 @@ export type MaintenanceOption = {
   price: string;
   summary?: string;
   items: string[];
-  /** Ligne de bas de carte, en petit. */
-  footnote?: string;
 };
 
 export const maintenanceOptions: MaintenanceOption[] = [
@@ -195,7 +194,6 @@ export const maintenanceOptions: MaintenanceOption[] = [
     price: "Gratuit",
     summary: "Vous reprenez la main à la livraison.",
     items: ["Documentation complète", "Code source", "Guides de déploiement"],
-    footnote: "Parfait pour les équipes tech",
   },
   {
     slug: "maintenance",
@@ -207,7 +205,6 @@ export const maintenanceOptions: MaintenanceOption[] = [
       "Sécurité & sauvegardes automatiques",
       "Modifications illimitées sur l'existant (un texte, une photo, vos horaires, une actualité, un membre de l'équipe, etc.)",
     ],
-    footnote: "facturé 120 € à l'année · les 2 premiers mois sont offerts",
   },
   {
     slug: "a-la-carte",

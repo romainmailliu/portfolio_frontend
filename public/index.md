@@ -33,22 +33,22 @@ Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 Grille complète et formulaire de candidature : [Tarifs](https://www.romainmailliu.com/tarifs)
 
 **Refonte · 300€**
-- Votre site existe mais il a vieilli : je le reconstruis avec mes outils
+- Votre site existe mais n'est pas terminé ou à jour : je le reconstruis
 - Je repars de vos contenus actuels, c'est ce qui fait le prix
 
 **Création · 400€**
 - Vous partez de zéro : site vitrine sur mesure, de la maquette à la mise en ligne
 
 **Site autonome · 500€**
-- Le même site, plus l'autonomie : vous modifiez les sections de votre choix (évènements, articles, etc.)
+- Votre site vitrine avec la possibilité de modifier les sections de votre choix (évènements, articles, etc.)
 
-Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), 2 mois de maintenance offerts.
+Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), 2 mois de maintenance offerts.
 Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
 Délai : une semaine une fois vos contenus reçus.
 
 **Après la mise en ligne, trois options**
 - Autonome : gratuit. Documentation complète, code source, guides de déploiement
-- Maintenance · 10€/mois facturé 120€ à l'année (2 premiers mois offerts) : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
+- Maintenance · 10€/mois : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
 - À la carte : pack 5 modifications 50€, nouvelle page 50€, nouvelle fonctionnalité sur devis
 
 **Sur devis**

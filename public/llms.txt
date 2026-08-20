@@ -14,16 +14,16 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 ## Services and Pricing
 
 **Sites vitrines** (grille détaillée : https://www.romainmailliu.com/tarifs)
-- Refonte (le site existe mais a vieilli : reconstruit avec le même socle technique qu'une création, en repartant des contenus actuels du client) : 300€
+- Refonte (le site existe mais n'est pas terminé ou à jour : reconstruit avec le même socle technique qu'une création, en repartant des contenus actuels du client) : 300€
 - Création (le client part de zéro : site vitrine sur mesure, de la maquette à la mise en ligne) : 400€
-- Site autonome (le même site, plus l'autonomie : le client modifie lui-même les sections de son choix — évènements, articles, galerie) : 500€
+- Site autonome (le site vitrine, avec la possibilité pour le client de modifier lui-même les sections de son choix : évènements, articles, galerie) : 500€
 - Livraison en une semaine une fois les contenus du client reçus.
-- Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, formulaire de contact, nom de domaine configuré (achat ~15€/an à la charge du client), 2 mois de maintenance offerts.
+- Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à la charge du client), 2 mois de maintenance offerts.
 - Non inclus : rédaction des contenus, photos et visuels, emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
 
 **Après la mise en ligne — trois options au choix du client**
-- Autonome : gratuit. Documentation complète, code source, guides de déploiement. Parfait pour les équipes tech.
-- Maintenance : 10€/mois facturé 120€ à l'année, les 2 premiers mois sont offerts. Hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant.
+- Autonome : gratuit. Documentation complète, code source, guides de déploiement.
+- Maintenance : 10€/mois. Hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant.
 - À la carte : pack 5 modifications 50€, nouvelle page 50€, nouvelle fonctionnalité sur devis.
 
 **Automatisation & IA**
@@ -64,7 +64,7 @@ Marseille (présentiel) et toute la France (remote).
 ## FAQ
 
 **Combien coûte un site web ?**
-Refonte d'un site existant : 300€. Création d'un site vitrine : 400€. Site autonome, où le client gère lui-même les sections de son choix : 500€. Maintenance : 10€/mois facturé 120€ à l'année, les 2 premiers mois offerts, ou rien du tout si le client gère lui-même. Boutique, paiement ou réservation : sur devis.
+Refonte d'un site existant : 300€. Création d'un site vitrine : 400€. Site autonome, où le client gère lui-même les sections de son choix : 500€. Maintenance : 10€/mois, ou rien du tout si le client gère lui-même. Boutique, paiement ou réservation : sur devis.
 
 **Je suis une association avec un petit budget, tu peux m'aider ?**
 Oui, c'est le cœur de cible. Les tarifs sont adaptés au secteur associatif. La proposition est construite selon votre budget réel, pas l'inverse.
@@ -82,7 +82,7 @@ Oui. Marseille en présentiel, toute la France en remote.
 Tarifs 3 à 5 fois moins élevés grâce à l'IA. Connaissance du secteur ONG/impact. Approche conseil avant de coder quoi que ce soit.
 
 **Tu assures le suivi après livraison ?**
-Oui, au choix. La maintenance (10€/mois facturé 120€ à l'année, 2 premiers mois offerts) couvre l'hébergement, la sécurité, les sauvegardes et les modifications illimitées sur l'existant. Sinon, le client reprend la main gratuitement à la livraison, ou paie à l'usage : pack 5 modifications à 50€.
+Oui, au choix. La maintenance (10€/mois) couvre l'hébergement, la sécurité, les sauvegardes et les modifications illimitées sur l'existant. Sinon, le client reprend la main gratuitement à la livraison, ou paie à l'usage : pack 5 modifications à 50€.
 
 **Tu fais aussi les contenus et le design ?**
 Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traitance cachée.
