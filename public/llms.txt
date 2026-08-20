@@ -13,10 +13,19 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 
 ## Services and Pricing
 
-**Sites web**
-- Site vitrine (3-5 pages, formulaire de contact, module actualités, formation incluse) : 500€, livraison ~1 semaine
-- Site + Visibilité (tout le précédent + SEO, Google Business, Google Analytics) : 900€, livraison ~2 semaines
-- E-commerce personnalisé (boutique en ligne, paiements, gestion commandes, fonctionnalités sur mesure) : à partir de 1500€, délai selon projet
+**Sites vitrines** (grille détaillée : https://www.romainmailliu.com/tarifs)
+- Rénovation (le site existe mais a vieilli : design actualisé, mobile, rapide, contenus conservés) : 300€
+- Création (site vitrine sur mesure, de la maquette à la mise en ligne, nom de domaine, mobile, référencement de base) : 400€
+- Création modifiable (le même site, plus l'autonomie : le client modifie textes, images et contenus lui-même) : 500€ — offre recommandée
+- Livraison en une semaine une fois les contenus du client reçus.
+- Inclus dans tous les forfaits : mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts, 2 tours de retours (au-delà 70€/h).
+- Non inclus : rédaction des contenus, photos et visuels, nom de domaine (~15€/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+
+**Maintenance**
+- Maintenance annuelle : 120€/an, les 2 premiers mois sont offerts. Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance.
+- Modifications illimitées sur l'existant, traitées sous 5 jours ouvrés. Besoin urgent traité sous 24h : 50€.
+- Alternative à l'usage : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€, nouvelle fonctionnalité sur devis.
+- Paiement par carte (Stripe) ou par virement sur facture.
 
 **Automatisation & IA**
 - Diagnostic IA (audit des processus, cartographie des tâches chronophages, recommandations priorisées) : gratuit, sans engagement
@@ -39,7 +48,7 @@ Marseille (présentiel) et toute la France (remote).
 
 ## Key Facts
 
-- Tarifs adaptés à la vitesse de développement avec l'IA : site vitrine à 500€ là où le marché est à 2000-5000€
+- Tarifs adaptés à la vitesse de développement avec l'IA : site vitrine à partir de 300€ là où le marché est à 2000-5000€
 - Diagnostic IA offert, sans engagement
 - Première demi-journée d'observation chez le client offerte avant toute proposition
 - Stack : React, Next.js, TypeScript, Node.js, MongoDB, Supabase, Vercel, n8n, Airtable, WordPress, Webflow
@@ -56,13 +65,13 @@ Marseille (présentiel) et toute la France (remote).
 ## FAQ
 
 **Combien coûte un site web ?**
-Site vitrine : 500€. Site avec SEO et Google Business : 900€. E-commerce personnalisé : à partir de 1500€. Délais : 1 à 2 semaines pour les deux premiers.
+Rénovation d'un site existant : 300€. Création d'un site vitrine : 400€. Création modifiable, où le client gère lui-même ses contenus : 500€. Maintenance : 120€/an, les 2 premiers mois offerts. Boutique, paiement ou réservation : sur devis.
 
 **Je suis une association avec un petit budget, tu peux m'aider ?**
 Oui, c'est le cœur de cible. Les tarifs sont adaptés au secteur associatif. La proposition est construite selon votre budget réel, pas l'inverse.
 
 **Quel est le délai de livraison ?**
-Site vitrine : ~1 semaine. Site + SEO : ~2 semaines. Automatisation : 1-2 semaines. E-commerce et IA sur mesure : selon le projet.
+Site vitrine : une semaine une fois les contenus du client reçus (textes, photos, logo). Automatisation : 1-2 semaines. E-commerce et IA sur mesure : selon le projet.
 
 **Le diagnostic IA, c'est quoi exactement ?**
 Une demi-journée chez vous (ou en visio) pour observer vos processus, identifier les tâches répétitives et proposer des pistes d'automatisation concrètes. Gratuit, sans engagement.
@@ -74,7 +83,7 @@ Oui. Marseille en présentiel, toute la France en remote.
 Tarifs 3 à 5 fois moins élevés grâce à l'IA. Connaissance du secteur ONG/impact. Approche conseil avant de coder quoi que ce soit.
 
 **Tu assures le suivi après livraison ?**
-Formation incluse dans chaque site livré pour que le client gère son contenu en autonomie. Suivi disponible selon les besoins.
+Oui. La maintenance annuelle (120€/an, 2 premiers mois offerts) couvre l'hébergement, les mises à jour de sécurité, les sauvegardes et les modifications illimitées sur l'existant. Une alternative à l'usage existe : pack 5 modifications à 50€.
 
 **Tu fais aussi les contenus et le design ?**
 Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traitance cachée.
@@ -84,5 +93,6 @@ Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traita
 Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
 
 - https://www.romainmailliu.com/index.md · Offre Tech & IA (accueil, services, tarifs, réalisations)
+- https://www.romainmailliu.com/tarifs.md · Tarifs des sites vitrines, maintenance et formulaire de candidature
 - https://www.romainmailliu.com/contact.md · Contact et à propos
 - https://www.romainmailliu.com/production-documentaire.md · Production documentaire (film I AM THE FUTURE)

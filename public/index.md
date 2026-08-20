@@ -2,7 +2,7 @@
 title: Offre Tech & IA · Romain Mailliu, Marseille
 description: Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s. Au juste prix (−50 % pour les associations), à Marseille et en remote.
 url: https://www.romainmailliu.com/
-last_updated: 2026-06-22
+last_updated: 2026-08-20
 ---
 
 # Offre Tech & IA · Romain Mailliu
@@ -11,7 +11,7 @@ La technologie et l'IA au service de votre mission, au juste prix. −50 % pour 
 
 Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 
-[Page contact](https://www.romainmailliu.com/contact) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
+[Page contact](https://www.romainmailliu.com/contact) · [Tarifs sites vitrines](https://www.romainmailliu.com/tarifs) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
 ### Mon approche
 
@@ -30,23 +30,34 @@ Marseille, France · romain.mailliu@gmail.com · www.romainmailliu.com
 
 ## Sites web & applications
 
-**Essentiel · 500€ · ~1 semaine**
-- 3 à 5 pages (présentation, services, équipe, contact)
-- Module d'articles / actualités
-- Formulaire de contact + inscription newsletter
-- Formation + vidéo pour gérer le site en autonomie
-- Sans abonnement mensuel
+Grille complète et formulaire de candidature : [Tarifs](https://www.romainmailliu.com/tarifs)
 
-**Visibilité · 900€ · ~2 semaines**
-- Tout l'Essentiel, plus :
-- Connexion Google Business (Google Maps)
-- Google Analytics
-- Optimisation SEO (référencement naturel)
+**Rénovation · 300€**
+- Votre site existe mais il a vieilli : design actualisé, mobile, rapide
+- Vos contenus sont conservés
 
-**Avancé · à partir de 1500€ · délai selon projet**
-- Site e-commerce (boutique en ligne, paiements, commandes)
-- Accompagnement stratégie digitale
-- Fonctionnalités sur mesure
+**Création · 400€**
+- Site vitrine sur mesure, de la maquette à la mise en ligne
+- Nom de domaine, version mobile, référencement de base
+
+**Création modifiable · 500€ · recommandé**
+- Le même site, plus l'autonomie : vous modifiez textes, images et contenus vous-même
+- Pour les structures et les artistes qui publient souvent (nouvelle date, nouvelle œuvre, nouvelle photo)
+
+Inclus dans tous les forfaits : mise en ligne, version mobile, référencement de base, formulaire de contact, 2 mois de maintenance offerts. 2 tours de retours inclus, au-delà 70€/h.
+Non inclus : rédaction des contenus, photos et visuels, nom de domaine (~15€/an), emails professionnels, traductions, fonctionnalités sur mesure (réservation, paiement, boutique) — sur devis, prix annoncé avant.
+Délai : une semaine une fois vos contenus reçus.
+
+**Maintenance · 120€/an** (les 2 premiers mois sont offerts)
+- Hébergement, mises à jour de sécurité, sauvegardes automatiques, surveillance
+- Modifications illimitées sur l'existant, traitées sous 5 jours ouvrés (besoin urgent sous 24h : 50€)
+- À l'usage : pack 5 modifications 50€ valable 12 mois, nouvelle page 50€
+
+**Sur devis**
+- Boutique en ligne, paiement, réservation, espace membre, multilingue
+- Accompagnement stratégie digitale, fonctionnalités sur mesure
+
+Paiement par carte (Stripe) ou par virement sur facture.
 
 ---
 

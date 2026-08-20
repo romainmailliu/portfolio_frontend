@@ -4,7 +4,7 @@ import { getProfileSlugs } from "../data/offre-content";
 const BASE_URL = "https://www.romainmailliu.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-04");
+  const lastModified = new Date("2026-08-20");
 
   const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map(
     (slug) => ({
@@ -21,6 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/tarifs`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...profilePages,
     {

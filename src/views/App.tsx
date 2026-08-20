@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Lightbulb, MousePointer2 } from "lucide-react";
+import MainNav from "../components/MainNav";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
 import {
@@ -139,25 +139,7 @@ function App() {
   };
 
   const renderMainNav = (className: string) => (
-    <nav className={className} aria-label="Navigation principale">
-      <Link
-        href="/contact"
-        className={`nav-link ${isContactPage ? "nav-link--active" : ""}`}
-      >
-        Contact
-      </Link>
-      <Link
-        href="/"
-        className={`nav-link ${showOfferOnly ? "nav-link--active" : ""}`}
-      >
-        Offre Tech & IA
-      </Link>
-      <Link href="/production-documentaire" className="nav-link">
-        <span className="sm:hidden">Prod. doc.</span>
-        <span className="hidden sm:inline md:hidden">Production doc.</span>
-        <span className="hidden md:inline">Production doc.</span>
-      </Link>
-    </nav>
+    <MainNav className={className} />
   );
 
   const renderDesktopProjectLinks = () =>
