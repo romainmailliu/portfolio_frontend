@@ -2,12 +2,12 @@ import { Lightbulb } from "lucide-react";
 import MainNav from "../MainNav";
 import CandidatureForm from "./CandidatureForm";
 import PreuveCard from "./PreuveCard";
+import TarifsTable from "./TarifsTable";
 import {
   candidatureAnchor,
   hero,
   maintenance,
   mentions,
-  offres,
   offresHeading,
   payAsYouGo,
   paymentNote,
@@ -26,33 +26,22 @@ export default function TarifsPage() {
         </div>
       </header>
 
-      <MainNav className="nav-pill hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 z-50 items-center justify-center gap-1 px-3 py-2 max-w-[calc(100vw-2rem)] flex-wrap" />
+      <MainNav className="nav-pill hidden md:flex fixed top-4 inset-x-0 mx-auto w-fit z-50 items-center justify-center gap-1 px-3 py-2 max-w-[calc(100vw-2rem)] flex-wrap" />
 
       <main className="page-container tarifs-main">
         {/* --- Section 1 — Headline ---------------------------------- */}
-        <section className="max-w-3xl mx-auto flex flex-col items-center text-center gap-5">
+        <section className="flex flex-col items-center text-center gap-6">
           <p className="tagline-badge">
             <Lightbulb size={14} aria-hidden />
             {hero.badge}
           </p>
 
-          <h1 className="font-display hero-headline">
+          <h1 className="tarifs-hero-title">
             {hero.titleLead}{" "}
-            <span className="highlight-word">{hero.titleHighlight}</span>{" "}
-            <span className="hero-headline__tail">{hero.titleTail}</span>
+            <span className="highlight-word">{hero.titleHighlight}</span>
           </h1>
 
-          <p className="text-body-lg max-w-[34rem]">{hero.intro}</p>
-
-          <div className="text-body-sm max-w-[34rem] space-y-1 opacity-85">
-            {hero.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-
-          <p className="text-body-lg font-semibold max-w-[34rem]">
-            {hero.promise}
-          </p>
+          <p className="tarifs-hero-intro">{hero.intro}</p>
 
           <div className="flex flex-col items-center gap-2 mt-2">
             <a href={`#${candidatureAnchor}`} className="btn-primary btn-primary--lg">
@@ -87,26 +76,7 @@ export default function TarifsPage() {
             {offresHeading}
           </h2>
 
-          <div className="tarifs-grid">
-            {offres.map((offre) => (
-              <article
-                key={offre.slug}
-                className={`sticky-card tarif-card ${
-                  offre.featured
-                    ? "sticky-card--mint tarif-card--featured"
-                    : "sticky-card--cream"
-                }`}
-              >
-                {offre.badge && (
-                  <p className="tarif-card__badge">{offre.badge}</p>
-                )}
-                <h3 className="tarif-card__name">{offre.name}</h3>
-                <p className="tarif-card__price">{offre.price}</p>
-                <p className="tarif-card__detail">{offre.detail}</p>
-                {offre.hook && <p className="tarif-card__hook">{offre.hook}</p>}
-              </article>
-            ))}
-          </div>
+          <TarifsTable />
 
           <div className="sticky-card sticky-card--cream tarifs-mentions mt-6">
             <p>

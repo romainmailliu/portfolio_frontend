@@ -5,12 +5,9 @@ url: https://www.romainmailliu.com/tarifs
 last_updated: 2026-08-20
 ---
 
-# Un site qui vous ressemble, livré en une semaine une fois vos contenus reçus
+# Un site qui vous ressemble, livré en une semaine
 
 Pour les entrepreneur·e·s qui lancent, les associations et les artistes.
-
-Vous avez un projet, une cause, une œuvre. Pas le temps ni le budget d'une agence.
-Je conçois, je livre, et je m'occupe de la suite.
 
 Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/tarifs. Je réponds sous 48h.
 
@@ -18,7 +15,7 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 
 ---
 
-## Trois sites en ligne
+## Quelques exemples
 
 - **Jadin LEVAT** · Association · campagne citoyenne participative · https://www.assolevat.fr/
 - **Klink, le son du vin** · Artiste / culture · dégustation fun · https://www.lesonduvin.fr/
@@ -26,7 +23,7 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 
 ---
 
-## Tarifs du site
+## Tarifs
 
 **Rénovation · 300 €**
 Votre site existe mais il a vieilli. Je le reprends : design actualisé, mobile, rapide. Vos contenus sont conservés.

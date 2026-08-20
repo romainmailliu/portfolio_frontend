@@ -36,15 +36,15 @@ export default function MainNav({ className }: { className: string }) {
         className={linkClass("/tarifs")}
         aria-current={isActive("/tarifs") ? "page" : undefined}
       >
-        Tarifs
+        Site vitrine
       </Link>
       <Link
         href="/production-documentaire"
         className={linkClass("/production-documentaire")}
         aria-current={isActive("/production-documentaire") ? "page" : undefined}
       >
-        <span className="sm:hidden">Prod. doc.</span>
-        <span className="hidden sm:inline">Production doc.</span>
+        <span className="sm:hidden">Documentaire</span>
+        <span className="hidden sm:inline">Production documentaire</span>
       </Link>
     </nav>
   );

@@ -16,13 +16,35 @@
   }
 }
 
-/* La réserve « une fois vos contenus reçus » reste dans le h1 mais s'efface
-   typographiquement pour ne pas diluer la promesse. */
-.hero-headline__tail {
-  display: inline-block;
-  font-size: 0.6em;
-  letter-spacing: 0.02em;
-  opacity: 0.7;
+/* Headline. En dessous de 900px elle passe à la ligne ; au-dessus elle tient
+   sur une seule ligne, la taille étant calée sur la largeur de la fenêtre
+   (ratio mesuré sur la fonte réelle, voir le commentaire du média query). */
+.tarifs-hero-title {
+  font-family: var(--font-display), "Archivo Black", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 8vw, 3rem);
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-wrap: balance;
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .tarifs-hero-title {
+    white-space: nowrap;
+    /* La chaîne fait ~24,4em de large à ce letter-spacing : à 3,7vw elle
+       occupe ~90 % de la fenêtre, et se plafonne à 56px sur grand écran. */
+    font-size: min(3.7vw, 3.5rem);
+    letter-spacing: 0.03em;
+  }
+}
+
+.tarifs-hero-intro {
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.35;
+  font-weight: 500;
+  max-width: 46rem;
+  text-wrap: balance;
 }
 
 /* Titres de section — même construction que `.pdoc-film-title` : display en
@@ -148,7 +170,13 @@
 
 /* --- Section 3 : grille tarifaire --------------------------------------- */
 
-.tarifs-grid {
+/* --- Comparatif (≥900px) / cartes empilées (<900px) --------------------- */
+
+.tarifs-table-wrap {
+  display: none;
+}
+
+.tarifs-cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
@@ -156,12 +184,172 @@
 }
 
 @media (min-width: 900px) {
-  .tarifs-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    /* laisse respirer la carte mise en avant, qui déborde légèrement */
-    padding: 0.75rem 0;
+  .tarifs-table-wrap {
+    display: block;
+    padding-top: 0.75rem;
   }
+
+  .tarifs-cards {
+    display: none;
+  }
+}
+
+.tarifs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  table-layout: fixed;
+}
+
+.tarifs-table__col-feature {
+  width: 34%;
+}
+
+.tarifs-table__col-plan {
+  width: 22%;
+}
+
+.tarifs-table__head {
+  vertical-align: bottom;
+  padding: 1rem 1.25rem 1.25rem;
+  font-weight: 400;
+  border-top: 1px solid var(--pencil-gray);
+  border-bottom: 1px solid var(--forest-ink);
+}
+
+.tarifs-table__plan {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tarifs-table__price {
+  display: block;
+  margin-top: 0.375rem;
+  font-family: var(--font-display), "Archivo Black", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.tarifs-table__detail {
+  display: block;
+  margin-top: 0.625rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.tarifs-table__badge {
+  display: inline-block;
+  margin-bottom: 0.625rem;
+  padding: 4px 11px;
+  background: var(--highlighter-yellow);
+  border: 1px solid var(--forest-ink);
+  border-radius: var(--radius-tag);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.tarifs-table__feature {
+  padding: 0.75rem 1.25rem 0.75rem 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.35;
+  border-bottom: 1px solid var(--whisper-gray);
+  vertical-align: top;
+}
+
+.tarifs-table__note {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  opacity: 0.6;
+}
+
+.tarifs-table__cell {
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid var(--whisper-gray);
+  vertical-align: top;
+}
+
+.tarifs-table__check {
+  display: inline-block;
+  color: var(--forest-ink);
+  vertical-align: middle;
+}
+
+.tarifs-table__dash {
+  display: inline-block;
+  color: var(--pencil-gray);
+  vertical-align: middle;
+}
+
+.tarifs-table__foot {
+  padding: 0.875rem 1.25rem 1.25rem;
+  vertical-align: top;
+}
+
+.tarifs-table__hook {
+  display: block;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  font-style: italic;
+}
+
+/* La colonne recommandée est teintée sur toute sa hauteur. */
+.tarifs-table__head--featured,
+.tarifs-table__cell--featured,
+.tarifs-table__foot--featured {
+  background: var(--sticky-mint);
+  border-left: 2px solid var(--forest-ink);
+  border-right: 2px solid var(--forest-ink);
+}
+
+.tarifs-table__head--featured {
+  border-top: 2px solid var(--forest-ink);
+  border-bottom: 1px solid var(--forest-ink);
+  border-top-left-radius: var(--radius-card);
+  border-top-right-radius: var(--radius-card);
+}
+
+.tarifs-table__cell--featured {
+  border-bottom-color: rgba(26, 51, 0, 0.15);
+}
+
+.tarifs-table__foot--featured {
+  border-bottom: 2px solid var(--forest-ink);
+  border-bottom-left-radius: var(--radius-card);
+  border-bottom-right-radius: var(--radius-card);
+}
+
+/* Liste de prestations dans les cartes mobiles. */
+.tarif-card__list {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.tarif-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.tarif-card__list svg {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
 .tarif-card {

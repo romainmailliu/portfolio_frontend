@@ -14,13 +14,7 @@ export const hero = {
   /** La headline est découpée pour surligner « livré en une semaine ». */
   titleLead: "Un site qui vous ressemble,",
   titleHighlight: "livré en une semaine",
-  titleTail: "une fois vos contenus reçus.",
   intro: "Pour les entrepreneur·e·s qui lancent, les associations et les artistes.",
-  paragraphs: [
-    "Vous avez un projet, une cause, une œuvre.",
-    "Pas le temps ni le budget d'une agence.",
-  ],
-  promise: "Je conçois, je livre, et je m'occupe de la suite.",
   ctaLabel: "Présenter mon projet",
   /* Même formulation que la carte contact (composant Moderne). */
   ctaSubtext: "réponse sous 48h.",
@@ -89,7 +83,7 @@ export const preuves: Preuve[] = [
   },
 ];
 
-export const preuvesHeading = "Trois sites en ligne";
+export const preuvesHeading = "Quelques exemples";
 
 /* ------------------------------------------------------------------ */
 /* Section 3 — Tarifs                                                  */
@@ -133,7 +127,41 @@ export const offres: Offre[] = [
   },
 ];
 
-export const offresHeading = "Tarifs du site";
+export const offresHeading = "Tarifs";
+
+/**
+ * Matrice de comparaison — une ligne par prestation, une colonne par offre.
+ * L'ordre des booléens suit celui du tableau `offres` ci-dessus.
+ * Décomposition des trois descriptifs d'offre et du bloc « inclus dans tous
+ * les forfaits » : rien n'y est ajouté.
+ */
+export type OffreFeature = {
+  label: string;
+  included: [boolean, boolean, boolean];
+  /** Précision affichée en petit sous le libellé. */
+  note?: string;
+};
+
+export const offreFeatures: OffreFeature[] = [
+  { label: "Reprise de votre site existant", included: [true, false, false] },
+  { label: "Vos contenus actuels conservés", included: [true, false, false] },
+  { label: "Maquette sur mesure", included: [false, true, true] },
+  { label: "Mise en ligne", included: [true, true, true] },
+  { label: "Version mobile", included: [true, true, true] },
+  { label: "Référencement de base", included: [true, true, true] },
+  { label: "Formulaire de contact", included: [true, true, true] },
+  {
+    label: "Nom de domaine configuré",
+    note: "achat du nom de domaine à votre charge, ~15 €/an",
+    included: [false, true, true],
+  },
+  { label: "2 tours de retours", included: [true, true, true] },
+  { label: "2 mois de maintenance offerts", included: [true, true, true] },
+  {
+    label: "Vous modifiez textes, images et contenus vous-même",
+    included: [false, false, true],
+  },
+];
 
 export const mentions = {
   included: {

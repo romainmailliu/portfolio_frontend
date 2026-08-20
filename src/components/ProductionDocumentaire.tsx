@@ -74,7 +74,7 @@ function ProductionDocumentaire() {
 
       <Link href="/" className="pdoc-back nav-pill">
         <span aria-hidden>←</span>
-        Carte de visite
+        Accueil
       </Link>
 
       <main className="pdoc-main page-container">

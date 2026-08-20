@@ -1,12 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Lightbulb, MousePointer2 } from "lucide-react";
+import { MousePointer2 } from "lucide-react";
 import MainNav from "../components/MainNav";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
 import {
-  associationDiscountSticker,
   contactCardAnchor,
 } from "../data/offre-content";
 
@@ -198,7 +197,7 @@ function App() {
       >
         {showOfferOnly &&
           renderMainNav(
-            "nav-pill hidden md:flex fixed top-4 left-1/2 -translate-x-1/2 z-50 items-center justify-center gap-1 px-3 py-2 max-w-[calc(100vw-2rem)] flex-wrap",
+            "nav-pill hidden md:flex fixed top-4 inset-x-0 mx-auto w-fit z-50 items-center justify-center gap-1 px-3 py-2 max-w-[calc(100vw-2rem)] flex-wrap",
           )}
 
         {showOfferOnly && (
@@ -234,19 +233,6 @@ function App() {
               )}
 
               <div className="hero-copy flex flex-col items-center gap-5 text-center">
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <div className="tagline-badge">
-                    <Lightbulb size={14} aria-hidden />
-                    Tech & IA au juste prix, Marseille
-                  </div>
-                  <span
-                    className="offre-discount-sticker"
-                    aria-label={associationDiscountSticker.ariaLabel}
-                  >
-                    {associationDiscountSticker.label}
-                  </span>
-                </div>
-
                 <h1 className="font-display hero-headline">
                   La Tech au service de{" "}
                   <span className="highlight-word">votre mission</span>

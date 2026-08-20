@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react";
 import {
   profiles,
   contactCtas,
-  associationDiscountSticker,
   type ProfileEntry,
   type ProfileSlug,
 } from "../data/offre-content";
@@ -228,14 +227,6 @@ export default function OffreTechIA() {
                   : "sticky-card--cream border-pencil hover:border-forest"
               }`}
             >
-              {profile.slug === "association" && (
-                <span
-                  className="offre-discount-sticker offre-discount-sticker--on-card"
-                  aria-label={associationDiscountSticker.ariaLabel}
-                >
-                  {associationDiscountSticker.label}
-                </span>
-              )}
               <p className="flex items-start gap-2 text-sm md:text-[0.95rem] font-medium text-forest leading-snug">
                 <span
                   className={`offre-profile-card__caret${isSelected ? " is-open" : ""}`}

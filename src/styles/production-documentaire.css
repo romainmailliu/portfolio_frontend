@@ -329,7 +329,7 @@
 }
 
 .pdoc-headline {
-  font-size: clamp(2.5rem, 7.5vw, 4.75rem);
+  font-size: clamp(3rem, 9vw, 6rem);
   letter-spacing: 0.04em;
   line-height: 1.05;
   text-wrap: balance;
