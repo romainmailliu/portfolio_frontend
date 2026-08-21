@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import posthog from "posthog-js";
 import {
   profiles,
   contactCtas,
@@ -191,6 +192,12 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
         <a
           href={contactCtas.marseille.href}
           className="btn-primary"
+          onClick={() =>
+            posthog.capture("contact_cta_clicked", {
+              cta_type: "in_person",
+              profile: profile.slug,
+            })
+          }
         >
           <span aria-hidden="true">→</span>
           {contactCtas.marseille.label}
@@ -198,6 +205,12 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
         <a
           href={contactCtas.visio.href}
           className="btn-outline"
+          onClick={() =>
+            posthog.capture("contact_cta_clicked", {
+              cta_type: "visio",
+              profile: profile.slug,
+            })
+          }
         >
           {contactCtas.visio.label}
         </a>
@@ -219,7 +232,14 @@ export default function OffreTechIA() {
             <button
               key={profile.slug}
               type="button"
-              onClick={() => setSelectedSlug(profile.slug)}
+              onClick={() => {
+                setSelectedSlug(profile.slug);
+                if (!isSelected) {
+                  posthog.capture("offer_profile_selected", {
+                    profile: profile.slug,
+                  });
+                }
+              }}
               aria-pressed={isSelected}
               className={`offre-profile-card relative text-left rounded-card border p-4 md:p-5 transition-all ${
                 isSelected

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import posthog from "posthog-js";
 import {
   ArrowRight,
   Calendar,
@@ -412,6 +413,9 @@ function CtaButton({
       <a
         href={getMailtoHref()}
         className={`ai-btn-secondary ${tiltClass} ${sizeClass} ${className}`}
+        onClick={() =>
+          posthog.capture("ai_training_email_clicked", { size })
+        }
       >
         <Mail className="h-4 w-4" />
         Email instead
@@ -423,6 +427,9 @@ function CtaButton({
     <a
       href={getBookingHref()}
       className={`ai-btn-primary group ${tiltClass} ${sizeClass} ${className}`}
+      onClick={() =>
+        posthog.capture("ai_training_booking_clicked", { size })
+      }
     >
       {hasBookingLink() && <Calendar className="h-4 w-4" />}
       {bookingCtaLabel}
@@ -857,6 +864,9 @@ export default function AiTrainingLanding() {
                   <a
                     href={getMailtoHref()}
                     className="ai-btn-secondary ai-btn-sticker--tilt-right min-h-[56px] max-w-full min-w-0 break-all px-5 py-4 text-base sm:px-8 sm:break-normal"
+                    onClick={() =>
+                      posthog.capture("ai_training_email_clicked", { size: "large" })
+                    }
                   >
                     <Mail className="h-5 w-5" />
                     {contactEmail}
@@ -881,6 +891,9 @@ export default function AiTrainingLanding() {
         <a
           href={getBookingHref()}
           className="ai-btn-primary ai-btn-sticker--tilt-left flex min-h-[48px] w-full text-base"
+          onClick={() =>
+            posthog.capture("ai_training_booking_clicked", { size: "mobile_sticky" })
+          }
         >
           {bookingCtaLabel}
           <ArrowRight className="h-4 w-4" />

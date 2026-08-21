@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import posthog from "posthog-js";
 import { submitContact } from "../lib/contact/actions";
 
 function Moderne() {
@@ -27,9 +28,17 @@ function Moderne() {
 
     if (!result.ok) {
       setError(result.formError);
+      posthog.capture("contact_form_error", {
+        has_phone: Boolean(phone),
+        has_message: Boolean(message),
+      });
       return;
     }
 
+    posthog.capture("contact_form_submitted", {
+      has_phone: Boolean(phone),
+      has_message: Boolean(message),
+    });
     setSent(true);
     setEmail("");
     setPhone("");

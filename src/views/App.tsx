@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { MousePointer2 } from "lucide-react";
+import posthog from "posthog-js";
 import MainNav from "../components/MainNav";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
@@ -129,6 +130,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           className={`project-chip ${accent}`}
+          onClick={() =>
+            posthog.capture("project_link_clicked", {
+              project_name: project.name,
+              surface: compact ? "mobile_chips" : "desktop_chips",
+            })
+          }
         >
           {content}
         </a>
@@ -162,6 +169,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
           className="project-link block"
+          onClick={() =>
+            posthog.capture("project_link_clicked", {
+              project_name: project.name,
+              surface: "desktop_sidebar",
+            })
+          }
         >
           {project.name},
           <br />

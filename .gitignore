@@ -30,3 +30,6 @@ dist-ssr
 .agents/
 skills-lock.json
 tsconfig.tsbuildinfo
+
+# Skills installées localement par les plugins
+.claude/

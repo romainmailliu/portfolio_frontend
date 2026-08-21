@@ -6,6 +6,7 @@ import {
   consumeLoginRateLimit,
   loginAttemptClientIp,
 } from "../../../../lib/login-rate-limit";
+import { getPostHogClient } from "../../../../lib/posthog-server";
 
 export async function POST(request: Request) {
   const expected = process.env.DASHBOARD_PASSWORD;
@@ -37,6 +38,15 @@ export async function POST(request: Request) {
   }
 
   if (!timingSafePasswordEqual(body.password ?? "", expected)) {
+    const phFail = getPostHogClient();
+    if (phFail) {
+      phFail.capture({
+        distinctId: "admin",
+        event: "admin_login_attempted",
+        properties: { success: false },
+      });
+      await phFail.flush();
+    }
     return NextResponse.json({ error: "Mot de passe incorrect" }, { status: 401 });
   }
 
@@ -49,6 +59,16 @@ export async function POST(request: Request) {
     path: "/",
     maxAge: 60 * 60 * 24 * 30,
   });
+
+  const phOk = getPostHogClient();
+  if (phOk) {
+    phOk.capture({
+      distinctId: "admin",
+      event: "admin_login_attempted",
+      properties: { success: true },
+    });
+    await phOk.flush();
+  }
 
   return NextResponse.json({ ok: true });
 }

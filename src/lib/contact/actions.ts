@@ -7,6 +7,7 @@ import {
   consumeLeadRateLimit,
 } from "../leads/rate-limit";
 import { contactSchema, type ContactInput } from "./contact-schema";
+import { getPostHogClient } from "../posthog-server";
 
 export type ContactResult = { ok: true } | { ok: false; formError: string };
 
@@ -79,6 +80,19 @@ export async function submitContact(
   } catch (error) {
     console.error("[contact] échec de livraison", error);
     return { ok: false, formError: GENERIC_ERROR };
+  }
+
+  const ph = getPostHogClient();
+  if (ph) {
+    ph.capture({
+      distinctId: "anonymous",
+      event: "contact_received",
+      properties: {
+        has_phone: Boolean(phone),
+        has_message: Boolean(message),
+      },
+    });
+    await ph.flush();
   }
 
   return { ok: true };
