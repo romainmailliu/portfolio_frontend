@@ -7,7 +7,7 @@ last_updated: 2026-08-20
 
 # Un site qui vous ressemble, livré en une semaine
 
-Pour les entrepreneur·e·s qui lancent, les associations et les artistes.
+Pour les entrepreneur·e·s, les associations et les artistes.
 
 Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/site-vitrine. Je réponds sous 48h.
 

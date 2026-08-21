@@ -13,7 +13,7 @@ export const hero = {
   /** La headline est découpée pour surligner « livré en une semaine ». */
   titleLead: "Un site qui vous ressemble,",
   titleHighlight: "livré en une semaine",
-  intro: "Pour les entrepreneur·e·s qui lancent, les associations et les artistes.",
+  intro: "Pour les entrepreneur·e·s, les associations et les artistes.",
   ctaLabel: "Présenter mon projet",
   /* Même formulation que la carte contact (composant Moderne). */
   ctaSubtext: "réponse sous 48h.",
