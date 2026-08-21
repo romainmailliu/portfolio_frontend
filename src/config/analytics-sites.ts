@@ -11,90 +11,130 @@ export type AnalyticsSite = {
   gscSiteUrl: string;
   /**
    * Identifiants dédiés : `POSTHOG_API_KEY_<SUFFIX>` et `POSTHOG_HOST_<SUFFIX>`.
-   * Host : repli sur `POSTHOG_HOST`. Repli `POSTHOG_API_KEY` global : ATS (`ATS_SEDUCTION`) uniquement.
+   * Repli sur `POSTHOG_API_KEY` / `POSTHOG_HOST` sauf si `dedicatedKeyOnly`.
    */
   posthogCredentialSuffix?: string;
+  /** Compte PostHog distinct : `POSTHOG_API_KEY_<SUFFIX>` obligatoire, pas de repli global. */
+  dedicatedKeyOnly?: boolean;
+};
+
+type SiteDefinition = {
+  id: string;
+  name: string;
+  /** Suffixe des variables `POSTHOG_*_<SUFFIX>` et `GSC_SITE_URL_<SUFFIX>`. */
+  suffix: string;
+  /** Suffixe historique encore lu si le principal est vide. */
+  legacySuffix?: string;
+  /** URL publique par défaut si `GSC_SITE_URL_<SUFFIX>` est vide. */
+  siteUrl: string;
+  dedicatedKeyOnly?: boolean;
 };
 
 /**
- * ATS Seduction — même schéma qu’Amidou : `POSTHOG_PROJECT_ID_ATS_SEDUCTION` (+ clé `*_ATS_SEDUCTION`).
- * Repli legacy : `POSTHOG_PROJECT_ID_ATS`.
+ * Un projet PostHog par site. Le project ID vient toujours de l’environnement
+ * (`POSTHOG_PROJECT_ID_<SUFFIX>`) : rien d’identifiant client dans le dépôt public.
+ * Une seule clé personnelle `POSTHOG_API_KEY` couvre toutes les organisations,
+ * sauf Amidou qui vit sur un autre compte PostHog.
  */
-const atsSeduction: AnalyticsSite = {
-  id: "ats-seduction",
-  name: "ATS Seduction",
-  posthogProjectId:
-    process.env.POSTHOG_PROJECT_ID_ATS_SEDUCTION?.trim() ||
-    process.env.POSTHOG_PROJECT_ID_ATS?.trim() ||
-    "",
-  gscSiteUrl:
-    process.env.GSC_SITE_URL_ATS_SEDUCTION?.trim() ||
-    process.env.GSC_SITE_URL_ATS?.trim() ||
-    "https://ats-seduction.vercel.app/",
-  posthogCredentialSuffix: "ATS_SEDUCTION",
-};
+const SITE_DEFINITIONS: SiteDefinition[] = [
+  {
+    id: "ats-seduction",
+    name: "ATS Seduction",
+    suffix: "ATS_SEDUCTION",
+    legacySuffix: "ATS",
+    siteUrl: "https://ats-seduction.vercel.app/",
+  },
+  {
+    id: "amidou",
+    name: "Amidou",
+    suffix: "AMIDOU",
+    siteUrl: "https://www.amidou.eu/",
+    dedicatedKeyOnly: true,
+  },
+  {
+    id: "gomett",
+    name: "Gomett",
+    suffix: "GOMETT",
+    siteUrl: "https://www.gomett.com/",
+  },
+  {
+    id: "coexister",
+    name: "Coexister",
+    suffix: "COEXISTER",
+    siteUrl: "https://www.coexister.fr/",
+  },
+  {
+    id: "annuaire-la-ruche",
+    name: "Annuaire La Ruche",
+    suffix: "ANNUAIRE_LA_RUCHE",
+    siteUrl: "https://annuaire-transforama-la-ruche.vercel.app/",
+  },
+  {
+    id: "klink",
+    name: "Klink, le son du vin",
+    suffix: "KLINK",
+    siteUrl: "https://www.lesonduvin.fr/",
+  },
+  {
+    id: "levat",
+    name: "Jadin LEVAT",
+    suffix: "LEVAT",
+    siteUrl: "https://www.assolevat.fr/",
+  },
+  {
+    id: "albane",
+    name: "Albane",
+    suffix: "ALBANE",
+    siteUrl: "https://www.albanedharcourt.com/",
+  },
+  {
+    id: "la-camaraderie",
+    name: "La Camaraderie",
+    suffix: "LA_CAMARADERIE",
+    siteUrl: "https://www.lacamaraderie.net/",
+  },
+  {
+    id: "riviere",
+    name: "Rivière",
+    suffix: "RIVIERE",
+    siteUrl: "https://www.rivieredereves.org/",
+  },
+  {
+    id: "portfolio",
+    name: "romainmailliu.com",
+    suffix: "PORTFOLIO",
+    siteUrl: "https://www.romainmailliu.com/",
+  },
+];
 
-/** Amidou — clé / ID dédiés (suffixe AMIDOU). https://www.amidou.eu/ */
-const amidou: AnalyticsSite = {
-  id: "amidou",
-  name: "Amidou",
-  posthogProjectId: process.env.POSTHOG_PROJECT_ID_AMIDOU ?? "",
-  gscSiteUrl:
-    process.env.GSC_SITE_URL_AMIDOU ?? "https://www.amidou.eu/",
-  posthogCredentialSuffix: "AMIDOU",
-};
+function readEnv(name: string): string {
+  return process.env[name]?.trim() ?? "";
+}
 
-/** Gomett — clé / ID dédiés (suffixe GOMETT). https://www.gomett.com/ */
-const gomett: AnalyticsSite = {
-  id: "gomett",
-  name: "Gomett",
-  posthogProjectId: process.env.POSTHOG_PROJECT_ID_GOMETT ?? "",
-  gscSiteUrl:
-    process.env.GSC_SITE_URL_GOMETT ?? "https://www.gomett.com/",
-  posthogCredentialSuffix: "GOMETT",
-};
+function buildSite(def: SiteDefinition): AnalyticsSite {
+  const projectId =
+    readEnv(`POSTHOG_PROJECT_ID_${def.suffix}`) ||
+    (def.legacySuffix ? readEnv(`POSTHOG_PROJECT_ID_${def.legacySuffix}`) : "");
 
-/** Coexister — clé / ID dédiés (suffixe COEXISTER). https://www.coexister.fr/ */
-const coexister: AnalyticsSite = {
-  id: "coexister",
-  name: "Coexister",
-  posthogProjectId: process.env.POSTHOG_PROJECT_ID_COEXISTER ?? "",
-  gscSiteUrl:
-    process.env.GSC_SITE_URL_COEXISTER ?? "https://www.coexister.fr/",
-  posthogCredentialSuffix: "COEXISTER",
-};
+  const gscSiteUrl =
+    readEnv(`GSC_SITE_URL_${def.suffix}`) ||
+    (def.legacySuffix ? readEnv(`GSC_SITE_URL_${def.legacySuffix}`) : "") ||
+    def.siteUrl;
 
-/** Annuaire La Ruche Transforama — suffixe ANNUAIRE_LA_RUCHE */
-const annuaireLaRuche: AnalyticsSite = {
-  id: "annuaire-la-ruche",
-  name: "Annuaire La Ruche",
-  posthogProjectId: process.env.POSTHOG_PROJECT_ID_ANNUAIRE_LA_RUCHE ?? "",
-  gscSiteUrl: process.env.GSC_SITE_URL_ANNUAIRE_LA_RUCHE ?? "",
-  posthogCredentialSuffix: "ANNUAIRE_LA_RUCHE",
-};
-
-const portfolio: AnalyticsSite | null = process.env.POSTHOG_PROJECT_ID_PORTFOLIO
-  ? {
-      id: "portfolio",
-      name: "romainmailliu.com",
-      posthogProjectId: process.env.POSTHOG_PROJECT_ID_PORTFOLIO,
-      gscSiteUrl:
-        process.env.GSC_SITE_URL_PORTFOLIO ??
-        "https://www.romainmailliu.com/",
-    }
-  : null;
+  return {
+    id: def.id,
+    name: def.name,
+    posthogProjectId: projectId,
+    gscSiteUrl,
+    posthogCredentialSuffix: def.suffix,
+    dedicatedKeyOnly: def.dedicatedKeyOnly,
+  };
+}
 
 /**
  * Sites sur /admin (une carte par ligne). Ordre d’affichage.
  */
-export const ANALYTICS_SITES: AnalyticsSite[] = [
-  atsSeduction,
-  amidou,
-  gomett,
-  coexister,
-  annuaireLaRuche,
-  ...(portfolio ? [portfolio] : []),
-];
+export const ANALYTICS_SITES: AnalyticsSite[] = SITE_DEFINITIONS.map(buildSite);
 
 export function getSiteById(siteId: string): AnalyticsSite | undefined {
   return ANALYTICS_SITES.find((s) => s.id === siteId);

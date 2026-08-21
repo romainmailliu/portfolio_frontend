@@ -1,7 +1,7 @@
 import type { AnalyticsSite } from "../../config/analytics-sites";
 import { getSiteById } from "../../config/analytics-sites";
 
-const DEFAULT_POSTHOG_HOST = "https://us.posthog.com";
+const DEFAULT_POSTHOG_HOST = "https://eu.posthog.com";
 
 function normalizeHost(raw: string): string {
   return raw.replace(/\/$/, "");
@@ -16,45 +16,38 @@ function assertPersonalApiKey(apiKey: string, varName: string): void {
   }
 }
 
-/** Clé + host API pour HogQL selon le site (compte global ou suffixe dédié). */
+/** Clé + host API pour HogQL selon le site (clé globale ou clé dédiée par suffixe). */
 function resolvePosthogCredentials(site: AnalyticsSite): {
   apiKey: string;
   host: string;
 } {
   const suffix = site.posthogCredentialSuffix?.trim();
+  const keyVar = suffix ? `POSTHOG_API_KEY_${suffix}` : "POSTHOG_API_KEY";
 
-  if (suffix) {
-    const keyVar = `POSTHOG_API_KEY_${suffix}` as const;
-    const hostVar = `POSTHOG_HOST_${suffix}` as const;
-    let apiKey = process.env[keyVar]?.trim() ?? "";
-    // Repli global uniquement pour ATS (héritage) — évite un 403 si POSTHOG_API_KEY
-    // pointe vers un autre compte alors que le project ID est dédié.
-    const allowLegacyGlobalKey = suffix === "ATS_SEDUCTION";
-    if (!apiKey && allowLegacyGlobalKey) {
-      apiKey = process.env.POSTHOG_API_KEY?.trim() ?? "";
-    }
-    if (!apiKey) {
-      throw new Error(
-        allowLegacyGlobalKey
-          ? `${keyVar} ou POSTHOG_API_KEY manquant (${site.name}).`
-          : `${keyVar} manquant (${site.name}, compte PostHog dédié).`,
-      );
-    }
-    assertPersonalApiKey(apiKey, keyVar);
-    const rawHost =
-      process.env[hostVar]?.trim() ||
-      process.env.POSTHOG_HOST ||
-      DEFAULT_POSTHOG_HOST;
-    return { apiKey, host: normalizeHost(rawHost) };
+  let apiKey = process.env[keyVar]?.trim() ?? "";
+  let usedVar = keyVar;
+
+  // Une clé personnelle unique couvre toutes les organisations du compte ;
+  // seuls les sites hébergés sur un autre compte PostHog exigent leur propre clé.
+  if (!apiKey && suffix && !site.dedicatedKeyOnly) {
+    apiKey = process.env.POSTHOG_API_KEY?.trim() ?? "";
+    usedVar = "POSTHOG_API_KEY";
   }
 
-  const apiKey = process.env.POSTHOG_API_KEY?.trim() ?? "";
-  if (!apiKey)
+  if (!apiKey) {
     throw new Error(
-      "POSTHOG_API_KEY manquant (ex. carte Portfolio sans suffixe)",
+      site.dedicatedKeyOnly
+        ? `${keyVar} manquant (${site.name}, compte PostHog dédié).`
+        : `${keyVar} ou POSTHOG_API_KEY manquant (${site.name}).`,
     );
-  assertPersonalApiKey(apiKey, "POSTHOG_API_KEY");
-  const rawHost = process.env.POSTHOG_HOST || DEFAULT_POSTHOG_HOST;
+  }
+  assertPersonalApiKey(apiKey, usedVar);
+
+  const rawHost =
+    (suffix ? process.env[`POSTHOG_HOST_${suffix}`]?.trim() : "") ||
+    process.env.POSTHOG_HOST?.trim() ||
+    DEFAULT_POSTHOG_HOST;
+
   return { apiKey, host: normalizeHost(rawHost) };
 }
 
