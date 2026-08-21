@@ -40,9 +40,9 @@ export default function OffreProfile({ profile }: Props) {
               {associationDiscountSticker.label}
             </span>
           )}
-          <p className="text-xl md:text-2xl font-semibold text-forest leading-snug">
+          <h1 className="text-xl md:text-2xl font-semibold text-forest leading-snug">
             {profile.statement}
-          </p>
+          </h1>
         </header>
 
         <div className="sticky-card sticky-card--cream p-5 md:p-6">

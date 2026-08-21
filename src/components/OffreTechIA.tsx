@@ -13,7 +13,7 @@ import {
   managerPropose,
   personalizedQuoteIntro,
   proposeSteps,
-} from "../data/old-offre-tech-ia";
+} from "../data/offre-propose-content";
 import "../styles/offre.css";
 
 const CASE_STUDY_SURFACES = [
@@ -59,7 +59,7 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
   return (
     <div className="space-y-8 text-forest">
       <section>
-        <h3 className="field-label mb-4">Vous êtes au bon endroit si</h3>
+        <h2 className="field-label mb-4">Vous êtes au bon endroit si</h2>
         <ul className="space-y-2.5">
           {profile.situations.map((situation) => (
             <li
@@ -77,7 +77,7 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
       </section>
 
       <section>
-        <h3 className="field-label mb-4">Je propose</h3>
+        <h2 className="field-label mb-4">Je propose</h2>
 
         {profile.propose.useManagerPropose ? (
           <div className="space-y-3 text-caption">
@@ -146,7 +146,7 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
 
       {profile.caseStudies.length > 0 && (
         <section>
-          <h3 className="field-label mb-4">Ils étaient dans votre situation</h3>
+          <h2 className="field-label mb-4">Ils étaient dans votre situation</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {profile.caseStudies.map((study, index) => {
               const surface =

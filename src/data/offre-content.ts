@@ -55,15 +55,6 @@ export const contactCtas = {
   },
 } as const;
 
-export const hubContent = {
-  eyebrow: "Par où commencer ?",
-  title: "Quel est votre profil ?",
-  intro:
-    "Pas de catalogue d'offres ici. Dites-moi qui vous êtes et ce que vous voulez accomplir. On part de là.",
-  footnote:
-    "Associations, entrepreneur·e·s, collectifs : accompagnement au juste prix, à Marseille et à distance.",
-};
-
 export const profiles: ProfileEntry[] = [
   {
     slug: "entrepreneur",
@@ -146,6 +137,7 @@ export const profiles: ProfileEntry[] = [
           "voulait publier ses événements en autonomie, sans dépendre de personne",
         outcome:
           "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
+        projectHref: "https://www.lacamaraderie.net/",
       },
       {
         name: "Rivière",

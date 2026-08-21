@@ -118,7 +118,6 @@ export const contactEmail = "romain.mailliu@gmail.com";
 export const bookingUrl: string | null =
   "https://cal.com/mailliu-romain-tcumz2/15min";
 
-export const bookingCallLabel = "2-hour session";
 export const bookingCtaLabel = "Book your 2-hour session";
 export const paymentNote = "Payment at the end — only if you're satisfied.";
 
@@ -174,10 +173,6 @@ export function getMailtoHref(): string {
 
 export function getScheduleRequestMailtoHref(): string {
   return `mailto:${contactEmail}?subject=${encodeURIComponent(mailtoScheduleSubject)}`;
-}
-
-export function getHeroPricingLine(): string {
-  return `${pricingContent.amount} ${pricingContent.detail} · ${pricingContent.expenseNote.toLowerCase()} · ${paymentNote}`;
 }
 
 export function getBookingHref(): string {

@@ -9,7 +9,6 @@ import {
   contactCardAnchor,
 } from "../data/offre-content";
 
-import "../styles/App.css";
 import "../styles/offre.css";
 type ProjectItem = {
   name: string;
@@ -61,9 +60,9 @@ const PROJECTS: ProjectItem[] = [
   },
   {
     name: "La Camaraderie",
-    href: "",
-    description: "brasserie sociale d'insertion (en cours)",
-    desktopDescription: "brasserie solidaire (en cours)",
+    href: "https://www.lacamaraderie.net/",
+    description: "brasserie sociale d'insertion",
+    desktopDescription: "brasserie solidaire",
   },
   {
     name: "Spazzo",

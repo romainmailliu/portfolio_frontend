@@ -30,8 +30,6 @@ export default function InboxSavingsCalculator() {
   );
 
   const results = useMemo(() => {
-    let weeklySaved = 0;
-
     const rows = savingsCalculatorTasks.map((task) => {
       const before = values[task.id] ?? task.defaultMinutes;
       const after = afterMinutes(task, before);
@@ -40,10 +38,11 @@ export default function InboxSavingsCalculator() {
         task.unit === "day"
           ? saved * savingsCalculatorContent.workDaysPerWeek
           : saved;
-      weeklySaved += weekly;
 
       return { task, before, after, saved, weekly };
     });
+
+    const weeklySaved = rows.reduce((total, row) => total + row.weekly, 0);
 
     return { rows, weeklySaved };
   }, [values]);

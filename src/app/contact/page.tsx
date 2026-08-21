@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import App from "../../views/App";
+import { pageOpenGraph } from "../../lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact · Développeur Web & IA à Marseille",
@@ -8,13 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
-  openGraph: {
+  openGraph: pageOpenGraph({
     title: "Contact · Romain Mailliu, Tech & IA à Marseille",
     description:
       "Contactez Romain Mailliu pour un accompagnement tech et IA au juste prix pour associations et entrepreneur.e.s engagé.e.s.",
     url: "/contact",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-  },
+  }),
 };
 
 export default function ContactPage() {

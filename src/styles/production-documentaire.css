@@ -292,26 +292,6 @@
   align-self: center;
 }
 
-.pdoc-roles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  margin-top: 0.75rem;
-}
-
-.pdoc-role {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.75;
-}
-
-.pdoc-role::before {
-  content: "● ";
-  opacity: 0.4;
-}
-
 .pdoc-cta-block {
   display: flex;
   flex-direction: column;

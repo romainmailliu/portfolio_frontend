@@ -25,3 +25,8 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Outils locaux
+.agents/
+skills-lock.json
+tsconfig.tsbuildinfo

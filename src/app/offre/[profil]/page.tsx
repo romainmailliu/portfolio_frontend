@@ -5,6 +5,7 @@ import {
   getProfileBySlug,
   getProfileSlugs,
 } from "../../../data/offre-content";
+import { pageOpenGraph } from "../../../lib/seo";
 
 type Props = {
   params: Promise<{ profil: string }>;
@@ -28,12 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `/offre/${profile.slug}`,
     },
-    openGraph: {
+    openGraph: pageOpenGraph({
       title: `${profile.statementShort} | Romain Mailliu`,
       description: profile.situations[0],
       url: `/offre/${profile.slug}`,
-      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-    },
+    }),
   };
 }
 

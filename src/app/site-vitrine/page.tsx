@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TarifsPage from "../../components/tarifs/TarifsPage";
+import { pageOpenGraph } from "../../lib/seo";
 
 const title = "Site vitrine à partir de 300 €";
 const description =
@@ -11,12 +12,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/site-vitrine",
   },
-  openGraph: {
+  openGraph: pageOpenGraph({
     title: `${title} | Romain Mailliu`,
     description,
     url: "/site-vitrine",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
-  },
+  }),
   twitter: {
     card: "summary_large_image",
     title: `${title} | Romain Mailliu`,

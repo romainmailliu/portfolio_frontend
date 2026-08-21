@@ -104,9 +104,9 @@ function ProductionDocumentaire() {
                 Avec une équipe talentueuse, nous avons produit un documentaire
                 sorti au cinéma en 2025.
               </p>
-              <span className="pdoc-film-title">
+              <h2 className="pdoc-film-title">
                 <span>I AM THE FUTURE</span>
-              </span>
+              </h2>
               <p className="text-caption leading-relaxed font-semibold">
                 Synopsis :
               </p>

@@ -9,7 +9,7 @@ last_updated: 2026-08-21
 
 Pour les entrepreneur·e·s, les associations et les artistes.
 
-Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/site-vitrine. Je réponds sous 48h.
+Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/site-vitrine. Je réponds rapidement.
 
 [Page contact](https://www.romainmailliu.com/contact) · [Offre Tech & IA](https://www.romainmailliu.com/) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
@@ -65,4 +65,4 @@ Le formulaire de candidature se remplit en trois écrans, sur https://www.romain
 2. **Le projet** — le projet en deux phrases, l'offre visée (Refonte, Création, Site autonome), les besoins (pages de présentation, formulaire de contact, actualités, galerie, agenda, réservation, boutique, espace membre, multilingue).
 3. **Le cadrage** — état des contenus, échéance souhaitée, sites de référence, adéquation au budget affiché.
 
-Je lis chaque candidature moi-même et je réponds sous 48h, quelle que soit ma réponse. Si le projet correspond, je propose un échange de 30 minutes pour cadrer. Sinon, je le dis clairement et j'oriente vers ce qui conviendra mieux.
+Je réponds rapidement.

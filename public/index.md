@@ -98,7 +98,7 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 - [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation fun
 - [ATS Séductions](https://ats-seduction.vercel.app/) : CV optimisé pour les algorithmes de recrutement
 - [Amidou](https://www.amidou.eu/) : garder le lien avec les seniors isolés
-- La Camaraderie : brasserie sociale d'insertion (en cours)
+- [La Camaraderie](https://www.lacamaraderie.net/) : brasserie sociale d'insertion
 - [Spazzo](https://www.spazzo.fr/) : partage de locaux entre pros (en cours)
 - [Youth Visions](https://www.youth-visions.com/) : production de documentaires
 - [PrendsTaDose](https://www.prendstadose.fr/) : webzine

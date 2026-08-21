@@ -67,11 +67,6 @@ body {
   font-weight: 400;
 }
 
-.text-display {
-  font-size: clamp(2.75rem, 6vw, 5.625rem);
-  letter-spacing: 0.05em;
-}
-
 .text-heading {
   font-size: clamp(2rem, 4vw, 3.4375rem);
   letter-spacing: 0.04em;
@@ -93,12 +88,6 @@ body {
   .hero-headline {
     font-size: clamp(2.375rem, 10.5cqw + 0.5rem, 3.875rem);
   }
-}
-
-.text-subheading {
-  font-size: clamp(1.375rem, 3vw, 1.75rem);
-  line-height: 1.25;
-  font-weight: 600;
 }
 
 .text-body-lg {
@@ -206,9 +195,7 @@ body {
   transition: box-shadow 0.15s ease;
 }
 
-.btn-pastel--mint { background: var(--sticky-mint); }
 .btn-pastel--teal { background: var(--sticky-teal); }
-.btn-pastel--blush { background: var(--sticky-blush); }
 
 .btn-pastel:hover {
   box-shadow: var(--shadow-btn-hover);
@@ -294,8 +281,6 @@ button.nav-link {
 .sticky-card--mint { background: var(--sticky-mint); }
 .sticky-card--teal { background: var(--sticky-teal); }
 .sticky-card--blush { background: var(--sticky-blush); }
-.sticky-card--terracotta { background: var(--terracotta); color: var(--cream-paper); }
-
 /* Form fields */
 .field-input {
   width: 100%;

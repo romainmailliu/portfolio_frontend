@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import { submitContact } from "../lib/contact/actions";
 
 function Moderne() {
   const [email, setEmail] = useState("");
@@ -9,26 +9,31 @@ function Moderne() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  /** Pot de miel : laissé vide par les humains, rempli par les bots. */
+  const [website, setWebsite] = useState("");
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || pending) return;
 
-    try {
-      await emailjs.send(
-        "service_xkwi2nk",
-        "template_z789237",
-        { email, phone, message },
-        "Y0Vh6DS8F21xy5zPw",
-      );
-      setSent(true);
-      setEmail("");
-      setPhone("");
-      setMessage("");
-    } catch (error) {
-      console.error("Erreur envoi :", error);
-      alert("Erreur lors de l'envoi");
+    setPending(true);
+    setError(null);
+
+    const result = await submitContact({ email, phone, message, website });
+
+    setPending(false);
+
+    if (!result.ok) {
+      setError(result.formError);
+      return;
     }
+
+    setSent(true);
+    setEmail("");
+    setPhone("");
+    setMessage("");
   };
 
   useEffect(() => {
@@ -64,9 +69,9 @@ function Moderne() {
         </div>
 
         <div>
-          <h1 className="text-lg font-bold text-forest font-body leading-tight">
+          <p className="text-lg font-bold text-forest font-body leading-tight">
             Romain Mailliu
-          </h1>
+          </p>
           <p className="font-mono-label text-micro uppercase tracking-widest text-forest/70">
             Développeur Web & IA
           </p>
@@ -110,12 +115,31 @@ function Moderne() {
             aria-label="Votre projet en quelques mots"
             className="field-input resize-y py-2 min-h-[4.5rem]"
           />
-          <button type="submit" className="btn-primary w-full mt-0.5">
+          <input
+            type="text"
+            name="website"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+          <button
+            type="submit"
+            className="btn-primary w-full mt-0.5"
+            disabled={pending}
+          >
             <span aria-hidden="true">→</span>
-            Envoyer
+            {pending ? "Envoi…" : "Envoyer"}
           </button>
+          {error && (
+            <p role="alert" className="text-caption text-center text-terracotta">
+              {error}
+            </p>
+          )}
           <p className="reassurance-caption text-center !mt-1">
-            réponse sous 48h.
+            réponse rapide.
           </p>
         </form>
       )}

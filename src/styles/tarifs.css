@@ -431,29 +431,6 @@
   transition: width 0.25s ease;
 }
 
-.form-progress__steps {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.form-progress__step {
-  opacity: 0.45;
-}
-
-.form-progress__step--current {
-  opacity: 1;
-  font-weight: 700;
-}
-
-.form-progress__step--done {
-  opacity: 0.7;
-}
-
 .form-fieldset {
   border: none;
   margin: 0;

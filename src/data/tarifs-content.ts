@@ -16,7 +16,7 @@ export const hero = {
   intro: "Pour les entrepreneur·e·s, les associations et les artistes.",
   ctaLabel: "Présenter mon projet",
   /* Même formulation que la carte contact (composant Moderne). */
-  ctaSubtext: "réponse sous 48h.",
+  ctaSubtext: "réponse rapide.",
 } as const;
 
 /* ------------------------------------------------------------------ */
@@ -287,8 +287,5 @@ export const formCopy = {
 
 export const confirmation = {
   title: "Merci, c'est bien reçu.",
-  paragraphs: [
-    "Je lis chaque candidature moi-même. Vous aurez une réponse sous 48h, quelle qu'elle soit.",
-    "Si votre projet correspond, je vous propose un échange de 30 minutes pour cadrer. Si ce n'est pas le cas, je vous le dis clairement — et je vous oriente vers ce qui vous conviendra mieux.",
-  ],
+  paragraphs: ["Je vous réponds rapidement."],
 } as const;
