@@ -4,7 +4,7 @@ import { getProfileSlugs } from "../data/offre-content";
 const BASE_URL = "https://www.romainmailliu.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-20");
+  const lastModified = new Date("2026-08-21");
 
   const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map(
     (slug) => ({

@@ -1,8 +1,8 @@
 ---
 title: Site vitrine à partir de 300 € · Romain Mailliu
-description: "Sites vitrines pour entrepreneur·e·s, associations et artistes : rénovation 300 €, création 400 €, création modifiable 500 €. Maintenance 120 €/an, modifications illimitées."
+description: "Sites vitrines pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €. Maintenance 14 €/mois, modifications illimitées."
 url: https://www.romainmailliu.com/site-vitrine
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 ---
 
 # Un site qui vous ressemble, livré en une semaine
@@ -29,10 +29,10 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 **Refonte · 300 €**
 Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus.
 
-**Création · 400 €**
+**Création · 500 €**
 Votre site vitrine sur mesure, de la maquette à la mise en ligne.
 
-**Site autonome · 500 €**
+**Site autonome · 600 €**
 Votre site vitrine avec la possibilité de modifier des sections vous-même.
 
 **Inclus dans les trois offres** — design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat à votre charge, ~15 €/an), 2 mois de maintenance.
@@ -49,7 +49,7 @@ Trois façons de faire vivre votre site.
 **Autonome · gratuit**
 Vous reprenez la main à la livraison : documentation complète, code source, guides de déploiement.
 
-**Maintenance · 10 €/mois**
+**Maintenance · 14 €/mois**
 Votre site à jour, référencé et sauvegardé : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant (un texte, une photo, vos horaires, une actualité, un membre de l'équipe).
 
 **À la carte · au besoin**

@@ -1,5 +1,5 @@
 /**
- * Contenu de la page /tarifs — sites vitrines.
+ * Contenu de la page /site-vitrine.
  * Tout le texte affiché vit ici : les composants ne font que le mettre en page.
  */
 
@@ -118,14 +118,14 @@ export const offres: Offre[] = [
     name: "Création",
     detail:
       "Votre site vitrine sur mesure, de la maquette à la mise en ligne.",
-    price: "400 €",
+    price: "500 €",
   },
   {
     slug: "site-autonome",
     name: "Site autonome",
     detail:
       "Votre site vitrine avec la possibilité de modifier des sections vous-même.",
-    price: "500 €",
+    price: "600 €",
   },
 ];
 
@@ -135,9 +135,9 @@ export const offresHeading = "Tarifs";
  * Matrice de comparaison — une ligne par prestation, une colonne par offre,
  * dans l'ordre du tableau `offres`.
  *
- * Les prestations communes aux trois offres viennent en premier : elles
- * rassurent. Les deux lignes qui distinguent réellement les offres ferment le
- * tableau, là où se prend la décision.
+ * Les deux lignes qui distinguent réellement les offres ouvrent le tableau :
+ * c'est là que se prend la décision. Les prestations communes aux trois
+ * suivent, elles rassurent.
  */
 export type OffreFeature = {
   label: string;
@@ -200,7 +200,7 @@ export const maintenanceOptions: MaintenanceOption[] = [
   {
     slug: "maintenance",
     name: "Maintenance",
-    price: "10 €/mois",
+    price: "14 €/mois",
     summary: "Votre site à jour, référencé et sauvegardé.",
     items: [
       "Hébergement",

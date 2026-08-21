@@ -3,7 +3,7 @@ import TarifsPage from "../../components/tarifs/TarifsPage";
 
 const title = "Site vitrine à partir de 300 €";
 const description =
-  "Sites vitrines pour entrepreneur·e·s, associations et artistes : rénovation 300 €, création 400 €, création modifiable 500 €. Maintenance 120 €/an, modifications illimitées.";
+  "Sites vitrines pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €. Maintenance 14 €/mois, modifications illimitées.";
 
 export const metadata: Metadata = {
   title,

@@ -2,7 +2,7 @@
 title: Offre Tech & IA · Romain Mailliu, Marseille
 description: Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s. Au juste prix, à Marseille et en remote.
 url: https://www.romainmailliu.com/
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 ---
 
 # Offre Tech & IA · Romain Mailliu
@@ -36,10 +36,10 @@ Grille complète et formulaire de candidature : [Site vitrine](https://www.romai
 - Votre site existe mais n'est pas terminé ou à jour : je le reconstruis
 - Je repars de vos contenus actuels, c'est ce qui fait le prix
 
-**Création · 400€**
+**Création · 500€**
 - Votre site vitrine sur mesure, de la maquette à la mise en ligne
 
-**Site autonome · 500€**
+**Site autonome · 600€**
 - Votre site vitrine avec la possibilité de modifier des sections vous-même
 
 Inclus dans les trois offres : design, mise en ligne, version mobile, référencement de base, tableau de suivi du trafic, formulaire de contact, nom de domaine configuré (achat ~15€/an à votre charge), accompagnement à la création de contenus (Création et Site autonome), 2 mois de maintenance.
@@ -47,7 +47,7 @@ Délai : une semaine une fois vos contenus reçus.
 
 **Après la mise en ligne, trois options**
 - Autonome : gratuit. Documentation complète, code source, guides de déploiement
-- Maintenance · 10€/mois : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
+- Maintenance · 14€/mois : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
 - À la carte : hébergement seul 50€/an, pack 5 modifications 50€, nouvelle page 100€, nouvelle fonctionnalité sur devis
 
 **Sur devis**
