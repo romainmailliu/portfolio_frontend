@@ -24,19 +24,6 @@ const CASE_STUDY_SURFACES = [
   "sticky-card--blush",
 ] as const;
 
-const TERMINAL_ART = `
-    ┌───────────────┐
-    │  · ·     · ·  │
-    │               │
-    │    ▶  PLAY    │
-    │               │
-    ├───────────────┤
-    │   ░ COIN ░    │
-    └───────┬───────┘
-            │
-         ═══╧═══
-`;
-
 function OfferIdleScreen() {
   return (
     <div className="offre-idle-screen" aria-hidden="true">
@@ -47,10 +34,9 @@ function OfferIdleScreen() {
             <span className="offre-idle-screen__blink" aria-hidden>
               ▶
             </span>{" "}
-            Cliquez sur une carte ci-dessus pour lancer la partie
+            Cliquez sur une carte ci-dessus pour découvrir les offres
           </p>
         </div>
-        <pre className="offre-idle-screen__art">{TERMINAL_ART}</pre>
       </div>
     </div>
   );

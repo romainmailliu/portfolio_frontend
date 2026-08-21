@@ -108,16 +108,6 @@
   }
 }
 
-.offre-idle-screen__art {
-  margin: 0;
-  font-size: 0.62rem;
-  line-height: 1.15;
-  color: rgba(0, 255, 136, 0.9);
-  text-align: center;
-  white-space: pre;
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.35);
-}
-
 .offre-profile-card__caret {
   display: inline-block;
   flex-shrink: 0;
@@ -190,12 +180,6 @@
 
   .offre-idle-screen__press {
     font-size: 0.75rem;
-  }
-
-  .offre-idle-screen__art {
-    font-size: 0.5rem;
-    max-width: 100%;
-    overflow-x: auto;
   }
 }
 
