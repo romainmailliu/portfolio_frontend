@@ -27,7 +27,7 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 ## Tarifs
 
 **Refonte · 300 €**
-Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus actuels.
+Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus.
 
 **Création · 400 €**
 Votre site vitrine sur mesure, de la maquette à la mise en ligne.
@@ -53,7 +53,7 @@ Vous reprenez la main à la livraison : documentation complète, code source, gu
 Votre site à jour, référencé et sauvegardé : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant (un texte, une photo, vos horaires, une actualité, un membre de l'équipe).
 
 **À la carte · au besoin**
-Pack 5 modifications : 50 €. Nouvelle page : 50 €. Nouvelle fonctionnalité : sur devis.
+Hébergement seul : 50 €/an. Pack 5 modifications : 50 €. Nouvelle page : 100 €. Nouvelle fonctionnalité : sur devis.
 
 ---
 

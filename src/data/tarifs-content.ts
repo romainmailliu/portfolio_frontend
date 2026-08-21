@@ -110,7 +110,7 @@ export const offres: Offre[] = [
     slug: "refonte",
     name: "Refonte",
     detail:
-      "Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus actuels.",
+      "Votre site existe mais n'est pas terminé ou à jour. Je le reconstruis en repartant de vos contenus.",
     price: "300 €",
   },
   {
@@ -213,8 +213,9 @@ export const maintenanceOptions: MaintenanceOption[] = [
     name: "À la carte",
     price: "Au besoin",
     items: [
+      "Hébergement seul : 50 €/an",
       "Pack 5 modifications : 50 €",
-      "Nouvelle page : 50 €",
+      "Nouvelle page : 100 €",
       "Nouvelle fonctionnalité : sur devis",
     ],
   },

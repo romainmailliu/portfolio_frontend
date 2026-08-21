@@ -24,7 +24,7 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 **Après la mise en ligne — trois options au choix du client**
 - Autonome : gratuit. Documentation complète, code source, guides de déploiement.
 - Maintenance : 10€/mois. Hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant.
-- À la carte : pack 5 modifications 50€, nouvelle page 50€, nouvelle fonctionnalité sur devis.
+- À la carte : hébergement seul 50€/an, pack 5 modifications 50€, nouvelle page 100€, nouvelle fonctionnalité sur devis.
 
 **Automatisation & IA**
 - Diagnostic IA (audit des processus, cartographie des tâches chronophages, recommandations priorisées) : gratuit, sans engagement

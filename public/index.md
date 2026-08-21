@@ -48,7 +48,7 @@ Délai : une semaine une fois vos contenus reçus.
 **Après la mise en ligne, trois options**
 - Autonome : gratuit. Documentation complète, code source, guides de déploiement
 - Maintenance · 10€/mois : hébergement, sécurité et sauvegardes automatiques, modifications illimitées sur l'existant
-- À la carte : pack 5 modifications 50€, nouvelle page 50€, nouvelle fonctionnalité sur devis
+- À la carte : hébergement seul 50€/an, pack 5 modifications 50€, nouvelle page 100€, nouvelle fonctionnalité sur devis
 
 **Sur devis**
 - Boutique en ligne, paiement, réservation, espace membre, multilingue
