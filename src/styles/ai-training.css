@@ -378,14 +378,29 @@
   transform: rotate(1deg);
 }
 
+/* La piste reste fine, mais elle est peinte sur le pseudo-élément : la boîte
+   de l'input peut alors faire 44px de haut, ce qui donne une vraie zone de
+   préhension au doigt sans changer le dessin du curseur. */
 .ai-range {
   -webkit-appearance: none;
   appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.ai-range::-webkit-slider-runnable-track {
   height: 0.4rem;
   border-radius: 9999px;
   background: linear-gradient(90deg, #e0f2fe 0%, #bae6fd 100%);
-  outline: none;
-  cursor: pointer;
+}
+
+.ai-range::-moz-range-track {
+  height: 0.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #e0f2fe 0%, #bae6fd 100%);
 }
 
 .ai-range::-webkit-slider-thumb {
@@ -393,6 +408,8 @@
   appearance: none;
   height: 1.15rem;
   width: 1.15rem;
+  /* (piste 0.4rem − pouce 1.15rem) / 2 : recentre le pouce sur la piste. */
+  margin-top: -0.375rem;
   border-radius: 9999px;
   border: 2px solid #ffffff;
   background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);
@@ -407,6 +424,16 @@
   background: linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);
   box-shadow: 0 2px 6px rgba(3, 105, 161, 0.35);
   cursor: pointer;
+}
+
+.ai-range:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #0369a1;
+  outline-offset: 2px;
+}
+
+.ai-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid #0369a1;
+  outline-offset: 2px;
 }
 
 .ai-savings-calc__total {

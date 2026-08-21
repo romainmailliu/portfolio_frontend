@@ -58,7 +58,7 @@ export default function OffreProfile({ profile }: Props) {
               <Link
                 key={other.slug}
                 href={`/offre/${other.slug}`}
-                className="text-body-sm text-forest/80 hover:text-forest underline underline-offset-4 transition-colors"
+                className="flex items-center min-h-11 md:min-h-0 md:py-1 text-body-sm text-forest/80 hover:text-forest underline underline-offset-4 transition-colors"
               >
                 {other.statementShort}
               </Link>

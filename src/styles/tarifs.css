@@ -58,6 +58,7 @@
 /* Rail horizontal : les exemples défilent sur une ligne à toutes les tailles,
    comme les chips « Derniers projets » de la home. */
 .preuves-rail {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -80,8 +81,15 @@
 }
 
 /* `.sticky-card` pose son propre padding : on double la classe plutôt que de
-   compter sur l'ordre des feuilles de style. */
+   compter sur l'ordre des feuilles de style.
+
+   `position: relative` n'est pas décoratif : les `.sr-only` du lien « Voir le
+   site » sont en `position: absolute`. Sans ancêtre positionné, leur bloc
+   conteneur est le bloc conteneur initial — elles échappent alors au
+   défilement du rail comme à tous les `overflow` de la page, et allongent la
+   largeur du document (bande vide à droite en tactile). */
 .sticky-card.preuve-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
@@ -505,10 +513,14 @@
   outline-offset: 2px;
 }
 
+/* Le label entier est la cible tactile. Sur une seule ligne il tombait à 23px,
+   juste sous le minimum de 24px : le padding vertical le dégage sans toucher
+   au rythme quand le texte passe sur deux lignes. */
 .consent-row {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+  padding: 4px 0;
   font-size: 0.9375rem;
   line-height: 1.45;
 }

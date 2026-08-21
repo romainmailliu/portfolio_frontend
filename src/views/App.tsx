@@ -254,7 +254,7 @@ function App() {
                       href="https://www.linkedin.com/in/romain-mailliu/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-caption font-medium underline underline-offset-4 text-forest hover:opacity-70"
+                      className="inline-flex items-center min-h-11 md:min-h-0 md:py-1 text-caption font-medium underline underline-offset-4 text-forest hover:opacity-70"
                     >
                       Mon LinkedIn
                     </a>

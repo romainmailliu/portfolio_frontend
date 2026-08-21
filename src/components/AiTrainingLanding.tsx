@@ -296,7 +296,7 @@ function HeroTestimonials() {
       </div>
       <a
         href="#testimonials"
-        className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-sky-700 transition-colors hover:text-sky-900"
+        className="mt-4 inline-flex min-h-11 items-center gap-1 text-xs font-medium text-sky-700 transition-colors hover:text-sky-900 md:min-h-0 md:py-1"
       >
         More client stories
         <ArrowRight className="h-3 w-3" />
