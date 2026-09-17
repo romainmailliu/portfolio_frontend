@@ -20,6 +20,11 @@ type ProjectItem = {
 
 const PROJECTS: ProjectItem[] = [
   {
+    name: "Storynous",
+    href: "https://www.storynous.fr/",
+    description: "transmettre son histoire familiale à ses enfants",
+  },
+  {
     name: "Rivière",
     href: "https://www.rivieredereves.org/",
     description: "retrouver sa capacité à rêver",
