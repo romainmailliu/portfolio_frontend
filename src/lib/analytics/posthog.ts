@@ -165,3 +165,52 @@ export async function getPosthogTrafficMetrics(
 
   return { currentVisitors, previousVisitors };
 }
+
+/**
+ * Visiteurs uniques par mois civil (`uniq(person_id)` sur `$pageview`) sur les
+ * `months` derniers mois, mois en cours inclus. Une seule requête par site.
+ */
+export async function getPosthogMonthlyVisitors(
+  siteId: string,
+  months: number,
+): Promise<Map<string, number>> {
+  const site = getSiteById(siteId);
+  if (!site?.posthogProjectId) {
+    throw new Error(`Site inconnu ou POSTHOG_PROJECT_ID_* non défini (${siteId})`);
+  }
+
+  const credentials = resolvePosthogCredentials(site);
+  const extra = site.posthogExtraFilter?.trim()
+    ? ` ${site.posthogExtraFilter}`
+    : "";
+
+  const sql = `
+    SELECT toStartOfMonth(timestamp) AS month_start, uniq(person_id) AS visitors
+    FROM events
+    WHERE event = '$pageview'
+      AND timestamp >= toStartOfMonth(now() - INTERVAL ${months - 1} MONTH)
+      ${extra}
+    GROUP BY month_start
+    ORDER BY month_start ASC
+  `.trim();
+
+  const json = await runHogQLJson(
+    site.posthogProjectId,
+    sql,
+    credentials,
+    `dash_vis_monthly_${months}m`,
+  );
+
+  const byMonth = new Map<string, number>();
+  const results = (json as { results?: unknown }).results;
+  if (!Array.isArray(results)) return byMonth;
+  for (const row of results) {
+    if (!Array.isArray(row)) continue;
+    const key = String(row[0]).slice(0, 7);
+    const visitors = Math.round(Number(row[1]));
+    if (/^\d{4}-\d{2}$/.test(key) && Number.isFinite(visitors)) {
+      byMonth.set(key, visitors);
+    }
+  }
+  return byMonth;
+}

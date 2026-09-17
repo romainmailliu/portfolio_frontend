@@ -17,7 +17,7 @@ const emptyPayload = (site: AnalyticsSite, error: string): SiteVisitorsRow => ({
   error,
 });
 
-/** Une ligne par site suivi. `windowDays` : 30 sur /admin, 7 et 30 dans l'email hebdo. */
+/** Une ligne par site suivi sur une fenêtre glissante — 7 et 30 j dans l'email hebdo. */
 export async function loadDashboardRows(
   windowDays = 30,
 ): Promise<SiteVisitorsRow[]> {

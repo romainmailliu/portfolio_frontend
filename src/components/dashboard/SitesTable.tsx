@@ -1,36 +1,27 @@
 import { ExternalLink } from "lucide-react";
 import { publicSiteHref } from "../../config/analytics-sites";
-import type { SiteVisitorsRow } from "../../lib/analytics/load-dashboard";
-import {
-  formatCompactNumber,
-  formatSignedPercent,
-  getEvolution,
-} from "../../lib/analytics/math";
+import type { MonthlyDashboard } from "../../lib/analytics/load-monthly";
+import { formatCompactNumber } from "../../lib/analytics/math";
 
-type SitesTableProps = {
-  rows: SiteVisitorsRow[];
-};
+const SITE_CELL = "admin-sticky-col px-2 py-3.5 sm:px-5";
+const MONTH_CELL = "px-2 py-3.5 text-right tabular-nums sm:px-4";
 
-function evolutionClass(delta: number): string {
-  if (delta > 0) return "text-emerald-700";
-  if (delta < 0) return "text-red-700";
-  return "text-forest/60";
-}
-
-export function SitesTable({ rows }: SitesTableProps) {
+export function SitesTable({ months, rows }: MonthlyDashboard) {
+  const last = months.length - 1;
   const sorted = [...rows].sort(
-    (a, b) => b.currentVisitors - a.currentVisitors,
+    (a, b) => b.visitorsByMonth[last] - a.visitorsByMonth[last],
   );
-  const totalCurrent = sorted.reduce((s, r) => s + r.currentVisitors, 0);
-  const totalPrevious = sorted.reduce((s, r) => s + r.previousVisitors, 0);
-  const totalEvolution = getEvolution(totalCurrent, totalPrevious);
+  const totals = months.map((_, i) =>
+    sorted.reduce((s, r) => s + r.visitorsByMonth[i], 0),
+  );
 
   return (
     <section className="admin-table-wrap sticky-card sticky-card--cream !p-0">
       <div className="border-b border-pencil px-5 py-4">
-        <h2 className="field-label !opacity-100">Visiteurs par site</h2>
+        <h2 className="field-label !opacity-100">Visiteurs par mois</h2>
         <p className="mt-1 text-caption text-forest/80">
-          30 derniers jours (fenêtre glissante) vs les 30 jours précédents
+          Visiteurs uniques par mois civil · {months.length} derniers mois, mois
+          en cours partiel
         </p>
       </div>
 
@@ -38,27 +29,31 @@ export function SitesTable({ rows }: SitesTableProps) {
         <table className="admin-table w-full text-left text-sm">
           <thead>
             <tr>
-              <th scope="col" className="px-2 py-3 sm:px-5">
+              <th scope="col" className={`${SITE_CELL} py-3`}>
                 Site
               </th>
-              <th scope="col" className="px-2 py-3 text-right sm:px-4">
-                Visiteurs
-              </th>
-              <th scope="col" className="px-2 py-3 text-right sm:px-5">
-                Évolution
-              </th>
+              {months.map((m) => (
+                <th
+                  key={m.key}
+                  scope="col"
+                  className="whitespace-nowrap px-2 py-3 text-right sm:px-4"
+                >
+                  {m.label}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
             {sorted.map((row) => {
               const href = publicSiteHref(row.site.gscSiteUrl);
-              const evolution = getEvolution(
-                row.currentVisitors,
-                row.previousVisitors,
-              );
+              // Avant le premier mois avec des données, PostHog n'était pas
+              // installé : « — » plutôt qu'un faux zéro (partout si jamais installé).
+              const firstTracked = row.visitorsByMonth.findIndex((v) => v > 0);
+              const untracked = (i: number) =>
+                firstTracked === -1 || i < firstTracked;
               return (
                 <tr key={row.site.id}>
-                  <td className="px-2 py-3.5 font-medium text-forest sm:px-5">
+                  <td className={`${SITE_CELL} whitespace-nowrap font-medium text-forest`}>
                     {href ? (
                       <a
                         href={href}
@@ -82,37 +77,38 @@ export function SitesTable({ rows }: SitesTableProps) {
                       </span>
                     ) : null}
                   </td>
-                  <td className="px-2 py-3.5 text-right tabular-nums font-semibold text-forest sm:px-4">
-                    {row.error ? "—" : formatCompactNumber(row.currentVisitors)}
-                  </td>
-                  <td
-                    className={`px-2 py-3.5 text-right tabular-nums sm:px-5 ${evolutionClass(evolution)}`}
-                  >
-                    {row.error ? "—" : formatSignedPercent(evolution)}
-                  </td>
+                  {row.visitorsByMonth.map((visitors, i) => (
+                    <td
+                      key={months[i].key}
+                      className={`${MONTH_CELL} ${
+                        i === last ? "font-semibold text-forest" : "text-forest/80"
+                      }`}
+                    >
+                      {row.error || untracked(i)
+                        ? "—"
+                        : formatCompactNumber(visitors)}
+                    </td>
+                  ))}
                 </tr>
               );
             })}
           </tbody>
           <tfoot>
             <tr>
-              <td className="px-2 py-3.5 text-forest sm:px-5">Total</td>
-              <td className="px-2 py-3.5 text-right tabular-nums text-forest sm:px-4">
-                {formatCompactNumber(totalCurrent)}
-              </td>
-              <td
-                className={`px-2 py-3.5 text-right tabular-nums sm:px-5 ${evolutionClass(totalEvolution)}`}
-              >
-                {formatSignedPercent(totalEvolution)}
-              </td>
+              <td className={`${SITE_CELL} text-forest`}>Total</td>
+              {totals.map((total, i) => (
+                <td key={months[i].key} className={`${MONTH_CELL} text-forest`}>
+                  {formatCompactNumber(total)}
+                </td>
+              ))}
             </tr>
           </tfoot>
         </table>
       </div>
 
       <p className="border-t border-pencil px-5 py-2 text-[11px] text-pencil">
-        Le total visiteurs n&apos;est pas une somme de personnes uniques entre
-        sites.
+        Une même personne peut compter dans plusieurs mois. Le total n&apos;est
+        pas une somme de personnes uniques entre sites.
       </p>
     </section>
   );

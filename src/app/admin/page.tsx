@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SitesTable } from "../../components/dashboard/SitesTable";
-import { loadDashboardRows } from "../../lib/analytics/load-dashboard";
+import { loadMonthlyRows } from "../../lib/analytics/load-monthly";
 import { createLogoutCsrfToken } from "../../lib/dashboard-session";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ export default async function DashboardPage({
 }: {
   searchParams?: Promise<{ logout_err?: string }>;
 }) {
-  const rows = await loadDashboardRows();
+  const dashboard = await loadMonthlyRows();
   const secret = process.env.DASHBOARD_SESSION_SECRET;
   const logoutCsrf = secret ? await createLogoutCsrfToken(secret) : "";
   const q = searchParams ? await searchParams : {};
@@ -48,7 +48,7 @@ export default async function DashboardPage({
         </div>
       </header>
 
-      <SitesTable rows={rows} />
+      <SitesTable {...dashboard} />
     </main>
   );
 }

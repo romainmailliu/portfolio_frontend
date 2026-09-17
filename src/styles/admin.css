@@ -66,6 +66,31 @@
   font-weight: 600;
 }
 
+/* Colonne « Site » fixée à gauche pendant le défilement horizontal (mobile).
+   Fonds opaques : les rgba des lignes laisseraient voir les cellules dessous. */
+.admin-sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--cream-paper);
+  box-shadow: 1px 0 0 rgba(182, 182, 182, 0.45);
+}
+
+/* L'opacité de `.admin-table th` rendrait le fond translucide : on la reporte sur le texte. */
+.admin-table thead .admin-sticky-col {
+  background: var(--sticky-mint);
+  opacity: 1;
+  color: rgba(26, 51, 0, 0.75);
+}
+
+.admin-table tbody tr:hover .admin-sticky-col {
+  background: #f4f9ec;
+}
+
+.admin-table tfoot .admin-sticky-col {
+  background: #fcf5d2;
+}
+
 .admin-skeleton {
   border-radius: var(--radius-card);
   border: 1px solid var(--pencil-gray);
