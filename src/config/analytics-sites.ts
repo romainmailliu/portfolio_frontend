@@ -100,6 +100,12 @@ const SITE_DEFINITIONS: SiteDefinition[] = [
     siteUrl: "https://www.rivieredereves.org/",
   },
   {
+    id: "storynous",
+    name: "Storynous",
+    suffix: "STORYNOUS",
+    siteUrl: "https://www.storynous.fr/",
+  },
+  {
     id: "portfolio",
     name: "romainmailliu.com",
     suffix: "PORTFOLIO",
