@@ -1,22 +1,16 @@
-import type { SiteMetricPayload } from "../../components/dashboard/SiteCard";
+import type { SiteVisitorsRow } from "../../components/dashboard/SitesTable";
 import { ANALYTICS_SITES } from "../../config/analytics-sites";
-import {
-  getPosthogTrafficMetrics,
-  getPosthogVisitorHistory,
-} from "./posthog";
+import { getPosthogTrafficMetrics } from "./posthog";
+
+export type SiteMetricPayload = SiteVisitorsRow;
 
 const emptyPayload = (
   site: (typeof ANALYTICS_SITES)[number],
   error: string,
 ): SiteMetricPayload => ({
   site,
-  currentPageviews: 0,
-  previousPageviews: 0,
   currentVisitors: 0,
   previousVisitors: 0,
-  currentGoogleVisitors: 0,
-  previousGoogleVisitors: 0,
-  visitorHistory: null,
   error,
 });
 
@@ -37,56 +31,19 @@ export async function loadDashboardRows(): Promise<SiteMetricPayload[]> {
         return emptyPayload(site, missingId);
       }
 
-      let currentPageviews = 0;
-      let previousPageviews = 0;
-      let currentVisitors = 0;
-      let previousVisitors = 0;
-      let currentGoogleVisitors = 0;
-      let previousGoogleVisitors = 0;
-      let visitorHistory: SiteMetricPayload["visitorHistory"] = null;
-      const errs: string[] = [];
-
-      const [rMetrics, rHistory] = await Promise.allSettled([
-        getPosthogTrafficMetrics(site.id),
-        getPosthogVisitorHistory(site.id),
-      ]);
-
-      if (rMetrics.status === "fulfilled") {
-        currentPageviews = rMetrics.value.currentPageviews;
-        previousPageviews = rMetrics.value.previousPageviews;
-        currentVisitors = rMetrics.value.currentVisitors;
-        previousVisitors = rMetrics.value.previousVisitors;
-        currentGoogleVisitors = rMetrics.value.currentGoogleVisitors;
-        previousGoogleVisitors = rMetrics.value.previousGoogleVisitors;
-      } else {
-        const msg =
-          rMetrics.reason instanceof Error
-            ? rMetrics.reason.message
-            : "PostHog métriques : erreur";
-        errs.push(msg);
+      try {
+        const metrics = await getPosthogTrafficMetrics(site.id);
+        return {
+          site,
+          currentVisitors: metrics.currentVisitors,
+          previousVisitors: metrics.previousVisitors,
+          error: null,
+        };
+      } catch (err) {
+        const message =
+          err instanceof Error ? err.message : "PostHog métriques : erreur";
+        return emptyPayload(site, message);
       }
-
-      if (rHistory.status === "fulfilled") {
-        visitorHistory = rHistory.value;
-      } else {
-        const msg =
-          rHistory.reason instanceof Error
-            ? rHistory.reason.message
-            : "PostHog historique visiteurs : erreur";
-        errs.push(msg);
-      }
-
-      return {
-        site,
-        currentPageviews,
-        previousPageviews,
-        currentVisitors,
-        previousVisitors,
-        currentGoogleVisitors,
-        previousGoogleVisitors,
-        visitorHistory,
-        error: errs.length ? errs.join(" · ") : null,
-      };
     }),
   );
 }

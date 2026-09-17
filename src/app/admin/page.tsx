@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { SiteCard } from "../../components/dashboard/SiteCard";
-import { SitesComparisonTable } from "../../components/dashboard/SitesComparisonTable";
+import { SitesTable } from "../../components/dashboard/SitesTable";
 import { loadDashboardRows } from "../../lib/analytics/load-dashboard";
 import { createLogoutCsrfToken } from "../../lib/dashboard-session";
 
@@ -49,13 +48,7 @@ export default async function DashboardPage({
         </div>
       </header>
 
-      <SitesComparisonTable rows={rows} />
-
-      <div className="flex flex-col gap-6">
-        {rows.map((row) => (
-          <SiteCard key={row.site.id} {...row} />
-        ))}
-      </div>
+      <SitesTable rows={rows} />
     </main>
   );
 }
