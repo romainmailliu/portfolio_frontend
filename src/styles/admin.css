@@ -66,18 +66,6 @@
   font-weight: 600;
 }
 
-.admin-cell-top {
-  background: var(--sticky-teal) !important;
-}
-
-.admin-chart-track {
-  background: var(--whisper-gray);
-}
-
-.admin-chart-bar {
-  background: linear-gradient(to top, var(--forest-ink) 0%, #4a6b20 100%);
-}
-
 .admin-skeleton {
   border-radius: var(--radius-card);
   border: 1px solid var(--pencil-gray);
