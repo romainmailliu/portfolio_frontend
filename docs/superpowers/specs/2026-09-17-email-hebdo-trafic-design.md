@@ -24,8 +24,8 @@ variable `CRON_SECRET` existe sur le projet.
 
 ### Route `src/app/api/cron/weekly-traffic/route.ts`
 
-- `GET` uniquement, `dynamic = "force-dynamic"`, `maxDuration = 120`
-  (22 requêtes PostHog, parfois lentes).
+- `GET` uniquement, `dynamic = "force-dynamic"`, `maxDuration = 300`
+  (24 requêtes PostHog ; plusieurs minutes quand PostHog throttle la clé).
 - Sans `CRON_SECRET` côté serveur, ou si le bearer ne correspond pas
   (comparaison via `timingSafePasswordEqual`) → `401 { error: "Non autorisé" }`.
 - Sinon : `loadDashboardRows()` → `buildTrafficReport(rows, new Date())`
@@ -42,25 +42,22 @@ Fonction pure `buildTrafficReport(rows: SiteVisitorsRow[], now: Date): { subject
 - Tri par visiteurs décroissants (même règle que `SitesTable`).
 - Total = somme des visiteurs courants ; évolution du total = `getEvolution(totalCurrent, totalPrevious)`.
 - Nombres au format `fr-FR` (`Intl.NumberFormat`), évolutions via `formatSignedPercent`.
-- Objet : `Trafic des 30 derniers jours · 2 712 visiteurs (+46.6%)`.
-- Corps :
+- Objet : `Trafic des 30 derniers jours · 2 712 visiteurs (+45.8%)`.
+- Corps, une ligne par site (aucun alignement par espaces : Gmail affiche le
+  texte brut en police proportionnelle) :
 
 ```
 Visiteurs uniques des 30 derniers jours (au 21/09/2026), comparés aux 30 jours précédents.
 
-Gomett                  896   +132.1%
-Coexister               877    +29.4%
+Gomett : 896 (+132.1%)
+Coexister : 891 (+31.6%)
 …
-Storynous                 0   données indisponibles
-────────────────────────────────────────
-Total                 2 712    +46.6%
+Storynous : données indisponibles
+
+Total : 2 712 (+45.8%)
 
 Détail : https://www.romainmailliu.com/admin
 ```
-
-  Colonne nom = longueur du plus long nom + 2 ; visiteurs alignés à droite sur
-  6 caractères ; évolution alignée à droite sur 8. Une ligne en erreur affiche
-  `0` puis « données indisponibles » à la place de l'évolution.
 
 ### Envoi
 

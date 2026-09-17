@@ -1,0 +1,38 @@
+import { NextResponse } from "next/server";
+import { loadDashboardRows } from "../../../../lib/analytics/load-dashboard";
+import { buildTrafficReport } from "../../../../lib/analytics/traffic-report";
+import { timingSafePasswordEqual } from "../../../../lib/dashboard-password";
+import { sendNotification } from "../../../../lib/email/resend";
+
+export const dynamic = "force-dynamic";
+/** 24 requêtes HogQL ; plusieurs minutes quand PostHog throttle la clé. */
+export const maxDuration = 300;
+
+/**
+ * Appelée par le cron Vercel (`vercel.json`) chaque lundi matin avec
+ * `Authorization: Bearer <CRON_SECRET>`. Test manuel : même en-tête via curl.
+ */
+export async function GET(request: Request) {
+  const secret = process.env.CRON_SECRET;
+  const bearer =
+    request.headers.get("authorization")?.replace(/^Bearer\s+/i, "") ?? "";
+
+  if (!secret || !timingSafePasswordEqual(bearer, secret)) {
+    return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
+  }
+
+  const rows = await loadDashboardRows();
+  const { subject, text } = buildTrafficReport(rows, new Date());
+
+  await sendNotification({
+    subject,
+    text,
+    fromName: "Trafic romainmailliu.com",
+  });
+
+  return NextResponse.json({
+    sent: true,
+    sites: rows.length,
+    unavailable: rows.filter((r) => r.error).length,
+  });
+}

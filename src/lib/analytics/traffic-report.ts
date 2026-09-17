@@ -13,8 +13,10 @@ const dateFr = new Intl.DateTimeFormat("fr-FR", {
 });
 
 /**
- * Rapport texte des visiteurs 30 j par site, même tri et mêmes règles que
- * `SitesTable`. Pure : aucun accès réseau, testable avec des lignes factices.
+ * Rapport texte des visiteurs 30 j par site, même tri que `SitesTable`.
+ * Une ligne « Site : visiteurs (évolution) » par site : lisible en police
+ * proportionnelle (Gmail n'affiche pas le texte brut en monospace).
+ * Pure : aucun accès réseau, testable avec des lignes factices.
  */
 export function buildTrafficReport(
   rows: SiteVisitorsRow[],
@@ -25,38 +27,30 @@ export function buildTrafficReport(
   );
   const totalCurrent = sorted.reduce((s, r) => s + r.currentVisitors, 0);
   const totalPrevious = sorted.reduce((s, r) => s + r.previousVisitors, 0);
-  const totalEvolution = formatSignedPercent(
-    getEvolution(totalCurrent, totalPrevious),
-  );
 
-  const nameWidth =
-    Math.max("Total".length, ...sorted.map((r) => r.site.name.length)) + 2;
-
-  const line = (name: string, visitors: number, evolution: string) =>
-    `${name.padEnd(nameWidth)}${numberFr.format(visitors).padStart(6)}   ${evolution.padStart(8)}`;
+  const summary = (visitors: number, previous: number) =>
+    `${numberFr.format(visitors)} (${formatSignedPercent(getEvolution(visitors, previous))})`;
 
   const siteLines = sorted.map((r) =>
-    line(
-      r.site.name,
-      r.currentVisitors,
-      r.error
-        ? UNAVAILABLE
-        : formatSignedPercent(getEvolution(r.currentVisitors, r.previousVisitors)),
-    ),
+    r.error
+      ? `${r.site.name} : ${UNAVAILABLE}`
+      : `${r.site.name} : ${summary(r.currentVisitors, r.previousVisitors)}`,
   );
+
+  const total = summary(totalCurrent, totalPrevious);
 
   const text = [
     `Visiteurs uniques des 30 derniers jours (au ${dateFr.format(now)}), comparés aux 30 jours précédents.`,
     "",
     ...siteLines,
-    "─".repeat(nameWidth + 6 + 3 + 8),
-    line("Total", totalCurrent, totalEvolution),
+    "",
+    `Total : ${total}`,
     "",
     `Détail : ${DASHBOARD_URL}`,
     "",
   ].join("\n");
 
-  const subject = `Trafic des 30 derniers jours · ${numberFr.format(totalCurrent)} visiteurs (${totalEvolution})`;
+  const subject = `Trafic des 30 derniers jours · ${numberFr.format(totalCurrent)} visiteurs (${formatSignedPercent(getEvolution(totalCurrent, totalPrevious))})`;
 
   return { subject, text };
 }
