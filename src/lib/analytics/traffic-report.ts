@@ -12,45 +12,58 @@ const dateFr = new Intl.DateTimeFormat("fr-FR", {
   timeZone: "Europe/Paris",
 });
 
+type Window = { current: number; previous: number };
+
+/** `896 (+132.1%)` */
+function summary({ current, previous }: Window): string {
+  return `${numberFr.format(current)} (${formatSignedPercent(getEvolution(current, previous))})`;
+}
+
+function sum(rows: SiteVisitorsRow[]): Window {
+  return {
+    current: rows.reduce((s, r) => s + r.currentVisitors, 0),
+    previous: rows.reduce((s, r) => s + r.previousVisitors, 0),
+  };
+}
+
 /**
- * Rapport texte des visiteurs 30 j par site, même tri que `SitesTable`.
- * Une ligne « Site : visiteurs (évolution) » par site : lisible en police
- * proportionnelle (Gmail n'affiche pas le texte brut en monospace).
+ * Rapport texte des visiteurs par site sur 7 j et 30 j, trié par visiteurs
+ * de la semaine. Une ligne « Site : 7 j … · 30 j … » par site : lisible en
+ * police proportionnelle (Gmail n'affiche pas le texte brut en monospace).
  * Pure : aucun accès réseau, testable avec des lignes factices.
  */
 export function buildTrafficReport(
-  rows: SiteVisitorsRow[],
+  { week, month }: { week: SiteVisitorsRow[]; month: SiteVisitorsRow[] },
   now: Date,
 ): { subject: string; text: string } {
-  const sorted = [...rows].sort(
+  const monthById = new Map(month.map((r) => [r.site.id, r]));
+  const sorted = [...week].sort(
     (a, b) => b.currentVisitors - a.currentVisitors,
   );
-  const totalCurrent = sorted.reduce((s, r) => s + r.currentVisitors, 0);
-  const totalPrevious = sorted.reduce((s, r) => s + r.previousVisitors, 0);
 
-  const summary = (visitors: number, previous: number) =>
-    `${numberFr.format(visitors)} (${formatSignedPercent(getEvolution(visitors, previous))})`;
+  const siteLines = sorted.map((w) => {
+    const m = monthById.get(w.site.id);
+    if (w.error || !m || m.error) return `${w.site.name} : ${UNAVAILABLE}`;
+    const weekPart = summary({ current: w.currentVisitors, previous: w.previousVisitors });
+    const monthPart = summary({ current: m.currentVisitors, previous: m.previousVisitors });
+    return `${w.site.name} : 7 j ${weekPart} · 30 j ${monthPart}`;
+  });
 
-  const siteLines = sorted.map((r) =>
-    r.error
-      ? `${r.site.name} : ${UNAVAILABLE}`
-      : `${r.site.name} : ${summary(r.currentVisitors, r.previousVisitors)}`,
-  );
-
-  const total = summary(totalCurrent, totalPrevious);
+  const weekTotal = sum(week);
+  const monthTotal = sum(month);
 
   const text = [
-    `Visiteurs uniques des 30 derniers jours (au ${dateFr.format(now)}), comparés aux 30 jours précédents.`,
+    `Visiteurs uniques au ${dateFr.format(now)} — 7 derniers jours (vs 7 précédents) · 30 derniers jours (vs 30 précédents).`,
     "",
     ...siteLines,
     "",
-    `Total : ${total}`,
+    `Total : 7 j ${summary(weekTotal)} · 30 j ${summary(monthTotal)}`,
     "",
     `Détail : ${DASHBOARD_URL}`,
     "",
   ].join("\n");
 
-  const subject = `Trafic des 30 derniers jours · ${numberFr.format(totalCurrent)} visiteurs (${formatSignedPercent(getEvolution(totalCurrent, totalPrevious))})`;
+  const subject = `Trafic de la semaine · ${numberFr.format(weekTotal.current)} visiteurs (${formatSignedPercent(getEvolution(weekTotal.current, weekTotal.previous))}) · 30 j : ${summary(monthTotal)}`;
 
   return { subject, text };
 }

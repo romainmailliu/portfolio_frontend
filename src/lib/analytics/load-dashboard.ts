@@ -3,9 +3,9 @@ import { getPosthogTrafficMetrics } from "./posthog";
 
 export type SiteVisitorsRow = {
   site: AnalyticsSite;
-  /** Personnes distinctes ayant vu au moins une page sur les 30 derniers jours. */
+  /** Personnes distinctes ayant vu au moins une page sur la fenêtre demandée (30 j par défaut). */
   currentVisitors: number;
-  /** Même mesure sur les 30 jours précédents. */
+  /** Même mesure sur la fenêtre précédente de même durée. */
   previousVisitors: number;
   error: string | null;
 };
@@ -17,7 +17,10 @@ const emptyPayload = (site: AnalyticsSite, error: string): SiteVisitorsRow => ({
   error,
 });
 
-export async function loadDashboardRows(): Promise<SiteVisitorsRow[]> {
+/** Une ligne par site suivi. `windowDays` : 30 sur /admin, 7 et 30 dans l'email hebdo. */
+export async function loadDashboardRows(
+  windowDays = 30,
+): Promise<SiteVisitorsRow[]> {
   return Promise.all(
     ANALYTICS_SITES.map(async (site) => {
       if (!site.posthogProjectId.trim()) {
@@ -35,7 +38,7 @@ export async function loadDashboardRows(): Promise<SiteVisitorsRow[]> {
       }
 
       try {
-        const metrics = await getPosthogTrafficMetrics(site.id);
+        const metrics = await getPosthogTrafficMetrics(site.id, windowDays);
         return {
           site,
           currentVisitors: metrics.currentVisitors,

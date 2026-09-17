@@ -121,10 +121,11 @@ export type PosthogTrafficMetrics = {
 
 /**
  * Visiteurs uniques PostHog (`uniq(person_id)` sur `$pageview`),
- * fenêtres glissantes 30 j vs 30 j précédents.
+ * fenêtre glissante de `windowDays` jours vs la fenêtre précédente de même durée.
  */
 export async function getPosthogTrafficMetrics(
   siteId: string,
+  windowDays = 30,
 ): Promise<PosthogTrafficMetrics> {
   const site = getSiteById(siteId);
   if (!site?.posthogProjectId) {
@@ -141,7 +142,7 @@ export async function getPosthogTrafficMetrics(
     SELECT uniq(person_id) AS c
     FROM events
     WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 30 DAY
+      AND timestamp >= now() - INTERVAL ${windowDays} DAY
       AND timestamp < now()
       ${extra}
   `.trim();
@@ -150,16 +151,16 @@ export async function getPosthogTrafficMetrics(
     SELECT uniq(person_id) AS c
     FROM events
     WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 60 DAY
-      AND timestamp < now() - INTERVAL 30 DAY
+      AND timestamp >= now() - INTERVAL ${windowDays * 2} DAY
+      AND timestamp < now() - INTERVAL ${windowDays} DAY
       ${extra}
   `.trim();
 
   const pid = site.posthogProjectId;
 
   const [currentVisitors, previousVisitors] = await Promise.all([
-    runHogQLScalar(pid, visitorCurrent, credentials, "dash_vis_current"),
-    runHogQLScalar(pid, visitorPrevious, credentials, "dash_vis_previous"),
+    runHogQLScalar(pid, visitorCurrent, credentials, `dash_vis_current_${windowDays}d`),
+    runHogQLScalar(pid, visitorPrevious, credentials, `dash_vis_previous_${windowDays}d`),
   ]);
 
   return { currentVisitors, previousVisitors };

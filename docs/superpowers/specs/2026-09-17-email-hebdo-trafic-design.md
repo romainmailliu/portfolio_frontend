@@ -5,7 +5,8 @@ Date : 2026-09-17
 ## Objectif
 
 1. Recevoir chaque lundi matin un email texte qui résume les visiteurs des sites
-   suivis dans `/admin` (mêmes chiffres, même fenêtre de 30 jours).
+   suivis dans `/admin`, sur 7 jours (la semaine écoulée) et sur 30 jours (comme
+   le dashboard).
 2. Ajouter Storynous à la liste des sites suivis.
 
 ## 1. Email du lundi
@@ -25,10 +26,10 @@ variable `CRON_SECRET` existe sur le projet.
 ### Route `src/app/api/cron/weekly-traffic/route.ts`
 
 - `GET` uniquement, `dynamic = "force-dynamic"`, `maxDuration = 300`
-  (24 requêtes PostHog ; plusieurs minutes quand PostHog throttle la clé).
+  (48 requêtes PostHog ; plusieurs minutes quand PostHog throttle la clé).
 - Sans `CRON_SECRET` côté serveur, ou si le bearer ne correspond pas
   (comparaison via `timingSafePasswordEqual`) → `401 { error: "Non autorisé" }`.
-- Sinon : `loadDashboardRows()` → `buildTrafficReport(rows, new Date())`
+- Sinon : `loadDashboardRows(7)` et `loadDashboardRows(30)` en parallèle → `buildTrafficReport({ week, month }, new Date())`
   → `sendNotification({ subject, text, fromName: "Trafic romainmailliu.com" })`
   → `200 { sent: true, sites: <n>, unavailable: <n sites en erreur> }`.
 - Un site en erreur n'empêche pas l'envoi : il figure dans l'email avec la
@@ -37,27 +38,29 @@ variable `CRON_SECRET` existe sur le projet.
 
 ### Générateur de texte `src/lib/analytics/traffic-report.ts`
 
-Fonction pure `buildTrafficReport(rows: SiteVisitorsRow[], now: Date): { subject: string; text: string }`.
+Fonction pure `buildTrafficReport({ week, month }, now)` où `week` et `month`
+sont les lignes `loadDashboardRows(7)` et `loadDashboardRows(30)`.
 
-- Tri par visiteurs décroissants (même règle que `SitesTable`).
-- Total = somme des visiteurs courants ; évolution du total = `getEvolution(totalCurrent, totalPrevious)`.
-- Nombres au format `fr-FR` (`Intl.NumberFormat`), évolutions via `formatSignedPercent`.
-- Objet : `Trafic des 30 derniers jours · 2 712 visiteurs (+45.8%)`.
+- Tri par visiteurs de la semaine, décroissant.
+- Nombres au format `fr-FR`, évolutions via `formatSignedPercent`.
+- Objet : `Trafic de la semaine · 652 visiteurs (+11.6%) · 30 j : 2 714 (+45.8%)`.
 - Corps, une ligne par site (aucun alignement par espaces : Gmail affiche le
   texte brut en police proportionnelle) :
 
 ```
-Visiteurs uniques des 30 derniers jours (au 21/09/2026), comparés aux 30 jours précédents.
+Visiteurs uniques au 21/09/2026 — 7 derniers jours (vs 7 précédents) · 30 derniers jours (vs 30 précédents).
 
-Gomett : 896 (+132.1%)
-Coexister : 891 (+31.6%)
+Coexister : 7 j 268 (+12.6%) · 30 j 890 (+31.3%)
+La Camaraderie : 7 j 159 (+47.2%) · 30 j 503 (+131.8%)
 …
 Storynous : données indisponibles
 
-Total : 2 712 (+45.8%)
+Total : 7 j 652 (+11.6%) · 30 j 2 714 (+45.8%)
 
 Détail : https://www.romainmailliu.com/admin
 ```
+
+Un site en erreur sur l'une ou l'autre fenêtre affiche « données indisponibles ».
 
 ### Envoi
 
@@ -101,5 +104,5 @@ affichera 0 tant que PostHog n'est pas installé sur storynous.fr.
 
 ## Hors périmètre
 
-Installer PostHog sur storynous.fr (autre dépôt) ; format HTML ; fenêtre 7 jours ;
+Installer PostHog sur storynous.fr (autre dépôt) ; format HTML ;
 l'organisation PostHog « guedi voyage ».

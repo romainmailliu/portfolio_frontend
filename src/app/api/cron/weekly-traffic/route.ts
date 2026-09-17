@@ -5,7 +5,7 @@ import { timingSafePasswordEqual } from "../../../../lib/dashboard-password";
 import { sendNotification } from "../../../../lib/email/resend";
 
 export const dynamic = "force-dynamic";
-/** 24 requêtes HogQL ; plusieurs minutes quand PostHog throttle la clé. */
+/** 48 requêtes HogQL (7 j + 30 j) ; plusieurs minutes quand PostHog throttle la clé. */
 export const maxDuration = 300;
 
 /**
@@ -21,8 +21,11 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
   }
 
-  const rows = await loadDashboardRows();
-  const { subject, text } = buildTrafficReport(rows, new Date());
+  const [week, month] = await Promise.all([
+    loadDashboardRows(7),
+    loadDashboardRows(30),
+  ]);
+  const { subject, text } = buildTrafficReport({ week, month }, new Date());
 
   await sendNotification({
     subject,
@@ -32,7 +35,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     sent: true,
-    sites: rows.length,
-    unavailable: rows.filter((r) => r.error).length,
+    sites: week.length,
+    unavailable: [...week, ...month].filter((r) => r.error).length,
   });
 }
