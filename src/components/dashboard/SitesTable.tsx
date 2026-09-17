@@ -1,10 +1,27 @@
 import { ExternalLink } from "lucide-react";
 import { publicSiteHref } from "../../config/analytics-sites";
 import type { MonthlyDashboard } from "../../lib/analytics/load-monthly";
-import { formatCompactNumber } from "../../lib/analytics/math";
+import {
+  formatCompactNumber,
+  formatSignedPercent,
+  getEvolution,
+} from "../../lib/analytics/math";
 
 const SITE_CELL = "admin-sticky-col px-2 py-3.5 sm:px-5";
 const MONTH_CELL = "px-2 py-3.5 text-right tabular-nums sm:px-4";
+
+/** Évolution vs le mois précédent, arrondie ; rien si le mois précédent est vide. */
+function MonthDelta({ current, previous }: { current: number; previous: number | null }) {
+  if (previous === null || previous === 0) return null;
+  const delta = Math.round(getEvolution(current, previous));
+  const tone =
+    delta > 0 ? "text-emerald-700" : delta < 0 ? "text-red-700" : "text-forest/50";
+  return (
+    <span className={`block text-[10px] font-normal leading-tight ${tone}`}>
+      {formatSignedPercent(delta)}
+    </span>
+  );
+}
 
 export function SitesTable({ months, rows }: MonthlyDashboard) {
   const last = months.length - 1;
@@ -14,6 +31,15 @@ export function SitesTable({ months, rows }: MonthlyDashboard) {
   const totals = months.map((_, i) =>
     sorted.reduce((s, r) => s + r.visitorsByMonth[i], 0),
   );
+  // Premier mois avec des données par site : avant, PostHog n'était pas
+  // installé, donc « — » plutôt qu'un faux zéro (partout si jamais installé).
+  const firstTracked = new Map(
+    sorted.map((r) => [r.site.id, r.visitorsByMonth.findIndex((v) => v > 0)]),
+  );
+  // Le total d'un mois n'est comparable au précédent que si aucun site n'est
+  // entré dans le suivi ce mois-là.
+  const totalComparable = (i: number) =>
+    i > 0 && ![...firstTracked.values()].includes(i);
 
   return (
     <section className="admin-table-wrap sticky-card sticky-card--cream !p-0">
@@ -46,11 +72,8 @@ export function SitesTable({ months, rows }: MonthlyDashboard) {
           <tbody>
             {sorted.map((row) => {
               const href = publicSiteHref(row.site.gscSiteUrl);
-              // Avant le premier mois avec des données, PostHog n'était pas
-              // installé : « — » plutôt qu'un faux zéro (partout si jamais installé).
-              const firstTracked = row.visitorsByMonth.findIndex((v) => v > 0);
-              const untracked = (i: number) =>
-                firstTracked === -1 || i < firstTracked;
+              const first = firstTracked.get(row.site.id) ?? -1;
+              const untracked = (i: number) => first === -1 || i < first;
               return (
                 <tr key={row.site.id}>
                   <td className={`${SITE_CELL} whitespace-nowrap font-medium text-forest`}>
@@ -84,9 +107,21 @@ export function SitesTable({ months, rows }: MonthlyDashboard) {
                         i === last ? "font-semibold text-forest" : "text-forest/80"
                       }`}
                     >
-                      {row.error || untracked(i)
-                        ? "—"
-                        : formatCompactNumber(visitors)}
+                      {row.error || untracked(i) ? (
+                        "—"
+                      ) : (
+                        <>
+                          {formatCompactNumber(visitors)}
+                          <MonthDelta
+                            current={visitors}
+                            previous={
+                              i > 0 && !untracked(i - 1)
+                                ? row.visitorsByMonth[i - 1]
+                                : null
+                            }
+                          />
+                        </>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -99,6 +134,10 @@ export function SitesTable({ months, rows }: MonthlyDashboard) {
               {totals.map((total, i) => (
                 <td key={months[i].key} className={`${MONTH_CELL} text-forest`}>
                   {formatCompactNumber(total)}
+                  <MonthDelta
+                    current={total}
+                    previous={totalComparable(i) ? totals[i - 1] : null}
+                  />
                 </td>
               ))}
             </tr>
