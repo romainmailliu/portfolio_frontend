@@ -10,7 +10,8 @@ import { Resend } from "resend";
  * que de faire échouer la soumission.
  */
 
-const FROM = "Formulaire romainmailliu.com <contact@romainmailliu.com>";
+const FROM_ADDRESS = "contact@romainmailliu.com";
+const DEFAULT_FROM_NAME = "Formulaire romainmailliu.com";
 
 /** Destinataire des notifications — surchargeable sans toucher au code. */
 export const notificationRecipient =
@@ -40,10 +41,13 @@ export async function sendNotification({
   subject,
   text,
   replyTo,
+  fromName = DEFAULT_FROM_NAME,
 }: {
   subject: string;
   text: string;
   replyTo?: string;
+  /** Nom affiché de l'expéditeur ; l'adresse reste `contact@romainmailliu.com`. */
+  fromName?: string;
 }): Promise<void> {
   const resend = getResend();
   if (!resend) {
@@ -51,7 +55,7 @@ export async function sendNotification({
   }
 
   const { error } = await resend.emails.send({
-    from: FROM,
+    from: `${fromName} <${FROM_ADDRESS}>`,
     to: notificationRecipient,
     subject,
     text,
