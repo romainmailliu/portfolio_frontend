@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { SitesTable } from "../../components/dashboard/SitesTable";
 import { loadMonthlyRows } from "../../lib/analytics/load-monthly";
@@ -5,12 +6,18 @@ import { createLogoutCsrfToken } from "../../lib/dashboard-session";
 
 export const dynamic = "force-dynamic";
 
+/** Charge les visiteurs mensuels dans sa propre frontière Suspense : le shell
+ * s'affiche tout de suite et une requête PostHog lente ne bloque que ce bloc. */
+async function SitesTableSection() {
+  const dashboard = await loadMonthlyRows();
+  return <SitesTable {...dashboard} />;
+}
+
 export default async function DashboardPage({
   searchParams,
 }: {
   searchParams?: Promise<{ logout_err?: string }>;
 }) {
-  const dashboard = await loadMonthlyRows();
   const secret = process.env.DASHBOARD_SESSION_SECRET;
   const logoutCsrf = secret ? await createLogoutCsrfToken(secret) : "";
   const q = searchParams ? await searchParams : {};
@@ -48,7 +55,11 @@ export default async function DashboardPage({
         </div>
       </header>
 
-      <SitesTable {...dashboard} />
+      <Suspense
+        fallback={<div className="admin-skeleton h-[32rem] animate-pulse" />}
+      >
+        <SitesTableSection />
+      </Suspense>
     </main>
   );
 }
