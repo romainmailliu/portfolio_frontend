@@ -1,19 +1,11 @@
 import { ExternalLink } from "lucide-react";
-import { type AnalyticsSite, publicSiteHref } from "../../config/analytics-sites";
+import { publicSiteHref } from "../../config/analytics-sites";
+import type { SiteVisitorsRow } from "../../lib/analytics/load-dashboard";
 import {
   formatCompactNumber,
   formatSignedPercent,
   getEvolution,
 } from "../../lib/analytics/math";
-
-export type SiteVisitorsRow = {
-  site: AnalyticsSite;
-  /** Personnes distinctes ayant vu au moins une page sur les 30 derniers jours. */
-  currentVisitors: number;
-  /** Même mesure sur les 30 jours précédents. */
-  previousVisitors: number;
-  error: string | null;
-};
 
 type SitesTableProps = {
   rows: SiteVisitorsRow[];
@@ -34,7 +26,7 @@ export function SitesTable({ rows }: SitesTableProps) {
   const totalEvolution = getEvolution(totalCurrent, totalPrevious);
 
   return (
-    <section className="admin-table-wrap sticky-card sticky-card--cream">
+    <section className="admin-table-wrap sticky-card sticky-card--cream !p-0">
       <div className="border-b border-pencil px-5 py-4">
         <h2 className="field-label !opacity-100">Visiteurs par site</h2>
         <p className="mt-1 text-caption text-forest/80">
@@ -46,13 +38,13 @@ export function SitesTable({ rows }: SitesTableProps) {
         <table className="admin-table w-full text-left text-sm">
           <thead>
             <tr>
-              <th scope="col" className="px-5 py-3">
+              <th scope="col" className="px-2 py-3 sm:px-5">
                 Site
               </th>
-              <th scope="col" className="px-4 py-3 text-right">
+              <th scope="col" className="px-2 py-3 text-right sm:px-4">
                 Visiteurs
               </th>
-              <th scope="col" className="px-5 py-3 text-right">
+              <th scope="col" className="px-2 py-3 text-right sm:px-5">
                 Évolution
               </th>
             </tr>
@@ -66,7 +58,7 @@ export function SitesTable({ rows }: SitesTableProps) {
               );
               return (
                 <tr key={row.site.id}>
-                  <td className="px-5 py-3.5 font-medium text-forest">
+                  <td className="px-2 py-3.5 font-medium text-forest sm:px-5">
                     {href ? (
                       <a
                         href={href}
@@ -90,11 +82,11 @@ export function SitesTable({ rows }: SitesTableProps) {
                       </span>
                     ) : null}
                   </td>
-                  <td className="px-4 py-3.5 text-right tabular-nums font-semibold text-forest">
+                  <td className="px-2 py-3.5 text-right tabular-nums font-semibold text-forest sm:px-4">
                     {row.error ? "—" : formatCompactNumber(row.currentVisitors)}
                   </td>
                   <td
-                    className={`px-5 py-3.5 text-right tabular-nums ${evolutionClass(evolution)}`}
+                    className={`px-2 py-3.5 text-right tabular-nums sm:px-5 ${evolutionClass(evolution)}`}
                   >
                     {row.error ? "—" : formatSignedPercent(evolution)}
                   </td>
@@ -104,12 +96,12 @@ export function SitesTable({ rows }: SitesTableProps) {
           </tbody>
           <tfoot>
             <tr>
-              <td className="px-5 py-3.5 text-forest">Total</td>
-              <td className="px-4 py-3.5 text-right tabular-nums text-forest">
+              <td className="px-2 py-3.5 text-forest sm:px-5">Total</td>
+              <td className="px-2 py-3.5 text-right tabular-nums text-forest sm:px-4">
                 {formatCompactNumber(totalCurrent)}
               </td>
               <td
-                className={`px-5 py-3.5 text-right tabular-nums ${evolutionClass(totalEvolution)}`}
+                className={`px-2 py-3.5 text-right tabular-nums sm:px-5 ${evolutionClass(totalEvolution)}`}
               >
                 {formatSignedPercent(totalEvolution)}
               </td>
