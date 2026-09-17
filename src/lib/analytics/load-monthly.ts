@@ -1,6 +1,8 @@
+import { after } from "next/server";
 import { ANALYTICS_SITES, type AnalyticsSite } from "../../config/analytics-sites";
+import { getPostHogClient } from "../posthog-server";
 import { type CalendarMonth, lastCalendarMonths } from "./months";
-import { getPosthogMonthlyVisitors } from "./posthog";
+import { getPosthogMonthlyVisitors, PosthogQueryTimeoutError } from "./posthog";
 
 export type SiteMonthlyRow = {
   site: AnalyticsSite;
@@ -25,6 +27,7 @@ export async function loadMonthlyRows(now = new Date()): Promise<MonthlyDashboar
     error,
   });
 
+  let timedOut = 0;
   const rows = await Promise.all(
     ANALYTICS_SITES.map(async (site) => {
       if (!site.posthogProjectId.trim()) {
@@ -41,6 +44,7 @@ export async function loadMonthlyRows(now = new Date()): Promise<MonthlyDashboar
           error: null,
         };
       } catch (err) {
+        if (err instanceof PosthogQueryTimeoutError) timedOut += 1;
         const message =
           err instanceof Error ? err.message : "PostHog visiteurs mensuels : erreur";
         return empty(site, message);
@@ -48,5 +52,24 @@ export async function loadMonthlyRows(now = new Date()): Promise<MonthlyDashboar
     }),
   );
 
+  reportTimedOutQueries(timedOut, ANALYTICS_SITES.length);
   return { months, rows };
+}
+
+/**
+ * Compte les requêtes abandonnées pour mesurer le taux réel de délais dépassés.
+ * L'envoi se fait après la réponse (`after`) pour ne jamais bloquer le rendu.
+ */
+function reportTimedOutQueries(timedOut: number, siteCount: number): void {
+  if (timedOut === 0) return;
+  after(async () => {
+    const ph = getPostHogClient();
+    if (!ph) return;
+    ph.capture({
+      distinctId: "admin",
+      event: "admin_dashboard_query_timeout",
+      properties: { timed_out: timedOut, sites: siteCount },
+    });
+    await ph.flush();
+  });
 }

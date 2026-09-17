@@ -3,6 +3,17 @@ import { getSiteById } from "../../config/analytics-sites";
 
 const DEFAULT_POSTHOG_HOST = "https://eu.posthog.com";
 
+/** Délai maximum d'une requête HogQL avant abandon, pour ne pas bloquer le rendu. */
+const QUERY_TIMEOUT_MS = 8000;
+
+/** Requête HogQL abandonnée après `QUERY_TIMEOUT_MS` : le loader la compte à part. */
+export class PosthogQueryTimeoutError extends Error {
+  constructor(queryName: string, timeoutMs: number) {
+    super(`PostHog : délai de ${timeoutMs} ms dépassé (${queryName}).`);
+    this.name = "PosthogQueryTimeoutError";
+  }
+}
+
 function normalizeHost(raw: string): string {
   return raw.replace(/\/$/, "");
 }
@@ -59,18 +70,27 @@ async function runHogQLJson(
 ): Promise<unknown> {
   const { apiKey, host } = credentials;
 
-  const res = await fetch(`${host}/api/projects/${projectId}/query/`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query: { kind: "HogQLQuery", query: hogql },
-      name: queryName,
-    }),
-    cache: "no-store",
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${host}/api/projects/${projectId}/query/`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: { kind: "HogQLQuery", query: hogql },
+        name: queryName,
+      }),
+      cache: "no-store",
+      signal: AbortSignal.timeout(QUERY_TIMEOUT_MS),
+    });
+  } catch (err) {
+    if (err instanceof DOMException && err.name === "TimeoutError") {
+      throw new PosthogQueryTimeoutError(queryName, QUERY_TIMEOUT_MS);
+    }
+    throw err;
+  }
 
   if (!res.ok) {
     const body = await res.text();
