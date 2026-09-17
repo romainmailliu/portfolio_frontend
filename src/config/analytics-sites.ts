@@ -132,7 +132,7 @@ function buildSite(def: SiteDefinition): AnalyticsSite {
 }
 
 /**
- * Sites sur /admin (une carte par ligne). Ordre d’affichage.
+ * Sites sur /admin (une ligne par site). Ordre d’affichage.
  */
 export const ANALYTICS_SITES: AnalyticsSite[] = SITE_DEFINITIONS.map(buildSite);
 

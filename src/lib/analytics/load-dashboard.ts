@@ -1,20 +1,23 @@
-import type { SiteVisitorsRow } from "../../components/dashboard/SitesTable";
-import { ANALYTICS_SITES } from "../../config/analytics-sites";
+import { ANALYTICS_SITES, type AnalyticsSite } from "../../config/analytics-sites";
 import { getPosthogTrafficMetrics } from "./posthog";
 
-export type SiteMetricPayload = SiteVisitorsRow;
+export type SiteVisitorsRow = {
+  site: AnalyticsSite;
+  /** Personnes distinctes ayant vu au moins une page sur les 30 derniers jours. */
+  currentVisitors: number;
+  /** Même mesure sur les 30 jours précédents. */
+  previousVisitors: number;
+  error: string | null;
+};
 
-const emptyPayload = (
-  site: (typeof ANALYTICS_SITES)[number],
-  error: string,
-): SiteMetricPayload => ({
+const emptyPayload = (site: AnalyticsSite, error: string): SiteVisitorsRow => ({
   site,
   currentVisitors: 0,
   previousVisitors: 0,
   error,
 });
 
-export async function loadDashboardRows(): Promise<SiteMetricPayload[]> {
+export async function loadDashboardRows(): Promise<SiteVisitorsRow[]> {
   return Promise.all(
     ANALYTICS_SITES.map(async (site) => {
       if (!site.posthogProjectId.trim()) {
