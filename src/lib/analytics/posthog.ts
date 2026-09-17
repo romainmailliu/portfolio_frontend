@@ -114,93 +114,14 @@ async function runHogQLScalar(
   return extractScalar(json);
 }
 
-function parseMonth(raw: unknown): { monthKey: string; label: string } | null {
-  if (raw == null) return null;
-  let d: Date;
-  if (raw instanceof Date) d = raw;
-  else if (typeof raw === "string") {
-    d = new Date(raw);
-  } else if (typeof raw === "number") {
-    d = new Date(raw);
-  } else return null;
-  if (Number.isNaN(d.getTime())) return null;
-  const monthKey = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
-  const label = new Intl.DateTimeFormat("fr-FR", {
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(d);
-  return { monthKey, label };
-}
-
-function extractMonthlyVisitors(payload: unknown): MonthlyVisitorBin[] {
-  if (!payload || typeof payload !== "object") return [];
-  const results = (payload as { results?: unknown }).results;
-  if (!Array.isArray(results)) return [];
-
-  const bins: MonthlyVisitorBin[] = [];
-
-  for (const row of results) {
-    let rawMonth: unknown;
-    let visitors = 0;
-
-    if (Array.isArray(row)) {
-      rawMonth = row[0];
-      visitors = Math.round(Number(row[1]));
-    } else if (row && typeof row === "object") {
-      const o = row as Record<string, unknown>;
-      rawMonth = o.month_start ?? o.monthStart;
-      visitors = Math.round(
-        Number(o.visitors ?? o.c ?? o.unique_visitors ?? 0),
-      );
-    }
-
-    if (!Number.isFinite(visitors) || visitors < 0) visitors = 0;
-    const parsed = parseMonth(rawMonth);
-    if (!parsed) continue;
-    bins.push({
-      monthKey: parsed.monthKey,
-      label: parsed.label,
-      visitors,
-    });
-  }
-
-  bins.sort((a, b) => a.monthKey.localeCompare(b.monthKey));
-  return bins;
-}
-
-export type MonthlyVisitorBin = {
-  monthKey: string;
-  label: string;
-  visitors: number;
-};
-
-/** Total `uniq(person_id)` sur tout l’historique + série mensuelle de personnes actives. */
-export type PosthogVisitorHistory = {
-  totalUniqueVisitorsAllTime: number;
-  monthlyActiveVisitors: MonthlyVisitorBin[];
-};
-
 export type PosthogTrafficMetrics = {
-  currentPageviews: number;
-  previousPageviews: number;
   currentVisitors: number;
   previousVisitors: number;
-  currentGoogleVisitors: number;
-  previousGoogleVisitors: number;
 };
 
-/** Sessions dont le referrer indique Google (trafic organique approximatif côté site). */
-const GOOGLE_REFERRER_FILTER = `
-  AND (
-    ilike(toString(properties.\`$referring_domain\`), '%google.%')
-    OR ilike(toString(properties.\`$referring_domain\`), '%google%')
-    OR ilike(toString(properties.\`$referrer\`), '%google.%')
-  )
-`.trim();
-
 /**
- * Fenêtres glissantes 30 j vs 30 j précédents — pages vues et visiteurs uniques PostHog.
+ * Visiteurs uniques PostHog (`uniq(person_id)` sur `$pageview`),
+ * fenêtres glissantes 30 j vs 30 j précédents.
  */
 export async function getPosthogTrafficMetrics(
   siteId: string,
@@ -215,24 +136,6 @@ export async function getPosthogTrafficMetrics(
   const extra = site.posthogExtraFilter?.trim()
     ? ` ${site.posthogExtraFilter}`
     : "";
-
-  const pageCurrent = `
-    SELECT count() AS c
-    FROM events
-    WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 30 DAY
-      AND timestamp < now()
-      ${extra}
-  `.trim();
-
-  const pagePrevious = `
-    SELECT count() AS c
-    FROM events
-    WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 60 DAY
-      AND timestamp < now() - INTERVAL 30 DAY
-      ${extra}
-  `.trim();
 
   const visitorCurrent = `
     SELECT uniq(person_id) AS c
@@ -252,98 +155,12 @@ export async function getPosthogTrafficMetrics(
       ${extra}
   `.trim();
 
-  const googleVisitorCurrent = `
-    SELECT uniq(person_id) AS c
-    FROM events
-    WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 30 DAY
-      AND timestamp < now()
-      ${GOOGLE_REFERRER_FILTER}
-      ${extra}
-  `.trim();
-
-  const googleVisitorPrevious = `
-    SELECT uniq(person_id) AS c
-    FROM events
-    WHERE event = '$pageview'
-      AND timestamp >= now() - INTERVAL 60 DAY
-      AND timestamp < now() - INTERVAL 30 DAY
-      ${GOOGLE_REFERRER_FILTER}
-      ${extra}
-  `.trim();
-
   const pid = site.posthogProjectId;
 
-  const [
-    currentPageviews,
-    previousPageviews,
-    currentVisitors,
-    previousVisitors,
-    currentGoogleVisitors,
-    previousGoogleVisitors,
-  ] = await Promise.all([
-    runHogQLScalar(pid, pageCurrent, credentials, "dash_pv_current"),
-    runHogQLScalar(pid, pagePrevious, credentials, "dash_pv_previous"),
+  const [currentVisitors, previousVisitors] = await Promise.all([
     runHogQLScalar(pid, visitorCurrent, credentials, "dash_vis_current"),
     runHogQLScalar(pid, visitorPrevious, credentials, "dash_vis_previous"),
-    runHogQLScalar(pid, googleVisitorCurrent, credentials, "dash_google_vis_current"),
-    runHogQLScalar(pid, googleVisitorPrevious, credentials, "dash_google_vis_previous"),
   ]);
 
-  return {
-    currentPageviews,
-    previousPageviews,
-    currentVisitors,
-    previousVisitors,
-    currentGoogleVisitors,
-    previousGoogleVisitors,
-  };
-}
-
-/**
- * Visiteurs uniques depuis la première donnée + histogramme mensuel
- * (`uniq(person_id)` par mois calendaire UTC sur `$pageview`).
- */
-export async function getPosthogVisitorHistory(
-  siteId: string,
-): Promise<PosthogVisitorHistory> {
-  const site = getSiteById(siteId);
-  if (!site?.posthogProjectId) {
-    throw new Error(`Site inconnu ou POSTHOG_PROJECT_ID_* non défini (${siteId})`);
-  }
-
-  const credentials = resolvePosthogCredentials(site);
-  const extra = site.posthogExtraFilter?.trim()
-    ? ` ${site.posthogExtraFilter}`
-    : "";
-
-  const totalSql = `
-    SELECT uniq(person_id) AS c
-    FROM events
-    WHERE event = '$pageview'
-      ${extra}
-  `.trim();
-
-  const monthlySql = `
-    SELECT
-      toStartOfMonth(timestamp) AS month_start,
-      uniq(person_id) AS visitors
-    FROM events
-    WHERE event = '$pageview'
-      ${extra}
-    GROUP BY month_start
-    ORDER BY month_start ASC
-  `.trim();
-
-  const pid = site.posthogProjectId;
-
-  const [totalJson, monthlyJson] = await Promise.all([
-    runHogQLJson(pid, totalSql, credentials, "dash_vis_total_alltime"),
-    runHogQLJson(pid, monthlySql, credentials, "dash_vis_monthly"),
-  ]);
-
-  return {
-    totalUniqueVisitorsAllTime: extractScalar(totalJson),
-    monthlyActiveVisitors: extractMonthlyVisitors(monthlyJson),
-  };
+  return { currentVisitors, previousVisitors };
 }
