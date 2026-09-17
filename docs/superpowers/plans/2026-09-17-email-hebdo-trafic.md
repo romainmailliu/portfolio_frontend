@@ -209,9 +209,6 @@ export function buildTrafficReport(
 
 Run:
 ```bash
-cat > /tmp/report-check.ts <<'EOS'
-import { buildTrafficReport } from "../Users/romainmailliu/Local/Deploiement/Portfolio/src/lib/analytics/traffic-report";
-EOS
 npx tsx -e '
 import { buildTrafficReport } from "./src/lib/analytics/traffic-report";
 const site = (id: string, name: string) => ({ id, name, posthogProjectId: "1", gscSiteUrl: `https://${id}.fr/`, posthogCredentialSuffix: id.toUpperCase() });
@@ -240,7 +237,7 @@ Total                  2 826    +21.6%
 
 Détail : https://www.romainmailliu.com/admin
 ```
-Le tri, les largeurs et la ligne « données indisponibles » doivent correspondre. Supprimer `/tmp/report-check.ts` (inutile) s'il a été créé.
+Le tri, la règle de largeur (nom sur 22 colonnes ici, visiteurs sur 6, évolution sur 8, séparateur de 39 caractères) et la ligne « données indisponibles » doivent correspondre. Les nombres `fr-FR` utilisent une espace fine insécable (U+202F) comme séparateur de milliers : c'est attendu.
 
 - [ ] **Step 3 : Vérifier tsc + lint**
 
