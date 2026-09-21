@@ -25,11 +25,12 @@ export async function GET(request: Request) {
     loadDashboardRows(7),
     loadDashboardRows(30),
   ]);
-  const { subject, text } = buildTrafficReport({ week, month }, new Date());
+  const { subject, text, html } = buildTrafficReport({ week, month }, new Date());
 
   await sendNotification({
     subject,
     text,
+    html,
     fromName: "Trafic romainmailliu.com",
   });
 

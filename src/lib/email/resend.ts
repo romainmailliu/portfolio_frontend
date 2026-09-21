@@ -40,11 +40,14 @@ export function isEmailConfigured(): boolean {
 export async function sendNotification({
   subject,
   text,
+  html,
   replyTo,
   fromName = DEFAULT_FROM_NAME,
 }: {
   subject: string;
   text: string;
+  /** Version HTML facultative ; `text` reste l'alternative pour les clients sans HTML. */
+  html?: string;
   replyTo?: string;
   /** Nom affiché de l'expéditeur ; l'adresse reste `contact@romainmailliu.com`. */
   fromName?: string;
@@ -59,6 +62,7 @@ export async function sendNotification({
     to: notificationRecipient,
     subject,
     text,
+    ...(html ? { html } : {}),
     ...(replyTo ? { replyTo } : {}),
   });
 
