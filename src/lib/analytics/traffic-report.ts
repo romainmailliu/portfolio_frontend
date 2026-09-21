@@ -5,12 +5,6 @@ const DASHBOARD_URL = "https://www.romainmailliu.com/admin";
 const UNAVAILABLE = "données indisponibles";
 
 const numberFr = new Intl.NumberFormat("fr-FR");
-const dateFr = new Intl.DateTimeFormat("fr-FR", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-  timeZone: "Europe/Paris",
-});
 
 type Window = { current: number; previous: number };
 
@@ -66,7 +60,6 @@ const TH = `padding:8px 16px;font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo
  */
 export function buildTrafficReport(
   { week, month }: { week: SiteVisitorsRow[]; month: SiteVisitorsRow[] },
-  now: Date,
 ): { subject: string; text: string; html: string } {
   const monthById = new Map(month.map((r) => [r.site.id, r]));
   const sorted = [...week].sort(
@@ -85,8 +78,6 @@ export function buildTrafficReport(
   const monthTotal = sum(month);
 
   const text = [
-    `Visiteurs uniques au ${dateFr.format(now)} — 7 derniers jours (vs 7 précédents) · 30 derniers jours (vs 30 précédents).`,
-    "",
     ...siteLines,
     "",
     `Total : 7 j ${summary(weekTotal)} · 30 j ${summary(monthTotal)}`,

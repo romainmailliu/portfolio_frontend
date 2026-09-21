@@ -25,7 +25,7 @@ export async function GET(request: Request) {
     loadDashboardRows(7),
     loadDashboardRows(30),
   ]);
-  const { subject, text, html } = buildTrafficReport({ week, month }, new Date());
+  const { subject, text, html } = buildTrafficReport({ week, month });
 
   await sendNotification({
     subject,
