@@ -111,7 +111,6 @@ export function buildTrafficReport(
 <tr><td style="padding:20px 16px 12px">
 <div style="font:600 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:rgba(26,51,0,.65)">Trafic de la semaine</div>
 <div style="margin-top:4px;font-size:22px;font-weight:800;line-height:1.2">${numberFr.format(weekTotal.current)} visiteurs <span style="color:${getEvolution(weekTotal.current, weekTotal.previous) < 0 ? DOWN : UP};font-size:14px;font-weight:600">${formatSignedPercent(getEvolution(weekTotal.current, weekTotal.previous))}</span></div>
-<div style="margin-top:4px;font-size:12px;color:rgba(26,51,0,.65)">Visiteurs uniques au ${dateFr.format(now)} · 7 derniers jours vs 7 précédents · 30 derniers jours vs 30 précédents</div>
 </td></tr>
 <tr><td style="padding:0 0 4px">
 <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">
