@@ -23,8 +23,13 @@ type SiteDefinition = {
   name: string;
   /** Suffixe des variables `POSTHOG_*_<SUFFIX>` et `GSC_SITE_URL_<SUFFIX>`. */
   suffix: string;
-  /** Suffixe historique encore lu si le principal est vide. */
-  legacySuffix?: string;
+  /** Suffixe de repli lu si le principal est vide (ancien nom, ou projet PostHog partagé). */
+  fallbackSuffix?: string;
+  /**
+   * Hosts (`properties.$host`) retenus dans le projet PostHog. Sert à séparer
+   * deux sites qui envoient dans le même projet, et écarte `localhost`.
+   */
+  hosts?: string[];
   /** URL publique par défaut si `GSC_SITE_URL_<SUFFIX>` est vide. */
   siteUrl: string;
   dedicatedKeyOnly?: boolean;
@@ -41,7 +46,7 @@ const SITE_DEFINITIONS: SiteDefinition[] = [
     id: "ats-seduction",
     name: "ATS Seduction",
     suffix: "ATS_SEDUCTION",
-    legacySuffix: "ATS",
+    fallbackSuffix: "ATS",
     siteUrl: "https://ats-seduction.vercel.app/",
   },
   {
@@ -56,6 +61,16 @@ const SITE_DEFINITIONS: SiteDefinition[] = [
     name: "Gomett",
     suffix: "GOMETT",
     siteUrl: "https://www.gomett.com/",
+    hosts: ["www.gomett.com", "gomett.com"],
+  },
+  {
+    // Même projet PostHog que Gomett (repli sur POSTHOG_PROJECT_ID_GOMETT), séparé par host.
+    id: "gomett-communaute",
+    name: "Gomett Communauté",
+    suffix: "GOMETT_COMMUNAUTE",
+    fallbackSuffix: "GOMETT",
+    siteUrl: "https://communaute.gomett.com/",
+    hosts: ["communaute.gomett.com"],
   },
   {
     id: "coexister",
@@ -120,17 +135,22 @@ function readEnv(name: string): string {
 function buildSite(def: SiteDefinition): AnalyticsSite {
   const projectId =
     readEnv(`POSTHOG_PROJECT_ID_${def.suffix}`) ||
-    (def.legacySuffix ? readEnv(`POSTHOG_PROJECT_ID_${def.legacySuffix}`) : "");
+    (def.fallbackSuffix ? readEnv(`POSTHOG_PROJECT_ID_${def.fallbackSuffix}`) : "");
 
   const gscSiteUrl =
     readEnv(`GSC_SITE_URL_${def.suffix}`) ||
-    (def.legacySuffix ? readEnv(`GSC_SITE_URL_${def.legacySuffix}`) : "") ||
+    (def.fallbackSuffix ? readEnv(`GSC_SITE_URL_${def.fallbackSuffix}`) : "") ||
     def.siteUrl;
+
+  const posthogExtraFilter = def.hosts?.length
+    ? `AND properties.$host IN (${def.hosts.map((h) => `'${h}'`).join(", ")})`
+    : undefined;
 
   return {
     id: def.id,
     name: def.name,
     posthogProjectId: projectId,
+    posthogExtraFilter,
     gscSiteUrl,
     posthogCredentialSuffix: def.suffix,
     dedicatedKeyOnly: def.dedicatedKeyOnly,
