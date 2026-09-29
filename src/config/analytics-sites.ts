@@ -121,6 +121,13 @@ const SITE_DEFINITIONS: SiteDefinition[] = [
     siteUrl: "https://www.storynous.fr/",
   },
   {
+    id: "techl",
+    name: "TechL",
+    suffix: "TECHL",
+    siteUrl: "https://www.techl.fr/",
+    hosts: ["www.techl.fr", "techl.fr"],
+  },
+  {
     id: "portfolio",
     name: "romainmailliu.com",
     suffix: "PORTFOLIO",
