@@ -29,6 +29,13 @@ export type ProfileEntry = {
   statement: string;
   /** Version courte pour la carte */
   statementShort: string;
+  /**
+   * Balise <title> de /offre/[profil] (suffixée « | Romain Mailliu »). Porte le
+   * mot-clé recherché, là où `statementShort` reste la voix du client.
+   */
+  seoTitle: string;
+  /** Meta description de /offre/[profil], 160 caractères max. */
+  seoDescription: string;
   accent: string;
   /** Situations concrètes : « Vous êtes au bon endroit si » */
   situations: string[];
@@ -61,6 +68,9 @@ export const profiles: ProfileEntry[] = [
     statement:
       "Je suis un entrepreneur·e et je veux développer mes ventes",
     statementShort: "Développer mes ventes",
+    seoTitle: "Site internet & outils pour entrepreneur·e·s",
+    seoDescription:
+      "Site vitrine, devis et relances automatisés, suivi client simple : des outils tech pour entrepreneur·e·s qui lancent leur activité, à Marseille et à distance.",
     accent: "#0c4a6e",
     situations: [
       "Votre activité accélère et vous n'avez pas encore de vitrine en ligne, ou une vitrine qui ne vous ressemble plus",
@@ -123,6 +133,9 @@ export const profiles: ProfileEntry[] = [
     statement:
       "Je suis une association et je veux mobiliser notre communauté",
     statementShort: "Mobiliser notre communauté",
+    seoTitle: "Site internet & outils IA pour associations",
+    seoDescription:
+      "Site internet que votre équipe met à jour seule, CRM léger, campagnes d'adhésion : des outils numériques pour associations, à Marseille et à distance. −50 %.",
     accent: "#b45309",
     situations: [
       "Votre association n'est pas assez visible en ligne : les gens qui vous cherchent ne vous trouvent pas toujours",
@@ -179,6 +192,9 @@ export const profiles: ProfileEntry[] = [
     statement:
       "Je suis créateur·rice de contenu et je veux développer ma communauté",
     statementShort: "Développer ma communauté",
+    seoTitle: "Site & outils pour créateur·rice·s de contenu",
+    seoDescription:
+      "Une présence en ligne cohérente avec votre voix, des workflows pour publier et recycler vos contenus, des outils IA pour la veille. À Marseille et à distance.",
     accent: "#7c3aed",
     situations: [
       "Vous produisez beaucoup de contenu, mais il reste sur une seule plateforme : pas le temps de le décliner ailleurs",
@@ -216,6 +232,9 @@ export const profiles: ProfileEntry[] = [
     statement:
       "Je suis manager ou fondateur·rice et je veux optimiser mon temps",
     statementShort: "Optimiser mon temps",
+    seoTitle: "Accompagnement IA pour managers & dirigeant·e·s",
+    seoDescription:
+      "Un accompagnement IA concret en 2 heures, calé sur votre quotidien : mails, calendrier, comptes-rendus. Vous payez à la fin, seulement si l'échange vous a été utile.",
     accent: "#047857",
     situations: [
       "Votre boîte mail et vos comptes-rendus vous suivent le soir et le week-end",

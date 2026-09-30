@@ -1,10 +1,13 @@
 /**
  * Émission d'événements produit côté client.
  *
- * Aucun tracker n'est chargé sur le site public pour l'instant : cette fonction
- * détecte le premier sink disponible et se tait sinon. Brancher PostHog
- * (`posthog-js`) ou un GTM plus tard ne demande aucune modification des appelants.
+ * PostHog est initialisé dans `instrumentation-client.ts` sur l'instance
+ * importée de `posthog-js` : il ne s'expose pas sur `window.posthog`, c'est donc
+ * cette instance qu'il faut appeler. Tant que PostHog n'est pas chargé (token
+ * absent, visiteur interne), l'appel se tait.
  */
+
+import posthog from "posthog-js";
 
 export type TrackEvent =
   | "form_view"
@@ -15,23 +18,11 @@ export type TrackEvent =
 
 export type TrackProps = Record<string, string | number | boolean | undefined>;
 
-type PostHogLike = { capture?: (event: string, props?: TrackProps) => void };
-
 export function track(event: TrackEvent, props?: TrackProps): void {
   if (typeof window === "undefined") return;
 
-  const w = window as typeof window & {
-    posthog?: PostHogLike;
-    dataLayer?: unknown[];
-  };
-
-  if (typeof w.posthog?.capture === "function") {
-    w.posthog.capture(event, props);
-    return;
-  }
-
-  if (Array.isArray(w.dataLayer)) {
-    w.dataLayer.push({ event, ...props });
+  if (posthog.__loaded) {
+    posthog.capture(event, props);
     return;
   }
 

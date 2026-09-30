@@ -7,6 +7,7 @@ import {
   consumeLeadRateLimit,
 } from "../leads/rate-limit";
 import { contactSchema, type ContactInput } from "./contact-schema";
+import { looksLikeBot } from "./spam";
 import { getPostHogClient } from "../posthog-server";
 
 export type ContactResult = { ok: true } | { ok: false; formError: string };
@@ -14,6 +15,8 @@ export type ContactResult = { ok: true } | { ok: false; formError: string };
 export type ContactPayload = ContactInput & {
   /** Honeypot — invisible pour les humains, rempli par les bots. */
   website?: string;
+  /** Délai entre l'affichage du formulaire et l'envoi, mesuré côté client. */
+  elapsedMs?: number;
 };
 
 const GENERIC_ERROR =
@@ -22,8 +25,8 @@ const GENERIC_ERROR =
 export async function submitContact(
   payload: ContactPayload,
 ): Promise<ContactResult> {
-  // 1. Pot de miel : succès silencieux, le bot n'apprend rien.
-  if (payload?.website) {
+  // 1. Pot de miel ou envoi trop rapide : succès silencieux, le bot n'apprend rien.
+  if (looksLikeBot({ website: payload?.website, elapsedMs: payload?.elapsedMs })) {
     return { ok: true };
   }
 

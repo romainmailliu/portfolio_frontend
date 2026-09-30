@@ -319,14 +319,17 @@ function App() {
           {showOfferOnly && (
             <div className="w-full mt-8 space-y-8">
               <div className="max-w-4xl mx-auto space-y-4 text-center">
+                {/* H1 porteur du mot-clé visé (SEO, 30/09/2026) ; l'accroche
+                    « au service de votre mission » passe en sous-titre. */}
                 <h1 className="font-display text-heading text-center">
-                  La technologie et l&apos;IA au service de{" "}
-                  <span className="highlight-word">votre mission</span>
+                  Développeur web{" "}
+                  <span className="whitespace-nowrap">&amp; Consultant IA</span>{" "}
+                  <span className="whitespace-nowrap">à Marseille</span>
                 </h1>
-                <p className="text-body-lg max-w-[600px] mx-auto text-forest">
-                  Associations, entrepreneur.e.s, collectifs : libérez-vous des
-                  tâches répétitives et créez de nouvelles opportunités grâce à
-                  des outils tech alignés avec votre mission.
+                <p className="text-body-lg max-w-[640px] mx-auto text-forest">
+                  Pour les associations et les entreprises à impact : la
+                  technologie et l&apos;IA au service de{" "}
+                  <span className="highlight-word">votre mission</span>.
                 </p>
               </div>
               <div className="max-w-4xl mx-auto">

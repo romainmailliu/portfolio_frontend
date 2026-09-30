@@ -132,6 +132,8 @@ const SITE_DEFINITIONS: SiteDefinition[] = [
     name: "romainmailliu.com",
     suffix: "PORTFOLIO",
     siteUrl: "https://www.romainmailliu.com/",
+    // Écarte les previews Vercel et localhost, qui envoient dans le même projet.
+    hosts: ["www.romainmailliu.com"],
   },
 ];
 

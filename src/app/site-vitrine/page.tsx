@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import TarifsPage from "../../components/tarifs/TarifsPage";
 import { pageOpenGraph } from "../../lib/seo";
 
-const title = "Site vitrine à partir de 300 €";
+const title = "Création de site vitrine à Marseille dès 300 €";
 const description =
-  "Sites vitrines pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €. Maintenance 14 €/mois, modifications illimitées.";
+  "Création de sites vitrines à Marseille pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €. Maintenance 14 €/mois.";
 
 export const metadata: Metadata = {
   title,

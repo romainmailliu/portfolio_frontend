@@ -1,10 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import posthog from "posthog-js";
 import { submitContact } from "../lib/contact/actions";
+import { looksLikeBot } from "../lib/contact/spam";
 
 function Moderne() {
+  /** Horodatage de l'affichage du formulaire, pour repérer les envois de bots. */
+  const mountedAt = useRef<number | null>(null);
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
@@ -22,7 +27,15 @@ function Moderne() {
     setPending(true);
     setError(null);
 
-    const result = await submitContact({ email, phone, message, website });
+    const elapsedMs =
+      mountedAt.current === null ? undefined : Date.now() - mountedAt.current;
+    const result = await submitContact({
+      email,
+      phone,
+      message,
+      website,
+      elapsedMs,
+    });
 
     setPending(false);
 
@@ -35,10 +48,13 @@ function Moderne() {
       return;
     }
 
-    posthog.capture("contact_form_submitted", {
-      has_phone: Boolean(phone),
-      has_message: Boolean(message),
-    });
+    // L'action renvoie un succès silencieux aux bots : ne pas les compter.
+    if (!looksLikeBot({ website, elapsedMs })) {
+      posthog.capture("contact_form_submitted", {
+        has_phone: Boolean(phone),
+        has_message: Boolean(message),
+      });
+    }
     setSent(true);
     setEmail("");
     setPhone("");
@@ -46,6 +62,7 @@ function Moderne() {
   };
 
   useEffect(() => {
+    mountedAt.current = Date.now();
     const interval = setInterval(() => {
       setShowPhoto((prev) => !prev);
     }, 3000);
@@ -68,10 +85,13 @@ function Moderne() {
             RM
           </div>
 
-          <img
+          {/* La source fait 836×1024 : next/image sert une version à la taille affichée. */}
+          <Image
             src="/moi.png"
-            alt="Photo de profil"
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500
+            alt="Romain Mailliu, développeur web et consultant IA à Marseille"
+            fill
+            sizes="48px"
+            className={`object-cover transition-all duration-500
       ${showPhoto ? "[transform:rotateY(0deg)]" : "[transform:rotateY(-90deg)]"}`}
             style={{ backfaceVisibility: "hidden" }}
           />
@@ -82,7 +102,7 @@ function Moderne() {
             Romain Mailliu
           </p>
           <p className="font-mono-label text-micro uppercase tracking-widest text-forest/70">
-            Développeur Web & IA
+            Développeur Web & Consultant IA
           </p>
         </div>
       </div>
@@ -106,6 +126,7 @@ function Moderne() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="votre@email.com"
+            aria-label="Votre email"
             required
             className="field-input py-2"
           />
@@ -114,6 +135,7 @@ function Moderne() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="06 00 00 00 00 (optionnel)"
+            aria-label="Votre téléphone (optionnel)"
             className="field-input py-2"
           />
           <textarea
@@ -149,6 +171,16 @@ function Moderne() {
           )}
           <p className="reassurance-caption text-center !mt-1">
             réponse rapide.
+          </p>
+          <p className="reassurance-caption text-center !mt-0">
+            Vos coordonnées servent uniquement à vous répondre (
+            <Link
+              href="/politique-de-confidentialite"
+              className="underline underline-offset-2"
+            >
+              confidentialité
+            </Link>
+            ).
           </p>
         </form>
       )}

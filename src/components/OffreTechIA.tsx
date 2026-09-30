@@ -214,11 +214,16 @@ export default function OffreTechIA() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {profiles.map((profile) => {
           const isSelected = selectedSlug === profile.slug;
+          // Un vrai lien vers /offre/[profil], pour que Google découvre ces pages
+          // depuis la home. Au clic, l'offre se déplie sur place comme avant.
           return (
-            <button
+            <Link
               key={profile.slug}
-              type="button"
-              onClick={() => {
+              href={`/offre/${profile.slug}`}
+              onClick={(event) => {
+                // Cmd/Ctrl-clic : laisser ouvrir la page dans un nouvel onglet.
+                if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+                event.preventDefault();
                 setSelectedSlug(profile.slug);
                 if (!isSelected) {
                   posthog.capture("offer_profile_selected", {
@@ -226,8 +231,9 @@ export default function OffreTechIA() {
                   });
                 }
               }}
-              aria-pressed={isSelected}
-              className={`offre-profile-card relative text-left rounded-card border p-4 md:p-5 transition-all ${
+              aria-expanded={isSelected}
+              aria-controls="offre-offer-panel"
+              className={`offre-profile-card relative block text-left rounded-card border p-4 md:p-5 transition-all ${
                 isSelected
                   ? "sticky-card--mint border-forest shadow-cta"
                   : "sticky-card--cream border-pencil hover:border-forest"
@@ -242,13 +248,13 @@ export default function OffreTechIA() {
                 </span>
                 <span>{profile.statement}</span>
               </p>
-            </button>
+            </Link>
           );
         })}
       </div>
 
       <div className="sticky-card sticky-card--cream p-6">
-        <div className="offre-offer-panel" aria-live="polite">
+        <div id="offre-offer-panel" className="offre-offer-panel" aria-live="polite">
           {selectedProfile ? (
             <ProfileDetail profile={selectedProfile} />
           ) : (

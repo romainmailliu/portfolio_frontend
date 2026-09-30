@@ -24,14 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: profile.statementShort,
-    description: profile.situations[0],
+    title: profile.seoTitle,
+    description: profile.seoDescription,
     alternates: {
       canonical: `/offre/${profile.slug}`,
     },
     openGraph: pageOpenGraph({
-      title: `${profile.statementShort} | Romain Mailliu`,
-      description: profile.situations[0],
+      title: `${profile.seoTitle} | Romain Mailliu`,
+      description: profile.seoDescription,
       url: `/offre/${profile.slug}`,
     }),
   };

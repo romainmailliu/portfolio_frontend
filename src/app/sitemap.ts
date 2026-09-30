@@ -3,43 +3,41 @@ import { getProfileSlugs } from "../data/offre-content";
 
 const BASE_URL = "https://www.romainmailliu.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2026-08-21");
+/**
+ * Date de dernière modification réelle de chaque page, à mettre à jour quand
+ * son contenu change. Google ignore un `lastModified` identique partout, et
+ * ne lit ni `changeFrequency` ni `priority`.
+ */
+const LAST_MODIFIED = {
+  home: "2026-09-30",
+  siteVitrine: "2026-09-30",
+  offre: "2026-09-30",
+  contact: "2026-09-30",
+  productionDocumentaire: "2026-08-21",
+  legal: "2026-09-30",
+} as const;
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map(
     (slug) => ({
       url: `${BASE_URL}/offre/${slug}`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
+      lastModified: LAST_MODIFIED.offre,
     }),
   );
 
   return [
-    {
-      url: `${BASE_URL}/`,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${BASE_URL}/site-vitrine`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    { url: `${BASE_URL}/`, lastModified: LAST_MODIFIED.home },
+    { url: `${BASE_URL}/site-vitrine`, lastModified: LAST_MODIFIED.siteVitrine },
     ...profilePages,
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    { url: `${BASE_URL}/contact`, lastModified: LAST_MODIFIED.contact },
     {
       url: `${BASE_URL}/production-documentaire`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
+      lastModified: LAST_MODIFIED.productionDocumentaire,
+    },
+    { url: `${BASE_URL}/mentions-legales`, lastModified: LAST_MODIFIED.legal },
+    {
+      url: `${BASE_URL}/politique-de-confidentialite`,
+      lastModified: LAST_MODIFIED.legal,
     },
   ];
 }

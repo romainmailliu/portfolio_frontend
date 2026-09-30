@@ -6,7 +6,14 @@ import type { Preuve } from "../../data/tarifs-content";
  * Carte de preuve. Le témoignage est optionnel : tant qu'aucun verbatim n'a été
  * recueilli, la carte se termine simplement sur le lien vers le site.
  */
-export default function PreuveCard({ preuve }: { preuve: Preuve }) {
+export default function PreuveCard({
+  preuve,
+  preload = false,
+}: {
+  preuve: Preuve;
+  /** À réserver à la première carte : visible dès le premier écran sur mobile (LCP). */
+  preload?: boolean;
+}) {
   return (
     <article className={`sticky-card preuve-card ${preuve.surface}`}>
       <div className="preuve-card__shot">
@@ -15,6 +22,7 @@ export default function PreuveCard({ preuve }: { preuve: Preuve }) {
           alt={preuve.screenshotAlt}
           fill
           sizes="(min-width: 900px) 33vw, 100vw"
+          preload={preload}
         />
       </div>
 

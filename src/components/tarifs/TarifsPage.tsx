@@ -55,8 +55,12 @@ export default function TarifsPage() {
             {preuvesHeading}
           </h2>
           <div className="preuves-rail scrollbar-hide">
-            {preuves.map((preuve) => (
-              <PreuveCard key={preuve.slug} preuve={preuve} />
+            {preuves.map((preuve, index) => (
+              <PreuveCard
+                key={preuve.slug}
+                preuve={preuve}
+                preload={index === 0}
+              />
             ))}
           </div>
           <p className="reassurance-caption text-center">Défiler →</p>

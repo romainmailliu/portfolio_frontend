@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MarkInternalVisitor } from "../../components/dashboard/MarkInternalVisitor";
 import { SitesTable } from "../../components/dashboard/SitesTable";
 import { loadMonthlyRows } from "../../lib/analytics/load-monthly";
 import { createLogoutCsrfToken } from "../../lib/dashboard-session";
@@ -23,6 +24,7 @@ export default async function DashboardPage({
 
   return (
     <main className="page-container max-w-7xl py-10">
+      <MarkInternalVisitor />
       <header className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0 flex-1">
           <p className="font-mono-label text-micro uppercase tracking-wider text-forest/70 mb-2">
