@@ -1,11 +1,11 @@
 ---
-title: Offre Tech & IA · Romain Mailliu, Marseille
+title: Application & IA · Romain Mailliu, Marseille
 description: Automatisation, sites web et outils IA pour associations et entrepreneur.e.s engagé.e.s. Au juste prix, à Marseille et en remote.
 url: https://www.romainmailliu.com/
 last_updated: 2026-08-21
 ---
 
-# Offre Tech & IA · Romain Mailliu
+# Application & IA · Romain Mailliu
 
 La technologie et l'IA au service de votre mission, au juste prix.
 

@@ -1,4 +1,4 @@
-/* Offre Tech & IA — profils */
+/* Application & IA — profils */
 
 .offre-discount-sticker {
   display: inline-block;
@@ -45,7 +45,8 @@
   border-radius: 1rem;
   border: 2px solid #1a1a2e;
   background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #0d0d14 100%);
-  min-height: 13rem;
+  /* Bandeau compact : il invite au clic, il ne réserve pas la place du détail. */
+  min-height: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,7 +73,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 1.5rem 1.25rem;
+  padding: 1rem 1.25rem;
   font-family: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
   text-align: center;
 }
@@ -81,7 +82,6 @@
   border: 1px dashed rgba(0, 255, 136, 0.35);
   border-radius: 0.375rem;
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
   background: rgba(0, 255, 136, 0.04);
 }
 
@@ -161,7 +161,7 @@
 }
 
 .offre-offer-panel {
-  min-height: 13rem;
+  min-height: 5.5rem;
 }
 
 .offre-contact-ctas {
@@ -175,7 +175,7 @@
 
 @media (max-width: 639px) {
   .offre-idle-screen__content {
-    padding: 1.25rem 0.75rem;
+    padding: 0.875rem 0.75rem;
   }
 
   .offre-idle-screen__press {

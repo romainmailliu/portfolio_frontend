@@ -29,7 +29,7 @@ export default function MainNav({ className }: { className: string }) {
         className={linkClass("/")}
         aria-current={isActive("/") ? "page" : undefined}
       >
-        Offre Tech &amp; IA
+        Application &amp; IA
       </Link>
       <Link
         href="/site-vitrine"

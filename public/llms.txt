@@ -91,7 +91,7 @@ Oui, les maquettes et l'intégration graphique sont incluses. Pas de sous-traita
 
 Versions texte propres de chaque page du site (sans HTML, scripts ni navigation) :
 
-- https://www.romainmailliu.com/index.md · Offre Tech & IA (accueil, services, tarifs, réalisations)
+- https://www.romainmailliu.com/index.md · Application & IA (accueil, services, tarifs, réalisations)
 - https://www.romainmailliu.com/site-vitrine.md · Offre site vitrine : tarifs, maintenance et formulaire de candidature
 - https://www.romainmailliu.com/contact.md · Contact et à propos
 - https://www.romainmailliu.com/production-documentaire.md · Production documentaire (film I AM THE FUTURE)

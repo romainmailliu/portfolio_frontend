@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 const HIDDEN_PREFIXES = ["/admin", "/ai-training"];
 
 const OFFER_LINKS = [
-  { href: "/", label: "Offre Tech & IA" },
+  { href: "/", label: "Application & IA" },
   { href: "/site-vitrine", label: "Site vitrine" },
   { href: "/offre/association", label: "Associations" },
   { href: "/offre/entrepreneur", label: "Entrepreneur·e·s" },

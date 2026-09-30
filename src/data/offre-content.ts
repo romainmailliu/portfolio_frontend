@@ -68,7 +68,7 @@ export const profiles: ProfileEntry[] = [
     statement:
       "Je suis un entrepreneur·e et je veux développer mes ventes",
     statementShort: "Développer mes ventes",
-    seoTitle: "Site internet & outils pour entrepreneur·e·s",
+    seoTitle: "Je suis un entrepreneur·e et je veux développer mes ventes",
     seoDescription:
       "Site vitrine, devis et relances automatisés, suivi client simple : des outils tech pour entrepreneur·e·s qui lancent leur activité, à Marseille et à distance.",
     accent: "#0c4a6e",

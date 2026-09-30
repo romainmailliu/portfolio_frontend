@@ -2,17 +2,22 @@ import type { Metadata } from "next";
 import App from "../../views/App";
 import { pageOpenGraph } from "../../lib/seo";
 
+// Page « qui suis-je » et contact : elle porte le nom, pour les recherches
+// « Romain Mailliu ». `absolute` évite le suffixe « | Romain Mailliu » du
+// template, qui doublerait le nom.
+const title = "Qui suis-je · Romain Mailliu, développeur web & consultant IA";
+const description =
+  "Romain Mailliu, développeur web et consultant IA à Marseille : parcours, sites réalisés pour associations et entreprises à impact, et contact.";
+
 export const metadata: Metadata = {
-  title: "Contact · Développeur Web & IA à Marseille",
-  description:
-    "Contactez Romain Mailliu pour un accompagnement tech et IA au juste prix : sites web, automatisation et outils sur mesure pour associations et entrepreneur.e.s engagé.e.s.",
+  title: { absolute: title },
+  description,
   alternates: {
     canonical: "/contact",
   },
   openGraph: pageOpenGraph({
-    title: "Contact · Romain Mailliu, Tech & IA à Marseille",
-    description:
-      "Contactez Romain Mailliu pour un accompagnement tech et IA au juste prix pour associations et entrepreneur.e.s engagé.e.s.",
+    title,
+    description,
     url: "/contact",
   }),
 };

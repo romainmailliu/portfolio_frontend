@@ -43,7 +43,7 @@ export default function OpenGraphImage() {
               background: FOREST,
             }}
           />
-          Offre Tech &amp; IA
+          Application &amp; IA
         </div>
 
         <div

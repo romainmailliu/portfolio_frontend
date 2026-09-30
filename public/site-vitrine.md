@@ -11,7 +11,7 @@ Pour les entrepreneur·e·s, les associations et les artistes.
 
 Pour me présenter un projet, remplissez le formulaire en bas de la page https://www.romainmailliu.com/site-vitrine. Je réponds rapidement.
 
-[Page contact](https://www.romainmailliu.com/contact) · [Offre Tech & IA](https://www.romainmailliu.com/) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
+[Page contact](https://www.romainmailliu.com/contact) · [Application & IA](https://www.romainmailliu.com/) · [Production documentaire](https://www.romainmailliu.com/production-documentaire)
 
 ---
 

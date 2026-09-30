@@ -6,11 +6,12 @@ import posthog from "posthog-js";
 import MainNav from "../components/MainNav";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
-import {
-  contactCardAnchor,
-} from "../data/offre-content";
+import PreuveCard from "../components/tarifs/PreuveCard";
+import { preuves, preuvesHeading } from "../data/tarifs-content";
+import { contactCardAnchor } from "../data/offre-content";
 
 import "../styles/offre.css";
+import "../styles/tarifs.css";
 type ProjectItem = {
   name: string;
   href: string;
@@ -87,7 +88,11 @@ const PROJECTS: ProjectItem[] = [
   },
 ];
 
-const STICKY_ACCENTS = ["project-chip--mint", "project-chip--teal", "project-chip--blush"] as const;
+const STICKY_ACCENTS = [
+  "project-chip--mint",
+  "project-chip--teal",
+  "project-chip--blush",
+] as const;
 
 function App() {
   const pathname = usePathname();
@@ -238,7 +243,9 @@ function App() {
               Derniers projets
               <MousePointer2 size={14} aria-hidden />
             </p>
-            <div className="flex flex-col gap-0.5">{renderDesktopProjectLinks()}</div>
+            <div className="flex flex-col gap-0.5">
+              {renderDesktopProjectLinks()}
+            </div>
           </aside>
         )}
 
@@ -250,9 +257,20 @@ function App() {
               )}
 
               <div className="hero-copy flex flex-col items-center gap-5 text-center">
+                {/* H1 au nom : cette page répond aux recherches « Romain
+                    Mailliu » (SEO, 01/10/2026). */}
                 <h1 className="font-display hero-headline">
-                  La Tech au service de{" "}
-                  <span className="highlight-word">votre mission</span>
+                  <span className="highlight-word">Romain Mailliu</span>
+                  {/* Le métier reste dans le H1, en plus petit : le nom
+                      domine sans que le titre s'étale sur six lignes. */}
+                  <span className="sr-only">, </span>
+                  <span className="block mt-3 text-[0.5em] leading-tight">
+                    <span className="whitespace-nowrap">développeur web</span>{" "}
+                    <span className="whitespace-nowrap">
+                      &amp; consultant IA
+                    </span>{" "}
+                    <span className="whitespace-nowrap">à Marseille</span>
+                  </span>
                 </h1>
 
                 <p className="text-body-lg max-w-[32rem] text-forest">
@@ -262,11 +280,10 @@ function App() {
                 </p>
               </div>
 
-              <Moderne />
-
-              <div className="sticky-card sticky-card--mint">
+              <section className="sticky-card sticky-card--mint">
                 <div className="space-y-4 text-forest text-body-sm">
-                  <div className="flex justify-start mb-1">
+                  <div className="flex items-center justify-between gap-4 mb-1">
+                    <h2 className="field-label">Qui suis-je</h2>
                     <a
                       href="https://www.linkedin.com/in/romain-mailliu/"
                       target="_blank"
@@ -277,8 +294,8 @@ function App() {
                     </a>
                   </div>
                   <p className="whitespace-pre-line leading-relaxed">
-                    Ingénieur évoluant entre entreprises et ONG, en France et
-                    à l&apos;international, je mets l&apos;entrepreneuriat et
+                    Ingénieur évoluant entre entreprises et ONG, en France et à
+                    l&apos;international, je mets l&apos;entrepreneuriat et
                     l&apos;innovation au service de l&apos;impact social et
                     environnemental.
                   </p>
@@ -286,8 +303,8 @@ function App() {
                   <ul className="list-disc pl-5 space-y-2 leading-relaxed">
                     <li>
                       Des entrepreneur.e.s en phase de lancement à passer de
-                      l&apos;idée aux premières ventes, en développant leurs outils
-                      tech (sites web, automatisations, CRM…) et leur
+                      l&apos;idée aux premières ventes, en développant leurs
+                      outils tech (sites web, automatisations, CRM…) et leur
                       proposition de valeur.
                     </li>
                     <li>
@@ -299,21 +316,46 @@ function App() {
                   <p className="leading-relaxed">
                     Également producteur du film{" "}
                     <span className="font-semibold">I AM THE FUTURE</span>,
-                    sorti en salles en septembre 2025, qui donne la parole à
-                    de jeunes adultes en première ligne des crises
-                    contemporaines, jusqu&apos;aux Nations Unies à New York.
+                    sorti en salles en septembre 2025, qui donne la parole à de
+                    jeunes adultes en première ligne des crises contemporaines,
+                    jusqu&apos;aux Nations Unies à New York.
                   </p>
                   <p className="leading-relaxed">
-                    <span className="font-semibold">Stack :</span> HTML5,
-                    CSS, JavaScript, TypeScript, React, React Native, Redux,
-                    Next.js, Node.js, Express, MongoDB, Mongoose, Vercel, Git,
-                    GitHub, TDD, n8n, Airtable, WordPress, Webflow, Claude
-                    Code, Claude CoWork, Cursor, Figma, Framer, Canva, Gamma,
-                    Supabase et Midjourney
+                    <span className="font-semibold">Stack :</span> HTML5, CSS,
+                    JavaScript, TypeScript, React, React Native, Redux, Next.js,
+                    Node.js, Express, MongoDB, Mongoose, Vercel, Git, GitHub,
+                    TDD, n8n, Airtable, WordPress, Webflow, Claude Code, Claude
+                    CoWork, Cursor, Figma, Framer, Canva, Gamma, Supabase et
+                    Midjourney
                   </p>
                 </div>
-              </div>
+              </section>
+
+              <Moderne />
             </div>
+          )}
+
+          {/* Captures de sites réalisés, même carrousel que /site-vitrine. Largeur
+              de la colonne : plus large, il passerait sous la liste fixe
+              « Derniers projets » à droite en desktop. */}
+          {!showOfferOnly && (
+            <section
+              className="w-full max-w-xl mx-auto section-gap"
+              aria-labelledby="preuves-title"
+            >
+              <h2
+                id="preuves-title"
+                className="tarifs-section-title text-center mb-6"
+              >
+                {preuvesHeading}
+              </h2>
+              <div className="preuves-rail scrollbar-hide">
+                {preuves.map((preuve) => (
+                  <PreuveCard key={preuve.slug} preuve={preuve} />
+                ))}
+              </div>
+              <p className="reassurance-caption text-center">Défiler →</p>
+            </section>
           )}
 
           {showOfferOnly && (

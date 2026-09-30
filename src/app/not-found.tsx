@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const LINKS = [
-  { href: "/", label: "Offre Tech & IA" },
+  { href: "/", label: "Application & IA" },
   { href: "/site-vitrine", label: "Site vitrine" },
   { href: "/contact", label: "Contact" },
 ] as const;
