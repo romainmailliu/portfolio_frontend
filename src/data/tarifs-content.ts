@@ -28,10 +28,13 @@ export type Testimonial = {
   author: string;
 };
 
+/** Type de projet, affiché en étiquette sur la carte. */
+export type ProjectType = "Vitrine" | "SaaS" | "Application";
+
 export type Preuve = {
   slug: string;
   name: string;
-  segment: string;
+  segment: ProjectType;
   /**
    * Reprend mot pour mot la description du projet affichée sur la home
    * (tableau PROJECTS de views/App.tsx) : même minuscule initiale, pas de
@@ -53,7 +56,7 @@ export const preuves: Preuve[] = [
   {
     slug: "assolevat",
     name: "Jadin LEVAT",
-    segment: "Association",
+    segment: "Vitrine",
     need: "campagne citoyenne participative",
     href: "https://www.assolevat.fr/",
     screenshot: "/screens/assolevat.jpg",
@@ -64,7 +67,7 @@ export const preuves: Preuve[] = [
   {
     slug: "lesonduvin",
     name: "Klink, le son du vin",
-    segment: "Entrepreneur",
+    segment: "Vitrine",
     need: "dégustation fun",
     href: "https://www.lesonduvin.fr/",
     screenshot: "/screens/lesonduvin.jpg",
@@ -74,7 +77,7 @@ export const preuves: Preuve[] = [
   {
     slug: "albanedharcourt",
     name: "Albane",
-    segment: "Entrepreneur",
+    segment: "Vitrine",
     need: "site vitrine coaching & facilitation",
     href: "https://www.albanedharcourt.com/",
     screenshot: "/screens/albanedharcourt.jpg",
@@ -84,7 +87,7 @@ export const preuves: Preuve[] = [
   {
     slug: "riviere",
     name: "Rivière",
-    segment: "Association",
+    segment: "Vitrine",
     need: "retrouver sa capacité à rêver",
     href: "https://www.rivieredereves.org/",
     screenshot: "/screens/riviere.jpg",
@@ -94,16 +97,15 @@ export const preuves: Preuve[] = [
 ];
 
 /**
- * Exemples ajoutés sur la page Application & IA (home) seulement : des
- * applications et outils plutôt que des sites vitrines, d'où leur absence de
- * /site-vitrine. `need` reprend mot pour mot le tableau PROJECTS de
+ * Exemples ajoutés sur la page Application & IA (home) seulement, absents
+ * de /site-vitrine. `need` reprend mot pour mot le tableau PROJECTS de
  * views/App.tsx, comme pour `preuves`.
  */
 export const applicationPreuves: Preuve[] = [
   {
     slug: "gomett",
     name: "Gomett",
-    segment: "Application",
+    segment: "SaaS",
     need: "trocs de compétences entre entrepreneur.e.s",
     href: "https://www.gomett.com/",
     screenshot: "/screens/gomett.jpg",
@@ -112,14 +114,15 @@ export const applicationPreuves: Preuve[] = [
     surface: "sticky-card--mint",
   },
   {
-    slug: "coexister",
-    name: "Coexister",
-    segment: "Association",
-    need: "faciliter le vivre ensemble",
-    href: "https://www.coexister.fr/",
-    screenshot: "/screens/coexister.jpg",
-    screenshotAlt: "Page d'accueil du site de l'association Coexister",
-    surface: "sticky-card--teal",
+    slug: "storynous",
+    name: "Storynous",
+    segment: "Application",
+    need: "transmettre son histoire familiale à ses enfants",
+    href: "https://www.storynous.fr/",
+    screenshot: "/screens/storynous.jpg",
+    screenshotAlt:
+      "Page d'accueil de Storynous, livre personnalisé qui raconte l'histoire d'une famille",
+    surface: "sticky-card--blush",
   },
   {
     slug: "ats-seduction",
@@ -129,7 +132,17 @@ export const applicationPreuves: Preuve[] = [
     href: "https://ats-seduction.vercel.app/",
     screenshot: "/screens/ats-seduction.jpg",
     screenshotAlt: "Page d'accueil d'ATS Séductions, outil d'analyse de CV",
-    surface: "sticky-card--blush",
+    surface: "sticky-card--teal",
+  },
+  {
+    slug: "coexister",
+    name: "Coexister",
+    segment: "Vitrine",
+    need: "faciliter le vivre ensemble",
+    href: "https://www.coexister.fr/",
+    screenshot: "/screens/coexister.jpg",
+    screenshotAlt: "Page d'accueil du site de l'association Coexister",
+    surface: "sticky-card--mint",
   },
 ];
 
