@@ -78,7 +78,7 @@ export const preuves: Preuve[] = [
     slug: "albanedharcourt",
     name: "Albane",
     segment: "Vitrine",
-    need: "site vitrine coaching & facilitation",
+    need: "dénouer ce qui bloque, pour rayonner à nouveau",
     href: "https://www.albanedharcourt.com/",
     screenshot: "/screens/albanedharcourt.jpg",
     screenshotAlt: "Page d'accueil du site d'Albane, coaching et facilitation",
@@ -117,7 +117,7 @@ export const applicationPreuves: Preuve[] = [
     slug: "storynous",
     name: "Storynous",
     segment: "Application",
-    need: "transmettre son histoire familiale à ses enfants",
+    need: "transmettre son histoire à ses enfants",
     href: "https://www.storynous.fr/",
     screenshot: "/screens/storynous.jpg",
     screenshotAlt:

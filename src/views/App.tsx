@@ -27,7 +27,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Storynous",
     href: "https://www.storynous.fr/",
-    description: "transmettre son histoire familiale à ses enfants",
+    description: "transmettre son histoire à ses enfants",
   },
   {
     name: "Rivière",
@@ -37,7 +37,7 @@ const PROJECTS: ProjectItem[] = [
   {
     name: "Albane",
     href: "https://www.albanedharcourt.com/",
-    description: "site vitrine coaching & facilitation",
+    description: "dénouer ce qui bloque, pour rayonner à nouveau",
   },
   {
     name: "Jadin LEVAT",

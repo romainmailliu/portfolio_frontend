@@ -92,7 +92,7 @@ Stack : HTML5, CSS, JavaScript, TypeScript, React, React Native, Next.js, Node.j
 ## Derniers projets
 
 - [Rivière](https://www.rivieredereves.org/) : retrouver sa capacité à rêver
-- [Albane](https://www.albanedharcourt.com/) : site vitrine coaching & facilitation
+- [Albane](https://www.albanedharcourt.com/) : dénouer ce qui bloque, pour rayonner à nouveau
 - [Coexister](https://www.coexister.fr/) : faciliter le vivre ensemble
 - [Gomett](https://www.gomett.com/) : troc de compétences entre entrepreneur.e.s
 - [Klink, le son du vin](https://www.lesonduvin.fr/) : dégustation fun

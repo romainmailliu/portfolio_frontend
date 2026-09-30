@@ -17,10 +17,10 @@ Pour me présenter un projet, remplissez le formulaire en bas de la page https:/
 
 ## Quelques exemples
 
-- **Jadin LEVAT** · Association · campagne citoyenne participative · https://www.assolevat.fr/
-- **Klink, le son du vin** · Entrepreneur · dégustation fun · https://www.lesonduvin.fr/
-- **Albane** · Entrepreneur · site vitrine coaching & facilitation · https://www.albanedharcourt.com/
-- **Rivière** · Association · retrouver sa capacité à rêver · https://www.rivieredereves.org/
+- **Jadin LEVAT** · Vitrine · campagne citoyenne participative · https://www.assolevat.fr/
+- **Klink, le son du vin** · Vitrine · dégustation fun · https://www.lesonduvin.fr/
+- **Albane** · Vitrine · dénouer ce qui bloque, pour rayonner à nouveau · https://www.albanedharcourt.com/
+- **Rivière** · Vitrine · retrouver sa capacité à rêver · https://www.rivieredereves.org/
 
 ---
 
