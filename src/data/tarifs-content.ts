@@ -57,7 +57,8 @@ export const preuves: Preuve[] = [
     need: "campagne citoyenne participative",
     href: "https://www.assolevat.fr/",
     screenshot: "/screens/assolevat.jpg",
-    screenshotAlt: "Page d'accueil du site de la campagne citoyenne Jadin LEVAT",
+    screenshotAlt:
+      "Page d'accueil du site de la campagne citoyenne Jadin LEVAT",
     surface: "sticky-card--teal",
   },
   {
@@ -92,6 +93,46 @@ export const preuves: Preuve[] = [
   },
 ];
 
+/**
+ * Exemples ajoutés sur la page Application & IA (home) seulement : des
+ * applications et outils plutôt que des sites vitrines, d'où leur absence de
+ * /site-vitrine. `need` reprend mot pour mot le tableau PROJECTS de
+ * views/App.tsx, comme pour `preuves`.
+ */
+export const applicationPreuves: Preuve[] = [
+  {
+    slug: "gomett",
+    name: "Gomett",
+    segment: "Application",
+    need: "trocs de compétences entre entrepreneur.e.s",
+    href: "https://www.gomett.com/",
+    screenshot: "/screens/gomett.jpg",
+    screenshotAlt:
+      "Page d'accueil de Gomett, plateforme de troc de services entre professionnels",
+    surface: "sticky-card--mint",
+  },
+  {
+    slug: "coexister",
+    name: "Coexister",
+    segment: "Association",
+    need: "faciliter le vivre ensemble",
+    href: "https://www.coexister.fr/",
+    screenshot: "/screens/coexister.jpg",
+    screenshotAlt: "Page d'accueil du site de l'association Coexister",
+    surface: "sticky-card--teal",
+  },
+  {
+    slug: "ats-seduction",
+    name: "ATS Séductions",
+    segment: "Application",
+    need: "CV pour (faire) craquer les algorithmes de recrutement",
+    href: "https://ats-seduction.vercel.app/",
+    screenshot: "/screens/ats-seduction.jpg",
+    screenshotAlt: "Page d'accueil d'ATS Séductions, outil d'analyse de CV",
+    surface: "sticky-card--blush",
+  },
+];
+
 export const preuvesHeading = "Quelques exemples";
 
 /* ------------------------------------------------------------------ */
@@ -116,8 +157,7 @@ export const offres: Offre[] = [
   {
     slug: "creation",
     name: "Création",
-    detail:
-      "Votre site vitrine sur mesure, de la maquette à la mise en ligne.",
+    detail: "Votre site vitrine sur mesure, de la maquette à la mise en ligne.",
     price: "500 €",
   },
   {

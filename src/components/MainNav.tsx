@@ -22,7 +22,7 @@ export default function MainNav({ className }: { className: string }) {
         className={linkClass("/contact")}
         aria-current={isActive("/contact") ? "page" : undefined}
       >
-        Contact
+        Qui suis-je
       </Link>
       <Link
         href="/"

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const LINKS = [
   { href: "/", label: "Application & IA" },
   { href: "/site-vitrine", label: "Site vitrine" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Qui suis-je" },
 ] as const;
 
 export default function NotFound() {

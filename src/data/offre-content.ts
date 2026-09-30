@@ -1,8 +1,5 @@
 export type ProfileSlug =
-  | "entrepreneur"
-  | "association"
-  | "createur"
-  | "manager";
+  "entrepreneur" | "association" | "createur" | "manager";
 
 export type ProfileCaseStudy = {
   name: string;
@@ -65,8 +62,7 @@ export const contactCtas = {
 export const profiles: ProfileEntry[] = [
   {
     slug: "entrepreneur",
-    statement:
-      "Je suis un entrepreneur·e et je veux développer mes ventes",
+    statement: "Je suis un entrepreneur·e et je veux développer mes ventes",
     statementShort: "Développer mes ventes",
     seoTitle: "Je suis un entrepreneur·e et je veux développer mes ventes",
     seoDescription:
@@ -91,16 +87,15 @@ export const profiles: ProfileEntry[] = [
       {
         name: "Léo",
         context: "avait besoin d'être visible avant son lancement",
-        outcome:
-          "un site optimisé pour Google et les IA, prêt le jour J",
+        outcome: "un site optimisé pour Google et les IA, prêt le jour J",
         projectHref: "https://www.amidou.eu/",
         projectLabel: "Amidou",
       },
       {
         name: "Léa",
-        context: "proposait des dégustations de vin sans vitrine en ligne à la hauteur",
-        outcome:
-          "un site vitrine clair, trouvable et fidèle à leur univers",
+        context:
+          "proposait des dégustations de vin sans vitrine en ligne à la hauteur",
+        outcome: "un site vitrine clair, trouvable et fidèle à leur univers",
         projectHref: "https://www.lesonduvin.fr/",
         projectLabel: "Klink, le son du vin",
       },
@@ -131,8 +126,8 @@ export const profiles: ProfileEntry[] = [
   {
     slug: "association",
     statement:
-      "Je suis une association et je veux mobiliser notre communauté",
-    statementShort: "Mobiliser notre communauté",
+      "Je suis une association et je veux me concentrer sur mon cœur de métier",
+    statementShort: "Me concentrer sur mon cœur de métier",
     seoTitle: "Site internet & outils IA pour associations",
     seoDescription:
       "Site internet que votre équipe met à jour seule, CRM léger, campagnes d'adhésion : des outils numériques pour associations, à Marseille et à distance. −50 %.",
@@ -148,8 +143,7 @@ export const profiles: ProfileEntry[] = [
         name: "La Camaraderie",
         context:
           "voulait publier ses événements en autonomie, sans dépendre de personne",
-        outcome:
-          "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
+        outcome: "un site simple, bien référencé, qu'ils gèrent eux-mêmes",
         projectHref: "https://www.lacamaraderie.net/",
       },
       {
@@ -163,8 +157,7 @@ export const profiles: ProfileEntry[] = [
       },
       {
         name: "Jadin LEVAT",
-        context:
-          "menait une campagne citoyenne participative",
+        context: "menait une campagne citoyenne participative",
         outcome:
           "un site pour rassembler soutiens, adhérents et structures du quartier",
         projectHref: "https://www.assolevat.fr/",
@@ -213,7 +206,8 @@ export const profiles: ProfileEntry[] = [
       {
         name: "Youth Visions",
         context: "produit des documentaires à fort impact",
-        outcome: "des outils numériques pour créer la campagne d'impact autour des films",
+        outcome:
+          "des outils numériques pour créer la campagne d'impact autour des films",
         projectHref: "https://www.youth-visions.com/",
         projectLabel: "Youth Visions",
       },

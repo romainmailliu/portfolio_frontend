@@ -7,7 +7,11 @@ import MainNav from "../components/MainNav";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
 import PreuveCard from "../components/tarifs/PreuveCard";
-import { preuves, preuvesHeading } from "../data/tarifs-content";
+import {
+  applicationPreuves,
+  preuves,
+  preuvesHeading,
+} from "../data/tarifs-content";
 import { contactCardAnchor } from "../data/offre-content";
 
 import "../styles/offre.css";
@@ -280,10 +284,9 @@ function App() {
                 </p>
               </div>
 
-              <section className="sticky-card sticky-card--mint">
+              <div className="sticky-card sticky-card--mint">
                 <div className="space-y-4 text-forest text-body-sm">
-                  <div className="flex items-center justify-between gap-4 mb-1">
-                    <h2 className="field-label">Qui suis-je</h2>
+                  <div className="flex justify-start mb-1">
                     <a
                       href="https://www.linkedin.com/in/romain-mailliu/"
                       target="_blank"
@@ -329,33 +332,10 @@ function App() {
                     Midjourney
                   </p>
                 </div>
-              </section>
+              </div>
 
               <Moderne />
             </div>
-          )}
-
-          {/* Captures de sites réalisés, même carrousel que /site-vitrine. Largeur
-              de la colonne : plus large, il passerait sous la liste fixe
-              « Derniers projets » à droite en desktop. */}
-          {!showOfferOnly && (
-            <section
-              className="w-full max-w-xl mx-auto section-gap"
-              aria-labelledby="preuves-title"
-            >
-              <h2
-                id="preuves-title"
-                className="tarifs-section-title text-center mb-6"
-              >
-                {preuvesHeading}
-              </h2>
-              <div className="preuves-rail scrollbar-hide">
-                {preuves.map((preuve) => (
-                  <PreuveCard key={preuve.slug} preuve={preuve} />
-                ))}
-              </div>
-              <p className="reassurance-caption text-center">Défiler →</p>
-            </section>
           )}
 
           {showOfferOnly && (
@@ -377,6 +357,25 @@ function App() {
               <div className="max-w-4xl mx-auto">
                 <OffreTechIA />
               </div>
+              {/* Captures de sites réalisés, même carrousel que /site-vitrine,
+                  sur toute la largeur de la page. */}
+              <section
+                className="w-full pt-8 md:pt-12"
+                aria-labelledby="preuves-title"
+              >
+                <h2
+                  id="preuves-title"
+                  className="tarifs-section-title text-center mb-6"
+                >
+                  {preuvesHeading}
+                </h2>
+                <div className="preuves-rail scrollbar-hide">
+                  {[...applicationPreuves, ...preuves].map((preuve) => (
+                    <PreuveCard key={preuve.slug} preuve={preuve} />
+                  ))}
+                </div>
+                <p className="reassurance-caption text-center">Défiler →</p>
+              </section>
               <div
                 id={contactCardAnchor}
                 className="max-w-xl mx-auto w-full scroll-mt-28 mt-12 md:mt-16 section-gap"

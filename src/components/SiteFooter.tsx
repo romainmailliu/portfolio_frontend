@@ -22,7 +22,7 @@ const OFFER_LINKS = [
 ] as const;
 
 const ABOUT_LINKS = [
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Qui suis-je" },
   { href: "/production-documentaire", label: "Production documentaire" },
 ] as const;
 
