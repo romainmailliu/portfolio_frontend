@@ -345,7 +345,7 @@ function App() {
               <div className="max-w-4xl mx-auto space-y-4 text-center">
                 {/* H1 porteur du mot-clé visé (SEO, 30/09/2026) ; l'accroche
                     « au service de votre mission » passe en sous-titre. */}
-                <h1 className="font-display text-heading text-center">
+                <h1 className="tarifs-hero-title">
                   Développeur web{" "}
                   <span className="whitespace-nowrap">&amp; Consultant IA</span>{" "}
                   <span className="whitespace-nowrap">à Marseille</span>

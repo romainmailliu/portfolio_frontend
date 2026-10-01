@@ -67,11 +67,6 @@ body {
   font-weight: 400;
 }
 
-.text-heading {
-  font-size: clamp(2rem, 4vw, 3.4375rem);
-  letter-spacing: 0.04em;
-}
-
 .hero-headline {
   font-size: clamp(2.25rem, 4.5vw + 0.5rem, 3.5rem);
   letter-spacing: 0.04em;

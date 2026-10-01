@@ -9,7 +9,7 @@ export const hero = {
   kicker: "Associations · Marseille et partout en France",
   /** Titre en deux lignes : la seconde est surlignée, comme sur /site-vitrine. */
   titleLead: "Moins d'administratif,",
-  titleHighlight: "plus de mission",
+  titleHighlight: "plus de temps pour l'action",
   intro:
     "De petits outils sur mesure qui rendent du temps à votre équipe : pour vos bénévoles, vos adhérents et vos financeurs.",
   ctaLabel: "Prenons un café à Marseille",
