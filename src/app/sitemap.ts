@@ -9,10 +9,10 @@ const BASE_URL = "https://www.romainmailliu.com";
  * ne lit ni `changeFrequency` ni `priority`.
  */
 const LAST_MODIFIED = {
-  home: "2026-09-30",
-  siteVitrine: "2026-09-30",
+  home: "2026-10-01",
+  siteVitrine: "2026-10-01",
   offre: "2026-09-30",
-  contact: "2026-09-30",
+  contact: "2026-10-01",
   productionDocumentaire: "2026-08-21",
   legal: "2026-09-30",
 } as const;

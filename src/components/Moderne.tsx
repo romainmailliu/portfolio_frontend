@@ -7,7 +7,15 @@ import posthog from "posthog-js";
 import { submitContact } from "../lib/contact/actions";
 import { looksLikeBot } from "../lib/contact/spam";
 
-function Moderne() {
+function Moderne({
+  showIdentity = true,
+}: {
+  /**
+   * Photo, nom et métier en tête de carte. À masquer quand la carte est
+   * affichée à côté de la présentation (home), qui les montre déjà.
+   */
+  showIdentity?: boolean;
+} = {}) {
   /** Horodatage de l'affichage du formulaire, pour repérer les envois de bots. */
   const mountedAt = useRef<number | null>(null);
   const [email, setEmail] = useState("");
@@ -72,42 +80,46 @@ function Moderne() {
 
   return (
     <div className="sticky-card sticky-card--cream w-full shadow-cta p-5 md:p-6">
-      <div className="flex items-center gap-3 mb-3">
-        <div
-          className="w-12 h-12 rounded-btn overflow-hidden relative border border-forest shrink-0"
-          style={{ perspective: "500px" }}
-        >
-          <div
-            className={`absolute inset-0 bg-forest flex items-center justify-center text-lg font-bold text-cream transition-all duration-500
+      {showIdentity && (
+        <>
+          <div className="flex items-center gap-3 mb-3">
+            <div
+              className="w-12 h-12 rounded-btn overflow-hidden relative border border-forest shrink-0"
+              style={{ perspective: "500px" }}
+            >
+              <div
+                className={`absolute inset-0 bg-forest flex items-center justify-center text-lg font-bold text-cream transition-all duration-500
       ${showPhoto ? "[transform:rotateY(90deg)]" : "[transform:rotateY(0deg)]"}`}
-            style={{ backfaceVisibility: "hidden" }}
-          >
-            RM
+                style={{ backfaceVisibility: "hidden" }}
+              >
+                RM
+              </div>
+
+              {/* La source fait 836×1024 : next/image sert une version à la taille affichée. */}
+              <Image
+                src="/moi.png"
+                alt="Romain Mailliu, développeur web et consultant IA à Marseille"
+                fill
+                sizes="48px"
+                className={`object-cover transition-all duration-500
+      ${showPhoto ? "[transform:rotateY(0deg)]" : "[transform:rotateY(-90deg)]"}`}
+                style={{ backfaceVisibility: "hidden" }}
+              />
+            </div>
+
+            <div>
+              <p className="text-lg font-bold text-forest font-body leading-tight">
+                Romain Mailliu
+              </p>
+              <p className="font-mono-label text-micro uppercase tracking-widest text-forest/70">
+                Développeur Web & Consultant IA
+              </p>
+            </div>
           </div>
 
-          {/* La source fait 836×1024 : next/image sert une version à la taille affichée. */}
-          <Image
-            src="/moi.png"
-            alt="Romain Mailliu, développeur web et consultant IA à Marseille"
-            fill
-            sizes="48px"
-            className={`object-cover transition-all duration-500
-      ${showPhoto ? "[transform:rotateY(0deg)]" : "[transform:rotateY(-90deg)]"}`}
-            style={{ backfaceVisibility: "hidden" }}
-          />
-        </div>
-
-        <div>
-          <p className="text-lg font-bold text-forest font-body leading-tight">
-            Romain Mailliu
-          </p>
-          <p className="font-mono-label text-micro uppercase tracking-widest text-forest/70">
-            Développeur Web & Consultant IA
-          </p>
-        </div>
-      </div>
-
-      <div className="border-t border-pencil mb-3" />
+          <div className="border-t border-pencil mb-3" />
+        </>
+      )}
 
       <p className="text-caption text-forest/80 mb-3">
         romain.mailliu@gmail.com · Marseille
@@ -165,7 +177,10 @@ function Moderne() {
             {pending ? "Envoi…" : "Envoyer"}
           </button>
           {error && (
-            <p role="alert" className="text-caption text-center text-terracotta">
+            <p
+              role="alert"
+              className="text-caption text-center text-terracotta"
+            >
               {error}
             </p>
           )}

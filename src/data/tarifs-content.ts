@@ -253,7 +253,7 @@ export const maintenanceOptions: MaintenanceOption[] = [
   {
     slug: "maintenance",
     name: "Maintenance",
-    price: "14 €/mois",
+    price: "Tarif fixé ensemble",
     summary: "Votre site à jour, référencé et sauvegardé.",
     items: [
       "Hébergement",

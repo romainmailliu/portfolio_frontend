@@ -4,7 +4,7 @@ import { pageOpenGraph } from "../../lib/seo";
 
 const title = "Création de site vitrine à Marseille dès 300 €";
 const description =
-  "Création de sites vitrines à Marseille pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €. Maintenance 14 €/mois.";
+  "Création de sites vitrines à Marseille pour entrepreneur·e·s, associations et artistes : refonte 300 €, création 500 €, site autonome 600 €, maintenance selon vos besoins.";
 
 export const metadata: Metadata = {
   title,

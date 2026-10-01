@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { MousePointer2 } from "lucide-react";
 import posthog from "posthog-js";
 import MainNav from "../components/MainNav";
+import HomeFaq from "../components/HomeFaq";
+import HomePresentation from "../components/HomePresentation";
 import Moderne from "../components/Moderne";
 import OffreTechIA from "../components/OffreTechIA";
 import PreuveCard from "../components/tarifs/PreuveCard";
@@ -376,11 +378,15 @@ function App() {
                 </div>
                 <p className="reassurance-caption text-center">Défiler →</p>
               </section>
+              <HomeFaq />
+              {/* Présentation et formulaire côte à côte en desktop, empilés en
+                  mobile ; la carte de contact masque alors photo et nom. */}
               <div
                 id={contactCardAnchor}
-                className="max-w-xl mx-auto w-full scroll-mt-28 mt-12 md:mt-16 section-gap"
+                className="max-w-4xl mx-auto w-full scroll-mt-28 mt-12 md:mt-16 section-gap grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch"
               >
-                <Moderne />
+                <HomePresentation />
+                <Moderne showIdentity={false} />
               </div>
             </div>
           )}

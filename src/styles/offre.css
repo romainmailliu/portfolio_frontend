@@ -200,3 +200,51 @@
   text-align: center;
   box-sizing: border-box;
 }
+
+/* FAQ de la home — même carte et même caret que les profils. */
+.faq-item {
+  transition: border-color 0.2s ease;
+}
+
+.faq-item:hover,
+.faq-item[open] {
+  border-color: var(--forest-ink, #1a3300);
+}
+
+.faq-item__question {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--forest-ink, #1a3300);
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__question h3 {
+  font: inherit;
+}
+
+.faq-item__question:focus-visible {
+  outline: 2px solid var(--forest-ink, #1a3300);
+  outline-offset: 3px;
+  border-radius: var(--radius-card, 12px);
+}
+
+.faq-item[open] .offre-profile-card__caret {
+  transform: rotate(90deg);
+}
+
+.faq-item__answer {
+  padding: 0 1.25rem 1.125rem 2.2rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--forest-ink, #1a3300);
+}
