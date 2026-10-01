@@ -79,7 +79,7 @@ export const stepsHeading = "Comment ça se passe";
 
 export const steps = [
   "Un café à Marseille ou un appel pour faire connaissance, comprendre vos priorités et votre budget.",
-  "Un petit outil livré vite, au juste prix, avec un devis transparent et précis.",
+  "Des solutions livrées rapidement, qui répondent à des besoins précis, au juste prix.",
   "Votre équipe formée et autonome. Ensuite, on passe au chantier suivant si besoin.",
 ] as const;
 

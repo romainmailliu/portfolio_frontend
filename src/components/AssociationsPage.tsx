@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import MainNav from "./MainNav";
 import Moderne from "./Moderne";
@@ -106,16 +108,12 @@ export default function AssociationsPage() {
           >
             {stepsHeading}
           </h2>
-          <ol className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {steps.map((step, index) => (
-              <li
-                key={step}
-                className="sticky-card sticky-card--cream flex flex-col gap-3 text-forest"
-              >
-                <span className="tarifs-card-title" aria-hidden="true">
-                  {index + 1}.
-                </span>
-                <p className="text-body-sm leading-relaxed">{step}</p>
+          {/* Frise chronologique, sans numéros : verticale en mobile,
+              horizontale à partir de md (styles .asso-timeline). */}
+          <ol className="asso-timeline">
+            {steps.map((step) => (
+              <li key={step} className="asso-timeline__step">
+                {step}
               </li>
             ))}
           </ol>
@@ -123,16 +121,37 @@ export default function AssociationsPage() {
 
         {/* --- Parcours ----------------------------------------------- */}
         <section
-          className="section-gap max-w-2xl mx-auto text-center"
+          className="section-gap max-w-3xl mx-auto"
           aria-labelledby="pourquoi-title"
         >
-          <h2 id="pourquoi-title" className="tarifs-section-title mb-6">
+          <h2
+            id="pourquoi-title"
+            className="tarifs-section-title text-center mb-8"
+          >
             {whyHeading}
           </h2>
-          <div className="flex flex-col gap-4 text-body-sm leading-relaxed text-forest">
-            {whyParagraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+          {/* Photo à gauche en desktop, au-dessus du texte en mobile. */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-card overflow-hidden border border-forest shrink-0">
+              <Image
+                src="/moi.png"
+                alt="Romain Mailliu, développeur web et consultant IA à Marseille"
+                fill
+                sizes="160px"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col gap-4 text-body-sm leading-relaxed text-forest">
+              {whyParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <Link
+                href="/contact"
+                className="self-start inline-flex items-center min-h-11 md:min-h-0 md:py-1 text-caption font-medium underline underline-offset-4 hover:opacity-70"
+              >
+                Qui suis-je →
+              </Link>
+            </div>
           </div>
         </section>
 
