@@ -86,7 +86,7 @@ export const steps = [
 export const whyHeading = "Pourquoi je travaille avec les associations";
 
 export const whyParagraphs = [
-  "Ingénieur, j'ai travaillé deux ans auprès de jeunes adultes en situation de précarité, en Indonésie puis en France, puis dans un cabinet de conseil spécialisé dans la création de solutions à des enjeux sociaux, avec des entreprises, des institutions publiques et des ONG. J'ai ensuite coproduit un film pour porter la voix de jeunes artistes en situation de précarité jusqu'aux Nations Unies.",
+  "Ingénieur, j'ai travaillé en ONG auprès de jeunes adultes en situation de précarité, à l'international et en France, puis dans un cabinet de conseil spécialisé dans la création de solutions à des enjeux sociaux, entre entreprises, institutions publiques et ONG.",
   "Ces années m'ont donné envie de continuer à travailler avec les associations, cette fois autour de la technologie, ma passion.",
 ] as const;
 
