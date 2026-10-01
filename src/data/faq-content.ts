@@ -23,21 +23,6 @@ export const faq: FaqEntry[] = [
       "Autour d'un café à Marseille ou lors d'un appel, on valide ensemble votre besoin, votre calendrier et votre budget.",
   },
   {
-    question: "Je ne m'y connais pas en tech, est-ce un problème ?",
-    answer:
-      "Non. Je m'appuie sur vos outils actuels (tableurs, mails, Google Workspace ou Microsoft 365) et je vous forme pour que vous restiez autonomes.",
-  },
-  {
-    question: "Travaillez-vous seulement à Marseille ?",
-    answer:
-      "Je vous rencontre volontiers autour d'un café à Marseille, et je travaille à distance partout en France.",
-  },
-  {
-    question: "Avec quel type de structures travaillez-vous ?",
-    answer:
-      "Des associations, des entrepreneur·e·s et des entreprises à impact. Parmi eux : Coexister, Youth Visions, La Camaraderie, Gomett, Amidou, Storynous, Rivière, Jadin LEVAT, Klink, le son du vin et PrendsTaDose.",
-  },
-  {
     question: "Combien de temps faut-il pour créer un site ?",
     answer:
       "Un site vitrine est livré en une semaine, une fois vos contenus reçus. Pour une application ou une automatisation, on fixe le calendrier ensemble dès le premier échange.",
