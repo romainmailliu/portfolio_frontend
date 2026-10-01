@@ -100,7 +100,8 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
               <ol className="list-decimal pl-5 space-y-3 text-caption marker:text-forest marker:font-medium">
                 {proposeSteps.map((step) => (
                   <li key={step.title}>
-                    <span className="font-semibold">{step.title}</span> {step.body}
+                    <span className="font-semibold">{step.title}</span>{" "}
+                    {step.body}
                   </li>
                 ))}
               </ol>
@@ -127,6 +128,17 @@ export function ProfileDetail({ profile }: { profile: ProfileEntry }) {
                   </ul>
                 </div>
               )}
+
+            {/* L'offre complète pour les associations vit sur /associations. */}
+            {profile.slug === "association" && (
+              <Link
+                href="/associations"
+                className="inline-flex items-center gap-1.5 text-caption font-medium underline underline-offset-4 hover:opacity-70"
+              >
+                Découvrir l&apos;offre pour les associations
+                <ArrowUpRight size={14} aria-hidden className="shrink-0" />
+              </Link>
+            )}
           </div>
         )}
       </section>
@@ -254,7 +266,11 @@ export default function OffreTechIA() {
       </div>
 
       <div className="sticky-card sticky-card--cream p-6">
-        <div id="offre-offer-panel" className="offre-offer-panel" aria-live="polite">
+        <div
+          id="offre-offer-panel"
+          className="offre-offer-panel"
+          aria-live="polite"
+        >
           {selectedProfile ? (
             <ProfileDetail profile={selectedProfile} />
           ) : (

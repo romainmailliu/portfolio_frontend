@@ -15,7 +15,7 @@ const HIDDEN_PREFIXES = ["/admin", "/ai-training"];
 const OFFER_LINKS = [
   { href: "/", label: "Application & IA" },
   { href: "/site-vitrine", label: "Site vitrine" },
-  { href: "/offre/association", label: "Associations" },
+  { href: "/associations", label: "Associations" },
   { href: "/offre/entrepreneur", label: "Entrepreneur·e·s" },
   { href: "/offre/createur", label: "Créateur·rice·s de contenu" },
   { href: "/offre/manager", label: "Managers & fondateur·rice·s" },

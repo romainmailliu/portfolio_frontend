@@ -15,20 +15,26 @@ const LAST_MODIFIED = {
   contact: "2026-10-01",
   productionDocumentaire: "2026-08-21",
   legal: "2026-09-30",
+  associations: "2026-10-01",
 } as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map(
-    (slug) => ({
-      url: `${BASE_URL}/offre/${slug}`,
-      lastModified: LAST_MODIFIED.offre,
-    }),
-  );
+  const profilePages: MetadataRoute.Sitemap = getProfileSlugs().map((slug) => ({
+    url: `${BASE_URL}/offre/${slug}`,
+    lastModified: LAST_MODIFIED.offre,
+  }));
 
   return [
     { url: `${BASE_URL}/`, lastModified: LAST_MODIFIED.home },
-    { url: `${BASE_URL}/site-vitrine`, lastModified: LAST_MODIFIED.siteVitrine },
+    {
+      url: `${BASE_URL}/site-vitrine`,
+      lastModified: LAST_MODIFIED.siteVitrine,
+    },
     ...profilePages,
+    {
+      url: `${BASE_URL}/associations`,
+      lastModified: LAST_MODIFIED.associations,
+    },
     { url: `${BASE_URL}/contact`, lastModified: LAST_MODIFIED.contact },
     {
       url: `${BASE_URL}/production-documentaire`,

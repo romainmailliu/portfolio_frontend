@@ -42,12 +42,6 @@ export type ProfileEntry = {
 
 export const contactCardAnchor = "contact-romain";
 
-/** Sticker tarif associations */
-export const associationDiscountSticker = {
-  label: "−50 % associations",
-  ariaLabel: "Moins 50 pour cent pour les associations",
-} as const;
-
 export const contactCtas = {
   marseille: {
     label: "Prenons un café à Marseille",
@@ -130,7 +124,7 @@ export const profiles: ProfileEntry[] = [
     statementShort: "Me concentrer sur mon cœur de métier",
     seoTitle: "Site internet & outils IA pour associations",
     seoDescription:
-      "Site internet que votre équipe met à jour seule, CRM léger, campagnes d'adhésion : des outils numériques pour associations, à Marseille et à distance. −50 %.",
+      "Site internet que votre équipe met à jour seule, CRM léger, campagnes d'adhésion : des outils numériques pour associations, à Marseille et à distance.",
     accent: "#b45309",
     situations: [
       "Votre association n'est pas assez visible en ligne : les gens qui vous cherchent ne vous trouvent pas toujours",

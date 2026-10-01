@@ -31,6 +31,15 @@ Avec une équipe talentueuse, nous avons produit le film documentaire « I AM TH
 - Automatisation (workflows n8n, Airtable, connexion d'outils, réduction tâches répétitives) : à partir de 300€, livraison 1-2 semaines
 - IA sur mesure (chatbots, génération de contenus, outils d'aide à la décision) : sur devis selon projet
 
+**Associations** (page dédiée : https://www.romainmailliu.com/associations)
+Petits outils sur mesure pensés à partir des besoins métier des associations, pas de la technique :
+- Bénévoles : missions courtes et ponctuelles, planning et rappels automatiques, accueil des nouveaux, suivi de l'engagement
+- Adhésions : relances de cotisation automatiques, rapprochement des paiements (HelloAsso, virements), attestations et reçus sans ressaisie
+- Financeurs : indicateurs collectés au fil de l'eau, tableau de bord par financeur, brouillons de bilans et rapports d'activité préparés avec l'IA, banque de textes réutilisables
+- Financement : veille des appels à projets, fichier donateurs et mécènes avec relances, suivi de trésorerie avec alertes
+- Passation : mémoire et données de l'association centralisées et sécurisées, convocations et PV d'AG préparés avec l'IA
+Démarche : un café à Marseille ou un appel, un petit outil livré vite au juste prix avec un devis transparent, une équipe formée et autonome.
+
 ## Locations
 
 Marseille, France.

@@ -3,11 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ProfileEntry } from "../data/offre-content";
-import {
-  associationDiscountSticker,
-  contactCardAnchor,
-  profiles,
-} from "../data/offre-content";
+import { contactCardAnchor, profiles } from "../data/offre-content";
 import Moderne from "./Moderne";
 import { ProfileDetail } from "./OffreTechIA";
 import "../styles/offre.css";
@@ -37,14 +33,6 @@ export default function OffreProfile({ profile }: Props) {
             className="sticky-card sticky-card--cream border-l-4 p-5 md:p-6 mb-6 offre-reveal relative"
             style={{ borderLeftColor: profile.accent }}
           >
-            {profile.slug === "association" && (
-              <span
-                className="offre-discount-sticker offre-discount-sticker--on-card"
-                aria-label={associationDiscountSticker.ariaLabel}
-              >
-                {associationDiscountSticker.label}
-              </span>
-            )}
             <h1 className="text-xl md:text-2xl font-semibold text-forest leading-snug">
               {profile.statement}
             </h1>
