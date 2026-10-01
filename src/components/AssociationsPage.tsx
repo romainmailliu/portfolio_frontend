@@ -27,7 +27,7 @@ const examples = [...applicationPreuves, ...preuves].filter((preuve) =>
 
 /**
  * Page /associations : l'offre part des besoins métier des associations
- * (bénévoles, adhésions, financeurs, financement, passation), pas de la
+ * (bénévoles, adhésions, financeurs, financement), pas de la
  * technique. Même gabarit que /site-vitrine (classes de tarifs.css).
  */
 export default function AssociationsPage() {

@@ -37,7 +37,6 @@ Petits outils sur mesure pensés à partir des besoins métier des associations,
 - Adhésions : relances de cotisation automatiques, rapprochement des paiements (HelloAsso, virements), attestations et reçus sans ressaisie
 - Financeurs : indicateurs collectés au fil de l'eau, tableau de bord par financeur, brouillons de bilans et rapports d'activité préparés avec l'IA, banque de textes réutilisables
 - Financement : veille des appels à projets, fichier donateurs et mécènes avec relances, suivi de trésorerie avec alertes
-- Passation : mémoire et données de l'association centralisées et sécurisées, convocations et PV d'AG préparés avec l'IA
 Démarche : un café à Marseille ou un appel, un petit outil livré vite au juste prix avec un devis transparent, une équipe formée et autonome.
 
 ## Locations

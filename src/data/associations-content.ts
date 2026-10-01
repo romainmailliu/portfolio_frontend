@@ -73,17 +73,6 @@ export const needs: AssociationNeed[] = [
     ],
     surface: "sticky-card--cream",
   },
-  {
-    slug: "passation",
-    title: "Passation",
-    quote: "On ne trouve personne pour reprendre la présidence.",
-    answers: [
-      "La mémoire et les données de l'association réunies dans un unique endroit, simple d'accès et sécurisé : accès, contacts des financeurs, historique.",
-      "Les convocations et procès-verbaux d'AG préparés avec l'aide de l'IA.",
-      "Une fonction de président moins lourde à transmettre.",
-    ],
-    surface: "sticky-card--mint",
-  },
 ];
 
 export const stepsHeading = "Comment ça se passe";
