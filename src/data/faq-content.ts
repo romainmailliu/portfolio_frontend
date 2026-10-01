@@ -35,7 +35,7 @@ export const faq: FaqEntry[] = [
   {
     question: "Avec quel type de structures travaillez-vous ?",
     answer:
-      "Des associations, des entreprises à impact, des entrepreneur·e·s qui se lancent et des créateur·rice·s de contenu. Par exemple : Coexister, La Camaraderie, Rivière ou Gomett.",
+      "Des associations, des entrepreneur·e·s et des entreprises à impact. Parmi eux : Coexister, Youth Visions, La Camaraderie, Gomett, Amidou, Storynous, Rivière, Jadin LEVAT, Klink, le son du vin et PrendsTaDose.",
   },
   {
     question: "Combien de temps faut-il pour créer un site ?",
